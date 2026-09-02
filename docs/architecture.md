@@ -4,15 +4,17 @@
 Browser
   │ HTTP/JSON
   ▼
-Vue 3 + Vite (localhost:5173)
-  │ /api proxy
+Vue 3 + Vite (개발: localhost:5173)
+  │ /api proxy 또는 운영 시 동일 도메인
   ▼
-Spring Boot REST API (localhost:8080)
+Spring Boot REST API (개발: localhost:8080 / 운영: Render)
   ├─ NoteController → NoteRepository → H2/PostgreSQL
   └─ AiJobController → AiSummaryService → AiSummaryProvider
                                           └─ Mock (현재)
                                              OpenAI/Claude (향후)
 ```
+
+운영 배포에서는 Vue 빌드 결과를 Spring Boot의 정적 리소스에 포함한 Docker 이미지 하나를 Render에서 실행한다. Render는 CI 검사가 통과한 `main` 커밋을 자동 배포하고, Spring Boot는 환경변수로 Supabase PostgreSQL에 연결한다.
 
 ## AI 확장 지점
 

@@ -235,4 +235,36 @@ AI 연동부는 `AiSummaryProvider` 인터페이스 뒤에 격리했습니다. �
 1. 팀 서비스 주제에 맞게 `Note` 도메인과 화면 문구 변경
 2. FITLY 도메인 테이블 설계 및 Supabase Storage 연결
 3. 실제 AI Provider 구현 및 API Key를 환경변수/GitHub Secret으로 주입
-4. 배포 플랫폼 결정 후 CD workflow 추가
+
+## 배포 및 CD
+
+FITLY는 **Render Web Service 한 개**에 Docker로 통합 배포한다. Docker 빌드 과정에서 Vue를 정적 파일로 빌드한 뒤 Spring Boot 애플리케이션 안에 포함하므로 Frontend와 Backend가 동일한 도메인을 사용한다. 데이터는 외부 Supabase PostgreSQL에 저장한다.
+
+```text
+GitHub main push
+  → GitHub Actions CI (Vue build + Spring Boot test)
+  → CI 성공
+  → Render Auto-Deploy
+  → Docker에서 Vue + Spring Boot 빌드
+  → FITLY Web Service 실행
+  → Supabase PostgreSQL 연결
+```
+
+### 최초 1회 Render 연결
+
+1. [Render Dashboard](https://dashboard.render.com/)에서 GitHub 계정을 연결한다.
+2. `New` → `Blueprint`를 선택하고 `w-000000/fitly` 저장소를 연결한다.
+3. 저장소 루트의 `render.yaml`을 인식시키고 다음 Secret 값을 입력한다.
+
+| Render 환경변수 | 입력값 |
+| --- | --- |
+| `SUPABASE_DB_URL` | `jdbc:postgresql://`로 시작하는 Supabase Session pooler URL |
+| `SUPABASE_DB_USERNAME` | Supabase Session pooler 사용자명 |
+| `SUPABASE_DB_PASSWORD` | Supabase Database Password |
+
+4. Blueprint를 적용하고 최초 배포가 완료될 때까지 Events와 Logs를 확인한다.
+5. 배포된 `https://fitly-....onrender.com/` 주소와 `/actuator/health` 응답을 확인한다.
+
+이후에는 `main`에 push하고 GitHub Actions 검사가 성공하면 Render가 자동으로 새 Docker 이미지를 빌드하고 배포한다. `render.yaml`에는 Secret의 이름만 있으며 실제 비밀번호는 Render Dashboard에 저장되므로 Git에 노출되지 않는다.
+
+> Render Free Web Service는 일정 시간 요청이 없으면 대기 상태로 전환되므로 첫 접속이 느릴 수 있다. 수업 데모 직전에는 URL에 미리 접속해 서비스를 깨워두는 것이 좋다.

@@ -4,9 +4,17 @@ spring:
   jpa:
     open-in-view: false
 server:
+  port: ${PORT:8080}
   error:
     include-message: always
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
