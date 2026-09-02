@@ -1,4 +1,4 @@
-# AI-ready Idea Note
+# 오늘 뭐 입지?
 
 Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입니다. 아이디어 메모를 등록하고, 향후 실제 AI API로 교체할 수 있는 Mock 요약 API를 호출합니다.
 
