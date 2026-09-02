@@ -43,17 +43,6 @@ const recommend = async () => {
   }
   loading.value = true
   try {
-<<<<<<< HEAD
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    recommendation.value = {
-      message: form.value.prompt
-        ? `${messages[form.value.purpose]} 요청하신 조건도 함께 반영했어요.`
-        : messages[form.value.purpose],
-      products: mockProducts[form.value.purpose],
-    }
-  } catch {
-    error.value = '추천 상품을 불러오지 못했습니다.'
-=======
     recommendation.value = await createRecommendation({
       purpose: form.value.purpose,
       personalSituation: isGroupPurpose.value ? null : form.value.personalSituation,
@@ -64,10 +53,10 @@ const recommend = async () => {
       budget: form.value.budget,
       rentalStartDate: form.value.rentalStartDate,
       rentalEndDate: form.value.rentalEndDate,
+      prompt: form.value.prompt || null,
     })
   } catch (requestError) {
     error.value = requestError.message || '추천 상품을 불러오지 못했습니다.'
->>>>>>> 81a19511f8d0e67b29d43b690b76879946bf0d75
   } finally {
     loading.value = false
   }
