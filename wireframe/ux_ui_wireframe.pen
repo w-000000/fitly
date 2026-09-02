@@ -1093,7 +1093,8 @@
                   "width": "fill_container",
                   "content": "내가 가진 옷과 TPO를 분석해 완성도 높은 코디를 추천하고, 부족한 아이템은 3박 4일 단건 대여로 연결합니다.",
                   "fontFamily": "$font-body",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -1185,7 +1186,8 @@
                           "fill": "$faint",
                           "content": "추천 완료",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -1213,7 +1215,8 @@
                           "fill": "$faint",
                           "content": "필요한 만큼",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -1241,7 +1244,8 @@
                           "fill": "$faint",
                           "content": "간편 대여",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -1475,7 +1479,8 @@
               "width": "fill_container",
               "content": "상황과 원하는 무드를 선택하면 추천 정확도가 높아져요.",
               "fontFamily": "$font-body",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -1546,7 +1551,8 @@
                           "width": "fill_container",
                           "content": "신뢰감 · 단정함",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -1594,7 +1600,8 @@
                           "width": "fill_container",
                           "content": "격식 · 세련됨",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -1642,7 +1649,8 @@
                           "width": "fill_container",
                           "content": "안전 · 기능성",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -1690,7 +1698,8 @@
                           "width": "fill_container",
                           "content": "편안함 · 개성",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -2049,7 +2058,8 @@
                   "width": "fill_container",
                   "content": "사진을 올리거나 특징을 텍스트로 입력하세요. 없으면 건너뛸 수 있어요.",
                   "fontFamily": "$font-body",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -2093,7 +2103,8 @@
                       "fill": "$faint",
                       "content": "JPG · PNG · 최대 10MB",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "frame",
@@ -2156,7 +2167,8 @@
                       "width": "fill_container",
                       "content": "예: 딥 블랙 와이드 슬랙스, 흰색 스니커즈",
                       "fontFamily": "$font-body",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -2421,7 +2433,8 @@
               "width": 560,
               "content": "색상 · 카테고리 · 실루엣을 인식하고 TPO에 맞는 대여 아이템을 찾고 있습니다.",
               "fontFamily": "$font-body",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -2813,7 +2826,8 @@
                               "fill": "$muted",
                               "content": "Wide · Straight",
                               "fontFamily": "$font-body",
-                              "fontSize": 11
+                              "fontSize": 11,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -2887,7 +2901,8 @@
                           "width": "fill_container",
                           "content": "딥 블랙 슬랙스는 구조적인 네이비 자켓과 대비가 좋습니다. 밝은 셔츠로 인상을 선명하게 만들고 액세서리는 최소화하세요.",
                           "fontFamily": "$font-body",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -3377,7 +3392,8 @@
                           "width": "fill_container",
                           "content": "받는 분",
                           "fontFamily": "$font-body",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3404,7 +3420,8 @@
                           "width": "fill_container",
                           "content": "휴대폰 번호",
                           "fontFamily": "$font-body",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3431,7 +3448,8 @@
                           "width": "fill_container",
                           "content": "주소 검색 후 상세 주소 입력",
                           "fontFamily": "$font-body",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3457,7 +3475,8 @@
                           "fill": "$muted",
                           "content": "대여·반납 및 파손 정책에 동의합니다.",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -3561,7 +3580,8 @@
                           "fill": "$muted",
                           "content": "단건 대여가",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -3589,7 +3609,8 @@
                           "fill": "$muted",
                           "content": "배송비",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -3617,7 +3638,8 @@
                           "fill": "$muted",
                           "content": "결제 금액",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -3814,7 +3836,8 @@
               "fill": "$muted",
               "content": "08.27 수령 예정 · 08.30 자동 반납",
               "fontFamily": "$font-body",
-              "fontSize": 14
+              "fontSize": 14,
+              "fontWeight": "normal"
             },
             {
               "type": "frame",
@@ -4149,7 +4172,8 @@
                       "fill": "$bg",
                       "content": "대시보드",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4218,7 +4242,8 @@
                       "fill": "$bg",
                       "content": "대여 주문",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -4252,7 +4277,8 @@
                       "fill": "$bg",
                       "content": "반납 일정",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -4303,7 +4329,8 @@
                           "fill": "$muted",
                           "content": "등록 상품 124 · 대여 가능 98",
                           "fontFamily": "$font-body",
-                          "fontSize": 11
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4359,7 +4386,8 @@
                           "fill": "$muted",
                           "content": "전체 카테고리",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4381,7 +4409,8 @@
                           "fill": "$muted",
                           "content": "재고 상태",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4403,7 +4432,8 @@
                           "fill": "$muted",
                           "content": "브랜드",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4425,7 +4455,8 @@
                           "fill": "$muted",
                           "content": "상품명 검색",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -4560,7 +4591,8 @@
                           "width": 100,
                           "content": "자켓",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4571,7 +4603,8 @@
                           "width": 90,
                           "content": "₩28,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4582,7 +4615,8 @@
                           "width": 90,
                           "content": "₩129,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4593,7 +4627,8 @@
                           "width": 70,
                           "content": "12",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4604,7 +4639,8 @@
                           "width": 80,
                           "content": "대여 가능",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4645,7 +4681,8 @@
                           "width": 100,
                           "content": "셔츠",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4656,7 +4693,8 @@
                           "width": 90,
                           "content": "₩12,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4667,7 +4705,8 @@
                           "width": 90,
                           "content": "₩59,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4678,7 +4717,8 @@
                           "width": 70,
                           "content": "04",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4689,7 +4729,8 @@
                           "width": 80,
                           "content": "재고 부족",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4730,7 +4771,8 @@
                           "width": 100,
                           "content": "작업복",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4741,7 +4783,8 @@
                           "width": 90,
                           "content": "₩18,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4752,7 +4795,8 @@
                           "width": 90,
                           "content": "₩89,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4763,7 +4807,8 @@
                           "width": 70,
                           "content": "21",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4774,7 +4819,8 @@
                           "width": 80,
                           "content": "대여 가능",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -4815,7 +4861,8 @@
                           "width": 100,
                           "content": "원피스",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4826,7 +4873,8 @@
                           "width": 90,
                           "content": "₩31,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4837,7 +4885,8 @@
                           "width": 90,
                           "content": "₩159,000",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4848,7 +4897,8 @@
                           "width": 70,
                           "content": "00",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -4859,7 +4909,8 @@
                           "width": 80,
                           "content": "대여 중",
                           "fontFamily": "$font-body",
-                          "fontSize": 10
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -5023,7 +5074,8 @@
                       "fill": "$bg",
                       "content": "대시보드",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -5057,7 +5109,8 @@
                       "fill": "$bg",
                       "content": "상품 카탈로그",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -5126,7 +5179,8 @@
                       "fill": "$bg",
                       "content": "반납 일정",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -5169,7 +5223,8 @@
                       "fill": "$muted",
                       "content": "오늘 접수 18 · 배송 준비 7 · 반납 예정 12",
                       "fontFamily": "$font-body",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -5393,7 +5448,8 @@
                               "width": "fill_container",
                               "content": "08.27 · 14:20",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -5440,7 +5496,8 @@
                               "width": "fill_container",
                               "content": "08.27 · 14:20",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5513,7 +5570,8 @@
                               "width": "fill_container",
                               "content": "08.27 · 14:20",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -5560,7 +5618,8 @@
                               "width": "fill_container",
                               "content": "08.27 · 14:20",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5633,7 +5692,8 @@
                               "width": "fill_container",
                               "content": "D-1 · 08.30",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -5680,7 +5740,8 @@
                               "width": "fill_container",
                               "content": "D-1 · 08.30",
                               "fontFamily": "$font-body",
-                              "fontSize": 9
+                              "fontSize": 9,
+                              "fontWeight": "normal"
                             }
                           ]
                         }
@@ -5689,6 +5750,2110 @@
                   ]
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fin3r",
+      "x": 0,
+      "y": 1560,
+      "name": "MAIN — FITLY One Page",
+      "clip": true,
+      "width": 1440,
+      "height": 2320,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "XBCcB",
+          "name": "Main Navigation",
+          "width": "fill_container",
+          "height": 72,
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            72
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Q3m3V",
+              "name": "Main Brand",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "zbvvf",
+                  "name": "Main Brand Mark",
+                  "fill": "$blue",
+                  "width": 24,
+                  "height": 24
+                },
+                {
+                  "type": "text",
+                  "id": "w3HQYN",
+                  "name": "Main Brand Text",
+                  "fill": "$ink",
+                  "content": "FITLY",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-head",
+                  "fontSize": 20,
+                  "fontWeight": "750"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vnw32",
+              "name": "Navigation Links",
+              "gap": 30,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Nlyql",
+                  "name": "HOW IT WORKS Link",
+                  "fill": "$muted",
+                  "content": "HOW IT WORKS",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "550"
+                },
+                {
+                  "type": "text",
+                  "id": "dFlZJ",
+                  "name": "AI STYLING Link",
+                  "fill": "$muted",
+                  "content": "AI STYLING",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "550"
+                },
+                {
+                  "type": "text",
+                  "id": "PJpBj",
+                  "name": "RENTAL Link",
+                  "fill": "$muted",
+                  "content": "RENTAL",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "550"
+                },
+                {
+                  "type": "frame",
+                  "id": "U3dLn2",
+                  "name": "Navigation CTA",
+                  "height": 46,
+                  "fill": "$blue",
+                  "stroke": "$blue",
+                  "strokeWidth": 1,
+                  "gap": 9,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zMxLL",
+                      "name": "Navigation CTA Label",
+                      "fill": "$bg",
+                      "content": "무료로 코디 시작",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "650"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "MfwN3",
+                      "name": "Navigation CTA Arrow",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "arrow-up-right",
+                      "library": "lucide",
+                      "fill": "$bg"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rXIN0",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "height": 690,
+          "fill": "$bg",
+          "gap": 64,
+          "padding": [
+            76,
+            92
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "K2gOP",
+              "name": "Hero Copy",
+              "width": 560,
+              "layout": "vertical",
+              "gap": 22,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FoUA3",
+                  "name": "Hero Tag",
+                  "stroke": "$blue",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    7,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "hVFHa",
+                      "name": "Live Indicator",
+                      "fill": "$blue",
+                      "width": 7,
+                      "height": 7
+                    },
+                    {
+                      "type": "text",
+                      "id": "jiKnM",
+                      "name": "Hero Tag Text",
+                      "fill": "$blue",
+                      "content": "AI WARDROBE COORDINATOR · BETA",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "f0MHl",
+                  "name": "Hero Headline",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": 560,
+                  "content": "오늘 뭐 입지?\n고민은 AI에게.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-head",
+                  "fontSize": 62,
+                  "fontWeight": "750"
+                },
+                {
+                  "type": "text",
+                  "id": "ufh6H",
+                  "name": "Hero Description",
+                  "fill": "$muted",
+                  "textGrowth": "fixed-width",
+                  "width": 500,
+                  "content": "내 옷 한 벌만 보여주세요. 상황과 취향을 읽고, 가진 옷은 살리고 부족한 아이템만 가볍게 빌려 완성합니다.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 18
+                },
+                {
+                  "type": "frame",
+                  "id": "kqc5f",
+                  "name": "Hero Actions",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FJYCP",
+                      "name": "Hero Primary CTA",
+                      "height": 46,
+                      "fill": "$blue",
+                      "stroke": "$blue",
+                      "strokeWidth": 1,
+                      "gap": 9,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LwhSb",
+                          "name": "Hero Primary CTA Label",
+                          "fill": "$bg",
+                          "content": "내 옷으로 코디 받기",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "650"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "tqXT6",
+                          "name": "Hero Primary CTA Arrow",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "arrow-up-right",
+                          "library": "lucide",
+                          "fill": "$bg"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kqz9I",
+                      "name": "Hero Secondary CTA",
+                      "height": 46,
+                      "fill": "$bg",
+                      "stroke": "$ink",
+                      "strokeWidth": 1,
+                      "gap": 9,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wIc5x",
+                          "name": "Hero Secondary CTA Label",
+                          "fill": "$ink",
+                          "content": "서비스 둘러보기",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "650"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "apEUZ",
+                          "name": "Hero Secondary CTA Arrow",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "arrow-up-right",
+                          "library": "lucide",
+                          "fill": "$ink"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "k6n3v",
+                  "name": "Hero Proof",
+                  "gap": 24,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BY3dc",
+                      "name": "추천 완료",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UMIMK",
+                          "name": "추천 완료 Value",
+                          "fill": "$ink",
+                          "content": "3 MIN",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rLOgI",
+                          "name": "추천 완료 Label",
+                          "fill": "$faint",
+                          "content": "추천 완료",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "i7O02f",
+                      "name": "평균 매칭",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JTO4P",
+                          "name": "평균 매칭 Value",
+                          "fill": "$ink",
+                          "content": "96%",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y7ZWQA",
+                          "name": "평균 매칭 Label",
+                          "fill": "$faint",
+                          "content": "평균 매칭",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bJPXj",
+                      "name": "최소 대여",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vx7qH",
+                          "name": "최소 대여 Value",
+                          "fill": "$ink",
+                          "content": "1 ITEM",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fU86y",
+                          "name": "최소 대여 Label",
+                          "fill": "$faint",
+                          "content": "최소 대여",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RVS6t",
+              "name": "AI Styling Lab",
+              "width": 620,
+              "height": 520,
+              "fill": "$panel",
+              "stroke": "$ink",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mnrzD",
+                  "name": "Lab Header",
+                  "width": "fill_container",
+                  "height": 46,
+                  "stroke": "$line",
+                  "strokeWidth": {
+                    "bottom": 1
+                  },
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "epgW1",
+                      "name": "Lab Title",
+                      "fill": "$ink",
+                      "content": "FITLY / COORDINATION LAB",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RDpPk",
+                      "name": "Lab Status",
+                      "fill": "$blue",
+                      "content": "VISION ONLINE",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 9,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IUlN1",
+                  "name": "Lab Body",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "gap": 14,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OnBCV",
+                      "name": "Closet Scan Panel",
+                      "width": 210,
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "H5CFv5",
+                          "name": "Closet Scan",
+                          "width": "fill_container",
+                          "height": 260,
+                          "fill": "$bg",
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "mZons",
+                              "name": "Closet Garment Icon",
+                              "width": 72,
+                              "height": 72,
+                              "icon": "shirt",
+                              "library": "lucide",
+                              "fill": "$faint"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "uIHal",
+                          "name": "Scan Metadata",
+                          "width": "fill_container",
+                          "fill": "$ink",
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dGEe4",
+                              "name": "Scan Label",
+                              "fill": "#9EC2FF",
+                              "content": "INPUT / OWN ITEM",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "r2tic",
+                              "name": "Scan Name",
+                              "fill": "$bg",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "BLACK WIDE SLACKS",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 12,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "X3h9vy",
+                              "name": "Scan Detail",
+                              "fill": "#BDBDBD",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "COLOR #151515\nFIT STRAIGHT · 0.98",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LIOqz",
+                      "name": "AI Recommendation Panel",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "fzC3p",
+                          "name": "Match Score Panel",
+                          "width": "fill_container",
+                          "height": 92,
+                          "fill": "$bg",
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "padding": 14,
+                          "justifyContent": "space_between",
+                          "alignItems": "end",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "r6H7Z",
+                              "name": "Match Score Copy",
+                              "layout": "vertical",
+                              "gap": 5,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "gjO1S",
+                                  "name": "Match Label",
+                                  "fill": "$faint",
+                                  "content": "TPO / JOB INTERVIEW",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 9,
+                                  "fontWeight": "650"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "IVqTg",
+                                  "name": "Match Title",
+                                  "fill": "$ink",
+                                  "content": "FORMAL · MINIMAL",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 15,
+                                  "fontWeight": "650"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Ls5mp",
+                              "name": "Match Number",
+                              "fill": "$blue",
+                              "content": "96",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 42,
+                              "fontWeight": "750"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VnRNN",
+                          "name": "Recommended Look",
+                          "width": "fill_container",
+                          "height": 174,
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "F8jC5a",
+                              "name": "Navy Blazer",
+                              "width": "fill_container",
+                              "fill": "$bg",
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 10,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "u8oar",
+                                  "name": "Navy Blazer Visual",
+                                  "width": "fill_container",
+                                  "height": 76,
+                                  "fill": "$panel",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "PWX1F",
+                                      "name": "Navy Blazer Icon",
+                                      "width": 32,
+                                      "height": 32,
+                                      "icon": "shirt",
+                                      "library": "lucide",
+                                      "fill": "$muted"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Bsolp",
+                                  "name": "Navy Blazer Type",
+                                  "fill": "$blue",
+                                  "content": "JACKET",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 8,
+                                  "fontWeight": "650"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "LSzvz",
+                                  "name": "Navy Blazer Name",
+                                  "fill": "$ink",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Navy Blazer",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 11,
+                                  "fontWeight": "650"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "k7tgJ",
+                                  "name": "Navy Blazer Price",
+                                  "fill": "$ink",
+                                  "content": "₩28,000",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 10,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "WE0Dl",
+                              "name": "Oxford Shirt",
+                              "width": "fill_container",
+                              "fill": "$bg",
+                              "stroke": "$line",
+                              "strokeWidth": 1,
+                              "layout": "vertical",
+                              "gap": 8,
+                              "padding": 10,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "C1NXH",
+                                  "name": "Oxford Shirt Visual",
+                                  "width": "fill_container",
+                                  "height": 76,
+                                  "fill": "$panel",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "VRVYz",
+                                      "name": "Oxford Shirt Icon",
+                                      "width": 32,
+                                      "height": 32,
+                                      "icon": "shirt",
+                                      "library": "lucide",
+                                      "fill": "$muted"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "teqYW",
+                                  "name": "Oxford Shirt Type",
+                                  "fill": "$blue",
+                                  "content": "TOP",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 8,
+                                  "fontWeight": "650"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "LZdUI",
+                                  "name": "Oxford Shirt Name",
+                                  "fill": "$ink",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Oxford Shirt",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 11,
+                                  "fontWeight": "650"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "wFwK8",
+                                  "name": "Oxford Shirt Price",
+                                  "fill": "$ink",
+                                  "content": "₩12,000",
+                                  "lineHeight": 1.35,
+                                  "fontFamily": "$font-mono",
+                                  "fontSize": 10,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eDnOP",
+                          "name": "AI Reasoning",
+                          "width": "fill_container",
+                          "fill": "$bg",
+                          "stroke": "$blue",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "kmoT4",
+                              "name": "Reasoning Label",
+                              "fill": "$blue",
+                              "content": "WHY THIS WORKS",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "l8fML",
+                              "name": "Reasoning Text",
+                              "fill": "$muted",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "블랙 슬랙스의 실루엣을 유지하며 네이비 재킷으로 신뢰감을, 화이트 셔츠로 선명한 인상을 완성합니다.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 11
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "juTlL",
+          "name": "Trust Strip",
+          "width": "fill_container",
+          "height": 100,
+          "fill": "$panel",
+          "stroke": "$line",
+          "strokeWidth": {
+            "top": 1,
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            92
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "S8HQT",
+              "name": "Trust Caption",
+              "fill": "$faint",
+              "textGrowth": "fixed-width",
+              "width": 190,
+              "content": "FROM YOUR CLOSET\nTO THE RIGHT LOOK",
+              "lineHeight": 1.35,
+              "fontFamily": "$font-mono",
+              "fontSize": 10,
+              "fontWeight": "650"
+            },
+            {
+              "type": "frame",
+              "id": "eD4t4",
+              "name": "AI VISION",
+              "gap": 9,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "pbYzO",
+                  "name": "AI VISION Icon",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "scan-search",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "text",
+                  "id": "ZmxK5",
+                  "name": "AI VISION Text",
+                  "fill": "$ink",
+                  "content": "AI VISION",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WoDYE",
+              "name": "TPO MATCH",
+              "gap": 9,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "B7yH7e",
+                  "name": "TPO MATCH Icon",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "sparkles",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "text",
+                  "id": "gaGoY",
+                  "name": "TPO MATCH Text",
+                  "fill": "$ink",
+                  "content": "TPO MATCH",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X3EaKZ",
+              "name": "SINGLE RENTAL",
+              "gap": 9,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "VxefC",
+                  "name": "SINGLE RENTAL Icon",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "shirt",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "text",
+                  "id": "myKiG",
+                  "name": "SINGLE RENTAL Text",
+                  "fill": "$ink",
+                  "content": "SINGLE RENTAL",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "B1k0z6",
+              "name": "EASY RETURN",
+              "gap": 9,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Y2PDpm",
+                  "name": "EASY RETURN Icon",
+                  "width": 19,
+                  "height": 19,
+                  "icon": "package-check",
+                  "library": "lucide",
+                  "fill": "$ink"
+                },
+                {
+                  "type": "text",
+                  "id": "nljyZ",
+                  "name": "EASY RETURN Text",
+                  "fill": "$ink",
+                  "content": "EASY RETURN",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 11,
+                  "fontWeight": "650"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lNhum",
+          "name": "How It Works Section",
+          "width": "fill_container",
+          "height": 460,
+          "fill": "$bg",
+          "layout": "vertical",
+          "gap": 38,
+          "padding": [
+            60,
+            92
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "SxfwZ",
+              "name": "Process Header",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X7cu7",
+                  "name": "Process Heading Group",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "x4qCtl",
+                      "name": "Process Eyebrow",
+                      "fill": "$blue",
+                      "content": "01 — HOW IT WORKS",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wFd9f",
+                      "name": "Process Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 680,
+                      "content": "세 번의 선택으로,\n오늘의 코디가 완성됩니다.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-head",
+                      "fontSize": 36,
+                      "fontWeight": "730"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "wtyWn",
+                  "name": "Process Meta",
+                  "fill": "$faint",
+                  "textGrowth": "fixed-width",
+                  "width": 220,
+                  "content": "INPUT → ANALYZE → RENT\nAVG. 03:00 MIN",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AkFGF",
+              "name": "Process Steps",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X9bvoR",
+                  "name": "Process Step 01",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$line",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": [
+                    20,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Fk4MW",
+                      "name": "Step 01 Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "t7XXP",
+                          "name": "Step 01 Number",
+                          "fill": "$blue",
+                          "content": "01",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "ho2zo",
+                          "name": "Step 01 Icon",
+                          "width": 24,
+                          "height": 24,
+                          "icon": "mouse-pointer-2",
+                          "library": "lucide",
+                          "fill": "$ink"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "FlcIC",
+                      "name": "Step 01 Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "상황과 취향 선택",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-head",
+                      "fontSize": 19,
+                      "fontWeight": "680"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Emkwf",
+                      "name": "Step 01 Description",
+                      "fill": "$muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "면접, 하객, 작업복, 일상 중 오늘의 TPO와 원하는 무드를 알려주세요.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "Xrasp",
+                      "name": "Step 01 Link",
+                      "fill": "$faint",
+                      "content": "DETAILS ↗",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 9,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lV3tE",
+                  "name": "Process Step 02",
+                  "width": "fill_container",
+                  "fill": "$panel",
+                  "stroke": "$line",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": [
+                    20,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "JVoKQ",
+                      "name": "Step 02 Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GRgsX",
+                          "name": "Step 02 Number",
+                          "fill": "$blue",
+                          "content": "02",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "KudmI",
+                          "name": "Step 02 Icon",
+                          "width": 24,
+                          "height": 24,
+                          "icon": "scan-search",
+                          "library": "lucide",
+                          "fill": "$ink"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ReZoi",
+                      "name": "Step 02 Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "내 옷 한 벌 입력",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-head",
+                      "fontSize": 19,
+                      "fontWeight": "680"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dTYXn",
+                      "name": "Step 02 Description",
+                      "fill": "$muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "사진을 올리거나 텍스트로 설명하면 AI가 색상·핏·소재를 읽습니다.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "IBuim",
+                      "name": "Step 02 Link",
+                      "fill": "$faint",
+                      "content": "DETAILS ↗",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 9,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OhQ9e",
+                  "name": "Process Step 03",
+                  "width": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$line",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": [
+                    20,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Bm1XX",
+                      "name": "Step 03 Top",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AJ8SX",
+                          "name": "Step 03 Number",
+                          "fill": "$blue",
+                          "content": "03",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "z273A",
+                          "name": "Step 03 Icon",
+                          "width": 24,
+                          "height": 24,
+                          "icon": "package-check",
+                          "library": "lucide",
+                          "fill": "$ink"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "r6beX",
+                      "name": "Step 03 Title",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "추천 받고 필요한 것만 대여",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-head",
+                      "fontSize": 19,
+                      "fontWeight": "680"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hGef7",
+                      "name": "Step 03 Description",
+                      "fill": "$muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "보유 의류와 1:1로 맞는 상품을 확인하고 단건으로 결제하세요.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13
+                    },
+                    {
+                      "type": "text",
+                      "id": "kRelg",
+                      "name": "Step 03 Link",
+                      "fill": "$faint",
+                      "content": "DETAILS ↗",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 9,
+                      "fontWeight": "650"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "p1VGy",
+          "name": "Rental Showcase Section",
+          "width": "fill_container",
+          "height": 540,
+          "fill": "$ink",
+          "gap": 58,
+          "padding": [
+            62,
+            92
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "yFRLz",
+              "name": "Rental Showcase Copy",
+              "width": 470,
+              "layout": "vertical",
+              "gap": 18,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "J8zYD",
+                  "name": "Rental Eyebrow",
+                  "fill": "#8CB7FF",
+                  "content": "02 — SMART RENTAL",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "650"
+                },
+                {
+                  "type": "text",
+                  "id": "z2X6n",
+                  "name": "Rental Title",
+                  "fill": "$bg",
+                  "textGrowth": "fixed-width",
+                  "width": 470,
+                  "content": "옷장을 늘리지 않고,\n스타일의 선택지는 넓게.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-head",
+                  "fontSize": 38,
+                  "fontWeight": "720"
+                },
+                {
+                  "type": "text",
+                  "id": "W4fPil",
+                  "name": "Rental Description",
+                  "fill": "#BDBDBD",
+                  "textGrowth": "fixed-width",
+                  "width": 430,
+                  "content": "추천된 코디에서 부족한 아이템만 3박 4일 단건 대여하세요. 구독도, 불필요한 구매도 없습니다.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 15
+                },
+                {
+                  "type": "frame",
+                  "id": "aTK7J",
+                  "name": "Rental Facts",
+                  "gap": 28,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "D9P5IW",
+                      "name": "기본 대여",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "u8sg3W",
+                          "name": "기본 대여 Value",
+                          "fill": "$bg",
+                          "content": "3박 4일",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 17,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Miixr",
+                          "name": "기본 대여 Label",
+                          "fill": "#888888",
+                          "content": "기본 대여",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 9,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pGkk0",
+                      "name": "기본 배송",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "u5xfi",
+                          "name": "기본 배송 Value",
+                          "fill": "$bg",
+                          "content": "₩0",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 17,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "i4Tck",
+                          "name": "기본 배송 Label",
+                          "fill": "#888888",
+                          "content": "기본 배송",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 9,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qavsx",
+                      "name": "자동 반납",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xdgFN",
+                          "name": "자동 반납 Value",
+                          "fill": "$bg",
+                          "content": "D+3",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 17,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EOc50",
+                          "name": "자동 반납 Label",
+                          "fill": "#888888",
+                          "content": "자동 반납",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 9,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A9KYdm",
+                  "name": "Rental Actions",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "i8XiC",
+                      "name": "Rental CTA",
+                      "height": 46,
+                      "fill": "$blue",
+                      "gap": 9,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xoZi1",
+                          "name": "Rental CTA Label",
+                          "fill": "$bg",
+                          "content": "추천 코디 확인하기",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "650"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "tjXfG",
+                          "name": "Rental CTA Arrow",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "arrow-right",
+                          "library": "lucide",
+                          "fill": "$bg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AOS3O",
+              "name": "Curated Rental List",
+              "width": 660,
+              "height": 400,
+              "fill": "$bg",
+              "stroke": "#3E3E3E",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FiBr6",
+                  "name": "Rental List Header",
+                  "width": "fill_container",
+                  "height": 48,
+                  "stroke": "$line",
+                  "strokeWidth": {
+                    "bottom": 1
+                  },
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "arfME",
+                      "name": "Rental List Title",
+                      "fill": "$ink",
+                      "content": "RECOMMENDED / INTERVIEW",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Dg6Qc",
+                      "name": "Rental List Score",
+                      "fill": "$blue",
+                      "content": "MATCH 96",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wLwBQ",
+                  "name": "Rental Product List",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "S0nCg",
+                      "name": "Essential Navy Blazer Row",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "stroke": "$line",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 14,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "CsJVp",
+                          "name": "Essential Navy Blazer Thumb",
+                          "width": 74,
+                          "height": "fill_container",
+                          "fill": "$panel",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "L8Xduz",
+                              "name": "Essential Navy Blazer Row Icon",
+                              "width": 28,
+                              "height": 28,
+                              "icon": "shirt",
+                              "library": "lucide",
+                              "fill": "$faint"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OE54V",
+                          "name": "Essential Navy Blazer Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KMAo7",
+                              "name": "Essential Navy Blazer Brand",
+                              "fill": "$faint",
+                              "content": "MUSINSA STANDARD",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 8,
+                              "fontWeight": "550"
+                            },
+                            {
+                              "type": "text",
+                              "id": "voeVS",
+                              "name": "Essential Navy Blazer Product",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Essential Navy Blazer",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "g5IDNh",
+                              "name": "Essential Navy Blazer Category",
+                              "fill": "$blue",
+                              "content": "OUTER",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "U9GSoS",
+                          "name": "Essential Navy Blazer Price",
+                          "fill": "$ink",
+                          "content": "₩28,000",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n8bdvY",
+                          "name": "Essential Navy Blazer Select",
+                          "width": 30,
+                          "height": 30,
+                          "fill": "$blue",
+                          "stroke": "$blue",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "yDErQ",
+                              "name": "Essential Navy Blazer Select Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "$bg"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C3gLlv",
+                      "name": "Crisp Oxford Shirt Row",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "stroke": "$line",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 14,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "hoCRS",
+                          "name": "Crisp Oxford Shirt Thumb",
+                          "width": 74,
+                          "height": "fill_container",
+                          "fill": "$panel",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "jKX7y",
+                              "name": "Crisp Oxford Shirt Row Icon",
+                              "width": 28,
+                              "height": 28,
+                              "icon": "shirt",
+                              "library": "lucide",
+                              "fill": "$faint"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FNgHs",
+                          "name": "Crisp Oxford Shirt Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ewRxm",
+                              "name": "Crisp Oxford Shirt Brand",
+                              "fill": "$faint",
+                              "content": "LOFI",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 8,
+                              "fontWeight": "550"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FibMm",
+                              "name": "Crisp Oxford Shirt Product",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Crisp Oxford Shirt",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "jDZ6Q",
+                              "name": "Crisp Oxford Shirt Category",
+                              "fill": "$blue",
+                              "content": "TOP",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "TMoCG",
+                          "name": "Crisp Oxford Shirt Price",
+                          "fill": "$ink",
+                          "content": "₩12,000",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "cJawJ",
+                          "name": "Crisp Oxford Shirt Select",
+                          "width": 30,
+                          "height": 30,
+                          "fill": "$bg",
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "f2D4rk",
+                              "name": "Crisp Oxford Shirt Select Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "plus",
+                              "library": "lucide",
+                              "fill": "$ink"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X3hkWp",
+                      "name": "Minimal Leather Belt Row",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "stroke": "$line",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 14,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "G75hE",
+                          "name": "Minimal Leather Belt Thumb",
+                          "width": 74,
+                          "height": "fill_container",
+                          "fill": "$panel",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "buGZL",
+                              "name": "Minimal Leather Belt Row Icon",
+                              "width": 28,
+                              "height": 28,
+                              "icon": "circle-dot",
+                              "library": "lucide",
+                              "fill": "$faint"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "YV3aH",
+                          "name": "Minimal Leather Belt Info",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "hDere",
+                              "name": "Minimal Leather Belt Brand",
+                              "fill": "$faint",
+                              "content": "FITLY SELECT",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 8,
+                              "fontWeight": "550"
+                            },
+                            {
+                              "type": "text",
+                              "id": "G9xroL",
+                              "name": "Minimal Leather Belt Product",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Minimal Leather Belt",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "650"
+                            },
+                            {
+                              "type": "text",
+                              "id": "v4ewtB",
+                              "name": "Minimal Leather Belt Category",
+                              "fill": "$blue",
+                              "content": "ACC",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-mono",
+                              "fontSize": 9,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "uihdA",
+                          "name": "Minimal Leather Belt Price",
+                          "fill": "$ink",
+                          "content": "₩8,000",
+                          "lineHeight": 1.35,
+                          "fontFamily": "$font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rQ2ir",
+                          "name": "Minimal Leather Belt Select",
+                          "width": 30,
+                          "height": 30,
+                          "fill": "$bg",
+                          "stroke": "$line",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "kwCvn",
+                              "name": "Minimal Leather Belt Select Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "plus",
+                              "library": "lucide",
+                              "fill": "$ink"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "M0LirK",
+          "name": "Closing CTA Section",
+          "width": "fill_container",
+          "height": 350,
+          "fill": "$bg",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            58,
+            92
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "l23gk",
+              "name": "Closing Eyebrow",
+              "fill": "$blue",
+              "content": "YOUR CLOSET, BETTER COORDINATED",
+              "lineHeight": 1.35,
+              "fontFamily": "$font-mono",
+              "fontSize": 10,
+              "fontWeight": "650"
+            },
+            {
+              "type": "text",
+              "id": "g1TCPx",
+              "name": "Closing Title",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": 760,
+              "content": "내일의 옷 고민까지,\n오늘 FITLY로 끝내세요.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-head",
+              "fontSize": 42,
+              "fontWeight": "730"
+            },
+            {
+              "type": "text",
+              "id": "pmJrX",
+              "name": "Closing Description",
+              "fill": "$muted",
+              "content": "회원가입 없이 상황을 고르고 내 옷 한 벌을 보여주면 시작됩니다.",
+              "lineHeight": 1.35,
+              "fontFamily": "$font-body",
+              "fontSize": 14
+            },
+            {
+              "type": "frame",
+              "id": "SYhfp",
+              "name": "Closing Primary CTA",
+              "height": 46,
+              "fill": "$blue",
+              "stroke": "$blue",
+              "strokeWidth": 1,
+              "gap": 9,
+              "padding": [
+                0,
+                18
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SjDKQ",
+                  "name": "Closing Primary CTA Label",
+                  "fill": "$bg",
+                  "content": "무료 AI 코디 시작",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "650"
+                },
+                {
+                  "type": "icon",
+                  "id": "LgvHI",
+                  "name": "Closing Primary CTA Arrow",
+                  "width": 15,
+                  "height": 15,
+                  "icon": "arrow-up-right",
+                  "library": "lucide",
+                  "fill": "$bg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "o7r7A",
+          "name": "Main Footer",
+          "width": "fill_container",
+          "height": 108,
+          "fill": "$panel",
+          "padding": [
+            0,
+            72
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "netU5",
+              "name": "Footer Brand",
+              "gap": 9,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "nx2TM",
+                  "name": "Footer Mark",
+                  "fill": "$blue",
+                  "width": 18,
+                  "height": 18
+                },
+                {
+                  "type": "text",
+                  "id": "Gupdt",
+                  "name": "Footer Brand Text",
+                  "fill": "$ink",
+                  "content": "FITLY · 오늘 뭐 입지?",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "VVCcp",
+              "name": "Footer Links",
+              "fill": "$faint",
+              "content": "SERVICE  ·  RENTAL POLICY  ·  PRIVACY  ·  CONTACT",
+              "lineHeight": 1.35,
+              "fontFamily": "$font-mono",
+              "fontSize": 9,
+              "fontWeight": "550"
+            },
+            {
+              "type": "text",
+              "id": "kOxAa",
+              "name": "Footer Copyright",
+              "fill": "$faint",
+              "content": "© 2025 FITLY",
+              "lineHeight": 1.35,
+              "fontFamily": "$font-mono",
+              "fontSize": 9,
+              "fontWeight": "500"
             }
           ]
         }
