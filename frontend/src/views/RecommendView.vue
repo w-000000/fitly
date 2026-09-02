@@ -11,6 +11,7 @@ const form = ref({
   budget: 50000,
   rentalStartDate: '',
   rentalEndDate: '',
+  prompt: '',
 })
 const loading = ref(false)
 const error = ref('')
@@ -58,7 +59,12 @@ const recommend = async () => {
   loading.value = true
   try {
     await new Promise((resolve) => setTimeout(resolve, 800))
-    recommendation.value = { message: messages[form.value.purpose], products: mockProducts[form.value.purpose] }
+    recommendation.value = {
+      message: form.value.prompt
+        ? `${messages[form.value.purpose]} 요청하신 조건도 함께 반영했어요.`
+        : messages[form.value.purpose],
+      products: mockProducts[form.value.purpose],
+    }
   } catch {
     error.value = '추천 상품을 불러오지 못했습니다.'
   } finally {
@@ -89,8 +95,11 @@ const changeSizeCount = (size, amount) => {
           <template v-if="isGroupPurpose">
             <label>모임명<input v-model.trim="form.groupName" type="text" placeholder="예: 신입사원 환영회"></label>
             <label>행사 종류<input v-model.trim="form.activityType" type="text" placeholder="예: 워크숍, 체육대회, 결혼식"></label>
-            <fieldset class="size-quantity wide">
-              <legend>사이즈별 인원</legend>
+            <div class="size-quantity wide">
+              <div class="size-heading">
+                <strong>사이즈별 인원</strong>
+                <span>총 <b>{{ groupCount }}명</b></span>
+              </div>
               <div class="size-grid">
                 <label v-for="size in ['S', 'M', 'L', 'XL']" :key="size">
                   <span>{{ size }}</span>
@@ -104,17 +113,32 @@ const changeSizeCount = (size, amount) => {
                   </div>
                 </label>
               </div>
-              <p>총 <strong>{{ groupCount }}명</strong>의 사이즈가 입력되었습니다.</p>
-            </fieldset>
+            </div>
           </template>
           <template v-else>
             <label>개인 상황<select v-model="form.personalSituation"><option value="INTERVIEW">면접</option><option value="WORK">출근·비즈니스</option><option value="DATE">소개팅·데이트</option><option value="GUEST">결혼식 하객</option><option value="DAILY">일상·기타</option></select></label>
             <label>사이즈<select v-model="form.size"><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
           </template>
-          <label>최대 예산<div class="input-suffix"><input v-model.number="form.budget" type="number" min="10000" step="1000" required><span>원</span></div></label>
-          <label>대여 시작일<input v-model="form.rentalStartDate" type="date" required></label>
-          <label>대여 종료일<input v-model="form.rentalEndDate" type="date" :min="form.rentalStartDate" required></label>
-          <p v-if="rentalDays > 0" class="rental-summary wide">대여 기간은 총 <strong>{{ rentalDays }}일</strong>입니다.</p>
+          <label class="wide">최대 예산<div class="input-suffix"><input v-model.number="form.budget" type="number" min="10000" step="1000" required><span>원</span></div></label>
+          <fieldset class="rental-period wide">
+            <legend>대여 일정</legend>
+            <div class="date-range">
+              <label><span>시작일</span><input v-model="form.rentalStartDate" type="date" required></label>
+              <b aria-hidden="true">→</b>
+              <label><span>종료일</span><input v-model="form.rentalEndDate" type="date" :min="form.rentalStartDate" required></label>
+            </div>
+            <p v-if="rentalDays > 0" class="rental-summary">총 <strong>{{ rentalDays }}일</strong> 동안 대여합니다.</p>
+          </fieldset>
+          <label class="prompt-field wide">
+            <span class="prompt-heading"><b>AI에게 추가로 요청하기</b><small>선택사항</small></span>
+            <textarea
+              v-model.trim="form.prompt"
+              rows="4"
+              maxlength="500"
+              placeholder="예: 너무 딱딱하지 않은 스타일로 추천해줘. 밝은 색상은 피하고 활동하기 편했으면 좋겠어."
+            ></textarea>
+            <small class="character-count">{{ form.prompt.length }} / 500</small>
+          </label>
           <button class="recommend-button wide" :disabled="loading"><span>{{ loading ? '나에게 맞는 옷을 찾는 중…' : 'AI 맞춤 의류 추천받기' }}</span><b>→</b></button>
         </form>
         <p v-if="error" class="error" role="alert">{{ error }}</p>
