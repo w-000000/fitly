@@ -108,7 +108,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
   <img src="./docs/fitly-development-architecture.png" width="900" alt="FITLY 시스템 아키텍처">
 </p>
 
-Vue 3 기반 Frontend가 Spring Boot REST API와 통신하고, Backend는 Supabase PostgreSQL 및 외부 AI Provider와 연동할 수 있도록 구성했습니다. 운영 환경에서는 Docker 이미지 하나로 Frontend와 Backend를 통합하여 Render에 배포합니다.
+사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 Controller-Service-Repository 구조로 요청을 처리하고, JPA를 통해 Supabase PostgreSQL의 상품 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포할 수 있도록 구성했으며, GitHub Actions로 빌드와 테스트를 자동화했습니다. 현재 추천 기능은 규칙 기반 Mock 로직으로 구현되어 있으며, 향후 실제 AI API를 호출하는 Provider 모듈로 확장할 예정입니다.
 
 ## 기술 스택 선정 이유
 
