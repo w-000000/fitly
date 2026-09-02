@@ -11,9 +11,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ActiveProfiles("local")
 class NoteControllerTest {
     @Autowired MockMvc mvc;
 
@@ -34,4 +36,3 @@ class NoteControllerTest {
             .andExpect(status().isBadRequest());
     }
 }
-

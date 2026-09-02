@@ -171,6 +171,8 @@ Spring Boot ── springdoc-openapi / Swagger UI
 
 JDK 21이 필요합니다. Maven은 wrapper가 자동으로 준비합니다.
 
+로컬 H2 DB로 실행:
+
 ```bash
 cd backend
 ./mvnw spring-boot:run
@@ -182,6 +184,30 @@ cd backend
   - JDBC URL: `jdbc:h2:mem:minip`
   - User: `sa`
   - Password: 없음
+
+Supabase PostgreSQL로 실행:
+
+1. Supabase Dashboard의 `Connect`에서 **Session pooler** 접속 정보를 확인한다.
+2. 저장소 루트의 `.env.example`을 `.env`로 복사하고 실제 값을 입력한다.
+3. `.env`를 현재 터미널에 불러온 뒤 `supabase` 프로필로 Backend를 실행한다.
+
+```bash
+cp .env.example .env
+set -a
+source .env
+set +a
+cd backend
+./mvnw spring-boot:run
+```
+
+Spring Boot는 `SPRING_PROFILES_ACTIVE=supabase` 값을 읽어 `application-supabase.yml` 설정을 사용한다. `.env`에는 DB 비밀번호가 포함되므로 Git에 커밋하지 않는다.
+
+| 환경변수 | 설명 |
+| --- | --- |
+| `SUPABASE_DB_URL` | `jdbc:postgresql://`로 시작하는 Session pooler JDBC URL |
+| `SUPABASE_DB_USERNAME` | 일반적으로 `postgres.PROJECT_REF` 형식인 DB 사용자명 |
+| `SUPABASE_DB_PASSWORD` | Supabase 프로젝트의 Database Password |
+| `JPA_DDL_AUTO` | 개발 단계 기본값 `update`; 운영 안정화 후 `validate` 권장 |
 
 ### Frontend
 
@@ -207,6 +233,6 @@ AI 연동부는 `AiSummaryProvider` 인터페이스 뒤에 격리했습니다. �
 ## 다음 단계
 
 1. 팀 서비스 주제에 맞게 `Note` 도메인과 화면 문구 변경
-2. Supabase PostgreSQL 및 Storage 연결
+2. FITLY 도메인 테이블 설계 및 Supabase Storage 연결
 3. 실제 AI Provider 구현 및 API Key를 환경변수/GitHub Secret으로 주입
 4. 배포 플랫폼 결정 후 CD workflow 추가
