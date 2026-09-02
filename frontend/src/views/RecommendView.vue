@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { createRecommendation } from '../api'
 
 const form = ref({
   purpose: 'PERSONAL',
@@ -25,22 +26,6 @@ const rentalDays = computed(() => {
   return Math.floor((end - start) / 86400000) + 1
 })
 
-const mockProducts = {
-  PERSONAL: [
-    { id: 1, category: '면접', name: '베이직 면접 정장 세트', description: '재킷, 슬랙스, 셔츠가 포함된 면접용 구성입니다.', rentalPrice: 29000, purchasePrice: 149000, reason: '단정한 디자인으로 첫 면접에 적합합니다.' },
-    { id: 2, category: '면접', name: '비즈니스 캐주얼 세트', description: '재킷과 슬랙스로 구성된 실용적인 세트입니다.', rentalPrice: 24000, purchasePrice: 119000, reason: '인턴 면접과 출근 복장으로 활용하기 좋습니다.' },
-  ],
-  EVENT: [
-    { id: 3, category: '행사·모임', name: '그룹 캐주얼 세트', description: '워크숍, 체육대회 및 야외 모임에 적합합니다.', rentalPrice: 12000, purchasePrice: 59000, reason: '움직이기 편하고 여러 명이 함께 맞춰 입기 좋습니다.' },
-    { id: 4, category: '행사·모임', name: '세미 포멀 행사 세트', description: '결혼식과 공식 모임에 어울리는 구성입니다.', rentalPrice: 26000, purchasePrice: 129000, reason: '부담스럽지 않으면서 깔끔한 인상을 줍니다.' },
-  ],
-}
-
-const messages = {
-  PERSONAL: '선택한 개인 일정과 상황에 적합한 의류를 추천했어요.',
-  EVENT: '참여 인원과 행사 성격에 어울리는 단체 의류를 추천했어요.',
-}
-
 const recommend = async () => {
   error.value = ''
   recommendation.value = null
@@ -58,6 +43,7 @@ const recommend = async () => {
   }
   loading.value = true
   try {
+<<<<<<< HEAD
     await new Promise((resolve) => setTimeout(resolve, 800))
     recommendation.value = {
       message: form.value.prompt
@@ -67,6 +53,21 @@ const recommend = async () => {
     }
   } catch {
     error.value = '추천 상품을 불러오지 못했습니다.'
+=======
+    recommendation.value = await createRecommendation({
+      purpose: form.value.purpose,
+      personalSituation: isGroupPurpose.value ? null : form.value.personalSituation,
+      size: isGroupPurpose.value ? null : form.value.size,
+      groupName: isGroupPurpose.value ? form.value.groupName : null,
+      activityType: isGroupPurpose.value ? form.value.activityType : null,
+      groupSizes: isGroupPurpose.value ? form.value.groupSizes : null,
+      budget: form.value.budget,
+      rentalStartDate: form.value.rentalStartDate,
+      rentalEndDate: form.value.rentalEndDate,
+    })
+  } catch (requestError) {
+    error.value = requestError.message || '추천 상품을 불러오지 못했습니다.'
+>>>>>>> 81a19511f8d0e67b29d43b690b76879946bf0d75
   } finally {
     loading.value = false
   }

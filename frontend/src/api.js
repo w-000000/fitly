@@ -12,13 +12,8 @@ const request = async (path, options = {}) => {
   return response.json()
 }
 
-export const getNotes = () => request('/api/notes')
-
-export const createNote = (note) =>
-  request('/api/notes', { method: 'POST', body: JSON.stringify(note) })
-
-export const createSummaryJob = (noteId) =>
-  request(`/api/notes/${noteId}/ai-summary`, { method: 'POST' })
-
-export const getAiJob = (jobId) => request(`/api/ai-jobs/${jobId}`)
-
+export const createRecommendation = (conditions) =>
+  request('/api/recommendations', {
+    method: 'POST',
+    body: JSON.stringify(conditions),
+  })
