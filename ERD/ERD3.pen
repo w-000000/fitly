@@ -1,0 +1,3367 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "L2u1W",
+      "x": -610,
+      "y": -384,
+      "name": "Frame 1",
+      "clip": true,
+      "width": 6414,
+      "height": 6045,
+      "fill": "#FFFFFF",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "bi8Au",
+          "x": 610,
+          "y": 384,
+          "name": "FITLY ERD — Light Mode",
+          "clip": true,
+          "width": 5600,
+          "height": 5500,
+          "fill": "#F7F9FC",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "TsYTt",
+              "x": 80,
+              "y": 42,
+              "name": "Document Title",
+              "fill": "$ink",
+              "content": "FITLY  ·  LOGICAL ENTITY RELATIONSHIP DIAGRAM",
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "bnz2S",
+              "x": 82,
+              "y": 92,
+              "name": "Document Subtitle",
+              "fill": "$muted",
+              "content": "Implementation-ready PostgreSQL model · Data types · NULL / DEFAULT · CK / UK · Service-layer BR",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "tZpts",
+              "x": 80,
+              "y": 140,
+              "name": "Domain 01 User Auth",
+              "width": 5440,
+              "height": 720,
+              "fill": "#EEF6FF",
+              "cornerRadius": 14,
+              "stroke": "#D0D5DD",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tjWK5",
+                  "x": 28,
+                  "y": 24,
+                  "name": "Domain 01 User Auth Label",
+                  "fill": "$ink",
+                  "content": "01  USER / AUTH",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "X0xvhq",
+                  "x": 28,
+                  "y": 56,
+                  "name": "Domain 01 User Auth Guide",
+                  "fill": "$muted",
+                  "content": "TABLE BORDER ↔ TABLE BORDER  ·  Crow’s Foot notation",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "CJeN3",
+                  "x": 1600,
+                  "y": 130,
+                  "name": "Table USER_ROLE",
+                  "width": 430,
+                  "height": 230,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y4xHn",
+                      "x": 18,
+                      "y": 15,
+                      "name": "USER_ROLE Header",
+                      "fill": "$ink",
+                      "content": "USER_ROLE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "CuNsO",
+                      "x": 18,
+                      "y": 48,
+                      "name": "USER_ROLE Divider",
+                      "fill": "#EAECF0",
+                      "width": 394,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "lHaTJ",
+                      "x": 18,
+                      "y": 62,
+                      "name": "USER_ROLE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 394,
+                      "content": "PK·FK  user_id BIGINT NOT NULL → USER.user_id\nPK·FK  role_id BIGINT NOT NULL → ROLE.role_id\n\nPK  (user_id, role_id)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "W3KKb",
+                  "x": 900,
+                  "y": 130,
+                  "name": "Table ROLE",
+                  "width": 380,
+                  "height": 200,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#175CD3",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fMPYR",
+                      "x": 18,
+                      "y": 15,
+                      "name": "ROLE Header",
+                      "fill": "$ink",
+                      "content": "ROLE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "v5zQsw",
+                      "x": 18,
+                      "y": 48,
+                      "name": "ROLE Divider",
+                      "fill": "#EAECF0",
+                      "width": 344,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "tXih6",
+                      "x": 18,
+                      "y": 62,
+                      "name": "ROLE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 344,
+                      "content": "PK  role_id BIGINT NOT NULL\nUK  role_name VARCHAR(30) NOT NULL\nCK  role_name IN {CUSTOMER | ENTERPRISE | ADMIN}",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WeRgd",
+                  "x": 2400,
+                  "y": 480,
+                  "name": "Table USER_PROFILE",
+                  "width": 430,
+                  "height": 190,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sS6v0",
+                      "x": 18,
+                      "y": 15,
+                      "name": "USER_PROFILE Header",
+                      "fill": "$ink",
+                      "content": "USER_PROFILE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "LhVwP",
+                      "x": 18,
+                      "y": 48,
+                      "name": "USER_PROFILE Divider",
+                      "fill": "#EAECF0",
+                      "width": 394,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "uFcgU",
+                      "x": 18,
+                      "y": 62,
+                      "name": "USER_PROFILE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 394,
+                      "content": "PK·FK  user_id BIGINT NOT NULL → USER.user_id\n    default_size VARCHAR(30) NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lIcP5",
+                  "x": 3200,
+                  "y": 130,
+                  "name": "Table STYLE",
+                  "width": 380,
+                  "height": 180,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#175CD3",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WdbBo",
+                      "x": 18,
+                      "y": 15,
+                      "name": "STYLE Header",
+                      "fill": "$ink",
+                      "content": "STYLE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "Mweje",
+                      "x": 18,
+                      "y": 48,
+                      "name": "STYLE Divider",
+                      "fill": "#EAECF0",
+                      "width": 344,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "fxeQu",
+                      "x": 18,
+                      "y": 62,
+                      "name": "STYLE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 344,
+                      "content": "PK  style_id BIGINT NOT NULL\nUK  style_name VARCHAR(50) NOT NULL\nCK  style_name IN {Minimal | Formal | Street | Casual}",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Jpqtg",
+                  "x": 3800,
+                  "y": 130,
+                  "name": "Table USER_PREFERRED_STYLE",
+                  "width": 460,
+                  "height": 220,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Zili0",
+                      "x": 18,
+                      "y": 15,
+                      "name": "USER_PREFERRED_STYLE Header",
+                      "fill": "$ink",
+                      "content": "USER_PREFERRED_STYLE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "rviYI",
+                      "x": 18,
+                      "y": 48,
+                      "name": "USER_PREFERRED_STYLE Divider",
+                      "fill": "#EAECF0",
+                      "width": 424,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q4UT7",
+                      "x": 18,
+                      "y": 62,
+                      "name": "USER_PREFERRED_STYLE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 424,
+                      "content": "PK·FK  user_id BIGINT NOT NULL → USER.user_id\nPK·FK  style_id BIGINT NOT NULL → STYLE.style_id\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n\nPK  (user_id, style_id)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "path",
+                  "id": "GKyWt",
+                  "x": 1268,
+                  "y": 193,
+                  "name": "ROLE to USER_ROLE",
+                  "geometry": "M12 12l320 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    344,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 344,
+                  "height": 24,
+                  "stroke": "#344054",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "E06M2b",
+                  "x": 1385,
+                  "y": 182,
+                  "name": "ROLE to USER_ROLE Cardinality",
+                  "fill": "#344054",
+                  "content": "ROLE 1 : 0..N USER_ROLE",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "FphIY",
+                  "x": 3568,
+                  "y": 193,
+                  "name": "STYLE to PREFERRED",
+                  "geometry": "M12 12l220 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    244,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 244,
+                  "height": 24,
+                  "stroke": "#344054",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "UYe4g",
+                  "x": 3645,
+                  "y": 182,
+                  "name": "STYLE to PREFERRED Cardinality",
+                  "fill": "#344054",
+                  "content": "STYLE 1 : 0..N USER_PREFERRED_STYLE",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QCLrE",
+              "x": 80,
+              "y": 1380,
+              "name": "Domain 02 Customer AI",
+              "width": 2480,
+              "height": 2240,
+              "fill": "#F6F0FF",
+              "cornerRadius": 14,
+              "stroke": "#D0D5DD",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "l3uaMG",
+                  "x": 28,
+                  "y": 24,
+                  "name": "Domain 02 Customer AI Label",
+                  "fill": "$ink",
+                  "content": "02  CUSTOMER / AI RECOMMENDATION",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "yLhZA",
+                  "x": 28,
+                  "y": 56,
+                  "name": "Domain 02 Customer AI Guide",
+                  "fill": "$muted",
+                  "content": "TABLE BORDER ↔ TABLE BORDER  ·  Crow’s Foot notation",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "path",
+                  "id": "g9GYP",
+                  "x": 318,
+                  "y": 508,
+                  "name": "WARDROBE to REQUEST_WARDROBE",
+                  "geometry": "M12 12l0 180m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    204
+                  ],
+                  "fill": "#00000000",
+                  "width": 24,
+                  "height": 204,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "fV2vi",
+                  "x": 345,
+                  "y": 595,
+                  "name": "WARDROBE to REQUEST_WARDROBE Cardinality",
+                  "fill": "$line",
+                  "content": "WARDROBE_ITEM 1 : 0..N REQUEST_WARDROBE",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "pct9N",
+                  "x": 628,
+                  "y": 458,
+                  "name": "REQUEST to REQUEST_WARDROBE",
+                  "geometry": "M382 12l0 130-310 0 0 215-60 0m10 0l-10-8m10 8l-10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    394,
+                    369
+                  ],
+                  "fill": "#00000000",
+                  "width": 394,
+                  "height": 369,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "IfwyS",
+                  "x": 730,
+                  "y": 575,
+                  "name": "REQUEST to REQUEST_WARDROBE Cardinality",
+                  "fill": "$line",
+                  "content": "REQUEST 1 : 0..N REQUEST_WARDROBE",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "RboPx",
+                  "x": 998,
+                  "y": 458,
+                  "name": "REQUEST to RECOMMENDATION",
+                  "geometry": "M12 12l0 230m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    254
+                  ],
+                  "fill": "#00000000",
+                  "width": 24,
+                  "height": 254,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "H5E0G4",
+                  "x": 1025,
+                  "y": 585,
+                  "name": "REQUEST to RECOMMENDATION Cardinality",
+                  "fill": "$line",
+                  "content": "REQUEST 1 : 0..N RECOMMENDATION",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "v2xRr",
+                  "x": 1248,
+                  "y": 813,
+                  "name": "RECOMMENDATION to FEEDBACK",
+                  "geometry": "M12 4l0 16m0-8l224 0m0 0a6 6 0 1 0 12 0 6 6 0 1 0-12 0m16-8l0 16",
+                  "viewBox": [
+                    0,
+                    0,
+                    264,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 264,
+                  "height": 24,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "jFtVs",
+                  "x": 1325,
+                  "y": 802,
+                  "name": "RECOMMENDATION to FEEDBACK Cardinality",
+                  "fill": "$line",
+                  "content": "RECOMMENDATION 1 : 0..1 FEEDBACK",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "Ua0FX",
+                  "x": 1088,
+                  "y": 958,
+                  "name": "RECOMMENDATION to ITEM",
+                  "geometry": "M12 12l0 180 700 0 0 150m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    724,
+                    354
+                  ],
+                  "fill": "#00000000",
+                  "width": 724,
+                  "height": 354,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "CD68y",
+                  "x": 1415,
+                  "y": 1127,
+                  "name": "RECOMMENDATION to ITEM Cardinality",
+                  "fill": "$line",
+                  "content": "RECOMMENDATION 1 : 0..N RECOMMENDATION_ITEM",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "hioa8",
+                  "x": 80,
+                  "y": 140,
+                  "name": "Table WARDROBE_ITEM",
+                  "width": 500,
+                  "height": 380,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kPJWg",
+                      "x": 18,
+                      "y": 15,
+                      "name": "WARDROBE_ITEM Header",
+                      "fill": "$ink",
+                      "content": "WARDROBE_ITEM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "niJrJ",
+                      "x": 18,
+                      "y": 48,
+                      "name": "WARDROBE_ITEM Divider",
+                      "fill": "#EAECF0",
+                      "width": 464,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "JM8m9",
+                      "x": 18,
+                      "y": 62,
+                      "name": "WARDROBE_ITEM Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 464,
+                      "content": "PK  wardrobe_item_id BIGINT NOT NULL\nFK  user_id BIGINT NOT NULL → USER.user_id\n    image_url TEXT NOT NULL\n    item_name VARCHAR(200) NOT NULL\n    category VARCHAR(30) NOT NULL CK CATEGORY_DOMAIN\n    color VARCHAR(50) NOT NULL\n    ai_detected_category VARCHAR(30) NULL\n    ai_detected_color VARCHAR(50) NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YMxoD",
+                  "x": 760,
+                  "y": 140,
+                  "name": "Table RECOMMENDATION_REQUEST",
+                  "width": 500,
+                  "height": 330,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Hq6tf",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RECOMMENDATION_REQUEST Header",
+                      "fill": "$ink",
+                      "content": "RECOMMENDATION_REQUEST",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "ga6jK",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RECOMMENDATION_REQUEST Divider",
+                      "fill": "#EAECF0",
+                      "width": 464,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "PIccv",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RECOMMENDATION_REQUEST Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 464,
+                      "content": "PK  request_id BIGINT NOT NULL\nFK  user_id BIGINT NOT NULL → USER.user_id\nFK  style_id BIGINT NOT NULL → STYLE.style_id\n    tpo VARCHAR(50) NOT NULL\n    size VARCHAR(30) NULL\n    status VARCHAR(20) NOT NULL\nCK  {PENDING | PROCESSING | COMPLETED | FAILED}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    completed_at TIMESTAMPTZ NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z0heOz",
+                  "x": 80,
+                  "y": 700,
+                  "name": "Table RECOMMENDATION_REQUEST_WARDROBE",
+                  "width": 560,
+                  "height": 230,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i91iim",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RECOMMENDATION_REQUEST_WARDROBE Header",
+                      "fill": "$ink",
+                      "content": "RECOMMENDATION_REQUEST_WARDROBE",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "uCwi5",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RECOMMENDATION_REQUEST_WARDROBE Divider",
+                      "fill": "#EAECF0",
+                      "width": 524,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "NKKKh",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RECOMMENDATION_REQUEST_WARDROBE Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 524,
+                      "content": "PK·FK  request_id BIGINT NOT NULL\n       → RECOMMENDATION_REQUEST.request_id\nPK·FK  wardrobe_item_id BIGINT NOT NULL\n       → WARDROBE_ITEM.wardrobe_item_id\nPK  (request_id, wardrobe_item_id)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qoi9P",
+                  "x": 760,
+                  "y": 700,
+                  "name": "Table RECOMMENDATION",
+                  "width": 500,
+                  "height": 270,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ln80e",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RECOMMENDATION Header",
+                      "fill": "$ink",
+                      "content": "RECOMMENDATION",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "VAyAl",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RECOMMENDATION Divider",
+                      "fill": "#EAECF0",
+                      "width": 464,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "u9i0e0",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RECOMMENDATION Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 464,
+                      "content": "PK  recommendation_id BIGINT NOT NULL\nFK  request_id BIGINT NOT NULL → RECOMMENDATION_REQUEST.request_id\n    rank INTEGER NOT NULL CK rank > 0\n    matching_score NUMERIC(5,4) NOT NULL\nCK  matching_score BETWEEN 0 AND 1\n    styling_comment TEXT NOT NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\nUK  UNIQUE(request_id, rank)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b4AEs",
+                  "x": 1500,
+                  "y": 700,
+                  "name": "Table OUTFIT_FEEDBACK",
+                  "width": 500,
+                  "height": 300,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#7A5AF8",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "G72N7l",
+                      "x": 18,
+                      "y": 15,
+                      "name": "OUTFIT_FEEDBACK Header",
+                      "fill": "$ink",
+                      "content": "OUTFIT_FEEDBACK",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "yLPmd",
+                      "x": 18,
+                      "y": 48,
+                      "name": "OUTFIT_FEEDBACK Divider",
+                      "fill": "#EAECF0",
+                      "width": 464,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pils1",
+                      "x": 18,
+                      "y": 62,
+                      "name": "OUTFIT_FEEDBACK Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 464,
+                      "content": "PK  feedback_id BIGINT NOT NULL\nFK  recommendation_id BIGINT NOT NULL\n    → RECOMMENDATION.recommendation_id\n    sentiment VARCHAR(20) NOT NULL CK {LIKE | DISLIKE}\n    reason_code VARCHAR(50) NULL\n    feedback_text TEXT NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\nUK  UNIQUE(recommendation_id)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tRbPh",
+                  "x": 1500,
+                  "y": 1300,
+                  "name": "Table RECOMMENDATION_ITEM",
+                  "width": 600,
+                  "height": 400,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#B54708",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "H8lG6",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RECOMMENDATION_ITEM Header",
+                      "fill": "$ink",
+                      "content": "RECOMMENDATION_ITEM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "YBchU",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RECOMMENDATION_ITEM Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "OVucN",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RECOMMENDATION_ITEM Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  recommendation_item_id BIGINT NOT NULL\nFK  recommendation_id BIGINT NOT NULL → RECOMMENDATION.recommendation_id\nFK  wardrobe_item_id BIGINT NULL → WARDROBE_ITEM.wardrobe_item_id\nFK  product_variant_id BIGINT NULL → PRODUCT_VARIANT.variant_id\n    source_type VARCHAR(20) NOT NULL CK\n    {WARDROBE | RENTAL_PRODUCT}\n    price_snapshot BIGINT NULL CK price_snapshot >= 0\n    sort_order INTEGER NOT NULL CK sort_order > 0\nUK  UNIQUE(recommendation_id, sort_order)\nCK  source_type determines source FK + price_snapshot",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b5cLKl",
+                  "x": 1500,
+                  "y": 1780,
+                  "name": "Recommendation Item Constraint Note",
+                  "width": 600,
+                  "height": 310,
+                  "fill": "#FFFAEB",
+                  "cornerRadius": 8,
+                  "stroke": "#F79009",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "to3ZZ",
+                      "name": "XOR Note Title",
+                      "fill": "#93370D",
+                      "content": "CORE CONSTRAINT  ·  SOURCE TYPE / FK CONSISTENCY",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y99jK",
+                      "name": "XOR Note Body",
+                      "fill": "#7A2E0E",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "CHECK (\n (source_type = 'WARDROBE'\n  AND wardrobe_item_id IS NOT NULL\n  AND product_variant_id IS NULL\n  AND price_snapshot IS NULL)\n OR\n (source_type = 'RENTAL_PRODUCT'\n  AND wardrobe_item_id IS NULL\n  AND product_variant_id IS NOT NULL\n  AND price_snapshot IS NOT NULL)\n)\nsource_type determines exactly one source FK and price snapshot",
+                      "lineHeight": 1.32,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "path",
+                  "id": "Ju83u",
+                  "x": 28,
+                  "y": 338,
+                  "name": "WARDROBE to RECOMMENDATION_ITEM",
+                  "geometry": "M52 12l-40 0 0 1150 1460 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    1484,
+                    1174
+                  ],
+                  "fill": "#00000000",
+                  "width": 1484,
+                  "height": 1174,
+                  "stroke": "#B54708",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "n648H",
+                  "x": 500,
+                  "y": 1477,
+                  "name": "WARDROBE to RECOMMENDATION_ITEM Cardinality",
+                  "fill": "#B54708",
+                  "content": "WARDROBE_ITEM 1 : 0..N RECOMMENDATION_ITEM · source 0..1",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wCVdA",
+              "x": 2760,
+              "y": 1380,
+              "name": "Domain 03 Business Product",
+              "width": 2760,
+              "height": 2240,
+              "fill": "#EFFAF4",
+              "cornerRadius": 14,
+              "stroke": "#D0D5DD",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "srufk",
+                  "x": 28,
+                  "y": 24,
+                  "name": "Domain 03 Business Product Label",
+                  "fill": "$ink",
+                  "content": "03  BUSINESS / PRODUCT / ENTERPRISE AI",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Qb8kC",
+                  "x": 28,
+                  "y": 56,
+                  "name": "Domain 03 Business Product Guide",
+                  "fill": "$muted",
+                  "content": "TABLE BORDER ↔ TABLE BORDER  ·  Crow’s Foot notation",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "path",
+                  "id": "rDdae",
+                  "x": 1188,
+                  "y": 218,
+                  "name": "BUSINESS to MEMBER",
+                  "geometry": "M12 12l300 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    324,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 324,
+                  "height": 24,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "rBHWi",
+                  "x": 1290,
+                  "y": 207,
+                  "name": "BUSINESS to MEMBER Cardinality",
+                  "fill": "$line",
+                  "content": "BUSINESS 1 : 0..N BUSINESS_MEMBER",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "fSYAZ",
+                  "x": 938,
+                  "y": 58,
+                  "name": "BUSINESS to CONTRACT",
+                  "geometry": "M4 82l16 0m-8 0l0-70 1460 0 0 70m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    1484,
+                    94
+                  ],
+                  "fill": "#00000000",
+                  "width": 1484,
+                  "height": 94,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "AqzP1",
+                  "x": 1520,
+                  "y": 50,
+                  "name": "BUSINESS to CONTRACT Cardinality",
+                  "fill": "$line",
+                  "content": "BUSINESS 1 : 0..N CONTRACT · history",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "U4fKN",
+                  "x": 938,
+                  "y": 468,
+                  "name": "BUSINESS to PRODUCT",
+                  "geometry": "M12 12l0 220m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    244
+                  ],
+                  "fill": "#00000000",
+                  "width": 24,
+                  "height": 244,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "JAVzF",
+                  "x": 965,
+                  "y": 580,
+                  "name": "BUSINESS to PRODUCT Cardinality",
+                  "fill": "$line",
+                  "content": "BUSINESS 1 : 0..N PRODUCT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "iuKO5",
+                  "x": 1088,
+                  "y": 93,
+                  "name": "BUSINESS to GENERATION",
+                  "geometry": "M4 47l16 0m-8 0l0-35 980 0 0 595m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    1004,
+                    619
+                  ],
+                  "fill": "#00000000",
+                  "width": 1004,
+                  "height": 619,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "vF5Er",
+                  "x": 1600,
+                  "y": 98,
+                  "name": "BUSINESS to GENERATION Cardinality",
+                  "fill": "$line",
+                  "content": "BUSINESS 1 : 0..N DESCRIPTION_GENERATION",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "xEZPu",
+                  "x": 1208,
+                  "y": 888,
+                  "name": "PRODUCT to GENERATION",
+                  "geometry": "M12 12l280 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    304,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 304,
+                  "height": 24,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "e1uHZ",
+                  "x": 1260,
+                  "y": 877,
+                  "name": "PRODUCT to GENERATION Cardinality",
+                  "fill": "$line",
+                  "content": "PRODUCT 1 : 0..N GENERATION · generation product 0..1",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "dirjd",
+                  "x": 328,
+                  "y": 1068,
+                  "name": "PRODUCT to VARIANT",
+                  "geometry": "M572 12l0 100-560 0 0 120m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    584,
+                    244
+                  ],
+                  "fill": "#00000000",
+                  "width": 584,
+                  "height": 244,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "joGfe",
+                  "x": 605,
+                  "y": 1157,
+                  "name": "PRODUCT to VARIANT Cardinality",
+                  "fill": "$line",
+                  "content": "PRODUCT 1 : 0..N PRODUCT_VARIANT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "cKrzC",
+                  "x": 700,
+                  "y": 140,
+                  "name": "Table BUSINESS",
+                  "width": 500,
+                  "height": 340,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#039855",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JkjEp",
+                      "x": 18,
+                      "y": 15,
+                      "name": "BUSINESS Header",
+                      "fill": "$ink",
+                      "content": "BUSINESS",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "tCniW",
+                      "x": 18,
+                      "y": 48,
+                      "name": "BUSINESS Divider",
+                      "fill": "#EAECF0",
+                      "width": 464,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z0otL",
+                      "x": 18,
+                      "y": 62,
+                      "name": "BUSINESS Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 464,
+                      "content": "PK  business_id BIGINT NOT NULL\n    business_name VARCHAR(200) NOT NULL\nUK  business_number VARCHAR(50) NOT NULL\n    business_type VARCHAR(20) NOT NULL\nCK  {PLATFORM | SHOP | BRAND}\n    status VARCHAR(20) NOT NULL CK {ACTIVE | INACTIVE}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL\n\nEach supplier is an independent BUSINESS",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bupD5",
+                  "x": 1500,
+                  "y": 140,
+                  "name": "Table BUSINESS_MEMBER",
+                  "width": 520,
+                  "height": 330,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#039855",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hbE56",
+                      "x": 18,
+                      "y": 15,
+                      "name": "BUSINESS_MEMBER Header",
+                      "fill": "$ink",
+                      "content": "BUSINESS_MEMBER",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "Nkd5g",
+                      "x": 18,
+                      "y": 48,
+                      "name": "BUSINESS_MEMBER Divider",
+                      "fill": "#EAECF0",
+                      "width": 484,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "D98jfZ",
+                      "x": 18,
+                      "y": 62,
+                      "name": "BUSINESS_MEMBER Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 484,
+                      "content": "PK  business_member_id BIGINT NOT NULL\nFK  business_id BIGINT NOT NULL → BUSINESS.business_id\nFK  user_id BIGINT NOT NULL → USER.user_id\n    member_role VARCHAR(20) NOT NULL\nCK  {OWNER | MANAGER | MD | STAFF}\n    status VARCHAR(20) NOT NULL CK {ACTIVE | INACTIVE}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\nUK  UNIQUE(business_id, user_id)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KKQUp",
+                  "x": 2150,
+                  "y": 140,
+                  "name": "Table BUSINESS_CONTRACT",
+                  "width": 520,
+                  "height": 250,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#039855",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZRovh",
+                      "x": 18,
+                      "y": 15,
+                      "name": "BUSINESS_CONTRACT Header",
+                      "fill": "$ink",
+                      "content": "BUSINESS_CONTRACT",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "aLTiw",
+                      "x": 18,
+                      "y": 48,
+                      "name": "BUSINESS_CONTRACT Divider",
+                      "fill": "#EAECF0",
+                      "width": 484,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "J8NIu",
+                      "x": 18,
+                      "y": 62,
+                      "name": "BUSINESS_CONTRACT Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 484,
+                      "content": "PK  contract_id BIGINT NOT NULL\nFK  business_id BIGINT NOT NULL → BUSINESS.business_id\n    commission_rate NUMERIC(5,4) NOT NULL\nCK  commission_rate BETWEEN 0 AND 1\n    start_date DATE NOT NULL\n    end_date DATE NULL\nCK  end_date IS NULL OR start_date <= end_date\n    status VARCHAR(20) NOT NULL\nCK  {ACTIVE | EXPIRED | TERMINATED}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gFV4K",
+                  "x": 700,
+                  "y": 700,
+                  "name": "Table PRODUCT",
+                  "width": 520,
+                  "height": 380,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#039855",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h8JwM",
+                      "x": 18,
+                      "y": 15,
+                      "name": "PRODUCT Header",
+                      "fill": "$ink",
+                      "content": "PRODUCT",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "QaFM5",
+                      "x": 18,
+                      "y": 48,
+                      "name": "PRODUCT Divider",
+                      "fill": "#EAECF0",
+                      "width": 484,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "a62mS",
+                      "x": 18,
+                      "y": 62,
+                      "name": "PRODUCT Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 484,
+                      "content": "PK  product_id BIGINT NOT NULL\nFK  business_id BIGINT NOT NULL → BUSINESS.business_id\nFK  created_by_business_member_id BIGINT NOT NULL\n    → BUSINESS_MEMBER.business_member_id\n    product_name VARCHAR(200) NOT NULL\n    brand_name VARCHAR(100) NOT NULL\n    category VARCHAR(30) NOT NULL CK CATEGORY_DOMAIN\n    original_price BIGINT NOT NULL CK original_price >= 0\n    rental_price BIGINT NOT NULL CK rental_price >= 0\n    description TEXT NOT NULL\n    image_url TEXT NOT NULL\n    status VARCHAR(20) NOT NULL CK {DRAFT | ACTIVE | INACTIVE}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cPQU0",
+                  "x": 1500,
+                  "y": 700,
+                  "name": "Table PRODUCT_DESCRIPTION_GENERATION",
+                  "width": 600,
+                  "height": 360,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#039855",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r7ccF",
+                      "x": 18,
+                      "y": 15,
+                      "name": "PRODUCT_DESCRIPTION_GENERATION Header",
+                      "fill": "$ink",
+                      "content": "PRODUCT_DESCRIPTION_GENERATION",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "yml8S",
+                      "x": 18,
+                      "y": 48,
+                      "name": "PRODUCT_DESCRIPTION_GENERATION Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "ycayk",
+                      "x": 18,
+                      "y": 62,
+                      "name": "PRODUCT_DESCRIPTION_GENERATION Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  generation_id BIGINT NOT NULL\nFK  business_id BIGINT NOT NULL → BUSINESS.business_id\nFK  created_by_business_member_id BIGINT NOT NULL\n    → BUSINESS_MEMBER.business_member_id\nFK  product_id BIGINT NULL → PRODUCT.product_id\n    input_image_url TEXT NOT NULL\n    generated_description TEXT NULL\n    generation_status VARCHAR(20) NOT NULL\nCK  {PENDING | PROCESSING | COMPLETED | FAILED}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n\nAI raw stored separately from PRODUCT.description",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oYspI",
+                  "x": 80,
+                  "y": 1300,
+                  "name": "Table PRODUCT_VARIANT",
+                  "width": 520,
+                  "height": 360,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#B54708",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OK7ww",
+                      "x": 18,
+                      "y": 15,
+                      "name": "PRODUCT_VARIANT Header",
+                      "fill": "$ink",
+                      "content": "PRODUCT_VARIANT",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "ZY1Z5",
+                      "x": 18,
+                      "y": 48,
+                      "name": "PRODUCT_VARIANT Divider",
+                      "fill": "#EAECF0",
+                      "width": 484,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "n4uB6q",
+                      "x": 18,
+                      "y": 62,
+                      "name": "PRODUCT_VARIANT Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 484,
+                      "content": "PK  variant_id BIGINT NOT NULL\nFK  product_id BIGINT NOT NULL → PRODUCT.product_id\n    size VARCHAR(30) NOT NULL\n    sku VARCHAR(100) NULL\n    total_stock INTEGER NOT NULL\n    available_stock INTEGER NOT NULL\nCK  total_stock >= 0 AND available_stock >= 0\n    AND available_stock <= total_stock\n    status VARCHAR(20) NOT NULL\nCK  {ACTIVE | OUT_OF_STOCK | INACTIVE}\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL\nUK  UNIQUE(product_id, size)",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XKnsj",
+                  "x": 700,
+                  "y": 1300,
+                  "name": "Business Supply Note",
+                  "width": 520,
+                  "height": 250,
+                  "fill": "#ECFDF3",
+                  "cornerRadius": 8,
+                  "stroke": "#6CE9A6",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "P7rjY",
+                      "name": "Supply Note Title",
+                      "fill": "#05603A",
+                      "content": "DIRECT BUSINESS OWNERSHIP",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BFLwL",
+                      "name": "Supply Note Body",
+                      "fill": "#05603A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "MUSINSA · ABC SHOP · XYZ BRAND\n→ independent BUSINESS rows\n→ PRODUCT belongs to actual supplier\n→ settlement returns to that supplier",
+                      "lineHeight": 1.55,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "path",
+                  "id": "tgbqL",
+                  "x": 1168,
+                  "y": 388,
+                  "name": "BUSINESS_MEMBER to PRODUCT creator",
+                  "geometry": "M332 4l0 16m0-8l-200 0 0 250-120 0 0 50m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    344,
+                    324
+                  ],
+                  "fill": "#00000000",
+                  "width": 344,
+                  "height": 324,
+                  "stroke": "#344054",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "y5F7i",
+                  "x": 1230,
+                  "y": 620,
+                  "name": "BUSINESS_MEMBER to PRODUCT Cardinality",
+                  "fill": "#344054",
+                  "content": "BUSINESS_MEMBER 1 : 0..N PRODUCT · creator",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "y7Hgcu",
+                  "x": 1748,
+                  "y": 458,
+                  "name": "BUSINESS_MEMBER to DESCRIPTION creator",
+                  "geometry": "M4 12l16 0m-8 0l0 230m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    24,
+                    254
+                  ],
+                  "fill": "#00000000",
+                  "width": 24,
+                  "height": 254,
+                  "stroke": "#344054",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "q2PMcG",
+                  "x": 1780,
+                  "y": 565,
+                  "name": "BUSINESS_MEMBER to DESCRIPTION Cardinality",
+                  "fill": "#344054",
+                  "content": "BUSINESS_MEMBER 1 : 0..N DESCRIPTION_GENERATION · creator",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Uvd4T",
+              "x": 680,
+              "y": 3800,
+              "name": "Domain 04 Rental Return",
+              "width": 3660,
+              "height": 1520,
+              "fill": "#FFF6ED",
+              "cornerRadius": 14,
+              "stroke": "#D0D5DD",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "afEEi",
+                  "x": 28,
+                  "y": 24,
+                  "name": "Domain 04 Rental Return Label",
+                  "fill": "$ink",
+                  "content": "04  RENTAL / RETURN",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "EstnH",
+                  "x": 28,
+                  "y": 56,
+                  "name": "Domain 04 Rental Return Guide",
+                  "fill": "$muted",
+                  "content": "TABLE BORDER ↔ TABLE BORDER  ·  Crow’s Foot notation",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "path",
+                  "id": "Cmz4Q",
+                  "x": 1488,
+                  "y": 268,
+                  "name": "ORDER to ITEM",
+                  "geometry": "M12 12l660 0m-10 0l10-8m-10 8l10 8",
+                  "viewBox": [
+                    0,
+                    0,
+                    684,
+                    24
+                  ],
+                  "fill": "#00000000",
+                  "width": 684,
+                  "height": 24,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "yXUU7",
+                  "x": 1700,
+                  "y": 257,
+                  "name": "ORDER to ITEM Cardinality",
+                  "fill": "$line",
+                  "content": "RENTAL_ORDER 1 : 0..N RENTAL_ITEM",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "r9nI0T",
+                  "x": 388,
+                  "y": 528,
+                  "name": "ORDER to GROUP_DETAIL",
+                  "geometry": "M804 12l16 0m-8 0l0 130-800 0 0 114m0 0a6 6 0 1 0 0 12 6 6 0 1 0 0-12m-8 16l16 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    824,
+                    284
+                  ],
+                  "fill": "#00000000",
+                  "width": 824,
+                  "height": 284,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "r4uwh",
+                  "x": 760,
+                  "y": 647,
+                  "name": "ORDER to GROUP_DETAIL Cardinality",
+                  "fill": "$line",
+                  "content": "RENTAL_ORDER 1 : 0..1 GROUP_RENTAL_DETAIL",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "GZAE8",
+                  "x": 1088,
+                  "y": 528,
+                  "name": "ORDER to GROUP_REQUEST",
+                  "geometry": "M262 12l0 180-250 0 0 80m0-10l-8 10m8-10l8 10",
+                  "viewBox": [
+                    0,
+                    0,
+                    274,
+                    284
+                  ],
+                  "fill": "#00000000",
+                  "width": 274,
+                  "height": 284,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "UX15j",
+                  "x": 1180,
+                  "y": 697,
+                  "name": "ORDER to GROUP_REQUEST Cardinality",
+                  "fill": "$line",
+                  "content": "RENTAL_ORDER 1 : 0..N GROUP_REQUEST_ITEM",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "path",
+                  "id": "gTYwE",
+                  "x": 2448,
+                  "y": 528,
+                  "name": "ITEM to RETURN",
+                  "geometry": "M4 12l16 0m-8 0l0 110 700 0 0 34m0 0a6 6 0 1 0 0 12 6 6 0 1 0 0-12m-8 16l16 0",
+                  "viewBox": [
+                    0,
+                    0,
+                    724,
+                    184
+                  ],
+                  "fill": "#00000000",
+                  "width": 724,
+                  "height": 184,
+                  "stroke": "$line",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "text",
+                  "id": "WPEBm",
+                  "x": 2750,
+                  "y": 627,
+                  "name": "ITEM to RETURN Cardinality",
+                  "fill": "$line",
+                  "content": "RENTAL_ITEM 1 : 0..1 RETURN_PROCESS",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 9,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "m3z56x",
+                  "x": 900,
+                  "y": 140,
+                  "name": "Table RENTAL_ORDER",
+                  "width": 600,
+                  "height": 400,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#F79009",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Eiz9j",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RENTAL_ORDER Header",
+                      "fill": "$ink",
+                      "content": "RENTAL_ORDER",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "wc0AT",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RENTAL_ORDER Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "L16Qy",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RENTAL_ORDER Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  rental_order_id BIGINT NOT NULL\nFK  user_id BIGINT NOT NULL → USER.user_id\nFK  source_recommendation_id BIGINT NULL\n    → RECOMMENDATION.recommendation_id\n    order_type VARCHAR(20) NOT NULL CK {PERSONAL | GROUP}\n    status VARCHAR(20) NOT NULL\nCK  {ORDERED | PREPARING | SHIPPED | RENTING | RETURN_DUE | COMPLETED | CANCELLED}\n    payment_status VARCHAR(20) NOT NULL\nCK  {PENDING | PAID | FAILED | REFUNDED}\n    rental_start_date DATE NOT NULL\n    rental_end_date DATE NOT NULL\nCK  rental_start_date <= rental_end_date\n    delivery_address TEXT NOT NULL\n    total_amount BIGINT NOT NULL CK total_amount >= 0\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GgScl",
+                  "x": 2160,
+                  "y": 140,
+                  "name": "Table RENTAL_ITEM",
+                  "width": 600,
+                  "height": 400,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#F79009",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TeZBk",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RENTAL_ITEM Header",
+                      "fill": "$ink",
+                      "content": "RENTAL_ITEM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "mgBm7",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RENTAL_ITEM Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "X0C67l",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RENTAL_ITEM Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  rental_item_id BIGINT NOT NULL\nFK  rental_order_id BIGINT NOT NULL → RENTAL_ORDER.rental_order_id\nFK  product_variant_id BIGINT NOT NULL → PRODUCT_VARIANT.variant_id\n    rental_price_snapshot BIGINT NOT NULL\nCK  rental_price_snapshot >= 0\n    status VARCHAR(20) NOT NULL\nCK  {RENTED | RETURN_REQUESTED | RETURNED | PURCHASED}\n    converted_to_own_at TIMESTAMPTZ NULL\n    additional_purchase_amount BIGINT NULL\nCK  additional_purchase_amount >= 0\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL\n\nCK  PURCHASED ↔ own_at and purchase_amount NOT NULL\n    otherwise both ownership fields are NULL",
+                      "lineHeight": 1.3,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vcoLI",
+                  "x": 100,
+                  "y": 800,
+                  "name": "Table GROUP_RENTAL_DETAIL",
+                  "width": 600,
+                  "height": 250,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#F79009",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "W3Xq9",
+                      "x": 18,
+                      "y": 15,
+                      "name": "GROUP_RENTAL_DETAIL Header",
+                      "fill": "$ink",
+                      "content": "GROUP_RENTAL_DETAIL",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "Z5sPqN",
+                      "x": 18,
+                      "y": 48,
+                      "name": "GROUP_RENTAL_DETAIL Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "hA6W3",
+                      "x": 18,
+                      "y": 62,
+                      "name": "GROUP_RENTAL_DETAIL Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK·FK  rental_order_id BIGINT NOT NULL\n       → RENTAL_ORDER.rental_order_id\n    purpose VARCHAR(100) NOT NULL\n    participant_count INTEGER NOT NULL\nCK  participant_count > 0\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n\nBR  exists only when order_type = GROUP",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BOslq",
+                  "x": 800,
+                  "y": 800,
+                  "name": "Table GROUP_RENTAL_REQUEST_ITEM",
+                  "width": 600,
+                  "height": 240,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#F79009",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "McIct",
+                      "x": 18,
+                      "y": 15,
+                      "name": "GROUP_RENTAL_REQUEST_ITEM Header",
+                      "fill": "$ink",
+                      "content": "GROUP_RENTAL_REQUEST_ITEM",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "d8RxKl",
+                      "x": 18,
+                      "y": 48,
+                      "name": "GROUP_RENTAL_REQUEST_ITEM Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "UdJUy",
+                      "x": 18,
+                      "y": 62,
+                      "name": "GROUP_RENTAL_REQUEST_ITEM Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  group_request_item_id BIGINT NOT NULL\nFK  rental_order_id BIGINT NOT NULL → RENTAL_ORDER.rental_order_id\n    category VARCHAR(30) NOT NULL CK CATEGORY_DOMAIN\n    requested_quantity INTEGER NOT NULL\nCK  requested_quantity > 0\n\nBR  only when RENTAL_ORDER.order_type = GROUP",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "R7XGnK",
+                  "x": 2860,
+                  "y": 700,
+                  "name": "Table RETURN_PROCESS",
+                  "width": 600,
+                  "height": 500,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#D92D20",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qo0lP",
+                      "x": 18,
+                      "y": 15,
+                      "name": "RETURN_PROCESS Header",
+                      "fill": "$ink",
+                      "content": "RETURN_PROCESS",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "VSbib",
+                      "x": 18,
+                      "y": 48,
+                      "name": "RETURN_PROCESS Divider",
+                      "fill": "#EAECF0",
+                      "width": 564,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "O6R59p",
+                      "x": 18,
+                      "y": 62,
+                      "name": "RETURN_PROCESS Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 564,
+                      "content": "PK  return_process_id BIGINT NOT NULL\nUK·FK  rental_item_id BIGINT NOT NULL → RENTAL_ITEM.rental_item_id\nFK  processed_by_admin_user_id BIGINT NULL → USER.user_id\n    return_status VARCHAR(20) NOT NULL\nCK  {REQUESTED | RETURNED | COMPLETED}\n    inspection_status VARCHAR(20) NOT NULL\nCK  {PENDING | INSPECTING | COMPLETED}\n    inspection_grade VARCHAR(20) NULL\nCK  {NORMAL | MINOR_STAIN | DAMAGED}\n    laundry_status VARCHAR(20) NOT NULL\nCK  {PENDING | CLEANING | COMPLETED}\n    inventory_restored BOOLEAN NOT NULL DEFAULT FALSE\n    return_requested_at TIMESTAMPTZ NOT NULL\n    returned_at TIMESTAMPTZ NULL\n    inspected_at TIMESTAMPTZ NULL\n    cleaned_at TIMESTAMPTZ NULL\n    inventory_restored_at TIMESTAMPTZ NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 7.8,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B5NaCI",
+                  "x": 2160,
+                  "y": 800,
+                  "name": "Admin Return Flow Note",
+                  "width": 600,
+                  "height": 260,
+                  "fill": "#FFF4ED",
+                  "cornerRadius": 8,
+                  "stroke": "#FDA29B",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t4MHQv",
+                      "name": "Admin Return Flow Title",
+                      "fill": "#B42318",
+                      "content": "ADMIN OPERATION FLOW",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TYbLA",
+                      "name": "Admin Return Flow Body",
+                      "fill": "#7A271A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "RENTAL_ITEM\n→ RETURN\n→ INSPECTION\n→ LAUNDRY\n→ INVENTORY RESTORE\n\nRent-to-own item may have no RETURN_PROCESS.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "o4vA0D",
+              "x": 4520,
+              "y": 3800,
+              "name": "Domain 05 Settlement",
+              "width": 1000,
+              "height": 1520,
+              "fill": "#F2F4F7",
+              "cornerRadius": 14,
+              "stroke": "#D0D5DD",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WAIjN",
+                  "x": 28,
+                  "y": 24,
+                  "name": "Domain 05 Settlement Label",
+                  "fill": "$ink",
+                  "content": "05  SETTLEMENT",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "hKXaa",
+                  "x": 28,
+                  "y": 56,
+                  "name": "Domain 05 Settlement Guide",
+                  "fill": "$muted",
+                  "content": "TABLE BORDER ↔ TABLE BORDER  ·  Crow’s Foot notation",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "QqjAo",
+                  "x": 40,
+                  "y": 140,
+                  "name": "Table BUSINESS_SETTLEMENT",
+                  "width": 720,
+                  "height": 420,
+                  "fill": "$paper",
+                  "cornerRadius": 8,
+                  "stroke": "#667085",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RV1dD",
+                      "x": 18,
+                      "y": 15,
+                      "name": "BUSINESS_SETTLEMENT Header",
+                      "fill": "$ink",
+                      "content": "BUSINESS_SETTLEMENT",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "TOHHa",
+                      "x": 18,
+                      "y": 48,
+                      "name": "BUSINESS_SETTLEMENT Divider",
+                      "fill": "#EAECF0",
+                      "width": 684,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "yXz6h",
+                      "x": 18,
+                      "y": 62,
+                      "name": "BUSINESS_SETTLEMENT Columns",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 684,
+                      "content": "PK  settlement_id BIGINT NOT NULL\nFK  contract_id BIGINT NOT NULL → BUSINESS_CONTRACT.contract_id\n    period_start DATE NOT NULL\n    period_end DATE NOT NULL\nCK  period_start <= period_end\n    rental_gross_amount BIGINT NOT NULL\nCK  rental_gross_amount >= 0\n    rent_to_own_gross_amount BIGINT NOT NULL\nCK  rent_to_own_gross_amount >= 0\n    commission_amount BIGINT NOT NULL\nCK  commission_amount >= 0\n    settlement_amount BIGINT NOT NULL\nCK  settlement_amount >= 0\n    status VARCHAR(20) NOT NULL CK {PENDING | SETTLED | FAILED}\n    settled_at TIMESTAMPTZ NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\nUK  UNIQUE(contract_id, period_start, period_end)",
+                      "lineHeight": 1.28,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 7.8,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V5z44X",
+                  "x": 40,
+                  "y": 650,
+                  "name": "ERD Legend",
+                  "width": 720,
+                  "height": 850,
+                  "fill": "$paper",
+                  "cornerRadius": 10,
+                  "stroke": "#98A2B3",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LUo7w",
+                      "name": "Legend Title",
+                      "fill": "$ink",
+                      "content": "LEGEND",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "XbiEN",
+                      "name": "Legend Rule",
+                      "fill": "#EAECF0",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "zVO3Q",
+                      "name": "Legend Keys",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "PK Primary Key · FK Foreign Key · UK Unique · CK Check\nBR Business Rule · NN NOT NULL · NULL Nullable · DF Default\n\n|     Exactly One\nO|    Zero or One\nO<    Zero or Many\n|<    One or Many\n\n|──O|   1 : 0..1  (no crow’s foot)\n|──O<   1 : 0..N  (crow’s foot only on N side)\nNotation: PARENT 1 : cardinality CHILD",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9.5,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jdqUU",
+                      "name": "Legend Domains Heading",
+                      "fill": "$ink",
+                      "content": "DOMAIN COLORS",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "k50At",
+                      "name": "Domain Color Legend",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "■  USER / AUTH                light blue\n■  CUSTOMER / AI              light purple\n■  BUSINESS / PRODUCT         light green\n■  RENTAL / RETURN            light orange\n■  SETTLEMENT                 light gray",
+                      "lineHeight": 1.8,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pjc5g",
+                      "name": "Business Rules Heading",
+                      "fill": "$ink",
+                      "content": "BUSINESS RULES · SERVICE LAYER",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "E2DOY",
+                      "name": "Business Rules Body",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "BR  Request user = referenced wardrobe owner\nBR  Rental user = source recommendation request user\nBR  Generation/creator BUSINESS must match BUSINESS_MEMBER/PRODUCT\nBR  BUSINESS_MEMBER.user_id must have ENTERPRISE role\nBR  GROUP ↔ GROUP_RENTAL_DETAIL existence\nBR  GROUP_RENTAL_REQUEST_ITEM only for GROUP order\nBR  COMPLETED request → completed_at NOT NULL\nBR  SETTLED settlement → settled_at NOT NULL\nBR  inventory_restored TRUE → restored_at NOT NULL\nBR  Return transitions: request → return → inspect → laundry → restore\nBR  processed_by_admin USER must have ADMIN role\nBR  Stock changes in same rental/return transaction\nBR  One ACTIVE contract per BUSINESS; history allowed\nBR  CATEGORY_DOMAIN = {TOP | BOTTOM | OUTER | SHOES | ACCESSORY}\nBR  Link tables may consider CASCADE; history tables prefer RESTRICT/soft delete\nBR  Frequently queried FK columns need indexes in physical schema\nBR  SKU uniqueness policy defined at implementation time",
+                      "lineHeight": 1.25,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 8,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bdDfn",
+                  "x": 40,
+                  "y": 580,
+                  "name": "Settlement Principle",
+                  "fill": "$muted",
+                  "content": "Actual supplying BUSINESS receives the settlement · contract history remains explicit",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "xyFOr",
+                  "x": 40,
+                  "y": 575,
+                  "name": "Settlement Snapshot Note",
+                  "width": 720,
+                  "height": 58,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 7,
+                  "stroke": "#98A2B3",
+                  "strokeWidth": 1,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k8XoLn",
+                      "x": 16,
+                      "y": 13,
+                      "name": "Settlement Snapshot Note Text",
+                      "fill": "#475467",
+                      "content": "SNAPSHOT · Financial values are historical snapshots stored at settlement time.",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "aniMb",
+              "x": 80,
+              "y": 5425,
+              "name": "Document Footer",
+              "fill": "$muted",
+              "content": "FITLY ERD · 24 confirmed tables · PostgreSQL types / NN / NULL / DF / CK / UK / BR · No new entities",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "KVDX9",
+              "x": 2300,
+              "y": 900,
+              "name": "Central User Hub",
+              "width": 1000,
+              "height": 440,
+              "fill": "#EAF2FF",
+              "cornerRadius": 14,
+              "stroke": "#84ADFF",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bIQtu",
+                  "x": 28,
+                  "y": 22,
+                  "name": "Central User Hub Label",
+                  "fill": "$ink",
+                  "content": "CENTRAL USER HUB  /  CROSS-DOMAIN RELATIONSHIPS",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "f3Xb9",
+                  "x": 28,
+                  "y": 52,
+                  "name": "Central User Hub Guide",
+                  "fill": "$muted",
+                  "content": "USER를 중심으로 관계선을 좌·우·하단 전용 포트에 분산",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "cUpvC",
+                  "x": 285,
+                  "y": 90,
+                  "name": "Table USER",
+                  "width": 430,
+                  "height": 320,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "stroke": "#175CD3",
+                  "strokeWidth": {
+                    "top": 4,
+                    "right": 1,
+                    "bottom": 1,
+                    "left": 1
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#10182818",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 5
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XyCY1",
+                      "x": 18,
+                      "y": 15,
+                      "name": "USER Header",
+                      "fill": "#172033",
+                      "content": "USER",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "GwKDV",
+                      "x": 18,
+                      "y": 48,
+                      "name": "USER Divider",
+                      "fill": "#EAECF0",
+                      "width": 394,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "twkeK",
+                      "x": 18,
+                      "y": 62,
+                      "name": "USER Columns",
+                      "fill": "#172033",
+                      "textGrowth": "fixed-width",
+                      "width": 394,
+                      "content": "PK  user_id BIGINT NOT NULL\nUK  email VARCHAR(255) NOT NULL\n    password_hash VARCHAR(255) NOT NULL\n    name VARCHAR(100) NOT NULL\n    created_at TIMESTAMPTZ NOT NULL DEFAULT now()\n    updated_at TIMESTAMPTZ NOT NULL",
+                      "lineHeight": 1.35,
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 9,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "path",
+              "id": "RkPQF",
+              "x": 1888,
+              "y": 488,
+              "name": "USER to USER_ROLE",
+              "geometry": "M762 502l0-140-750 0 0-350m0 10l-8-10m8 10l8-10",
+              "viewBox": [
+                0,
+                0,
+                774,
+                514
+              ],
+              "fill": "#00000000",
+              "width": 774,
+              "height": 514,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "fzgIw",
+              "x": 2100,
+              "y": 827,
+              "name": "USER to USER_ROLE Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N USER_ROLE",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "a3qund",
+              "x": 2688,
+              "y": 798,
+              "name": "USER to USER_PROFILE",
+              "geometry": "M4 192l16 0m-8-8l0-156m0 0c0.796 0 1.561-0.152 2.296-0.457 0.735-0.304 1.384-0.738 1.947-1.3 0.562-0.563 0.996-1.212 1.3-1.947 0.305-0.735 0.457-1.5 0.457-2.296 0-0.796-0.152-1.561-0.457-2.296-0.304-0.735-0.738-1.384-1.3-1.947-0.563-0.562-1.212-0.996-1.947-1.3-0.735-0.305-1.5-0.457-2.296-0.457-0.796 0-1.561 0.152-2.296 0.457-0.735 0.304-1.384 0.738-1.947 1.3-0.562 0.563-0.996 1.212-1.3 1.947-0.305 0.735-0.457 1.5-0.457 2.296 0 0.796 0.152 1.561 0.457 2.296 0.304 0.735 0.738 1.384 1.3 1.947 0.563 0.562 1.212 0.996 1.947 1.3 0.735 0.305 1.5 0.457 2.296 0.457m-8-16l16 0m-7.915 0l-0.085 16",
+              "viewBox": [
+                0,
+                0,
+                24,
+                204
+              ],
+              "fill": "#00000000",
+              "width": 24,
+              "height": 204,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "ZSa9j",
+              "x": 2720,
+              "y": 885,
+              "name": "USER to USER_PROFILE Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..1 USER_PROFILE",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "K2jzm",
+              "x": 2888,
+              "y": 478,
+              "name": "USER to USER_PREFERRED_STYLE",
+              "geometry": "M12 512l0-110 1200 0 0-390m0 10l-8-10m8 10l8-10",
+              "viewBox": [
+                0,
+                0,
+                1224,
+                524
+              ],
+              "fill": "#00000000",
+              "width": 1224,
+              "height": 524,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "E341jL",
+              "x": 3520,
+              "y": 857,
+              "name": "USER to USER_PREFERRED_STYLE Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N USER_PREFERRED_STYLE",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "CMB7A",
+              "x": 388,
+              "y": 1068,
+              "name": "USER to WARDROBE",
+              "geometry": "M2197 12l-385 0 0 370-1800 0 0 70m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                2209,
+                464
+              ],
+              "fill": "#00000000",
+              "width": 2209,
+              "height": 464,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "t6jaV9",
+              "x": 900,
+              "y": 1427,
+              "name": "USER to WARDROBE Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N WARDROBE_ITEM",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "upqul",
+              "x": 1088,
+              "y": 1138,
+              "name": "USER to REQUEST",
+              "geometry": "M1497 12l-285 0 0 330-1200 0 0 40m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                1509,
+                394
+              ],
+              "fill": "#00000000",
+              "width": 1509,
+              "height": 394,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "fisGW",
+              "x": 1600,
+              "y": 1457,
+              "name": "USER to REQUEST Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N RECOMMENDATION_REQUEST",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "R5LYgi",
+              "x": 1188,
+              "y": 438,
+              "name": "STYLE to REQUEST",
+              "geometry": "M2282 12l0 370-2070 0 0 600-200 0 0 100m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                2294,
+                1094
+              ],
+              "fill": "#00000000",
+              "width": 2294,
+              "height": 1094,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "AhctV",
+              "x": 1420,
+              "y": 1397,
+              "name": "STYLE to REQUEST Cardinality",
+              "fill": "#344054",
+              "content": "STYLE 1 : 0..N RECOMMENDATION_REQUEST",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "l1w02J",
+              "x": 3003,
+              "y": 1048,
+              "name": "USER to BUSINESS_MEMBER",
+              "geometry": "M12 12l385 0 0 390 1100 0 0 70m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                1509,
+                484
+              ],
+              "fill": "#00000000",
+              "width": 1509,
+              "height": 484,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "tfWNh",
+              "x": 4050,
+              "y": 1427,
+              "name": "USER to BUSINESS_MEMBER Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N BUSINESS_MEMBER",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "XWEYw",
+              "x": 1868,
+              "y": 1298,
+              "name": "USER to RENTAL_ORDER",
+              "geometry": "M882 12l0 2190-870 0 0 440m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                894,
+                2654
+              ],
+              "fill": "#00000000",
+              "width": 894,
+              "height": 2654,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "G8G894",
+              "x": 1900,
+              "y": 3477,
+              "name": "USER to RENTAL_ORDER Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N RENTAL_ORDER",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "x4xHNv",
+              "x": 3003,
+              "y": 1258,
+              "name": "USER to RETURN admin",
+              "geometry": "M12 12l2545 0 0 2380-1120 0 0 1050-300 0m10 0l-10-8m10 8l-10 8",
+              "viewBox": [
+                0,
+                0,
+                2569,
+                3454
+              ],
+              "fill": "#00000000",
+              "width": 2569,
+              "height": 3454,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "GpjUS",
+              "x": 4460,
+              "y": 3627,
+              "name": "USER to RETURN admin Cardinality",
+              "fill": "#344054",
+              "content": "USER 1 : 0..N RETURN_PROCESS · process admin 0..1",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "MJnv0",
+              "x": 1088,
+              "y": 2338,
+              "name": "RECOMMENDATION to RENTAL_ORDER",
+              "geometry": "M12 12l0 1100 700 0 0 490m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                724,
+                1614
+              ],
+              "fill": "#00000000",
+              "width": 724,
+              "height": 1614,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "ylIti",
+              "x": 1250,
+              "y": 3427,
+              "name": "RECOMMENDATION to RENTAL_ORDER Cardinality",
+              "fill": "#344054",
+              "content": "RECOMMENDATION 1 : 0..N RENTAL_ORDER · order source 0..1",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "hqNbp",
+              "x": 2168,
+              "y": 2848,
+              "name": "VARIANT to RECOMMENDATION_ITEM",
+              "geometry": "M672 12l-660 0m10 0l-10-8m10 8l-10 8",
+              "viewBox": [
+                0,
+                0,
+                684,
+                24
+              ],
+              "fill": "#00000000",
+              "width": 684,
+              "height": 24,
+              "stroke": "#B54708",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "LCAwM",
+              "x": 2305,
+              "y": 2837,
+              "name": "VARIANT to RECOMMENDATION_ITEM Cardinality",
+              "fill": "#B54708",
+              "content": "PRODUCT_VARIANT 1 : 0..N RECOMMENDATION_ITEM · source 0..1",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "vv0OK",
+              "x": 3088,
+              "y": 3028,
+              "name": "VARIANT to RENTAL_ITEM",
+              "geometry": "M12 12l0 900m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                24,
+                924
+              ],
+              "fill": "#00000000",
+              "width": 24,
+              "height": 924,
+              "stroke": "#B54708",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "e2N4aq",
+              "x": 3120,
+              "y": 3470,
+              "name": "VARIANT to RENTAL_ITEM Cardinality",
+              "fill": "#B54708",
+              "content": "PRODUCT_VARIANT 1 : 0..N RENTAL_ITEM",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            },
+            {
+              "type": "path",
+              "id": "K76Z8",
+              "x": 5138,
+              "y": 1638,
+              "name": "CONTRACT to SETTLEMENT",
+              "geometry": "M292 12l150 0 0 2090-430 0 0 200m0-10l-8 10m8-10l8 10",
+              "viewBox": [
+                0,
+                0,
+                454,
+                2314
+              ],
+              "fill": "#00000000",
+              "width": 454,
+              "height": 2314,
+              "stroke": "#344054",
+              "strokeWidth": 1.5,
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round"
+            },
+            {
+              "type": "text",
+              "id": "PSS8r",
+              "x": 5170,
+              "y": 3717,
+              "name": "CONTRACT to SETTLEMENT Cardinality",
+              "fill": "#344054",
+              "content": "BUSINESS_CONTRACT 1 : 0..N BUSINESS_SETTLEMENT",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "erd-bg": {
+      "type": "color",
+      "value": "#07111F"
+    },
+    "erd-card": {
+      "type": "color",
+      "value": "#111E2E"
+    },
+    "erd-border": {
+      "type": "color",
+      "value": "#2A3D55"
+    },
+    "erd-text": {
+      "type": "color",
+      "value": "#E8F0F8"
+    },
+    "erd-muted": {
+      "type": "color",
+      "value": "#91A4B8"
+    },
+    "erd-cyan": {
+      "type": "color",
+      "value": "#55D6E8"
+    },
+    "erd-green": {
+      "type": "color",
+      "value": "#76E6A7"
+    },
+    "erd-amber": {
+      "type": "color",
+      "value": "#FFCC66"
+    },
+    "erd-violet": {
+      "type": "color",
+      "value": "#B69CFF"
+    },
+    "erd-red": {
+      "type": "color",
+      "value": "#FF7D8D"
+    },
+    "bg": {
+      "type": "color",
+      "value": "#F7F9FC"
+    },
+    "paper": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#172033"
+    },
+    "muted": {
+      "type": "color",
+      "value": "#667085"
+    },
+    "line": {
+      "type": "color",
+      "value": "#344054"
+    },
+    "border": {
+      "type": "color",
+      "value": "#98A2B3"
+    },
+    "pk": {
+      "type": "color",
+      "value": "#175CD3"
+    },
+    "fk": {
+      "type": "color",
+      "value": "#7A5AF8"
+    },
+    "uk": {
+      "type": "color",
+      "value": "#B54708"
+    }
+  },
+  "fileToken": "2ccdefda-d308-49e8-9e40-0e950308e780"
+}
