@@ -14,7 +14,7 @@ public class RentalOrder {
     @ManyToOne(fetch = FetchType.EAGER, optional = false) private ProductVariant variant;
     private int quantity;
     private LocalDate startDate;
-    private LocalDate dueDate;
+    private LocalDate endDate;
     private String shippingAddress;
     private BigDecimal rentalAmount;
     private BigDecimal insuranceAmount;
@@ -23,9 +23,9 @@ public class RentalOrder {
     @Enumerated(EnumType.STRING) private Status status;
     private Instant createdAt;
     protected RentalOrder() {}
-    public RentalOrder(Long customerId, ProductVariant variant, int quantity, LocalDate startDate, String address, boolean insurance) {
+    public RentalOrder(Long customerId, ProductVariant variant, int quantity, LocalDate startDate, LocalDate endDate, String address, boolean insurance) {
         this.customerId = customerId; this.variant = variant; this.quantity = quantity; this.startDate = startDate;
-        this.dueDate = startDate.plusDays(3); this.shippingAddress = address;
+        this.endDate = endDate; this.shippingAddress = address;
         this.rentalAmount = variant.getProduct().getRentalPrice().multiply(BigDecimal.valueOf(quantity));
         this.insuranceAmount = insurance ? BigDecimal.valueOf(2000).multiply(BigDecimal.valueOf(quantity)) : BigDecimal.ZERO;
         this.totalAmount = rentalAmount.add(insuranceAmount);
@@ -34,7 +34,7 @@ public class RentalOrder {
     }
     public Long getId() { return id; } public Long getCustomerId() { return customerId; }
     public ProductVariant getVariant() { return variant; } public int getQuantity() { return quantity; }
-    public LocalDate getStartDate() { return startDate; } public LocalDate getDueDate() { return dueDate; }
+    public LocalDate getStartDate() { return startDate; } public LocalDate getEndDate() { return endDate; }
     public String getShippingAddress() { return shippingAddress; } public BigDecimal getRentalAmount() { return rentalAmount; }
     public BigDecimal getInsuranceAmount() { return insuranceAmount; } public BigDecimal getTotalAmount() { return totalAmount; }
     public BigDecimal getPartnerSettlementAmount() { return partnerSettlementAmount; } public Status getStatus() { return status; }

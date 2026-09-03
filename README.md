@@ -71,7 +71,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **주 액터**: 일반 사용자 (Customer) / **보조 액터**: 플랫폼 관리자
     - **기본 흐름 (Main Flow)**:
         1. 사용자가 추천 카드에서 `[단건 대여 신청]` 버튼을 클릭한다.
-        2. 대여 기간(3박 4일: 수령일 ~ 자동 반납일)과 결제 금액(28,000원) 모달이 팝업된다.
+        2. 선택한 대여 시작일·종료일과 결제 금액이 모달에 표시된다.
         3. 배송지 주소를 입력하고 단건 결제를 승인한다.
         4. 시스템이 주문을 DB에 저장하고 대여 접수 완료 토스트를 노출한다.
     
@@ -271,7 +271,7 @@ npm run dev
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
 | POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
-| POST | `/api/rentals` | 3박 4일 단건·단체 대여 및 재고 차감 |
+| POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |

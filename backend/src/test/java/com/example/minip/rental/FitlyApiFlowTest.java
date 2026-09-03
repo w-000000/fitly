@@ -39,9 +39,9 @@ class FitlyApiFlowTest {
         JsonNode rental = body(mvc.perform(post("/api/rentals")
                 .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "7")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"variantId\":" + variantId + ",\"quantity\":2,\"startDate\":\"2026-09-10\",\"shippingAddress\":\"서울시\",\"insurance\":true}"))
+                .content("{\"variantId\":" + variantId + ",\"quantity\":2,\"startDate\":\"2026-09-10\",\"endDate\":\"2026-09-17\",\"shippingAddress\":\"서울시\",\"insurance\":true}"))
             .andExpect(status().isCreated())
-            .andExpect(jsonPath("$.dueDate").value("2026-09-13"))
+            .andExpect(jsonPath("$.endDate").value("2026-09-17"))
             .andExpect(jsonPath("$.totalAmount").value(54000))
             .andReturn().getResponse().getContentAsString());
         long rentalId = rental.path("id").asLong();
@@ -71,6 +71,16 @@ class FitlyApiFlowTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"partnerId\":1,\"name\":\"상품\",\"category\":\"TOP\",\"retailPrice\":10000,\"rentalPrice\":2500}"))
             .andExpect(status().isForbidden());
+    }
+
+    @Test
+    void rejectsRentalEndDateBeforeStartDate() throws Exception {
+        mvc.perform(post("/api/rentals")
+                .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "7")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"variantId\":1,\"quantity\":1,\"startDate\":\"2026-09-10\",\"endDate\":\"2026-09-09\",\"shippingAddress\":\"서울시\",\"insurance\":false}"))
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.message").value("대여 종료일은 시작일과 같거나 이후여야 합니다."));
     }
 
     private JsonNode body(String value) throws Exception { return json.readTree(value); }
