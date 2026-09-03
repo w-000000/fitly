@@ -19,4 +19,11 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: maven
-      - run: ./mvnw --batch-mode test
+      - run: ./mvnw --batch-mode verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-test-reports
+          path: backend/target/surefire-reports/
+          if-no-files-found: ignore
+          retention-days: 7

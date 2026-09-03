@@ -1,146 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" role="img" aria-labelledby="title desc">
-  <title id="title">FITLY 개발 아키텍처</title>
-  <desc id="desc">Vue 프론트엔드, Spring Boot 백엔드, Supabase 데이터베이스와 스토리지, AI Provider, GitHub CI와 Render CD 관계도</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f8fafc"/>
-      <stop offset="1" stop-color="#eef2ff"/>
-    </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10"/>
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#24364b" flood-opacity=".12"/>
     </filter>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 Z" fill="#475569"/>
-    </marker>
-    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 Z" fill="#6d5ce7"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#3d4854"/>
     </marker>
     <style>
-      .title { font: 700 40px Arial, "Noto Sans KR", sans-serif; fill: #0f172a; }
-      .subtitle { font: 400 19px Arial, "Noto Sans KR", sans-serif; fill: #64748b; }
-      .group { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 24; filter: url(#shadow); }
-      .group-label { font: 700 17px Arial, "Noto Sans KR", sans-serif; fill: #475569; letter-spacing: 1px; }
-      .node { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; rx: 16; }
-      .node-purple { fill: #f3f0ff; stroke: #6d5ce7; stroke-width: 2.5; rx: 16; }
-      .node-green { fill: #ecfdf5; stroke: #10b981; stroke-width: 2.5; rx: 16; }
-      .node-orange { fill: #fff7ed; stroke: #f97316; stroke-width: 2.5; rx: 16; }
-      .node-blue { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2.5; rx: 16; }
-      .node-title { font: 700 22px Arial, "Noto Sans KR", sans-serif; fill: #0f172a; text-anchor: middle; }
-      .node-text { font: 400 16px Arial, "Noto Sans KR", sans-serif; fill: #475569; text-anchor: middle; }
-      .label { font: 600 15px Arial, "Noto Sans KR", sans-serif; fill: #475569; text-anchor: middle; }
-      .flow { fill: none; stroke: #475569; stroke-width: 3; marker-end: url(#arrow); }
-      .flow-purple { fill: none; stroke: #6d5ce7; stroke-width: 3; marker-end: url(#arrowPurple); }
-      .flow-dash { fill: none; stroke: #64748b; stroke-width: 3; stroke-dasharray: 10 8; marker-end: url(#arrow); }
-      .small { font: 400 14px Arial, "Noto Sans KR", sans-serif; fill: #64748b; text-anchor: middle; }
+      .title{font:700 30px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#23364d}
+      .head{font:700 20px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#23364d}
+      .label{font:600 16px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#293b50}
+      .small{font:400 13px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#5c6875}
+      .tiny{font:500 11px -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;fill:#66717d}
+      .line{fill:none;stroke:#3d4854;stroke-width:2;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#718096;stroke-width:2;stroke-dasharray:7 6;marker-end:url(#arrow)}
+      .box{stroke-width:1.6;filter:url(#shadow)}
     </style>
   </defs>
 
-  <rect width="1600" height="1000" fill="url(#bg)"/>
-  <text x="80" y="80" class="title">FITLY Development Architecture</text>
-  <text x="80" y="116" class="subtitle">AI 코디 추천부터 단건 의류 대여까지 - 기능 중심 모듈과 교체 가능한 AI 구조</text>
+  <rect x="1" y="1" width="1198" height="868" rx="34" fill="#fff" stroke="#e3e6ea" stroke-width="2"/>
+  <text x="46" y="60" class="title">FITLY 개발 아키텍처</text>
+  <text x="46" y="88" class="small">Vue 3 · Spring Boot 3 · Supabase · Docker · Render</text>
 
-  <!-- Actors -->
-  <rect x="70" y="205" width="220" height="500" class="group"/>
-  <text x="100" y="245" class="group-label">CLIENT</text>
-  <circle cx="180" cy="345" r="58" fill="#ede9fe" stroke="#6d5ce7" stroke-width="2.5"/>
-  <circle cx="180" cy="326" r="16" fill="#6d5ce7"/>
-  <path d="M145 376 Q180 345 215 376" fill="none" stroke="#6d5ce7" stroke-width="12" stroke-linecap="round"/>
-  <text x="180" y="430" class="node-title">사용자</text>
-  <text x="180" y="458" class="node-text">코디 추천 · 의류 대여</text>
-  <circle cx="180" cy="560" r="50" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2.5"/>
-  <path d="M155 560 h50 M180 535 v50" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
-  <text x="180" y="640" class="node-title">관리자</text>
-  <text x="180" y="668" class="node-text">상품 · 재고 · 주문 관리</text>
+  <!-- Developer and source -->
+  <circle cx="600" cy="55" r="19" fill="#e8f1fa" stroke="#407cad" stroke-width="2"/>
+  <circle cx="600" cy="49" r="6" fill="#407cad"/>
+  <path d="M589 67q11-12 22 0" fill="none" stroke="#407cad" stroke-width="4" stroke-linecap="round"/>
+  <text x="638" y="52" class="label">개발자</text>
+  <text x="638" y="70" class="tiny">git push / Pull Request</text>
+  <path d="M600 78V106" class="line"/>
 
-  <!-- Render -->
-  <rect x="375" y="160" width="650" height="665" class="group"/>
-  <text x="405" y="202" class="group-label">RENDER · DOCKER WEB SERVICE</text>
+  <circle cx="600" cy="132" r="24" fill="#20262e"/>
+  <circle cx="600" cy="130" r="12" fill="#fff"/>
+  <path d="M591 137q9 7 18 0" fill="none" stroke="#fff" stroke-width="5"/>
+  <text x="634" y="138" class="head">GitHub</text>
+  <path d="M600 158V185" class="line"/>
 
-  <rect x="435" y="245" width="530" height="120" class="node-purple"/>
-  <text x="700" y="290" class="node-title">Vue 3 + Vite</text>
-  <text x="700" y="320" class="node-text">TPO 입력 · 이미지 미리보기 · 추천 결과 · 대여 UI</text>
-  <text x="700" y="345" class="small">기능별 features / pages / shared 구조</text>
+  <!-- CI -->
+  <rect x="405" y="188" width="390" height="112" rx="16" fill="#f7f8fa" stroke="#c7ccd3" class="box"/>
+  <circle cx="448" cy="231" r="22" fill="#e9f2ff" stroke="#5a99e5" stroke-width="2"/>
+  <path d="M437 231h22M448 220v22" stroke="#5a99e5" stroke-width="3"/>
+  <text x="480" y="222" class="head">GitHub Actions</text>
+  <text x="480" y="247" class="small">Frontend: lint · unit · audit · build</text>
+  <text x="480" y="270" class="small">Backend: test · style · browser · CodeQL</text>
+  <rect x="674" y="208" width="98" height="70" rx="10" fill="#eef4ff" stroke="#8fb0df"/>
+  <text x="723" y="231" text-anchor="middle" class="label" style="fill:#386da8">Ruleset</text>
+  <text x="723" y="251" text-anchor="middle" class="tiny">PR 필수</text>
+  <text x="723" y="267" text-anchor="middle" class="tiny">build · test · 추가 검사</text>
+  <text x="612" y="320" class="tiny">CI 성공 시 자동 배포</text>
+  <path d="M600 301V337" class="line"/>
 
-  <path d="M700 365 L700 415" class="flow-purple"/>
-  <text x="790" y="398" class="label">REST API · JSON</text>
+  <!-- CD platform -->
+  <path d="M560 365q9-28 35-19 16-24 40-3 26-5 30 20 21 2 21 19H548q0-15 12-17z" fill="#eef0f4" stroke="#626d7b" stroke-width="2"/>
+  <text x="617" y="380" text-anchor="middle" class="head">Render</text>
+  <text x="617" y="404" text-anchor="middle" class="tiny">CD · Blueprint · Health Check</text>
+  <path d="M617 414V454" class="line"/>
+  <text x="535" y="437" text-anchor="end" class="tiny">Dockerfile build</text>
+  <text x="710" y="410" class="tiny">Render Dashboard Secrets</text>
+  <text x="710" y="426" class="tiny">SUPABASE_DB_URL</text>
+  <text x="710" y="442" class="tiny">SUPABASE_DB_USERNAME</text>
+  <text x="710" y="458" class="tiny">SUPABASE_DB_PASSWORD</text>
 
-  <rect x="435" y="425" width="530" height="320" class="node-blue"/>
-  <text x="700" y="470" class="node-title">Spring Boot API</text>
-  <text x="700" y="500" class="node-text">기능 중심 패키지 + 기능 내부 계층 분리</text>
+  <!-- Browsers -->
+  <circle cx="68" cy="591" r="21" fill="#e64b3c"/><circle cx="68" cy="591" r="13" fill="#f4c344"/><circle cx="68" cy="591" r="7" fill="#4b8be4"/>
+  <circle cx="68" cy="642" r="21" fill="#3585d3"/><path d="M57 648q15-31 27-3-12 14-27 3z" fill="#52b876"/>
+  <circle cx="68" cy="693" r="21" fill="#6b52a6"/><path d="M53 690q18-18 31 3-14 20-31-3z" fill="#35a7b8"/>
+  <text x="39" y="738" class="tiny">Web Browser</text>
 
-  <rect x="470" y="535" width="215" height="70" class="node"/>
-  <text x="577" y="565" class="node-title">Wardrobe</text>
-  <text x="577" y="589" class="small">보유 의류 · 이미지</text>
-  <rect x="715" y="535" width="215" height="70" class="node"/>
-  <text x="822" y="565" class="node-title">Recommendation</text>
-  <text x="822" y="589" class="small">비동기 AI 추천 Job</text>
-  <rect x="470" y="630" width="215" height="70" class="node"/>
-  <text x="577" y="660" class="node-title">Catalog</text>
-  <text x="577" y="684" class="small">상품 · 가격 · 재고</text>
-  <rect x="715" y="630" width="215" height="70" class="node"/>
-  <text x="822" y="660" class="node-title">Rental</text>
-  <text x="822" y="684" class="small">대여 주문 · 반납</text>
-  <text x="700" y="730" class="small">OpenAPI / Swagger UI · Validation · Exception · Actuator</text>
+  <!-- Frontend -->
+  <rect x="120" y="520" width="250" height="210" rx="28" fill="#effbf4" stroke="#9fd9b7" class="box"/>
+  <path d="M143 563l25 42 25-42h-14l-11 20-11-20z" fill="#42b883"/>
+  <text x="260" y="580" text-anchor="middle" class="head" style="fill:#27865b">Vue 3 + Vite</text>
+  <text x="245" y="621" text-anchor="middle" class="label">SPA Frontend</text>
+  <text x="245" y="652" text-anchor="middle" class="small">Vue Router · Views · Components</text>
+  <text x="245" y="680" text-anchor="middle" class="small">fetch('/api/...')</text>
+  <text x="245" y="706" text-anchor="middle" class="tiny">개발: localhost:5173</text>
+  <path d="M90 625H120" class="line"/>
 
-  <!-- External services -->
-  <rect x="1110" y="205" width="420" height="500" class="group"/>
-  <text x="1140" y="245" class="group-label">MANAGED SERVICES</text>
+  <!-- Runtime -->
+  <rect x="430" y="468" width="390" height="318" rx="32" fill="#fff2d9" stroke="#e7ba71" class="box"/>
+  <text x="625" y="505" text-anchor="middle" class="small">Render Web Service</text>
+  <rect x="462" y="520" width="326" height="230" rx="28" fill="#fff9e9" stroke="#e9ca8f"/>
 
-  <rect x="1170" y="285" width="300" height="110" class="node-green"/>
-  <text x="1320" y="330" class="node-title">Supabase PostgreSQL</text>
-  <text x="1320" y="360" class="node-text">사용자 · 추천 · 상품 · 재고 · 주문</text>
+  <g transform="translate(488 545)">
+    <rect width="52" height="38" rx="6" fill="#4b98bd"/>
+    <rect x="8" y="-12" width="14" height="12" fill="#4b98bd"/><rect x="26" y="-12" width="14" height="12" fill="#4b98bd"/>
+    <path d="M0 30q26 22 58 0-14 3-20-5H0z" fill="#327c9e"/>
+  </g>
+  <text x="548" y="572" class="label" style="fill:#347c9b">Docker Image</text>
+  <text x="713" y="572" class="head" style="fill:#58a632">Spring Boot</text>
+  <circle cx="687" cy="565" r="21" fill="#78bd4c"/>
+  <path d="M687 551v14M679 557a11 11 0 1 0 16 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
 
-  <rect x="1170" y="430" width="300" height="100" class="node-green"/>
-  <text x="1320" y="472" class="node-title">Supabase Storage</text>
-  <text x="1320" y="502" class="node-text">보유 의류 · 상품 이미지</text>
+  <line x1="490" y1="601" x2="760" y2="601" stroke="#e3c88f"/>
+  <text x="625" y="626" text-anchor="middle" class="label">실행 Container: Vue 정적 파일 + REST API</text>
+  <text x="625" y="654" text-anchor="middle" class="small">인증 · 옷장 · 상품/재고 · 추천/저장</text>
+  <text x="625" y="678" text-anchor="middle" class="small">단건/단체 대여 · 정산 · 대시보드/검수</text>
+  <text x="625" y="711" text-anchor="middle" class="tiny">Controller → Service(확장) → Repository → JPA</text>
+  <text x="625" y="737" text-anchor="middle" class="tiny">Java 21 · port 8080 · /actuator/health</text>
 
-  <rect x="1170" y="565" width="300" height="100" class="node-orange"/>
-  <text x="1320" y="607" class="node-title">AI Provider</text>
-  <text x="1320" y="637" class="node-text">Mock → Vision / LLM API</text>
+  <path d="M370 625H430" class="line"/>
+  <text x="400" y="611" text-anchor="middle" class="tiny">HTTPS</text>
+  <text x="400" y="644" text-anchor="middle" class="tiny">REST/JSON</text>
 
-  <!-- Runtime flows -->
-  <path d="M290 455 C330 455 335 305 435 305" class="flow"/>
-  <text x="355" y="350" class="label">HTTPS</text>
-  <path d="M965 550 C1050 550 1080 340 1170 340" class="flow"/>
-  <text x="1070" y="398" class="label">JPA/JDBC</text>
-  <path d="M965 585 C1070 585 1080 480 1170 480" class="flow"/>
-  <text x="1065" y="530" class="label">파일 API</text>
-  <path d="M965 620 C1050 620 1080 615 1170 615" class="flow-dash"/>
-  <text x="1065" y="600" class="label">AiProvider</text>
+  <!-- Databases -->
+  <rect x="895" y="512" width="255" height="165" rx="28" fill="#eef4ff" stroke="#9cb8e5" class="box"/>
+  <ellipse cx="953" cy="554" rx="24" ry="11" fill="#3980b7"/>
+  <path d="M929 554v43c0 14 48 14 48 0v-43M929 575c0 14 48 14 48 0" fill="#5ba5ce" stroke="#3379aa" stroke-width="2"/>
+  <text x="1015" y="558" class="head" style="fill:#246c9d">Supabase</text>
+  <text x="1015" y="585" class="label">PostgreSQL</text>
+  <text x="1022" y="622" text-anchor="middle" class="small">사용자 · 상품 · 추천 · 주문</text>
+  <text x="1022" y="647" text-anchor="middle" class="tiny">supabase 프로필 / 운영 DB</text>
+  <path d="M820 601H895" class="line"/>
+  <text x="857" y="587" text-anchor="middle" class="tiny">JDBC</text>
 
-  <!-- Core service flow -->
-  <rect x="70" y="885" width="1460" height="345" class="group"/>
-  <text x="105" y="930" class="group-label">CORE SERVICE FLOW · ASYNCHRONOUS RECOMMENDATION</text>
-  <rect x="115" y="985" width="220" height="120" class="node-purple"/>
-  <text x="225" y="1030" class="node-title">1. 조건 입력</text>
-  <text x="225" y="1060" class="node-text">TPO · 스타일 · 사진</text>
-  <path d="M335 1045 L440 1045" class="flow-purple"/>
-  <rect x="440" y="985" width="220" height="120" class="node-blue"/>
-  <text x="550" y="1030" class="node-title">2. Job 생성</text>
-  <text x="550" y="1060" class="node-text">202 · PENDING</text>
-  <path d="M660 1045 L765 1045" class="flow-purple"/>
-  <rect x="765" y="985" width="220" height="120" class="node-orange"/>
-  <text x="875" y="1030" class="node-title">3. AI 분석</text>
-  <text x="875" y="1060" class="node-text">Mock → Vision / LLM</text>
-  <path d="M985 1045 L1090 1045" class="flow-purple"/>
-  <rect x="1090" y="985" width="220" height="120" class="node-green"/>
-  <text x="1200" y="1030" class="node-title">4. 결과 저장</text>
-  <text x="1200" y="1060" class="node-text">COMPLETED · 추천 DTO</text>
-  <path d="M1310 1045 L1415 1045" class="flow-purple"/>
-  <rect x="1330" y="985" width="150" height="120" class="node"/>
-  <text x="1405" y="1030" class="node-title">5. 대여</text>
-  <text x="1405" y="1060" class="small">주문 · 재고 차감</text>
-  <text x="800" y="1165" class="node-text">Frontend는 jobId로 상태를 Polling하며 AI Provider의 종류를 알지 못한다.</text>
+  <rect x="920" y="720" width="205" height="105" rx="22" fill="#f6f8fb" stroke="#b6c4d8" class="box"/>
+  <ellipse cx="963" cy="757" rx="20" ry="9" fill="#6b8ec1"/>
+  <path d="M943 757v30c0 11 40 11 40 0v-30M943 772c0 11 40 11 40 0" fill="#91add3" stroke="#6487b7"/>
+  <text x="1016" y="766" class="head">H2</text>
+  <text x="1022" y="797" text-anchor="middle" class="small">로컬 개발 · 테스트</text>
+  <path d="M788 735Q860 790 920 777" class="dash"/>
+  <text x="857" y="767" text-anchor="middle" class="tiny">local profile</text>
 
-  <!-- Delivery -->
-  <rect x="70" y="1320" width="1460" height="165" class="group"/>
-  <text x="105" y="1360" class="group-label">DELIVERY PIPELINE</text>
-  <text x="320" y="1425" class="node-title">GitHub main</text>
-  <path d="M440 1415 L650 1415" class="flow"/>
-  <text x="545" y="1395" class="small">push / Pull Request</text>
-  <text x="790" y="1425" class="node-title">Actions CI</text>
-  <path d="M900 1415 L1110 1415" class="flow"/>
-  <text x="1005" y="1395" class="small">checks pass</text>
-  <text x="1300" y="1425" class="node-title">Render Auto-Deploy</text>
-
+  <text x="600" y="836" text-anchor="middle" class="small">운영: Vue와 API를 하나의 Docker 이미지로 통합 · 데이터는 외부 Supabase PostgreSQL에 보존</text>
 </svg>
