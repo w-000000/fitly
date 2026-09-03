@@ -3,6 +3,7 @@ package com.example.minip.recommendation;
 import com.example.minip.catalog.Product;
 import com.example.minip.catalog.ProductRepository;
 import java.time.temporal.ChronoUnit;
+import java.math.BigDecimal;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,7 @@ public class RecommendationService {
         validate(request);
         int rentalDays = (int) ChronoUnit.DAYS.between(request.rentalStartDate(), request.rentalEndDate()) + 1;
         var matches = products.findByPurposeAndRentalPriceLessThanEqualAndStockGreaterThanOrderByRentalPriceAsc(
-            request.purpose(), request.budget(), 0
+            request.purpose(), BigDecimal.valueOf(request.budget()), 0
         );
         var results = matches.stream().map(this::toResult).toList();
         String message = request.purpose() == RentalPurpose.PERSONAL
@@ -48,7 +49,7 @@ public class RecommendationService {
 
     private RecommendationResponse.ProductResult toResult(Product product) {
         return new RecommendationResponse.ProductResult(product.getId(), product.getCategory(), product.getName(),
-            product.getDescription(), product.getRentalPrice(), product.getPurchasePrice(),
+            product.getDescription(), product.getRentalPrice().intValue(), product.getPurchasePrice(),
             product.getRecommendationReason(), product.getStock());
     }
 
