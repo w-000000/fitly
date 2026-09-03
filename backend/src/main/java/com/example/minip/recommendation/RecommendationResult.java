@@ -40,9 +40,14 @@ public class RecommendationResult {
     }
 
     public RecommendationResult(RecommendationJob request, String stylingComment) {
+        this(request, 1, BigDecimal.ONE, stylingComment);
+    }
+
+    public RecommendationResult(RecommendationJob request, int rank,
+                                BigDecimal matchingScore, String stylingComment) {
         this.request = request;
-        this.rank = 1;
-        this.matchingScore = BigDecimal.ONE;
+        this.rank = rank;
+        this.matchingScore = matchingScore;
         this.stylingComment = stylingComment;
         this.createdAt = Instant.now();
     }
@@ -57,5 +62,13 @@ public class RecommendationResult {
 
     public String getStylingComment() {
         return stylingComment;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public BigDecimal getMatchingScore() {
+        return matchingScore;
     }
 }

@@ -101,8 +101,24 @@ public class WardrobeItem {
         };
     }
 
+    public String getCanonicalCategory() {
+        return category;
+    }
+
     public String getColor() {
         return color;
+    }
+
+    public String getAiDetectedCategory() {
+        return aiDetectedCategory;
+    }
+
+    public String getAiDetectedColor() {
+        return aiDetectedColor;
+    }
+
+    public String getStoredImageUrl() {
+        return imageUrl;
     }
 
     public String getSeason() {

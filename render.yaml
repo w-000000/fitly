@@ -25,3 +25,11 @@ services:
         value: "5"
       - key: DB_MIN_IDLE
         value: "1"
+      - key: FITLY_AI_PROVIDER
+        value: mock
+      - key: FITLY_AI_MODEL
+        value: gpt-4o-mini
+      - key: FITLY_AI_TEMPERATURE
+        value: "0.2"
+      - key: OPENAI_API_KEY
+        sync: false

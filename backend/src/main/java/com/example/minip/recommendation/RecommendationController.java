@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/recommendations")
 public class RecommendationController {
     private final RecommendationService service;
+    private final RuleRecommendationService ruleService;
     private final RecommendationRepository recommendations;
     private final ProductRepository products;
     private final RoleGuard roles;
@@ -25,15 +26,26 @@ public class RecommendationController {
     private final StyleRepository styles;
     private final RecommendationResultRepository results;
     private final ReferenceDataService references;
-    public RecommendationController(RecommendationService service, RecommendationRepository recommendations,
-                                    ProductRepository products, RoleGuard roles, SavedOutfitRepository savedOutfits,
-                                    StyleRepository styles, RecommendationResultRepository results,
-                                    ReferenceDataService references) {
-        this.service = service; this.recommendations = recommendations; this.products = products; this.roles = roles;
+    public RecommendationController(RecommendationService service, RuleRecommendationService ruleService,
+                                    RecommendationRepository recommendations, ProductRepository products,
+                                    RoleGuard roles, SavedOutfitRepository savedOutfits, StyleRepository styles,
+                                    RecommendationResultRepository results, ReferenceDataService references) {
+        this.service = service; this.ruleService = ruleService; this.recommendations = recommendations;
+        this.products = products; this.roles = roles;
         this.savedOutfits = savedOutfits; this.styles = styles; this.results = results; this.references = references;
     }
     @PostMapping
-    public RecommendationResponse recommend(@Valid @RequestBody RecommendationRequest request) { return service.recommend(request); }
+    @ResponseStatus(HttpStatus.CREATED)
+    public CustomerRecommendationResponse recommend(@RequestHeader("X-Actor-Role") String role,
+                                                      @RequestHeader("X-User-Id") Long userId,
+                                                      @Valid @RequestBody CustomerRecommendationRequest request) {
+        roles.require(role, ActorRole.ROLE_CUSTOMER);
+        return service.recommend(userId, request);
+    }
+    @PostMapping("/rules")
+    public RecommendationResponse recommendByRules(@Valid @RequestBody RecommendationRequest request) {
+        return ruleService.recommend(request);
+    }
     @PostMapping("/jobs") @ResponseStatus(HttpStatus.CREATED)
     @Transactional
     public Result createJob(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId,
@@ -46,6 +58,7 @@ public class RecommendationController {
             request.wardrobeDescription(), request.wardrobeImageUrl()));
         String comment = request.tpo() + " 상황에 맞춰 " + styleName + " 무드의 균형 잡힌 조합을 추천합니다.";
         results.save(new RecommendationResult(saved, comment));
+        saved.complete();
         saved.setStylingComment(comment);
         return result(saved);
     }

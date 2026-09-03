@@ -23,7 +23,7 @@ class RecommendationControllerTest {
     void recommendsPersonalProductsWithinBudget() throws Exception {
         String start = LocalDate.now().plusDays(1).toString();
         String end = LocalDate.now().plusDays(3).toString();
-        mvc.perform(post("/api/recommendations").contentType(MediaType.APPLICATION_JSON).content("""
+        mvc.perform(post("/api/recommendations/rules").contentType(MediaType.APPLICATION_JSON).content("""
             {"purpose":"PERSONAL","personalSituation":"INTERVIEW","size":"M","budget":30000,
              "rentalStartDate":"%s","rentalEndDate":"%s"}
             """.formatted(start, end)))
@@ -37,7 +37,7 @@ class RecommendationControllerTest {
     @Test
     void rejectsEventForFewerThanTwoPeople() throws Exception {
         String date = LocalDate.now().plusDays(1).toString();
-        mvc.perform(post("/api/recommendations").contentType(MediaType.APPLICATION_JSON).content("""
+        mvc.perform(post("/api/recommendations/rules").contentType(MediaType.APPLICATION_JSON).content("""
             {"purpose":"EVENT","groupSizes":{"M":1},"budget":50000,
              "rentalStartDate":"%s","rentalEndDate":"%s"}
             """.formatted(date, date)))
@@ -49,7 +49,7 @@ class RecommendationControllerTest {
     void rejectsEndDateBeforeStartDate() throws Exception {
         String start = LocalDate.now().plusDays(2).toString();
         String end = LocalDate.now().plusDays(1).toString();
-        mvc.perform(post("/api/recommendations").contentType(MediaType.APPLICATION_JSON).content("""
+        mvc.perform(post("/api/recommendations/rules").contentType(MediaType.APPLICATION_JSON).content("""
             {"purpose":"PERSONAL","personalSituation":"WORK","size":"L","budget":50000,
              "rentalStartDate":"%s","rentalEndDate":"%s"}
             """.formatted(start, end)))

@@ -1,10 +1,12 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import RecommendView from '../views/RecommendView.vue'
-import { createRecommendation } from '../api'
+import { createRecommendation, createRuleRecommendation, uploadWardrobeItem } from '../api'
 
 vi.mock('../api', () => ({
   createRecommendation: vi.fn(),
+  createRuleRecommendation: vi.fn(),
+  uploadWardrobeItem: vi.fn(),
 }))
 
 const setValidDates = async (wrapper) => {
@@ -16,6 +18,8 @@ const setValidDates = async (wrapper) => {
 describe('RecommendView', () => {
   beforeEach(() => {
     vi.mocked(createRecommendation).mockReset()
+    vi.mocked(createRuleRecommendation).mockReset()
+    vi.mocked(uploadWardrobeItem).mockReset()
   })
 
   it('대여 날짜가 없으면 API를 호출하지 않고 오류를 표시한다', async () => {
@@ -41,7 +45,7 @@ describe('RecommendView', () => {
 
   it('단체 대여 인원이 2명 미만이면 요청을 거절한다', async () => {
     const wrapper = mount(RecommendView)
-    await wrapper.findAll('.purpose-options button')[1].trigger('click')
+    await wrapper.findAll('.purpose-switch button')[1].trigger('click')
     await setValidDates(wrapper)
 
     await wrapper.get('form').trigger('submit')
@@ -51,32 +55,51 @@ describe('RecommendView', () => {
   })
 
   it('API 추천 응답을 상품 카드에 표시한다', async () => {
+    vi.mocked(uploadWardrobeItem).mockResolvedValue({ id: 101, name: 'Black Slacks' })
     vi.mocked(createRecommendation).mockResolvedValue({
-      message: '면접에 어울리는 상품입니다.',
-      products: [{
-        id: 1,
-        category: 'SUIT',
-        name: '클래식 수트',
-        description: '단정한 면접용 수트',
-        reason: '포멀한 상황에 적합합니다.',
-        rentalPrice: 24000,
-        purchasePrice: 180000,
+      requestId: 1001,
+      status: 'COMPLETED',
+      recommendations: [{
+        recommendationId: 2001,
+        rank: 1,
+        outfitTitle: '면접용 네이비 블레이저 코디',
+        matchScore: 85,
+        stylingComment: '블랙 슬랙스와 조화롭습니다.',
+        wardrobeItems: [{ wardrobeItemId: 101, itemName: 'Black Slacks', cost: 0 }],
+        rentalItems: [{
+          productId: 501,
+          productVariantId: 1001,
+          productName: 'Navy Single Blazer',
+          brandName: 'FITLY',
+          size: 'M',
+          rentalPrice: 25000,
+        }],
+        totalRentalPrice: 25000,
       }],
     })
     const wrapper = mount(RecommendView)
     await setValidDates(wrapper)
+    const image = new globalThis.File(
+      [new Uint8Array([1, 2, 3])], 'slacks.jpg', { type: 'image/jpeg' },
+    )
+    const fileInput = wrapper.get('input[type="file"]')
+    Object.defineProperty(fileInput.element, 'files', { value: [image] })
+    await fileInput.trigger('change')
 
     await wrapper.get('form').trigger('submit')
     await flushPromises()
 
+    expect(uploadWardrobeItem).toHaveBeenCalledOnce()
     expect(createRecommendation).toHaveBeenCalledOnce()
     expect(createRecommendation).toHaveBeenCalledWith(expect.objectContaining({
-      purpose: 'PERSONAL',
-      rentalStartDate: '2030-01-10',
-      rentalEndDate: '2030-01-12',
+      tpo: 'INTERVIEW',
+      style: 'Formal',
+      size: 'M',
+      wardrobeItemIds: [101],
     }))
-    expect(wrapper.text()).toContain('면접에 어울리는 상품입니다.')
-    expect(wrapper.text()).toContain('클래식 수트')
-    expect(wrapper.text()).toContain('24,000원')
+    expect(wrapper.text()).toContain('85% MATCH')
+    expect(wrapper.text()).toContain('Black Slacks')
+    expect(wrapper.text()).toContain('Navy Single Blazer')
+    expect(wrapper.text()).toContain('25,000원')
   })
 })

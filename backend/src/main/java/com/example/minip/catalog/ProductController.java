@@ -23,9 +23,12 @@ public class ProductController {
     private final ProductVariantRepository variants;
     private final RoleGuard roles;
     private final ReferenceDataService references;
+    private final ProductDescriptionService descriptionService;
     public ProductController(ProductRepository products, ProductVariantRepository variants, RoleGuard roles,
-                             ReferenceDataService references) {
-        this.products = products; this.variants = variants; this.roles = roles; this.references = references;
+                             ReferenceDataService references,
+                             ProductDescriptionService descriptionService) {
+        this.products = products; this.variants = variants; this.roles = roles;
+        this.references = references; this.descriptionService = descriptionService;
     }
 
     @GetMapping
@@ -60,13 +63,14 @@ public class ProductController {
     }
 
     @PostMapping("/ai-description")
-    public AiDescription generateDescription(@RequestHeader("X-Actor-Role") String role,
-                                             @Valid @RequestBody AiDescriptionRequest request) {
-        roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        String brand = request.brand() == null || request.brand().isBlank() ? "브랜드" : request.brand();
-        String description = "%s의 %s 상품입니다. 깔끔한 디자인으로 다양한 상황에 활용하기 좋으며, 보유 의류와 자연스럽게 조합할 수 있습니다."
-            .formatted(brand, request.name());
-        return new AiDescription(description, true);
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProductDescriptionResponse generateDescription(
+        @RequestHeader("X-Actor-Role") String role,
+        @RequestHeader("X-User-Id") Long userId,
+        @Valid @RequestBody ProductDescriptionRequest request
+    ) {
+        roles.require(role, ActorRole.ROLE_PARTNER);
+        return descriptionService.generate(userId, request);
     }
 
     @PostMapping("/{productId}/variants")
@@ -104,9 +108,6 @@ public class ProductController {
     public record UpdateProductRequest(String name, String brand, String category, String description,
                                        @Positive BigDecimal retailPrice, @Positive BigDecimal rentalPrice,
                                        String imageUrl) {}
-    public record AiDescriptionRequest(@NotBlank String name, String brand, @NotBlank String category,
-                                       String imageUrl) {}
-    public record AiDescription(String description, boolean mock) {}
     public record ProductView(Product product, List<VariantView> variants) {}
     public record VariantView(Long id, String size, int availableStock) {
         static VariantView from(ProductVariant value) { return new VariantView(value.getId(), value.getSizeName(), value.getAvailableStock()); }

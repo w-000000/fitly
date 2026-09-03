@@ -77,6 +77,10 @@ public class ProductVariant {
         return availableStock;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public void adjustInventory(int delta) {
         if (totalStock + delta < 0 || availableStock + delta < 0) {
             throw new IllegalStateException("재고를 0개 미만으로 변경할 수 없습니다.");

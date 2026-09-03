@@ -55,4 +55,12 @@ public class BusinessMember {
     public Business getBusiness() {
         return business;
     }
+
+    public Long getUserId() {
+        return user.getId();
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

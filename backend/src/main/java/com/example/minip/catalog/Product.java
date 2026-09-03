@@ -152,6 +152,10 @@ public class Product {
         return imageUrl;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public Instant getCreatedAt() {
         return createdAt;
     }

@@ -10,6 +10,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findAllByBusinessIdOrderByCreatedAtDesc(Long businessId);
 
+    java.util.Optional<Product> findByIdAndBusinessId(Long id, Long businessId);
+
     @Query("""
         select p from Product p
         where p.rentalPriceAmount <= :budget and p.status = 'ACTIVE'

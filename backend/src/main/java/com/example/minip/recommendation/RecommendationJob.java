@@ -16,7 +16,10 @@ import java.time.Instant;
 @Table(name = "recommendation_request", schema = "public")
 public class RecommendationJob {
     public enum Status {
-        COMPLETED
+        PENDING,
+        PROCESSING,
+        COMPLETED,
+        FAILED
     }
 
     @Id
@@ -60,14 +63,18 @@ public class RecommendationJob {
 
     public RecommendationJob(Long userId, String tpo, Style style,
                              String wardrobeDescription, String wardrobeImageUrl) {
+        this(userId, tpo, style, null);
+        this.wardrobeDescription = wardrobeDescription;
+        this.wardrobeImageUrl = wardrobeImageUrl;
+    }
+
+    public RecommendationJob(Long userId, String tpo, Style style, String size) {
         this.userId = userId;
         this.tpo = tpo;
         this.style = style;
-        this.wardrobeDescription = wardrobeDescription;
-        this.wardrobeImageUrl = wardrobeImageUrl;
-        this.databaseStatus = "COMPLETED";
+        this.size = size;
+        this.databaseStatus = Status.PENDING.name();
         this.createdAt = Instant.now();
-        this.completedAt = createdAt;
     }
 
     public Long getId() {
@@ -95,7 +102,7 @@ public class RecommendationJob {
     }
 
     public Status getStatus() {
-        return Status.COMPLETED;
+        return Status.valueOf(databaseStatus);
     }
 
     public String getStylingComment() {
@@ -108,5 +115,19 @@ public class RecommendationJob {
 
     public void setStylingComment(String stylingComment) {
         this.stylingComment = stylingComment;
+    }
+
+    public void startProcessing() {
+        this.databaseStatus = Status.PROCESSING.name();
+    }
+
+    public void complete() {
+        this.databaseStatus = Status.COMPLETED.name();
+        this.completedAt = Instant.now();
+    }
+
+    public void fail() {
+        this.databaseStatus = Status.FAILED.name();
+        this.completedAt = null;
     }
 }
