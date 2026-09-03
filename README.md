@@ -268,6 +268,10 @@ npm run dev
 | --- | --- | --- |
 | POST | `/api/auth/signup` | 고객 회원가입 |
 | POST | `/api/auth/login` | 로그인 및 Bearer 세션 토큰 발급 |
+| POST | `/api/wardrobe/items` | 사진 파일과 옷 정보를 내 옷장에 등록 |
+| GET | `/api/wardrobe/items` | 내 옷장 목록 조회 |
+| GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
+| GET | `/api/wardrobe/items/{id}/image` | 등록한 옷 사진 조회 |
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
 | GET | `/api/products/{productId}` | 상품 상세 조회 |
 | GET | `/api/products/variants/{variantId}/availability` | 선택 기간·수량의 대여 가능 여부 확인 |
