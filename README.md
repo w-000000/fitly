@@ -22,13 +22,18 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
         원데이 작업복/실습복 등 1회성 착용을 위해 수십만 원을 지출하는 구조적 비효율.
 
 ## Actor
-### User
+
+### 고객 (`ROLE_CUSTOMER`)
 
 - 서비스를 이용하여 상황에 맞는 코디를 추천받고 의류를 대여하는 사용자
 
-### Admin
+### 제휴사 (`ROLE_PARTNER`)
 
-- 서비스에서 제공하는 의류와 대여 정보를 관리하는 관리자
+- 상품과 사이즈별 재고를 등록하고 대여 발생에 따른 정산 내역을 조회하는 공급사
+
+### 관리자 (`ROLE_ADMIN`)
+
+- 전체 주문과 반납을 모니터링하고 세탁·검수, 재고 복구 및 정산을 관리하는 운영자
 
 ## 주요 Use-Case
 
@@ -270,11 +275,11 @@ npm run dev
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
-| POST | `/api/laundry/inspections` | 파손 등급/세탁 완료 등록 및 재고 복구 |
+| POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
 | GET | `/api/rentals/partner/{partnerId}/settlements` | 공급사 85% 정산 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
 
-역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_LAUNDRY_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
+역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
 
 ## 다음 단계
 
