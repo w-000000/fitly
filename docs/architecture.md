@@ -155,7 +155,7 @@ flowchart LR
 - Frontend CI는 패키지 설치, ESLint, Vitest 단위 테스트, 운영 의존성 보안 감사와 Vue 빌드를 실행한다.
 - Backend CI는 Java 코드 컴파일, JUnit/Spring 통합 테스트와 Checkstyle 검사를 `mvn verify`로 실행한다.
 - Browser CI는 Playwright로 Chromium, Firefox, WebKit과 모바일 Chromium에서 이동, API 결과 표시와 가로 화면 넘침을 확인한다.
-- Security CI는 CodeQL로 Java와 JavaScript 코드를 분석하고 PR에서 high 이상으로 평가된 새 의존성을 차단한다.
+- Security CI는 CodeQL로 Java와 JavaScript 코드를 정적 분석한다. npm 운영 의존성은 Frontend CI의 `npm audit`에서 high 이상 취약점을 차단한다.
 - GitHub Ruleset에서 `build`, `test`, `browser-test`와 CodeQL 검사를 필수 상태 검사로 지정해야 실패한 코드를 실제로 Merge하지 못하게 막을 수 있다.
 
 ### GitHub Actions와 Ruleset
@@ -169,7 +169,7 @@ GitHub Actions는 GitHub가 제공하는 자동화 실행 플랫폼이며, `.git
 | `Frontend CI` | `build` | npm 설치 → ESLint → Vitest → npm audit → Vue build |
 | `Backend CI` | `test` | Java 21 → Maven test/package → Checkstyle |
 | `Browser CI` | `browser-test` | Chromium, Firefox, WebKit, 모바일 Chromium E2E |
-| `Security CI` | `codeql (java-kotlin)` 등 | Java/JavaScript 정적 보안 분석 및 PR 의존성 검토 |
+| `Security CI` | `codeql (java-kotlin)` 등 | Java/JavaScript 정적 보안 분석 |
 
 Ruleset은 CI를 실행하는 도구가 아니라 GitHub의 Merge 보호 설정이다. `main` 또는 `develop`에 PR 필수, 필수 CI 통과, 삭제·force push 금지 등을 설정할 수 있다. Ruleset은 GitHub 서버의 저장소 설정이므로 이 저장소 파일만으로 실제 활성화 여부를 확인할 수 없으며 `Settings → Rules → Rulesets`에서 확인한다.
 

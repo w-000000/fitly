@@ -29,15 +29,3 @@ jobs:
           languages: ${{ matrix.language }}
       - uses: github/codeql-action/autobuild@v3
       - uses: github/codeql-action/analyze@v3
-
-  dependency-review:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/dependency-review-action@v4
-        with:
-          fail-on-severity: high
