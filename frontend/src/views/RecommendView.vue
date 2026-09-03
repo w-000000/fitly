@@ -2,145 +2,136 @@
 import { computed, ref } from 'vue'
 import { createRecommendation } from '../api'
 
+const tpoOptions = [['INTERVIEW', '면접'], ['WORK', '출근'], ['DATE', '데이트'], ['GUEST', '하객'], ['DAILY', '일상']]
+const styleOptions = ['Minimal', 'Formal', 'Street', 'Casual']
 const form = ref({
-  purpose: 'PERSONAL',
-  personalSituation: 'INTERVIEW',
-  size: 'M',
-  groupName: '',
-  activityType: '',
-  groupSizes: { S: 0, M: 0, L: 0, XL: 0 },
-  budget: 50000,
-  rentalStartDate: '',
-  rentalEndDate: '',
-  prompt: '',
+  purpose: 'PERSONAL', personalSituation: 'INTERVIEW', style: 'Formal', size: 'M', budget: 50000,
+  rentalStartDate: '', rentalEndDate: '', groupName: '', activityType: '',
+  groupSizes: { S: 0, M: 0, L: 0, XL: 0 }, prompt: '',
 })
+const fileName = ref('')
 const loading = ref(false)
 const error = ref('')
 const recommendation = ref(null)
-const groupCount = computed(() => Object.values(form.value.groupSizes).reduce((sum, count) => sum + Number(count || 0), 0))
-const isGroupPurpose = computed(() => form.value.purpose === 'EVENT')
+const isGroup = computed(() => form.value.purpose === 'EVENT')
+const groupCount = computed(() => Object.values(form.value.groupSizes).reduce((sum, value) => sum + Number(value || 0), 0))
 const rentalDays = computed(() => {
   if (!form.value.rentalStartDate || !form.value.rentalEndDate) return 0
-  const start = new Date(`${form.value.rentalStartDate}T00:00:00`)
-  const end = new Date(`${form.value.rentalEndDate}T00:00:00`)
-  return Math.floor((end - start) / 86400000) + 1
+  return Math.floor((new Date(form.value.rentalEndDate) - new Date(form.value.rentalStartDate)) / 86400000) + 1
 })
+
+const selectFile = (event) => { fileName.value = event.target.files?.[0]?.name || '' }
+const changeSize = (size, amount) => {
+  form.value.groupSizes[size] = Math.max(0, Number(form.value.groupSizes[size] || 0) + amount)
+}
+const formatPrice = (price = 0) => Number(price).toLocaleString('ko-KR')
 
 const recommend = async () => {
   error.value = ''
-  recommendation.value = null
-  if (!form.value.rentalStartDate || !form.value.rentalEndDate) {
-    error.value = '대여 시작일과 종료일을 모두 선택해주세요.'
+  if (!form.value.rentalStartDate || !form.value.rentalEndDate || rentalDays.value < 1) {
+    error.value = '올바른 대여 시작일과 종료일을 선택해주세요.'
     return
   }
-  if (rentalDays.value < 1) {
-    error.value = '대여 종료일은 시작일과 같거나 이후여야 합니다.'
-    return
-  }
-  if (isGroupPurpose.value && groupCount.value < 2) {
-    error.value = '단체 대여는 사이즈별 수량을 합해 2명 이상 입력해주세요.'
+  if (isGroup.value && groupCount.value < 2) {
+    error.value = '행사·모임 대여는 총 2명 이상 입력해주세요.'
     return
   }
   loading.value = true
   try {
     recommendation.value = await createRecommendation({
       purpose: form.value.purpose,
-      personalSituation: isGroupPurpose.value ? null : form.value.personalSituation,
-      size: isGroupPurpose.value ? null : form.value.size,
-      groupName: isGroupPurpose.value ? form.value.groupName : null,
-      activityType: isGroupPurpose.value ? form.value.activityType : null,
-      groupSizes: isGroupPurpose.value ? form.value.groupSizes : null,
+      personalSituation: isGroup.value ? null : form.value.personalSituation,
+      size: isGroup.value ? null : form.value.size,
+      groupName: isGroup.value ? form.value.groupName : null,
+      activityType: isGroup.value ? form.value.activityType : null,
+      groupSizes: isGroup.value ? form.value.groupSizes : null,
       budget: form.value.budget,
       rentalStartDate: form.value.rentalStartDate,
       rentalEndDate: form.value.rentalEndDate,
-      prompt: form.value.prompt || null,
+      prompt: [form.value.style, form.value.prompt].filter(Boolean).join(' 스타일. '),
     })
+    requestAnimationFrame(() => document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth' }))
   } catch (requestError) {
-    error.value = requestError.message || '추천 상품을 불러오지 못했습니다.'
+    error.value = requestError.message || '추천 결과를 불러오지 못했습니다.'
   } finally {
     loading.value = false
   }
 }
-
-const formatPrice = (price) => price.toLocaleString('ko-KR')
-
-const changeSizeCount = (size, amount) => {
-  const current = Number(form.value.groupSizes[size] || 0)
-  form.value.groupSizes[size] = Math.min(100, Math.max(0, current + amount))
-}
 </script>
 
 <template>
-  <main class="shell recommend-page">
-    <div class="page-heading"><p class="eyebrow">AI OUTFIT CURATION</p><h1>나에게 꼭 맞는 옷을<br><em>AI로 찾아보세요.</em></h1><p>상황과 예산을 알려주시면 가장 잘 어울리는 대여 상품을 추천해드려요.</p></div>
-    <section class="recommend-layout">
-      <div class="recommend-intro"><p class="eyebrow">SMART RECOMMEND</p><h2>어떤 옷이<br>필요한가요?</h2><p>간단한 정보만 알려주세요.<br>AI가 상황과 예산에 맞는 옷을 골라드려요.</p><div class="steps"><span>1</span><i></i><span>2</span><i></i><span>3</span></div><small>조건 선택 · AI 추천 · 대여 신청</small></div>
-      <div class="panel">
-        <div class="panel-heading"><div><span>STEP 01</span><h3>대여 조건을 선택해주세요</h3></div><b>✦</b></div>
-        <form @submit.prevent="recommend">
-          <label class="wide">이용 목적<div class="purpose-options">
-            <button type="button" :class="{ selected: form.purpose === 'PERSONAL' }" @click="form.purpose = 'PERSONAL'">▣<span>개인</span></button>
-            <button type="button" :class="{ selected: form.purpose === 'EVENT' }" @click="form.purpose = 'EVENT'">✦<span>행사·모임</span></button>
-          </div></label>
-          <template v-if="isGroupPurpose">
-            <label>모임명<input v-model.trim="form.groupName" type="text" placeholder="예: 신입사원 환영회"></label>
-            <label>행사 종류<input v-model.trim="form.activityType" type="text" placeholder="예: 워크숍, 체육대회, 결혼식"></label>
-            <div class="size-quantity wide">
-              <div class="size-heading">
-                <strong>사이즈별 인원</strong>
-                <span>총 <b>{{ groupCount }}명</b></span>
-              </div>
-              <div class="size-grid">
-                <label v-for="size in ['S', 'M', 'L', 'XL']" :key="size">
-                  <span>{{ size }}</span>
-                  <div class="quantity-control">
-                    <button type="button" aria-label="인원 줄이기" @click="changeSizeCount(size, -1)">−</button>
-                    <div class="quantity-value">
-                      <input v-model.number="form.groupSizes[size]" type="number" min="0" max="100" :aria-label="`${size} 사이즈 인원`">
-                      <span>명</span>
-                    </div>
-                    <button type="button" aria-label="인원 늘리기" @click="changeSizeCount(size, 1)">+</button>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </template>
-          <template v-else>
-            <label>개인 상황<select v-model="form.personalSituation"><option value="INTERVIEW">면접</option><option value="WORK">출근·비즈니스</option><option value="DATE">소개팅·데이트</option><option value="GUEST">결혼식 하객</option><option value="DAILY">일상·기타</option></select></label>
-            <label>사이즈<select v-model="form.size"><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
-          </template>
-          <label class="wide">최대 예산<div class="input-suffix"><input v-model.number="form.budget" type="number" min="10000" step="1000" required><span>원</span></div></label>
-          <fieldset class="rental-period wide">
-            <legend>대여 일정</legend>
-            <div class="date-range">
-              <label><span>시작일</span><input v-model="form.rentalStartDate" type="date" required></label>
-              <b aria-hidden="true">→</b>
-              <label><span>종료일</span><input v-model="form.rentalEndDate" type="date" :min="form.rentalStartDate" required></label>
-            </div>
-            <p v-if="rentalDays > 0" class="rental-summary">총 <strong>{{ rentalDays }}일</strong> 동안 대여합니다.</p>
-          </fieldset>
-          <label class="prompt-field wide">
-            <span class="prompt-heading"><b>AI에게 추가로 요청하기</b><small>선택사항</small></span>
-            <textarea
-              v-model.trim="form.prompt"
-              rows="4"
-              maxlength="500"
-              placeholder="예: 너무 딱딱하지 않은 스타일로 추천해줘. 밝은 색상은 피하고 활동하기 편했으면 좋겠어."
-            ></textarea>
-            <small class="character-count">{{ form.prompt.length }} / 500</small>
+  <main class="recommend-page content-width">
+    <header class="recommend-header">
+      <p class="section-kicker">AI OUTFIT CURATION</p>
+      <h1>AI 코디 추천</h1>
+      <p>상황과 취향, 가지고 있는 옷을 알려주세요. 필요한 아이템만 골라 추천해드릴게요.</p>
+    </header>
+
+    <form class="curation-form" @submit.prevent="recommend">
+      <section class="form-section">
+        <div class="form-number">1</div>
+        <div class="form-content">
+          <div class="form-title"><h2>TPO</h2><span>어떤 상황에 입을 옷인가요?</span></div>
+          <div class="chip-row"><button v-for="option in tpoOptions" :key="option[0]" type="button" :class="{ active: form.personalSituation === option[0] }" @click="form.personalSituation = option[0]">{{ option[1] }}</button></div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="form-number">2</div>
+        <div class="form-content">
+          <div class="form-title"><h2>스타일</h2><span>원하는 무드를 골라주세요.</span></div>
+          <div class="chip-row style-chips"><button v-for="style in styleOptions" :key="style" type="button" :class="{ active: form.style === style }" @click="form.style = style">{{ style }}</button></div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="form-number">3</div>
+        <div class="form-content">
+          <div class="form-title"><h2>내 옷</h2><span>함께 입고 싶은 옷 사진을 추가할 수 있어요.</span></div>
+          <label class="upload-zone">
+            <input type="file" accept="image/*" @change="selectFile">
+            <b>＋</b><strong>{{ fileName || '내 옷 사진 Drag & Drop' }}</strong>
+            <small>{{ fileName ? '사진이 선택되었습니다.' : 'PNG, JPG · 최대 10MB' }}</small><span>사진 선택</span>
           </label>
-          <button class="recommend-button wide" :disabled="loading"><span>{{ loading ? '나에게 맞는 옷을 찾는 중…' : 'AI 맞춤 의류 추천받기' }}</span><b>→</b></button>
-        </form>
-        <p v-if="error" class="error" role="alert">{{ error }}</p>
-      </div>
-    </section>
-    <section v-if="recommendation" class="results">
-      <div class="section-title"><div><p class="eyebrow">YOUR CURATION</p><h2>당신을 위한 추천</h2></div><span>{{ recommendation.products.length }}개</span></div>
-      <p class="recommendation-message">✦ {{ recommendation.message }}</p>
-      <div class="product-grid">
-        <article v-for="product in recommendation.products" :key="product.id" class="card">
-          <div class="product-image"><span>{{ product.category }}</span><b>♟</b><small>CURATED LOOK</small></div>
-          <div class="product-info"><span class="badge">{{ product.category }}</span><h3>{{ product.name }}</h3><p>{{ product.description }}</p><aside class="summary"><strong>AI 추천 이유</strong><p>{{ product.reason }}</p></aside><div class="price-info"><p>대여 가격<strong>{{ formatPrice(product.rentalPrice) }}원 / {{ rentalDays }}일</strong></p><p>구매 가격<strong>{{ formatPrice(product.purchasePrice) }}원</strong></p></div><div class="actions"><button type="button">대여 신청</button><button type="button" class="secondary">구매하기</button></div></div>
+        </div>
+      </section>
+
+      <section class="form-section final-section">
+        <div class="form-number">4</div>
+        <div class="form-content">
+          <div class="form-title"><h2>세부 조건</h2><span>추천에 필요한 조건을 확인해주세요.</span></div>
+          <div class="purpose-switch"><button type="button" :class="{ active: !isGroup }" @click="form.purpose = 'PERSONAL'">개인 코디</button><button type="button" :class="{ active: isGroup }" @click="form.purpose = 'EVENT'">행사·모임 대여</button></div>
+          <div class="field-grid">
+            <template v-if="!isGroup">
+              <label>사이즈<select v-model="form.size"><option>S</option><option>M</option><option>L</option><option>XL</option></select></label>
+              <label>최대 예산<div class="suffix-input"><input v-model.number="form.budget" type="number" min="10000" step="1000"><span>원</span></div></label>
+            </template>
+            <template v-else>
+              <label>단체명<input v-model="form.groupName" placeholder="예: 졸업 작품 발표팀"></label>
+              <label>행사 종류<input v-model="form.activityType" placeholder="예: 발표회, 워크숍"></label>
+              <div class="group-size-row full-field">
+                <div v-for="size in ['S', 'M', 'L', 'XL']" :key="size"><b>{{ size }}</b><button type="button" @click="changeSize(size, -1)">−</button><span>{{ form.groupSizes[size] }}</span><button type="button" @click="changeSize(size, 1)">＋</button></div>
+                <strong>총 {{ groupCount }}명</strong>
+              </div>
+            </template>
+            <label>대여 시작일<input v-model="form.rentalStartDate" type="date" required></label>
+            <label>대여 종료일<input v-model="form.rentalEndDate" type="date" :min="form.rentalStartDate" required></label>
+            <label class="full-field">추가 요청<textarea v-model="form.prompt" rows="3" placeholder="예: 너무 딱딱하지 않고 활동하기 편한 스타일"></textarea></label>
+          </div>
+          <p v-if="rentalDays > 0" class="date-summary">선택한 대여 기간 · <b>{{ rentalDays }}일</b></p>
+          <p v-if="error" class="form-error">{{ error }}</p>
+          <button class="submit-button" :disabled="loading"><span>{{ loading ? '추천을 준비하고 있어요' : 'AI 코디 추천받기' }}</span><b>→</b></button>
+        </div>
+      </section>
+    </form>
+
+    <section v-if="recommendation" id="results" class="result-section">
+      <div class="result-heading"><div><p class="section-kicker">CURATED FOR YOU</p><h2>추천 코디 {{ recommendation.products.length }}개</h2></div><span>AI CURATION · FITLY</span></div>
+      <p class="result-message">{{ recommendation.message }}</p>
+      <div class="result-grid">
+        <article v-for="(product, index) in recommendation.products" :key="product.id" class="result-card">
+          <div class="result-visual"><span>LOOK 0{{ index + 1 }}</span><div class="look-shape"></div><small>{{ product.category }}</small></div>
+          <div class="result-info"><small>{{ product.category }} · AI MATCHED</small><h3>{{ product.name }}</h3><p>{{ product.description }}</p><div class="reason"><b>추천 이유</b><span>{{ product.reason }}</span></div><div class="result-price"><span>대여가</span><strong>{{ formatPrice(product.rentalPrice) }}원</strong></div><div class="result-actions"><button type="button">코디 상세</button><button type="button" class="accent">대여하기</button></div></div>
         </article>
       </div>
     </section>
