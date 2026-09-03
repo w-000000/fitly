@@ -25,7 +25,7 @@ class FitlyApiFlowTest {
         JsonNode product = body(mvc.perform(post("/api/products")
                 .header("X-Actor-Role", "ROLE_PARTNER").contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                    {"partnerId":29,"name":"면접용 블레이저","category":"JACKET","retailPrice":120000,"rentalPrice":25000,"imageUrl":"https://example.com/jacket.jpg"}
+                    {"partnerId":101,"name":"면접용 블레이저","category":"JACKET","retailPrice":120000,"rentalPrice":30000,"imageUrl":"https://example.com/jacket.jpg"}
                     """))
             .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString());
         long productId = product.path("product").path("id").asLong();
@@ -39,10 +39,10 @@ class FitlyApiFlowTest {
         JsonNode rental = body(mvc.perform(post("/api/rentals")
                 .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "7")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"variantId\":" + variantId + ",\"quantity\":2,\"startDate\":\"2026-09-10\",\"endDate\":\"2026-09-17\",\"shippingAddress\":\"서울시\",\"insurance\":true}"))
+                .content("{\"variantId\":" + variantId + ",\"quantity\":2,\"startDate\":\"2026-09-10\",\"endDate\":\"2026-09-17\",\"shippingAddress\":\"서울시\"}"))
             .andExpect(status().isCreated())
             .andExpect(jsonPath("$.endDate").value("2026-09-17"))
-            .andExpect(jsonPath("$.totalAmount").value(54000))
+            .andExpect(jsonPath("$.totalAmount").value(60000))
             .andReturn().getResponse().getContentAsString());
         long rentalId = rental.path("id").asLong();
 
@@ -61,8 +61,8 @@ class FitlyApiFlowTest {
         mvc.perform(get("/api/products/{id}", productId))
             .andExpect(status().isOk()).andExpect(jsonPath("$.variants[0].availableStock").value(3));
 
-        mvc.perform(get("/api/rentals/partner/29/settlements").header("X-Actor-Role", "ROLE_PARTNER"))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.amount").value(42500.0));
+        mvc.perform(get("/api/rentals/partner/101/revenue").header("X-Actor-Role", "ROLE_PARTNER"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.rentalRevenue").value(60000.0));
     }
 
     @Test

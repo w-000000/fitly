@@ -60,7 +60,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **기본 흐름 (Main Flow)**:
         1. 백엔드 Mock Controller가 사전에 정의된 고품질 JSON Schema 데이터를 비동기로 반환한다.
         2. 화면에 AI 비전 인식 결과(색상: Deep Black, 카테고리: 슬랙스)가 표시된다.
-        3. 매칭 점수(96점)와 AI 코디네이터 스타일링 코멘트(Reasoning Box)가 렌더링된다.
+        3. AI 코디네이터의 스타일링 코멘트(Reasoning Box)가 렌더링된다.
         4. 추천 의류 2종(자켓 + 셔츠)의 사진, 브랜드, 단건 대여가(28,000원), 정가 대비 할인율을 확인한다.
     - **AI-Ready 확장 지점**: AI Vision 인식 메타데이터와 추천 의류 리스트를 화면 DTO에 1:1 매핑.
     
@@ -81,7 +81,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     
     - **주 액터**: 플랫폼 관리자 (Admin)
     - **기본 흐름 (Main Flow)**:
-        1. 관리자가 대여 가능한 무신사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를 
+        1. 관리자가 대여 가능한 제휴사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를
         등록한다.
         2. 실시간 대여 주문 건과 반납 일정을 모니터링한다.
 
@@ -276,7 +276,7 @@ npm run dev
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
-| GET | `/api/rentals/partner/{partnerId}/settlements` | 공급사 85% 정산 조회 |
+| GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
