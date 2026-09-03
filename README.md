@@ -186,8 +186,38 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
+저장소 루트(`minip`)에서 바로 실행하려면:
+
+```bash
+./backend/mvnw -f backend/pom.xml spring-boot:run
+```
+
+### Swagger에서 API 확인
+
+Backend를 먼저 실행한 뒤 새 터미널에서 다음 명령을 실행한다.
+
+macOS:
+
+```bash
+open http://localhost:8080/swagger-ui/index.html
+```
+
+브라우저 주소창으로 직접 접속할 수도 있다.
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+OpenAPI JSON 명세는 다음 주소에서 확인한다.
+
+```bash
+open http://localhost:8080/v3/api-docs
+```
+
+Swagger UI에서 API를 호출하려면 원하는 API를 펼친 뒤 `Try it out` → 요청값 입력 → `Execute` 순서로 진행한다. 권한이 필요한 API는 `X-Actor-Role`과 `X-User-Id` 헤더를 함께 입력한다.
+
 - API: http://localhost:8080/api
-- Swagger UI: http://localhost:8080/swagger-ui.html
+- Swagger UI: http://localhost:8080/swagger-ui/index.html
 - H2 Console: http://localhost:8080/h2-console
   - JDBC URL: `jdbc:h2:mem:minip`
   - User: `sa`
