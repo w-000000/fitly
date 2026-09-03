@@ -4,7 +4,7 @@
   <img src="./docs/logo.png" width="500">
 </p>
 
-FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등의 조건을 바탕으로 코디와 대여 상품을 추천하는 Vue 3·Spring Boot 기반 서비스입니다. 고객 옷장 관리, 조건 기반 Mock 추천, 제휴사 상품·재고 관리, 기간별 대여 가능 여부 확인과 대여·반납 기능을 제공하며, 현재의 규칙 기반 추천 로직은 향후 실제 AI Vision·LLM API로 교체할 수 있도록 구성했습니다.
+FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등의 조건을 바탕으로 코디와 대여 상품을 추천하는 Vue 3·Spring Boot 기반 서비스입니다. 고객 옷장, 코디 저장, 단건·단체 대여와 반납, 제휴사 상품·재고·정산 및 관리자 운영 기능을 제공하며, 현재의 Mock AI 로직은 향후 실제 AI Vision·LLM API로 교체할 수 있도록 구성했습니다.
 
 
 ## Pain Point
@@ -273,12 +273,18 @@ npm run dev
 | GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
 | GET | `/api/wardrobe/items/{id}/image` | 등록한 옷 사진 조회 |
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
+| PATCH | `/api/products/{id}` | 제휴사 상품 설명·가격·이미지 수정 |
+| POST | `/api/products/ai-description` | 상품 정보 기반 Mock AI 설명 초안 생성 |
 | GET | `/api/products/{productId}` | 상품 상세 조회 |
 | GET | `/api/products/variants/{variantId}/availability` | 선택 기간·수량의 대여 가능 여부 확인 |
 | POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
 | POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
+| GET | `/api/recommendations/saved` | 저장한 추천 코디 목록 조회 |
+| PUT / DELETE | `/api/recommendations/jobs/{jobId}/looks/{lookKey}/saved` | 추천 코디 저장 / 저장 해제 |
+| POST / GET | `/api/wardrobe/items` | 보유 의류 사진 등록 / 내 옷장 조회 |
+| PATCH / DELETE | `/api/wardrobe/items/{id}` | 보유 의류 인식값 수정 / 삭제 |
 | POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
@@ -287,6 +293,11 @@ npm run dev
 | GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
 | GET | `/api/rentals/partner/{partnerId}/settlements` | 상품별 계약 정산율에 따른 제휴사 정산 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
+| POST | `/api/group-rentals` | 목적·기간·인원·품목 기반 단체 대여 요청 접수 |
+| GET | `/api/group-rentals/mine` | 고객 본인의 단체 대여 요청 조회 |
+| GET | `/api/admin/dashboard` | 관리자 상품·주문·반납 대기 KPI와 최근 주문 조회 |
+| GET | `/api/partner/dashboard?partnerId={id}` | 제휴사 상품·재고·대여·매출 요약 조회 |
+| GET | `/api/laundry/inspections` | 관리자 반납 검수·세탁 목록 조회 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
 

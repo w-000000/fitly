@@ -5,6 +5,9 @@ import com.example.minip.config.RoleGuard;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import java.math.BigDecimal;
 import java.util.List;
 import java.time.LocalDate;
 import com.example.minip.rental.RentalOrder;
@@ -37,8 +40,29 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductView create(@RequestHeader("X-Actor-Role") String role, @Valid @RequestBody Product.CreateRequest request) {
         roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        return view(products.save(new Product(request.partnerId(), request.name(), request.category(), request.retailPrice(),
-            request.rentalPrice(), request.settlementRate(), request.imageUrl())));
+        return view(products.save(new Product(request.partnerId(), request.name(), request.brand(), request.category(),
+            request.description(), request.retailPrice(), request.rentalPrice(), request.settlementRate(), request.imageUrl())));
+    }
+
+    @PatchMapping("/{productId}")
+    @Transactional
+    public ProductView update(@RequestHeader("X-Actor-Role") String role, @PathVariable Long productId,
+                              @Valid @RequestBody UpdateProductRequest request) {
+        roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
+        Product product = products.findById(productId).orElseThrow(() -> notFound("상품"));
+        product.updateDetails(request.name(), request.brand(), request.category(), request.description(),
+            request.retailPrice(), request.rentalPrice(), request.imageUrl());
+        return view(product);
+    }
+
+    @PostMapping("/ai-description")
+    public AiDescription generateDescription(@RequestHeader("X-Actor-Role") String role,
+                                             @Valid @RequestBody AiDescriptionRequest request) {
+        roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
+        String brand = request.brand() == null || request.brand().isBlank() ? "브랜드" : request.brand();
+        String description = "%s의 %s 상품입니다. 깔끔한 디자인으로 다양한 상황에 활용하기 좋으며, 보유 의류와 자연스럽게 조합할 수 있습니다."
+            .formatted(brand, request.name());
+        return new AiDescription(description, true);
     }
 
     @PostMapping("/{productId}/variants")
@@ -76,6 +100,12 @@ public class ProductController {
     private ResponseStatusException notFound(String target) { return new ResponseStatusException(HttpStatus.NOT_FOUND, target + "을 찾을 수 없습니다."); }
     public record VariantRequest(@NotBlank String size, @Min(0) int stock) {}
     public record StockRequest(int delta) {}
+    public record UpdateProductRequest(String name, String brand, String category, String description,
+                                       @Positive BigDecimal retailPrice, @Positive BigDecimal rentalPrice,
+                                       String imageUrl) {}
+    public record AiDescriptionRequest(@NotBlank String name, String brand, @NotBlank String category,
+                                       String imageUrl) {}
+    public record AiDescription(String description, boolean mock) {}
     public record ProductView(Product product, List<VariantView> variants) {}
     public record VariantView(Long id, String size, int availableStock) {
         static VariantView from(ProductVariant value) { return new VariantView(value.getId(), value.getSizeName(), value.getAvailableStock()); }
