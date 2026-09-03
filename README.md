@@ -60,7 +60,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **기본 흐름 (Main Flow)**:
         1. 백엔드 Mock Controller가 사전에 정의된 고품질 JSON Schema 데이터를 비동기로 반환한다.
         2. 화면에 AI 비전 인식 결과(색상: Deep Black, 카테고리: 슬랙스)가 표시된다.
-        3. 매칭 점수(96점)와 AI 코디네이터 스타일링 코멘트(Reasoning Box)가 렌더링된다.
+        3. AI 코디네이터의 스타일링 코멘트(Reasoning Box)가 렌더링된다.
         4. 추천 의류 2종(자켓 + 셔츠)의 사진, 브랜드, 단건 대여가(28,000원), 정가 대비 할인율을 확인한다.
     - **AI-Ready 확장 지점**: AI Vision 인식 메타데이터와 추천 의류 리스트를 화면 DTO에 1:1 매핑.
     
@@ -71,7 +71,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **주 액터**: 일반 사용자 (Customer) / **보조 액터**: 플랫폼 관리자
     - **기본 흐름 (Main Flow)**:
         1. 사용자가 추천 카드에서 `[단건 대여 신청]` 버튼을 클릭한다.
-        2. 대여 기간(3박 4일: 수령일 ~ 자동 반납일)과 결제 금액(28,000원) 모달이 팝업된다.
+        2. 선택한 대여 시작일·종료일과 결제 금액이 모달에 표시된다.
         3. 배송지 주소를 입력하고 단건 결제를 승인한다.
         4. 시스템이 주문을 DB에 저장하고 대여 접수 완료 토스트를 노출한다.
     
@@ -81,7 +81,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     
     - **주 액터**: 플랫폼 관리자 (Admin)
     - **기본 흐름 (Main Flow)**:
-        1. 관리자가 대여 가능한 무신사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를 
+        1. 관리자가 대여 가능한 제휴사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를
         등록한다.
         2. 실시간 대여 주문 건과 반납 일정을 모니터링한다.
 
@@ -271,12 +271,12 @@ npm run dev
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
 | POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
-| POST | `/api/rentals` | 3박 4일 단건·단체 대여 및 재고 차감 |
+| POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
-| GET | `/api/rentals/partner/{partnerId}/settlements` | 공급사 85% 정산 조회 |
+| GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
