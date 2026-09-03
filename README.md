@@ -105,7 +105,7 @@ FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등�
 - Database: Supabase PostgreSQL(운영), H2(in-memory, 로컬 개발 및 테스트)
 - Image Storage: Supabase Storage
 - API 문서: springdoc-openapi 및 Swagger UI (`/swagger-ui.html`)
-- CI: GitHub Actions에서 frontend build 및 backend test
+- CI: GitHub Actions에서 lint, 단위·통합·브라우저 테스트, 빌드 및 보안 검사
 
 ## 시스템 아키텍처
 
@@ -113,7 +113,9 @@ FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등�
   <img src="./docs/fitly-development-architecture.png" width="900" alt="FITLY 시스템 아키텍처">
 </p>
 
-사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 Controller-Service-Repository 구조로 요청을 처리하고, JPA를 통해 Supabase PostgreSQL의 상품 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포할 수 있도록 구성했으며, GitHub Actions로 빌드와 테스트를 자동화했습니다. 현재 추천 기능은 규칙 기반 Mock 로직으로 구현되어 있으며, 향후 실제 AI API를 호출하는 Provider 모듈로 확장할 예정입니다.
+사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 인증, 옷장, 상품·재고, 추천·저장 코디, 단건·단체 대여, 정산, 대시보드와 세탁 검수 도메인으로 구성되고 JPA를 통해 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포하며, GitHub Actions로 품질·브라우저·보안 검사를 자동화했습니다. 현재 추천 기능은 규칙 기반 및 Mock 로직으로 구현되어 있고 실제 AI Provider로 확장할 예정입니다.
+
+로컬 개발, 도메인 구성, CI·배포와 Kubernetes 확장 지점은 [개발 아키텍처 문서](./docs/architecture.md)에서 확인할 수 있습니다.
 
 ## 기술 스택 선정 이유
 
