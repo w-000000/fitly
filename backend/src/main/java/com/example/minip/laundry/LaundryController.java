@@ -24,7 +24,7 @@ public class LaundryController {
     @ResponseStatus(HttpStatus.CREATED)
     @Transactional
     public LaundryInspection inspect(@RequestHeader("X-Actor-Role") String role, @Valid @RequestBody InspectRequest request) {
-        roles.require(role, ActorRole.ROLE_LAUNDRY_PARTNER, ActorRole.ROLE_ADMIN);
+        roles.require(role, ActorRole.ROLE_ADMIN);
         RentalOrder order = orders.findById(request.rentalOrderId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "대여 주문을 찾을 수 없습니다."));
         order.inspect();
         if (request.cleaned()) order.getVariant().changeStock(order.getQuantity());

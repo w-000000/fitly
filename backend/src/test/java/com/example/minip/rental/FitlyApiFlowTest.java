@@ -54,7 +54,7 @@ class FitlyApiFlowTest {
             .andExpect(status().isOk()).andExpect(jsonPath("$.status").value("RETURN_REQUESTED"));
 
         mvc.perform(post("/api/laundry/inspections")
-                .header("X-Actor-Role", "ROLE_LAUNDRY_PARTNER").contentType(MediaType.APPLICATION_JSON)
+                .header("X-Actor-Role", "ROLE_ADMIN").contentType(MediaType.APPLICATION_JSON)
                 .content("{\"rentalOrderId\":" + rentalId + ",\"damageGrade\":\"NONE\",\"notes\":\"정상\",\"cleaned\":true}"))
             .andExpect(status().isCreated()).andExpect(jsonPath("$.cleaned").value(true));
 
