@@ -49,6 +49,12 @@ class FitlyApiFlowTest {
         mvc.perform(get("/api/products/{id}", productId))
             .andExpect(status().isOk()).andExpect(jsonPath("$.variants[0].availableStock").value(1));
 
+        mvc.perform(get("/api/products/variants/{id}/availability", variantId)
+                .param("startDate", "2026-09-12").param("endDate", "2026-09-15").param("quantity", "2"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.availableQuantity").value(1))
+            .andExpect(jsonPath("$.available").value(false));
+
         mvc.perform(post("/api/rentals/{id}/return-request", rentalId)
                 .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "7"))
             .andExpect(status().isOk()).andExpect(jsonPath("$.status").value("RETURN_REQUESTED"));

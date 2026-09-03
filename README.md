@@ -266,7 +266,11 @@ npm run dev
 
 | Method | Path | 설명 |
 | --- | --- | --- |
+| POST | `/api/auth/signup` | 고객 회원가입 |
+| POST | `/api/auth/login` | 로그인 및 Bearer 세션 토큰 발급 |
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
+| GET | `/api/products/{productId}` | 상품 상세 조회 |
+| GET | `/api/products/variants/{variantId}/availability` | 선택 기간·수량의 대여 가능 여부 확인 |
 | POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |

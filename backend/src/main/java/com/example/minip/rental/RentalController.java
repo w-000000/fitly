@@ -34,7 +34,7 @@ public class RentalController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "대여 종료일은 시작일과 같거나 이후여야 합니다.");
         }
         ProductVariant variant = variants.findById(request.variantId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "상품 옵션을 찾을 수 없습니다."));
-        variant.changeStock(-request.quantity());
+        variant.reserve(request.quantity());
         return orders.save(new RentalOrder(userId, variant, request.quantity(), request.startDate(), request.endDate(), request.shippingAddress()));
     }
     @GetMapping("/mine")

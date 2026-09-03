@@ -42,6 +42,11 @@ public class RecommendationController {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "본인의 추천만 조회할 수 있습니다.");
         return result(value);
     }
+    @GetMapping("/jobs")
+    public List<Result> myJobs(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId) {
+        roles.require(role, ActorRole.ROLE_CUSTOMER);
+        return recommendations.findAllByCustomerIdOrderByCreatedAtDesc(userId).stream().map(this::result).toList();
+    }
     private Result result(RecommendationJob request) { return new Result(request, products.findAll().stream().limit(2).toList(), true); }
     public record CreateJobRequest(@NotBlank String tpo, @NotBlank String preferredStyle, @NotNull String wardrobeDescription, String wardrobeImageUrl) {}
     public record Result(RecommendationJob request, List<Product> recommendedProducts, boolean mock) {}
