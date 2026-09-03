@@ -4,7 +4,7 @@
   <img src="./docs/logo.png" width="500">
 </p>
 
-Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입니다. 아이디어 메모를 등록하고, 향후 실제 AI API로 교체할 수 있는 Mock 요약 API를 호출합니다.
+FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등의 조건을 바탕으로 코디와 대여 상품을 추천하는 Vue 3·Spring Boot 기반 서비스입니다. 고객 옷장, 코디 저장, 단건·단체 대여와 반납, 제휴사 상품·재고·정산 및 관리자 운영 기능을 제공하며, 현재의 Mock AI 로직은 향후 실제 AI Vision·LLM API로 교체할 수 있도록 구성했습니다.
 
 
 ## Pain Point
@@ -22,13 +22,18 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
         원데이 작업복/실습복 등 1회성 착용을 위해 수십만 원을 지출하는 구조적 비효율.
 
 ## Actor
-### User
+
+### 고객 (`ROLE_CUSTOMER`)
 
 - 서비스를 이용하여 상황에 맞는 코디를 추천받고 의류를 대여하는 사용자
 
-### Admin
+### 제휴사 (`ROLE_PARTNER`)
 
-- 서비스에서 제공하는 의류와 대여 정보를 관리하는 관리자
+- 상품과 사이즈별 재고를 등록하고 대여 발생에 따른 정산 내역을 조회하는 공급사
+
+### 관리자 (`ROLE_ADMIN`)
+
+- 전체 주문과 반납을 모니터링하고 세탁·검수, 재고 복구 및 정산을 관리하는 운영자
 
 ## 주요 Use-Case
 
@@ -55,7 +60,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **기본 흐름 (Main Flow)**:
         1. 백엔드 Mock Controller가 사전에 정의된 고품질 JSON Schema 데이터를 비동기로 반환한다.
         2. 화면에 AI 비전 인식 결과(색상: Deep Black, 카테고리: 슬랙스)가 표시된다.
-        3. 매칭 점수(96점)와 AI 코디네이터 스타일링 코멘트(Reasoning Box)가 렌더링된다.
+        3. AI 코디네이터의 스타일링 코멘트(Reasoning Box)가 렌더링된다.
         4. 추천 의류 2종(자켓 + 셔츠)의 사진, 브랜드, 단건 대여가(28,000원), 정가 대비 할인율을 확인한다.
     - **AI-Ready 확장 지점**: AI Vision 인식 메타데이터와 추천 의류 리스트를 화면 DTO에 1:1 매핑.
     
@@ -66,7 +71,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     - **주 액터**: 일반 사용자 (Customer) / **보조 액터**: 플랫폼 관리자
     - **기본 흐름 (Main Flow)**:
         1. 사용자가 추천 카드에서 `[단건 대여 신청]` 버튼을 클릭한다.
-        2. 대여 기간(3박 4일: 수령일 ~ 자동 반납일)과 결제 금액(28,000원) 모달이 팝업된다.
+        2. 선택한 대여 시작일·종료일과 결제 금액이 모달에 표시된다.
         3. 배송지 주소를 입력하고 단건 결제를 승인한다.
         4. 시스템이 주문을 DB에 저장하고 대여 접수 완료 토스트를 노출한다.
     
@@ -76,7 +81,7 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
     
     - **주 액터**: 플랫폼 관리자 (Admin)
     - **기본 흐름 (Main Flow)**:
-        1. 관리자가 대여 가능한 무신사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를 
+        1. 관리자가 대여 가능한 제휴사 의류(상품명, 카테고리, 단건 대여가, 정가, 이미지 URL, 재고)를
         등록한다.
         2. 실시간 대여 주문 건과 반납 일정을 모니터링한다.
 
@@ -100,7 +105,17 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
 - Database: Supabase PostgreSQL(운영), H2(in-memory, 로컬 개발 및 테스트)
 - Image Storage: Supabase Storage
 - API 문서: springdoc-openapi 및 Swagger UI (`/swagger-ui.html`)
-- CI: GitHub Actions에서 frontend build 및 backend test
+- CI: GitHub Actions에서 lint, 단위·통합·브라우저 테스트, 빌드 및 보안 검사
+
+## 시스템 아키텍처
+
+<p align="center">
+  <img src="./docs/fitly-development-architecture.png" width="900" alt="FITLY 시스템 아키텍처">
+</p>
+
+사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 인증, 옷장, 상품·재고, 추천·저장 코디, 단건·단체 대여, 정산, 대시보드와 세탁 검수 도메인으로 구성되고 JPA를 통해 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포하며, GitHub Actions로 품질·브라우저·보안 검사를 자동화했습니다. 현재 추천 기능은 규칙 기반 및 Mock 로직으로 구현되어 있고 실제 AI Provider로 확장할 예정입니다.
+
+로컬 개발, 도메인 구성, CI·배포와 Kubernetes 확장 지점은 [개발 아키텍처 문서](./docs/architecture.md)에서 확인할 수 있습니다.
 
 ## 기술 스택 선정 이유
 
@@ -178,8 +193,38 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
+저장소 루트(`minip`)에서 바로 실행하려면:
+
+```bash
+./backend/mvnw -f backend/pom.xml spring-boot:run
+```
+
+### Swagger에서 API 확인
+
+Backend를 먼저 실행한 뒤 새 터미널에서 다음 명령을 실행한다.
+
+macOS:
+
+```bash
+open http://localhost:8080/swagger-ui/index.html
+```
+
+브라우저 주소창으로 직접 접속할 수도 있다.
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+OpenAPI JSON 명세는 다음 주소에서 확인한다.
+
+```bash
+open http://localhost:8080/v3/api-docs
+```
+
+Swagger UI에서 API를 호출하려면 원하는 API를 펼친 뒤 `Try it out` → 요청값 입력 → `Execute` 순서로 진행한다. 권한이 필요한 API는 `X-Actor-Role`과 `X-User-Id` 헤더를 함께 입력한다.
+
 - API: http://localhost:8080/api
-- Swagger UI: http://localhost:8080/swagger-ui.html
+- Swagger UI: http://localhost:8080/swagger-ui/index.html
 - H2 Console: http://localhost:8080/h2-console
   - JDBC URL: `jdbc:h2:mem:minip`
   - User: `sa`
@@ -223,12 +268,38 @@ npm run dev
 
 | Method | Path | 설명 |
 | --- | --- | --- |
-| GET | `/api/notes` | 메모 목록 조회 |
-| POST | `/api/notes` | 메모 등록 |
-| POST | `/api/notes/{id}/ai-summary` | 비동기 AI 요약 작업 생성(Mock) |
-| GET | `/api/ai-jobs/{jobId}` | AI 작업 상태/결과 조회 |
+| POST | `/api/wardrobe/items` | 사진 파일과 옷 정보를 내 옷장에 등록 |
+| GET | `/api/wardrobe/items` | 내 옷장 목록 조회 |
+| GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
+| GET | `/api/wardrobe/items/{id}/image` | 등록한 옷 사진 조회 |
+| GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
+| PATCH | `/api/products/{id}` | 제휴사 상품 설명·가격·이미지 수정 |
+| POST | `/api/products/ai-description` | 상품 정보 기반 Mock AI 설명 초안 생성 |
+| GET | `/api/products/{productId}` | 상품 상세 조회 |
+| GET | `/api/products/variants/{variantId}/availability` | 선택 기간·수량의 대여 가능 여부 확인 |
+| POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
+| PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
+| POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
+| POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
+| GET | `/api/recommendations/saved` | 저장한 추천 코디 목록 조회 |
+| PUT / DELETE | `/api/recommendations/jobs/{jobId}/looks/{lookKey}/saved` | 추천 코디 저장 / 저장 해제 |
+| POST / GET | `/api/wardrobe/items` | 보유 의류 사진 등록 / 내 옷장 조회 |
+| PATCH / DELETE | `/api/wardrobe/items/{id}` | 보유 의류 인식값 수정 / 삭제 |
+| POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
+| GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
+| POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
+| POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
+| POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
+| GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
+| GET | `/api/rentals/partner/{partnerId}/settlements` | 상품별 계약 정산율에 따른 제휴사 정산 조회 |
+| GET | `/api/rentals` | 관리자 전체 주문 관제 |
+| POST | `/api/group-rentals` | 목적·기간·인원·품목 기반 단체 대여 요청 접수 |
+| GET | `/api/group-rentals/mine` | 고객 본인의 단체 대여 요청 조회 |
+| GET | `/api/admin/dashboard` | 관리자 상품·주문·반납 대기 KPI와 최근 주문 조회 |
+| GET | `/api/partner/dashboard?partnerId={id}` | 제휴사 상품·재고·대여·매출 요약 조회 |
+| GET | `/api/laundry/inspections` | 관리자 반납 검수·세탁 목록 조회 |
 
-AI 연동부는 `AiSummaryProvider` 인터페이스 뒤에 격리했습니다. 실제 모델을 붙일 때 구현체만 교체하고 기존 JSON 응답 규격은 유지할 수 있습니다.
+역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
 
 ## 다음 단계
 

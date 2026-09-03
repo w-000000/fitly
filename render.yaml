@@ -1,6 +1,7 @@
 services:
   - type: web
     name: fitly
+    branch: main
     runtime: docker
     plan: free
     region: singapore
