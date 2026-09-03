@@ -3,7 +3,6 @@ package com.example.minip.recommendation;
 import com.example.minip.catalog.Product;
 import com.example.minip.catalog.ProductRepository;
 import java.time.temporal.ChronoUnit;
-import java.math.BigDecimal;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,9 +21,10 @@ public class RecommendationService {
     public RecommendationResponse recommend(RecommendationRequest request) {
         validate(request);
         int rentalDays = (int) ChronoUnit.DAYS.between(request.rentalStartDate(), request.rentalEndDate()) + 1;
-        var matches = products.findByPurposeAndRentalPriceLessThanEqualAndStockGreaterThanOrderByRentalPriceAsc(
-            request.purpose(), BigDecimal.valueOf(request.budget()), 0
-        );
+        var matches = products.findActiveWithinBudget((long) request.budget()).stream()
+            .filter(product -> product.getPurpose() == request.purpose())
+            .filter(product -> product.getStock() > 0)
+            .toList();
         var results = matches.stream().map(this::toResult).toList();
         String message = request.purpose() == RentalPurpose.PERSONAL
             ? "선택한 개인 일정과 상황에 적합한 의류를 추천했어요."

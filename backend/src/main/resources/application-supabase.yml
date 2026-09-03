@@ -10,11 +10,10 @@ spring:
       connection-timeout: 30000
   jpa:
     hibernate:
-      ddl-auto: ${JPA_DDL_AUTO:update}
+      ddl-auto: ${JPA_DDL_AUTO:validate}
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: ${JPA_DEFAULT_SCHEMA:public}
   h2:
     console:
       enabled: false
-

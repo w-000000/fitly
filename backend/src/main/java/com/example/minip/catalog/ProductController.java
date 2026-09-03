@@ -1,5 +1,6 @@
 package com.example.minip.catalog;
 
+import com.example.minip.business.ReferenceDataService;
 import com.example.minip.config.ActorRole;
 import com.example.minip.config.RoleGuard;
 import jakarta.validation.Valid;
@@ -10,8 +11,6 @@ import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.util.List;
 import java.time.LocalDate;
-import com.example.minip.rental.RentalOrder;
-import com.example.minip.rental.RentalOrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +22,10 @@ public class ProductController {
     private final ProductRepository products;
     private final ProductVariantRepository variants;
     private final RoleGuard roles;
-    private final RentalOrderRepository rentals;
-    public ProductController(ProductRepository products, ProductVariantRepository variants, RoleGuard roles, RentalOrderRepository rentals) {
-        this.products = products; this.variants = variants; this.roles = roles; this.rentals = rentals;
+    private final ReferenceDataService references;
+    public ProductController(ProductRepository products, ProductVariantRepository variants, RoleGuard roles,
+                             ReferenceDataService references) {
+        this.products = products; this.variants = variants; this.roles = roles; this.references = references;
     }
 
     @GetMapping
@@ -38,10 +38,14 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Transactional
     public ProductView create(@RequestHeader("X-Actor-Role") String role, @Valid @RequestBody Product.CreateRequest request) {
         roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        return view(products.save(new Product(request.partnerId(), request.name(), request.brand(), request.category(),
-            request.description(), request.retailPrice(), request.rentalPrice(), request.settlementRate(), request.imageUrl())));
+        ReferenceDataService.BusinessContext context = references.ensureBusiness(
+            request.partnerId(), request.settlementRate()
+        );
+        return view(products.save(new Product(context.business(), context.member(), request.name(), request.brand(),
+            request.category(), request.description(), request.retailPrice(), request.rentalPrice(), request.imageUrl())));
     }
 
     @PatchMapping("/{productId}")
@@ -87,10 +91,7 @@ public class ProductController {
                                          @RequestParam LocalDate endDate, @RequestParam(defaultValue = "1") @Min(1) int quantity) {
         if (endDate.isBefore(startDate)) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "대여 종료일은 시작일과 같거나 이후여야 합니다.");
         ProductVariant variant = variants.findById(variantId).orElseThrow(() -> notFound("상품 옵션"));
-        int reserved = rentals.findAllByVariantIdAndStatusInAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
-            variantId, List.of(RentalOrder.Status.RENTED, RentalOrder.Status.RETURN_REQUESTED), endDate, startDate
-        ).stream().mapToInt(RentalOrder::getQuantity).sum();
-        int remaining = Math.max(0, variant.getTotalStock() - reserved);
+        int remaining = variant.getAvailableStock();
         return new AvailabilityView(variantId, startDate, endDate, quantity, remaining, remaining >= quantity);
     }
 

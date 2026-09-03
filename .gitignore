@@ -10,3 +10,5 @@ backend/target/
 *.iml
 .env
 *.pdf
+!ERD/ERD3.pdf
+.local-backups/

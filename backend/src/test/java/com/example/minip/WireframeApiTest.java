@@ -12,7 +12,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootTest @AutoConfigureMockMvc @ActiveProfiles("local")
+@SpringBootTest @AutoConfigureMockMvc @ActiveProfiles("test")
 class WireframeApiTest {
  @Autowired MockMvc mvc; @Autowired ObjectMapper json;
  @Test void customerClosetSavedLookAndGroupRequest() throws Exception {

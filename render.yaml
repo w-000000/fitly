@@ -18,9 +18,10 @@ services:
       - key: SUPABASE_DB_PASSWORD
         sync: false
       - key: JPA_DDL_AUTO
-        value: update
+        value: validate
+      - key: JPA_DEFAULT_SCHEMA
+        value: public
       - key: DB_MAX_POOL_SIZE
         value: "5"
       - key: DB_MIN_IDLE
         value: "1"
-

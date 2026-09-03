@@ -1,41 +1,141 @@
 package com.example.minip.wardrobe;
 
-import jakarta.persistence.*;
+import com.example.minip.catalog.Product;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.time.Instant;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import java.util.Base64;
 
 @Entity
+@Table(name = "wardrobe_item", schema = "public")
 public class WardrobeItem {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
-    @Column(nullable = false) private Long customerId;
-    @Column(nullable = false) private String name;
-    @Column(nullable = false) private String category;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "wardrobe_item_id")
+    private Long id;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
+    @Column(name = "image_url", nullable = false, columnDefinition = "text")
+    private String imageUrl;
+
+    @Column(name = "item_name", nullable = false, length = 200)
+    private String name;
+
+    @Column(nullable = false, length = 30)
+    private String category;
+
+    @Column(nullable = false, length = 50)
     private String color;
-    private String season;
-    @Column(length = 1000) private String description;
-    @Column(nullable = false) private String originalFileName;
-    @Column(nullable = false) private String imageContentType;
-    @JdbcTypeCode(SqlTypes.VARBINARY) @Column(nullable = false, columnDefinition = "bytea") private byte[] imageData;
-    @Column(nullable = false) private Instant createdAt;
+
+    @Column(name = "ai_detected_category", length = 30)
+    private String aiDetectedCategory;
+
+    @Column(name = "ai_detected_color", length = 50)
+    private String aiDetectedColor;
+
+    @Column(name = "created_at", nullable = false)
+    private Instant createdAt;
+
+    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
-    protected WardrobeItem() {}
-    public WardrobeItem(Long customerId, String name, String category, String color, String season,
-                        String description, String originalFileName, String imageContentType, byte[] imageData) {
-        this.customerId = customerId; this.name = name; this.category = category; this.color = color;
-        this.season = season; this.description = description; this.originalFileName = originalFileName;
-        this.imageContentType = imageContentType; this.imageData = imageData; this.createdAt = Instant.now();
-        this.updatedAt = this.createdAt;
+    @Transient
+    private String season;
+
+    @Transient
+    private String description;
+
+    @Transient
+    private String originalFileName;
+
+    protected WardrobeItem() {
     }
+
+    public WardrobeItem(Long userId, String name, String category, String color, String season,
+                        String description, String originalFileName, String imageContentType,
+                        byte[] imageData) {
+        this.userId = userId;
+        this.name = name;
+        this.category = Product.normalizeCategory(category);
+        this.color = color == null || color.isBlank() ? "UNKNOWN" : color;
+        this.season = season;
+        this.description = description;
+        this.originalFileName = originalFileName;
+        this.imageUrl = "data:" + imageContentType + ";base64," + Base64.getEncoder().encodeToString(imageData);
+        this.createdAt = Instant.now();
+        this.updatedAt = createdAt;
+    }
+
     public void update(String name, String category, String color, String season, String description) {
-        this.name = name; this.category = category; this.color = color; this.season = season;
-        this.description = description; this.updatedAt = Instant.now();
+        this.name = name;
+        this.category = Product.normalizeCategory(category);
+        this.color = color == null || color.isBlank() ? "UNKNOWN" : color;
+        this.season = season;
+        this.description = description;
+        this.updatedAt = Instant.now();
     }
-    public Long getId() { return id; } public Long getCustomerId() { return customerId; }
-    public String getName() { return name; } public String getCategory() { return category; }
-    public String getColor() { return color; } public String getSeason() { return season; }
-    public String getDescription() { return description; } public String getOriginalFileName() { return originalFileName; }
-    public String getImageContentType() { return imageContentType; } public byte[] getImageData() { return imageData; }
-    public Instant getCreatedAt() { return createdAt; } public Instant getUpdatedAt() { return updatedAt; }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getCustomerId() {
+        return userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return switch (category) {
+            case "BOTTOM" -> "PANTS";
+            default -> category;
+        };
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getOriginalFileName() {
+        return originalFileName == null ? "wardrobe-image" : originalFileName;
+    }
+
+    public String getImageContentType() {
+        int delimiter = imageUrl.indexOf(';');
+        return imageUrl.startsWith("data:") && delimiter > 5
+            ? imageUrl.substring(5, delimiter) : "application/octet-stream";
+    }
+
+    public byte[] getImageData() {
+        int delimiter = imageUrl.indexOf(',');
+        if (!imageUrl.startsWith("data:") || delimiter < 0) {
+            return new byte[0];
+        }
+        return Base64.getDecoder().decode(imageUrl.substring(delimiter + 1));
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
 }

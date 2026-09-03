@@ -24,7 +24,7 @@ flowchart LR
         OPS --> JPA
     end
 
-    JPA -->|local 프로필| H2[(H2 인메모리 DB)]
+    JPA -->|local 프로필| LOCALPG[(로컬 Supabase PostgreSQL)]
     JPA -->|supabase 프로필| PG[(Supabase PostgreSQL)]
 ```
 
@@ -32,7 +32,8 @@ flowchart LR
 - 로컬에서는 Vite가 `/api` 요청을 `localhost:8080`으로 프록시한다.
 - 운영에서는 Vue 빌드 결과가 Spring Boot JAR의 정적 리소스에 포함되어 화면과 API가 같은 도메인에서 제공된다.
 - 백엔드는 REST Controller, 도메인 로직, Spring Data JPA Repository로 구성된다.
-- 로컬 개발과 테스트는 H2, 운영은 Supabase PostgreSQL을 사용한다.
+- 로컬 개발은 Supabase CLI의 PostgreSQL, 운영은 Supabase PostgreSQL을 사용한다.
+- 자동화 테스트만 외부 DB와 격리된 H2 PostgreSQL 호환 모드를 사용한다.
 
 ## 2. 로컬 개발 흐름
 
@@ -50,17 +51,18 @@ Spring Boot http://localhost:8080
        ├── /api/**             REST API
        ├── /swagger-ui/**      API 문서 및 호출 화면
        ├── /v3/api-docs        OpenAPI JSON
-       ├── /actuator/health    상태 확인
-       └── /h2-console         로컬 DB 확인
+       └── /actuator/health    상태 확인
                │
                ▼
-          H2 인메모리 DB
+       로컬 PostgreSQL :54322
 ```
 
 개발 시에는 프론트엔드와 백엔드를 별도 프로세스로 실행한다.
 
 ```bash
 # 터미널 1
+npx --yes supabase@2.116.0 start
+npx --yes supabase@2.116.0 db reset --local
 cd backend
 ./mvnw spring-boot:run
 
@@ -122,16 +124,17 @@ HTTP 요청
 
 ### 이미지 저장의 현재 상태
 
-옷장 이미지는 현재 `WardrobeItem` 엔티티를 통해 DB에 저장하고 이미지 조회 API로 제공한다. README에 적힌 Supabase Storage 연동은 목표 구조이며 아직 구현되지 않았다. 운영 단계에서는 이미지 원본을 Object Storage에 저장하고 DB에는 URL과 메타데이터만 저장하는 방식으로 전환한다.
+옷장 이미지는 현재 Data URL을 `wardrobe_item.image_url`에 저장하고 이미지 조회 API로 제공한다. Supabase Storage 연동은 목표 구조이며 아직 구현되지 않았다. 운영 단계에서는 이미지 원본을 Object Storage에 저장하고 DB에는 URL과 메타데이터만 저장하는 방식으로 전환한다.
 
 ## 5. 데이터 환경
 
 | 환경 | Spring 프로필 | 데이터베이스 | 스키마 설정 | 목적 |
 | --- | --- | --- | --- | --- |
-| 로컬 개발·테스트 | `local` | H2 in-memory | `create-drop` | 빠르고 독립적인 개발·테스트 |
-| Render 운영 | `supabase` | Supabase PostgreSQL | 환경변수 `JPA_DDL_AUTO` | 팀 공유 및 운영 데이터 보존 |
+| 로컬 개발 | `local` | Supabase CLI PostgreSQL | `public`, `validate` | 운영과 같은 PostgreSQL 스키마 검증 |
+| 자동화 테스트 | `test` | H2 PostgreSQL mode | `public`, `create-drop` | 빠르고 독립적인 테스트 |
+| Render 운영 | `supabase` | Supabase PostgreSQL | `public`, `validate` | 팀 공유 및 운영 데이터 보존 |
 
-운영 DB 접속 정보는 `SUPABASE_DB_URL`, `SUPABASE_DB_USERNAME`, `SUPABASE_DB_PASSWORD` 환경변수로 주입하며 저장소에 커밋하지 않는다. 운영 안정화 단계에서는 `ddl-auto=update` 대신 Flyway 같은 마이그레이션 도구와 `validate` 사용을 권장한다.
+운영 DB 접속 정보는 `SUPABASE_DB_URL`, `SUPABASE_DB_USERNAME`, `SUPABASE_DB_PASSWORD` 환경변수로 주입하며 저장소에 커밋하지 않는다. 스키마 변경은 `supabase/migrations`로만 관리하고 Hibernate는 항상 `ddl-auto=validate`를 사용한다.
 
 ## 6. CI 흐름
 
