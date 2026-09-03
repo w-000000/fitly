@@ -37,7 +37,8 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProductView create(@RequestHeader("X-Actor-Role") String role, @Valid @RequestBody Product.CreateRequest request) {
         roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        return view(products.save(new Product(request.partnerId(), request.name(), request.category(), request.retailPrice(), request.rentalPrice(), request.imageUrl())));
+        return view(products.save(new Product(request.partnerId(), request.name(), request.category(), request.retailPrice(),
+            request.rentalPrice(), request.settlementRate(), request.imageUrl())));
     }
 
     @PostMapping("/{productId}/variants")

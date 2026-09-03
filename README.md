@@ -285,6 +285,7 @@ npm run dev
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
 | GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
+| GET | `/api/rentals/partner/{partnerId}/settlements` | 상품별 계약 정산율에 따른 제휴사 정산 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.

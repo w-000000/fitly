@@ -25,7 +25,7 @@ class FitlyApiFlowTest {
         JsonNode product = body(mvc.perform(post("/api/products")
                 .header("X-Actor-Role", "ROLE_PARTNER").contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                    {"partnerId":101,"name":"면접용 블레이저","category":"JACKET","retailPrice":120000,"rentalPrice":30000,"imageUrl":"https://example.com/jacket.jpg"}
+                    {"partnerId":101,"name":"면접용 블레이저","category":"JACKET","retailPrice":120000,"rentalPrice":30000,"settlementRate":0.7,"imageUrl":"https://example.com/jacket.jpg"}
                     """))
             .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString());
         long productId = product.path("product").path("id").asLong();
@@ -69,13 +69,16 @@ class FitlyApiFlowTest {
 
         mvc.perform(get("/api/rentals/partner/101/revenue").header("X-Actor-Role", "ROLE_PARTNER"))
             .andExpect(status().isOk()).andExpect(jsonPath("$.rentalRevenue").value(60000.0));
+
+        mvc.perform(get("/api/rentals/partner/101/settlements").header("X-Actor-Role", "ROLE_PARTNER"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.settlementAmount").value(42000.0));
     }
 
     @Test
     void rejectsRoleWithoutPermission() throws Exception {
         mvc.perform(post("/api/products").header("X-Actor-Role", "ROLE_CUSTOMER")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"partnerId\":1,\"name\":\"상품\",\"category\":\"TOP\",\"retailPrice\":10000,\"rentalPrice\":2500}"))
+                .content("{\"partnerId\":1,\"name\":\"상품\",\"category\":\"TOP\",\"retailPrice\":10000,\"rentalPrice\":2500,\"settlementRate\":0.5}"))
             .andExpect(status().isForbidden());
     }
 
