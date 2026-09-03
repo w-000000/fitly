@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import { createRecommendation } from '../api'
 
 const tpoOptions = [['INTERVIEW', '면접'], ['WORK', '출근'], ['DATE', '데이트'], ['GUEST', '하객'], ['DAILY', '일상']]
@@ -9,7 +9,9 @@ const form = ref({
   rentalStartDate: '', rentalEndDate: '', groupName: '', activityType: '',
   groupSizes: { S: 0, M: 0, L: 0, XL: 0 }, prompt: '',
 })
-const fileName = ref('')
+const selectedImages = ref([])
+const imageError = ref('')
+const isDraggingImage = ref(false)
 const loading = ref(false)
 const error = ref('')
 const recommendation = ref(null)
@@ -20,7 +22,41 @@ const rentalDays = computed(() => {
   return Math.floor((new Date(form.value.rentalEndDate) - new Date(form.value.rentalStartDate)) / 86400000) + 1
 })
 
-const selectFile = (event) => { fileName.value = event.target.files?.[0]?.name || '' }
+const addImageFiles = (files) => {
+  imageError.value = ''
+  Array.from(files || []).forEach((file) => {
+    if (!file.type.startsWith('image/')) {
+      imageError.value = '이미지 파일만 추가할 수 있습니다.'
+      return
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      imageError.value = '이미지는 한 장당 최대 10MB까지 추가할 수 있습니다.'
+      return
+    }
+    selectedImages.value.push({
+      id: `${file.name}-${file.lastModified}-${selectedImages.value.length}`,
+      name: file.name,
+      url: globalThis.URL.createObjectURL(file),
+    })
+  })
+}
+
+const selectFile = (event) => {
+  addImageFiles(event.target.files)
+  event.target.value = ''
+}
+const dropFile = (event) => {
+  isDraggingImage.value = false
+  addImageFiles(event.dataTransfer?.files)
+}
+const removeFile = (id) => {
+  const image = selectedImages.value.find((item) => item.id === id)
+  if (image) globalThis.URL.revokeObjectURL(image.url)
+  selectedImages.value = selectedImages.value.filter((item) => item.id !== id)
+  imageError.value = ''
+}
+
+onBeforeUnmount(() => selectedImages.value.forEach((image) => globalThis.URL.revokeObjectURL(image.url)))
 const changeSize = (size, amount) => {
   form.value.groupSizes[size] = Math.max(0, Number(form.value.groupSizes[size] || 0) + amount)
 }
@@ -29,7 +65,9 @@ const formatPrice = (price = 0) => Number(price).toLocaleString('ko-KR')
 const recommend = async () => {
   error.value = ''
   if (!form.value.rentalStartDate || !form.value.rentalEndDate || rentalDays.value < 1) {
-    error.value = '올바른 대여 시작일과 종료일을 선택해주세요.'
+    error.value = form.value.rentalStartDate && form.value.rentalEndDate
+      ? '대여 종료일은 시작일과 같거나 이후여야 합니다.'
+      : '올바른 대여 시작일과 종료일을 선택해주세요.'
     return
   }
   if (isGroup.value && groupCount.value < 2) {
@@ -88,11 +126,27 @@ const recommend = async () => {
         <div class="form-number">3</div>
         <div class="form-content">
           <div class="form-title"><h2>내 옷</h2><span>함께 입고 싶은 옷 사진을 추가할 수 있어요.</span></div>
-          <label class="upload-zone">
-            <input type="file" accept="image/*" @change="selectFile">
-            <b>＋</b><strong>{{ fileName || '내 옷 사진 Drag & Drop' }}</strong>
-            <small>{{ fileName ? '사진이 선택되었습니다.' : 'PNG, JPG · 최대 10MB' }}</small><span>사진 선택</span>
+          <label
+            class="upload-zone"
+            @dragenter.prevent="isDraggingImage = true"
+            @dragover.prevent="isDraggingImage = true"
+            @dragleave.prevent="isDraggingImage = false"
+            @drop.prevent="dropFile"
+          >
+            <input type="file" accept="image/*" multiple @change="selectFile">
+            <b>＋</b><strong>{{ isDraggingImage ? '여기에 이미지들을 놓아주세요' : '내 옷 사진 Drag & Drop' }}</strong>
+            <small>여러 장 선택 가능 · PNG, JPG · 장당 최대 10MB</small><span>사진 선택</span>
           </label>
+          <p v-if="imageError" class="upload-error" role="alert">{{ imageError }}</p>
+          <div v-if="selectedImages.length" class="image-preview-list" aria-label="선택한 이미지 미리보기">
+            <article v-for="image in selectedImages" :key="image.id" class="image-preview-card">
+              <div class="image-preview-header">
+                <small :title="image.name">{{ image.name }}</small>
+                <button type="button" :aria-label="`${image.name} 삭제`" @click="removeFile(image.id)">×</button>
+              </div>
+              <img :src="image.url" :alt="`${image.name} 미리보기`">
+            </article>
+          </div>
         </div>
       </section>
 
@@ -119,7 +173,7 @@ const recommend = async () => {
             <label class="full-field">추가 요청<textarea v-model="form.prompt" rows="3" placeholder="예: 너무 딱딱하지 않고 활동하기 편한 스타일"></textarea></label>
           </div>
           <p v-if="rentalDays > 0" class="date-summary">선택한 대여 기간 · <b>{{ rentalDays }}일</b></p>
-          <p v-if="error" class="form-error">{{ error }}</p>
+          <p v-if="error" class="form-error" role="alert">{{ error }}</p>
           <button class="submit-button" :disabled="loading"><span>{{ loading ? '추천을 준비하고 있어요' : 'AI 코디 추천받기' }}</span><b>→</b></button>
         </div>
       </section>

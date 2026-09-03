@@ -23,10 +23,10 @@ describe('App navigation', () => {
       global: { plugins: [router] },
     })
 
-    await wrapper.get('.hero-cta').trigger('click')
+    await wrapper.get('.primary-button').trigger('click')
     await flushPromises()
 
     expect(router.currentRoute.value.path).toBe('/recommend')
-    expect(wrapper.text()).toContain('대여 조건을 선택해주세요')
+    expect(wrapper.text()).toContain('AI 코디 추천')
   })
 })
