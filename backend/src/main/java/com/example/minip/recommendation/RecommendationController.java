@@ -19,9 +19,11 @@ public class RecommendationController {
     private final RecommendationRepository recommendations;
     private final ProductRepository products;
     private final RoleGuard roles;
+    private final SavedOutfitRepository savedOutfits;
     public RecommendationController(RecommendationService service, RecommendationRepository recommendations,
-                                    ProductRepository products, RoleGuard roles) {
+                                    ProductRepository products, RoleGuard roles, SavedOutfitRepository savedOutfits) {
         this.service = service; this.recommendations = recommendations; this.products = products; this.roles = roles;
+        this.savedOutfits = savedOutfits;
     }
     @PostMapping
     public RecommendationResponse recommend(@Valid @RequestBody RecommendationRequest request) { return service.recommend(request); }
@@ -42,7 +44,29 @@ public class RecommendationController {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "본인의 추천만 조회할 수 있습니다.");
         return result(value);
     }
+    @GetMapping("/saved")
+    public List<SavedOutfit> saved(@RequestHeader("X-Actor-Role") String role,@RequestHeader("X-User-Id") Long userId){
+        roles.require(role,ActorRole.ROLE_CUSTOMER);return savedOutfits.findAllByCustomerIdOrderBySavedAtDesc(userId);
+    }
+    @PutMapping("/jobs/{jobId}/looks/{lookKey}/saved")
+    public SavedState save(@RequestHeader("X-Actor-Role") String role,@RequestHeader("X-User-Id") Long userId,
+                           @PathVariable Long jobId,@PathVariable String lookKey,@Valid @RequestBody SaveRequest request){
+        roles.require(role,ActorRole.ROLE_CUSTOMER);ownJob(jobId,userId);
+        SavedOutfit value=savedOutfits.findByCustomerIdAndRecommendationJobIdAndLookKey(userId,jobId,lookKey)
+            .orElseGet(()->savedOutfits.save(new SavedOutfit(userId,jobId,lookKey,request.title(),request.description())));
+        return new SavedState(true,value);
+    }
+    @DeleteMapping("/jobs/{jobId}/looks/{lookKey}/saved")
+    public SavedState unsave(@RequestHeader("X-Actor-Role") String role,@RequestHeader("X-User-Id") Long userId,
+                             @PathVariable Long jobId,@PathVariable String lookKey){
+        roles.require(role,ActorRole.ROLE_CUSTOMER);ownJob(jobId,userId);
+        savedOutfits.findByCustomerIdAndRecommendationJobIdAndLookKey(userId,jobId,lookKey).ifPresent(savedOutfits::delete);
+        return new SavedState(false,null);
+    }
+    private RecommendationJob ownJob(Long id,Long userId){RecommendationJob value=recommendations.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"추천 요청을 찾을 수 없습니다."));if(!value.getCustomerId().equals(userId))throw new ResponseStatusException(HttpStatus.FORBIDDEN,"본인의 추천만 관리할 수 있습니다.");return value;}
     private Result result(RecommendationJob request) { return new Result(request, products.findAll().stream().limit(2).toList(), true); }
     public record CreateJobRequest(@NotBlank String tpo, @NotBlank String preferredStyle, @NotNull String wardrobeDescription, String wardrobeImageUrl) {}
     public record Result(RecommendationJob request, List<Product> recommendedProducts, boolean mock) {}
+    public record SaveRequest(@NotBlank String title,String description){}
+    public record SavedState(boolean saved,SavedOutfit outfit){}
 }

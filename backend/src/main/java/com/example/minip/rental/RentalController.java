@@ -42,8 +42,18 @@ public class RentalController {
         roles.require(role, ActorRole.ROLE_CUSTOMER); return orders.findAllByCustomerIdOrderByCreatedAtDesc(userId);
     }
     @GetMapping
-    public List<RentalOrder> all(@RequestHeader("X-Actor-Role") String role) {
-        roles.require(role, ActorRole.ROLE_ADMIN); return orders.findAll();
+    public List<RentalOrder> all(@RequestHeader("X-Actor-Role") String role,
+                                 @RequestParam(required=false) RentalOrder.Status status) {
+        roles.require(role, ActorRole.ROLE_ADMIN);
+        return orders.findAll().stream().filter(order -> status == null || order.getStatus() == status).toList();
+    }
+    @GetMapping("/{id}")
+    public RentalOrder get(@RequestHeader("X-Actor-Role") String role,
+                           @RequestHeader(value="X-User-Id",required=false) Long userId,@PathVariable Long id) {
+        ActorRole actor=roles.require(role,ActorRole.ROLE_CUSTOMER,ActorRole.ROLE_ADMIN,ActorRole.ROLE_PARTNER);
+        RentalOrder order=orders.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"대여 주문을 찾을 수 없습니다."));
+        if(actor==ActorRole.ROLE_CUSTOMER && !order.getCustomerId().equals(userId)) throw new ResponseStatusException(HttpStatus.FORBIDDEN,"본인의 주문만 조회할 수 있습니다.");
+        return order;
     }
     @GetMapping("/partner/{partnerId}/revenue")
     public RevenueView revenue(@RequestHeader("X-Actor-Role") String role, @PathVariable Long partnerId) {

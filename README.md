@@ -4,7 +4,7 @@
   <img src="./docs/logo.png" width="500">
 </p>
 
-Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입니다. 아이디어 메모를 등록하고, 향후 실제 AI API로 교체할 수 있는 Mock 요약 API를 호출합니다.
+Vue 3와 Spring Boot로 구현한 FITLY 의류 추천·대여 서비스입니다. 고객의 TPO·스타일·보유 의류를 기반으로 Mock AI 코디를 추천하고, 옷장·대여·반납·단체 요청과 제휴사 및 관리자 운영 기능을 제공합니다.
 
 
 ## Pain Point
@@ -267,10 +267,16 @@ npm run dev
 | Method | Path | 설명 |
 | --- | --- | --- |
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
+| PATCH | `/api/products/{id}` | 제휴사 상품 설명·가격·이미지 수정 |
+| POST | `/api/products/ai-description` | 상품 정보 기반 Mock AI 설명 초안 생성 |
 | POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
 | POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
+| GET | `/api/recommendations/saved` | 저장한 추천 코디 목록 조회 |
+| PUT / DELETE | `/api/recommendations/jobs/{jobId}/looks/{lookKey}/saved` | 추천 코디 저장 / 저장 해제 |
+| POST / GET | `/api/wardrobe/items` | 보유 의류 사진 등록 / 내 옷장 조회 |
+| PATCH / DELETE | `/api/wardrobe/items/{id}` | 보유 의류 인식값 수정 / 삭제 |
 | POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
@@ -278,6 +284,11 @@ npm run dev
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
 | GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
+| POST | `/api/group-rentals` | 목적·기간·인원·품목 기반 단체 대여 요청 접수 |
+| GET | `/api/group-rentals/mine` | 고객 본인의 단체 대여 요청 조회 |
+| GET | `/api/admin/dashboard` | 관리자 상품·주문·반납 대기 KPI와 최근 주문 조회 |
+| GET | `/api/partner/dashboard?partnerId={id}` | 제휴사 상품·재고·대여·매출 요약 조회 |
+| GET | `/api/laundry/inspections` | 관리자 반납 검수·세탁 목록 조회 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
 

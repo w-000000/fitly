@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/laundry/inspections")
@@ -31,4 +32,8 @@ public class LaundryController {
         return inspections.save(new LaundryInspection(order, request.damageGrade(), request.notes(), request.cleaned()));
     }
     public record InspectRequest(@NotNull Long rentalOrderId, @NotNull LaundryInspection.DamageGrade damageGrade, String notes, boolean cleaned) {}
+    @GetMapping
+    public List<LaundryInspection> list(@RequestHeader("X-Actor-Role") String role) {
+        roles.require(role, ActorRole.ROLE_ADMIN); return inspections.findAll();
+    }
 }
