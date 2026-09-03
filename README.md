@@ -102,7 +102,15 @@ Vue 3와 Spring Boot로 만든 미니 프로젝트용 풀스택 스캐폴딩입�
 - API 문서: springdoc-openapi 및 Swagger UI (`/swagger-ui.html`)
 - CI: GitHub Actions에서 frontend build 및 backend test
 
-2## 기술 스택 선정 이유
+## 시스템 아키텍처
+
+<p align="center">
+  <img src="./docs/fitly-development-architecture.png" width="900" alt="FITLY 시스템 아키텍처">
+</p>
+
+사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 Controller-Service-Repository 구조로 요청을 처리하고, JPA를 통해 Supabase PostgreSQL의 상품 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포할 수 있도록 구성했으며, GitHub Actions로 빌드와 테스트를 자동화했습니다. 현재 추천 기능은 규칙 기반 Mock 로직으로 구현되어 있으며, 향후 실제 AI API를 호출하는 Provider 모듈로 확장할 예정입니다.
+
+## 기술 스택 선정 이유
 
 ### Frontend - Vue 3 + Vite
 
@@ -226,7 +234,8 @@ npm run dev
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
 | POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
-| POST / GET | `/api/recommendations` | Mock TPO 코디 추천 요청 / 결과 조회 |
+| POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
+| POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
 | POST | `/api/rentals` | 3박 4일 단건·단체 대여 및 재고 차감 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |

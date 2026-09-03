@@ -24,6 +24,11 @@ public class ProductController {
     @GetMapping
     public List<ProductView> list() { return products.findAll().stream().map(this::view).toList(); }
 
+    @GetMapping("/{productId}")
+    public ProductView get(@PathVariable Long productId) {
+        return view(products.findById(productId).orElseThrow(() -> notFound("상품")));
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ProductView create(@RequestHeader("X-Actor-Role") String role, @Valid @RequestBody Product.CreateRequest request) {

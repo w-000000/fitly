@@ -46,8 +46,8 @@ class FitlyApiFlowTest {
             .andReturn().getResponse().getContentAsString());
         long rentalId = rental.path("id").asLong();
 
-        mvc.perform(get("/api/products"))
-            .andExpect(status().isOk()).andExpect(jsonPath("$[0].variants[0].availableStock").value(1));
+        mvc.perform(get("/api/products/{id}", productId))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.variants[0].availableStock").value(1));
 
         mvc.perform(post("/api/rentals/{id}/return-request", rentalId)
                 .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "7"))
@@ -58,8 +58,8 @@ class FitlyApiFlowTest {
                 .content("{\"rentalOrderId\":" + rentalId + ",\"damageGrade\":\"NONE\",\"notes\":\"정상\",\"cleaned\":true}"))
             .andExpect(status().isCreated()).andExpect(jsonPath("$.cleaned").value(true));
 
-        mvc.perform(get("/api/products"))
-            .andExpect(status().isOk()).andExpect(jsonPath("$[0].variants[0].availableStock").value(3));
+        mvc.perform(get("/api/products/{id}", productId))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.variants[0].availableStock").value(3));
 
         mvc.perform(get("/api/rentals/partner/29/settlements").header("X-Actor-Role", "ROLE_PARTNER"))
             .andExpect(status().isOk()).andExpect(jsonPath("$.amount").value(42500.0));
