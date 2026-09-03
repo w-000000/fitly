@@ -50,7 +50,7 @@ const recommend = async () => {
       rentalEndDate: form.value.rentalEndDate,
       prompt: [form.value.style, form.value.prompt].filter(Boolean).join(' 스타일. '),
     })
-    requestAnimationFrame(() => document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth' }))
+    window.requestAnimationFrame(() => document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth' }))
   } catch (requestError) {
     error.value = requestError.message || '추천 결과를 불러오지 못했습니다.'
   } finally {
