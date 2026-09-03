@@ -74,7 +74,7 @@ const changeSizeCount = (size, amount) => {
   <main class="shell recommend-page">
     <div class="page-heading"><p class="eyebrow">AI OUTFIT CURATION</p><h1>나에게 꼭 맞는 옷을<br><em>AI로 찾아보세요.</em></h1><p>상황과 예산을 알려주시면 가장 잘 어울리는 대여 상품을 추천해드려요.</p></div>
     <section class="recommend-layout">
-      <div class="recommend-intro"><p class="eyebrow">SMART RECOMMEND</p><h2>어떤 옷이<br>필요한가요?</h2><p>간단한 정보만 알려주세요.<br>AI가 상황과 예산에 맞는 옷을 골라드려요.</p><div class="steps"><span>1</span><i></i><span>2</span><i></i><span>3</span></div><small>조건 선택　·　AI 추천　·　대여 신청</small></div>
+      <div class="recommend-intro"><p class="eyebrow">SMART RECOMMEND</p><h2>어떤 옷이<br>필요한가요?</h2><p>간단한 정보만 알려주세요.<br>AI가 상황과 예산에 맞는 옷을 골라드려요.</p><div class="steps"><span>1</span><i></i><span>2</span><i></i><span>3</span></div><small>조건 선택 · AI 추천 · 대여 신청</small></div>
       <div class="panel">
         <div class="panel-heading"><div><span>STEP 01</span><h3>대여 조건을 선택해주세요</h3></div><b>✦</b></div>
         <form @submit.prevent="recommend">
