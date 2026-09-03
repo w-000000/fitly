@@ -1,15 +1,22 @@
 <template>
-  <div class="page">
-    <nav class="navbar">
-      <RouterLink class="brand" to="/"><span>RE:</span>WEAR</RouterLink>
-      <div class="nav-links">
-        <RouterLink to="/">홈</RouterLink>
-        <RouterLink to="/recommend">AI 맞춤 추천</RouterLink>
-        <a href="#service">이용 방법</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <RouterLink class="logo" to="/">FITLY</RouterLink>
+        <nav class="main-nav" aria-label="주요 메뉴">
+          <RouterLink to="/">코디 추천</RouterLink>
+          <a href="/#wardrobe">내 옷장</a>
+          <a href="/#rental">대여 중</a>
+          <RouterLink to="/recommend">행사·모임 대여</RouterLink>
+        </nav>
+        <button class="profile-button" type="button">MY / PROFILE <span>⌄</span></button>
       </div>
-      <button class="nav-button" type="button">MY</button>
-    </nav>
+    </header>
     <RouterView />
-    <footer><RouterLink class="brand" to="/"><span>RE:</span>WEAR</RouterLink><p>필요한 순간에만, 더 나은 방식으로 입어요.</p><small>AI-READY MINI PROJECT · 2026</small></footer>
+    <footer class="site-footer">
+      <strong>FITLY</strong>
+      <p>내 옷과 필요한 옷을 연결하는 AI 스타일 큐레이션</p>
+      <small>FITLY MINI PROJECT</small>
+    </footer>
   </div>
 </template>
