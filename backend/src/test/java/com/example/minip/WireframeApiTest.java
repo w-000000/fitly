@@ -17,8 +17,10 @@ class WireframeApiTest {
  @Autowired MockMvc mvc; @Autowired ObjectMapper json;
  @Test void customerClosetSavedLookAndGroupRequest() throws Exception {
   MockMultipartFile image=new MockMultipartFile("image","slacks.jpg","image/jpeg",new byte[]{1,2,3});
-  mvc.perform(multipart("/api/wardrobe/items").file(image).header("X-Actor-Role","ROLE_CUSTOMER").header("X-User-Id","71")
-      .param("name","Black Slacks").param("category","PANTS").param("color","BLACK"))
+  MockMultipartFile metadata=new MockMultipartFile("metadata","","application/json",
+      "{\"name\":\"Black Slacks\",\"category\":\"PANTS\",\"color\":\"BLACK\"}".getBytes());
+  mvc.perform(multipart("/api/wardrobe/items").file(metadata).file(image)
+      .header("X-Actor-Role","ROLE_CUSTOMER").header("X-User-Id","71"))
     .andExpect(status().isCreated()).andExpect(jsonPath("$.name").value("Black Slacks"));
   String job=mvc.perform(post("/api/recommendations/jobs").header("X-Actor-Role","ROLE_CUSTOMER").header("X-User-Id","71")
       .contentType(MediaType.APPLICATION_JSON).content("{\"tpo\":\"면접\",\"preferredStyle\":\"Formal\",\"wardrobeDescription\":\"Black Slacks\"}"))

@@ -34,7 +34,7 @@ public class RentalController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "대여 종료일은 시작일과 같거나 이후여야 합니다.");
         }
         ProductVariant variant = variants.findById(request.variantId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "상품 옵션을 찾을 수 없습니다."));
-        variant.changeStock(-request.quantity());
+        variant.reserve(request.quantity());
         return orders.save(new RentalOrder(userId, variant, request.quantity(), request.startDate(), request.endDate(), request.shippingAddress()));
     }
     @GetMapping("/mine")
@@ -62,6 +62,13 @@ public class RentalController {
         BigDecimal total = values.stream().map(RentalOrder::getRentalAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         return new RevenueView(partnerId, total, values);
     }
+    @GetMapping("/partner/{partnerId}/settlements")
+    public SettlementView settlements(@RequestHeader("X-Actor-Role") String role, @PathVariable Long partnerId) {
+        roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
+        List<RentalOrder> values = orders.findAllByVariantProductPartnerIdOrderByCreatedAtDesc(partnerId);
+        BigDecimal total = values.stream().map(RentalOrder::getSettlementAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return new SettlementView(partnerId, total, values);
+    }
     @PostMapping("/{id}/return-request")
     @Transactional
     public RentalOrder requestReturn(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId, @PathVariable Long id) {
@@ -85,4 +92,5 @@ public class RentalController {
                                 @NotNull LocalDate endDate, @NotBlank String shippingAddress) {}
     public record OwnResult(RentalOrder order, BigDecimal remainingBalance) {}
     public record RevenueView(Long partnerId, BigDecimal rentalRevenue, List<RentalOrder> orders) {}
+    public record SettlementView(Long partnerId, BigDecimal settlementAmount, List<RentalOrder> orders) {}
 }

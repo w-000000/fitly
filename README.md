@@ -4,7 +4,7 @@
   <img src="./docs/logo.png" width="500">
 </p>
 
-Vue 3와 Spring Boot로 구현한 FITLY 의류 추천·대여 서비스입니다. 고객의 TPO·스타일·보유 의류를 기반으로 Mock AI 코디를 추천하고, 옷장·대여·반납·단체 요청과 제휴사 및 관리자 운영 기능을 제공합니다.
+FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등의 조건을 바탕으로 코디와 대여 상품을 추천하는 Vue 3·Spring Boot 기반 서비스입니다. 고객 옷장, 코디 저장, 단건·단체 대여와 반납, 제휴사 상품·재고·정산 및 관리자 운영 기능을 제공하며, 현재의 Mock AI 로직은 향후 실제 AI Vision·LLM API로 교체할 수 있도록 구성했습니다.
 
 
 ## Pain Point
@@ -266,9 +266,17 @@ npm run dev
 
 | Method | Path | 설명 |
 | --- | --- | --- |
+| POST | `/api/auth/signup` | 고객 회원가입 |
+| POST | `/api/auth/login` | 로그인 및 Bearer 세션 토큰 발급 |
+| POST | `/api/wardrobe/items` | 사진 파일과 옷 정보를 내 옷장에 등록 |
+| GET | `/api/wardrobe/items` | 내 옷장 목록 조회 |
+| GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
+| GET | `/api/wardrobe/items/{id}/image` | 등록한 옷 사진 조회 |
 | GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
 | PATCH | `/api/products/{id}` | 제휴사 상품 설명·가격·이미지 수정 |
 | POST | `/api/products/ai-description` | 상품 정보 기반 Mock AI 설명 초안 생성 |
+| GET | `/api/products/{productId}` | 상품 상세 조회 |
+| GET | `/api/products/variants/{variantId}/availability` | 선택 기간·수량의 대여 가능 여부 확인 |
 | POST | `/api/products/{id}/variants` | 사이즈별 재고 생성 |
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
@@ -283,6 +291,7 @@ npm run dev
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
 | GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
+| GET | `/api/rentals/partner/{partnerId}/settlements` | 상품별 계약 정산율에 따른 제휴사 정산 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
 | POST | `/api/group-rentals` | 목적·기간·인원·품목 기반 단체 대여 요청 접수 |
 | GET | `/api/group-rentals/mine` | 고객 본인의 단체 대여 요청 조회 |
