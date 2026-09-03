@@ -268,8 +268,6 @@ npm run dev
 
 | Method | Path | 설명 |
 | --- | --- | --- |
-| POST | `/api/auth/signup` | 고객 회원가입 |
-| POST | `/api/auth/login` | 로그인 및 Bearer 세션 토큰 발급 |
 | POST | `/api/wardrobe/items` | 사진 파일과 옷 정보를 내 옷장에 등록 |
 | GET | `/api/wardrobe/items` | 내 옷장 목록 조회 |
 | GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
