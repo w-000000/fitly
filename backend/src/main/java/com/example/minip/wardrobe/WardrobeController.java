@@ -1,5 +1,6 @@
 package com.example.minip.wardrobe;
 
+import com.example.minip.business.ReferenceDataService;
 import com.example.minip.config.ActorRole;
 import com.example.minip.config.RoleGuard;
 import jakarta.validation.Valid;
@@ -20,7 +21,10 @@ public class WardrobeController {
     private static final long MAX_IMAGE_SIZE = 10 * 1024 * 1024;
     private final WardrobeItemRepository items;
     private final RoleGuard roles;
-    public WardrobeController(WardrobeItemRepository items, RoleGuard roles) { this.items = items; this.roles = roles; }
+    private final ReferenceDataService references;
+    public WardrobeController(WardrobeItemRepository items, RoleGuard roles, ReferenceDataService references) {
+        this.items = items; this.roles = roles; this.references = references;
+    }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
@@ -30,6 +34,7 @@ public class WardrobeController {
                            @RequestPart("image") MultipartFile image) throws IOException {
         roles.require(role, ActorRole.ROLE_CUSTOMER);
         validateImage(image);
+        references.ensureUser(userId, ActorRole.ROLE_CUSTOMER);
         WardrobeItem saved = items.save(new WardrobeItem(userId, metadata.name(), metadata.category(), metadata.color(),
             metadata.season(), metadata.description(), safeFileName(image), image.getContentType(), image.getBytes()));
         return ItemView.from(saved);
@@ -38,7 +43,7 @@ public class WardrobeController {
     @GetMapping @Transactional(readOnly = true)
     public List<ItemView> list(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId) {
         roles.require(role, ActorRole.ROLE_CUSTOMER);
-        return items.findAllByCustomerIdOrderByCreatedAtDesc(userId).stream().map(ItemView::from).toList();
+        return items.findAllByUserIdOrderByCreatedAtDesc(userId).stream().map(ItemView::from).toList();
     }
 
     @GetMapping("/{id}") @Transactional(readOnly = true)

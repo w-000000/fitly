@@ -4,5 +4,5 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BusinessSettlementRepository extends JpaRepository<BusinessSettlement, Long> {
-    List<BusinessSettlement> findAllByPartnerIdOrderByCreatedAtDesc(Long partnerId);
+    List<BusinessSettlement> findAllByContract_Business_IdOrderByCreatedAtDesc(Long businessId);
 }

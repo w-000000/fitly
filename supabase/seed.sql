@@ -1,0 +1,2 @@
+-- Local-only demo data belongs here. Reference roles and styles are created by
+-- the versioned migration because every environment requires them.

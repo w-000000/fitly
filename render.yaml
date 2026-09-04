@@ -18,9 +18,18 @@ services:
       - key: SUPABASE_DB_PASSWORD
         sync: false
       - key: JPA_DDL_AUTO
-        value: update
+        value: validate
+      - key: JPA_DEFAULT_SCHEMA
+        value: public
       - key: DB_MAX_POOL_SIZE
         value: "5"
       - key: DB_MIN_IDLE
         value: "1"
-
+      - key: FITLY_AI_PROVIDER
+        value: mock
+      - key: FITLY_AI_MODEL
+        value: gpt-4o-mini
+      - key: FITLY_AI_TEMPERATURE
+        value: "0.2"
+      - key: OPENAI_API_KEY
+        sync: false

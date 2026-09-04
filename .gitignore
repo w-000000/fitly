@@ -10,3 +10,9 @@ backend/target/
 *.iml
 .env
 *.pdf
+!ERD/ERD3.pdf
+.local-backups/
+
+# Local AI agent skills (not required by the application runtime)
+.agents/
+skills-lock.json

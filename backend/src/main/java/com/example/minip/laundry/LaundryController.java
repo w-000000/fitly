@@ -4,6 +4,7 @@ import com.example.minip.config.ActorRole;
 import com.example.minip.config.RoleGuard;
 import com.example.minip.rental.RentalOrder;
 import com.example.minip.rental.RentalOrderRepository;
+import com.example.minip.rental.RentalItem;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,19 @@ public class LaundryController {
         roles.require(role, ActorRole.ROLE_ADMIN);
         RentalOrder order = orders.findById(request.rentalOrderId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "대여 주문을 찾을 수 없습니다."));
         order.inspect();
-        if (request.cleaned()) { order.completeLaundry(); order.restoreStock(); }
-        return inspections.save(new LaundryInspection(order, request.damageGrade(), request.notes(), request.cleaned()));
+        LaundryInspection result = null;
+        for (RentalItem item : order.getRentalItems()) {
+            if (request.cleaned()) {
+                item.getVariant().release(1);
+            }
+            LaundryInspection saved = inspections.save(
+                new LaundryInspection(item, request.damageGrade(), request.notes(), request.cleaned())
+            );
+            if (result == null) {
+                result = saved;
+            }
+        }
+        return result;
     }
     public record InspectRequest(@NotNull Long rentalOrderId, @NotNull LaundryInspection.DamageGrade damageGrade, String notes, boolean cleaned) {}
     @GetMapping

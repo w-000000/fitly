@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, ref } from 'vue'
-import { createRecommendation } from '../api'
+import { createRecommendation, createRuleRecommendation, uploadWardrobeItem } from '../api'
 
 const tpoOptions = [['INTERVIEW', '면접'], ['WORK', '출근'], ['DATE', '데이트'], ['GUEST', '하객'], ['DAILY', '일상']]
 const styleOptions = ['Minimal', 'Formal', 'Street', 'Casual']
@@ -8,6 +8,7 @@ const form = ref({
   purpose: 'PERSONAL', personalSituation: 'INTERVIEW', style: 'Formal', size: 'M', budget: 50000,
   rentalStartDate: '', rentalEndDate: '', groupName: '', activityType: '',
   groupSizes: { S: 0, M: 0, L: 0, XL: 0 }, prompt: '',
+  wardrobeName: '내 옷', wardrobeCategory: 'BOTTOM', wardrobeColor: 'UNKNOWN',
 })
 const selectedImages = ref([])
 const imageError = ref('')
@@ -36,7 +37,9 @@ const addImageFiles = (files) => {
     selectedImages.value.push({
       id: `${file.name}-${file.lastModified}-${selectedImages.value.length}`,
       name: file.name,
+      file,
       url: globalThis.URL.createObjectURL(file),
+      wardrobeId: null,
     })
   })
 }
@@ -61,33 +64,66 @@ const changeSize = (size, amount) => {
   form.value.groupSizes[size] = Math.max(0, Number(form.value.groupSizes[size] || 0) + amount)
 }
 const formatPrice = (price = 0) => Number(price).toLocaleString('ko-KR')
+const resultCount = computed(() => recommendation.value?.recommendations?.length
+  ?? recommendation.value?.products?.length ?? 0)
+const resultMessage = computed(() => {
+  if (recommendation.value?.status === 'NO_MATCH') return '현재 조건에 맞는 대여 가능 상품이 없습니다.'
+  if (recommendation.value?.status === 'NEEDS_INPUT') return '추천에 필요한 정보를 더 입력해주세요.'
+  return recommendation.value?.message || '내 옷을 활용한 추천 코디입니다.'
+})
 
 const recommend = async () => {
   error.value = ''
-  if (!form.value.rentalStartDate || !form.value.rentalEndDate || rentalDays.value < 1) {
-    error.value = form.value.rentalStartDate && form.value.rentalEndDate
-      ? '대여 종료일은 시작일과 같거나 이후여야 합니다.'
-      : '올바른 대여 시작일과 종료일을 선택해주세요.'
+  if (!form.value.rentalStartDate || !form.value.rentalEndDate) {
+    error.value = '대여 시작일과 종료일을 선택해주세요.'
+    return
+  }
+  if (rentalDays.value < 1) {
+    error.value = '대여 종료일은 시작일과 같거나 이후여야 합니다.'
     return
   }
   if (isGroup.value && groupCount.value < 2) {
     error.value = '행사·모임 대여는 총 2명 이상 입력해주세요.'
     return
   }
+  if (!isGroup.value && !selectedImages.value.length) {
+    error.value = '추천에 사용할 내 옷 사진을 선택해주세요.'
+    return
+  }
   loading.value = true
   try {
-    recommendation.value = await createRecommendation({
-      purpose: form.value.purpose,
-      personalSituation: isGroup.value ? null : form.value.personalSituation,
-      size: isGroup.value ? null : form.value.size,
-      groupName: isGroup.value ? form.value.groupName : null,
-      activityType: isGroup.value ? form.value.activityType : null,
-      groupSizes: isGroup.value ? form.value.groupSizes : null,
-      budget: form.value.budget,
-      rentalStartDate: form.value.rentalStartDate,
-      rentalEndDate: form.value.rentalEndDate,
-      prompt: [form.value.style, form.value.prompt].filter(Boolean).join(' 스타일. '),
-    })
+    if (isGroup.value) {
+      recommendation.value = await createRuleRecommendation({
+        purpose: form.value.purpose,
+        groupName: form.value.groupName,
+        activityType: form.value.activityType,
+        groupSizes: form.value.groupSizes,
+        budget: form.value.budget,
+        rentalStartDate: form.value.rentalStartDate,
+        rentalEndDate: form.value.rentalEndDate,
+        prompt: form.value.prompt,
+      })
+    } else {
+      const wardrobeItemIds = await Promise.all(selectedImages.value.map(async (image) => {
+        if (image.wardrobeId) return image.wardrobeId
+        const wardrobe = await uploadWardrobeItem(image.file, {
+          name: form.value.wardrobeName,
+          category: form.value.wardrobeCategory,
+          color: form.value.wardrobeColor,
+          season: 'ALL',
+          description: form.value.prompt,
+        })
+        image.wardrobeId = wardrobe.id
+        return wardrobe.id
+      }))
+      recommendation.value = await createRecommendation({
+        tpo: form.value.personalSituation,
+        style: form.value.style,
+        size: form.value.size,
+        budget: form.value.budget,
+        wardrobeItemIds,
+      })
+    }
     window.requestAnimationFrame(() => document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth' }))
   } catch (requestError) {
     error.value = requestError.message || '추천 결과를 불러오지 못했습니다.'
@@ -160,16 +196,25 @@ const recommend = async () => {
     </form>
 
     <section v-if="recommendation" id="results" class="result-section">
-      <div class="result-heading"><div><p class="section-kicker ai-kicker">✦ CUSTOMER AI · {{ recommendation.products.length }} RESULTS</p><h2>나를 위한 추천 코디</h2><p>내 옷을 최대한 활용하고, 꼭 필요한 상품만 골랐어요.</p></div><button type="button" class="outline-button">조건 다시 설정</button></div>
-      <p class="result-message">{{ recommendation.message }}</p>
-      <div class="result-layout">
-        <div class="result-grid">
-          <article v-for="(product, index) in recommendation.products" :key="product.id" class="result-card">
-            <div class="result-visual" :class="`look-${(index % 3) + 1}`"><span>LOOK 0{{ index + 1 }} · {{ Math.max(84, 96 - index * 7) }}% MATCH</span><button type="button" class="heart-button">{{ index === 0 ? '♥' : '♡' }}</button></div>
-            <div class="result-info"><small>{{ product.category }} · {{ form.style }}</small><h3>{{ product.name }}</h3><p>{{ product.description }}</p><div class="reason"><b>AI STYLING NOTE</b><span>{{ product.reason }}</span></div><div class="result-price"><span>필요 대여</span><strong>{{ formatPrice(product.rentalPrice) }}원</strong></div><div class="result-actions"><button type="button">코디 상세보기</button><button type="button" class="accent">대여하기</button></div></div>
-          </article>
-        </div>
-        <aside class="cross-sell"><p class="section-kicker ai-kicker">AI CROSS-SELL</p><h3>내 옷과 바꿔볼 상품</h3><p>현재 코디의 내 옷과 유사한 대체 상품이에요.</p><div><small>내 옷 · Black Slacks</small><strong>대체 추천<br>Tailored Slacks</strong><button type="button">29K 보기</button></div><div><small>내 옷 · White Shirt</small><strong>대체 추천<br>Oxford Shirt</strong><button type="button">18K 보기</button></div></aside>
+      <div class="result-heading"><div><p class="section-kicker ai-kicker">✦ CUSTOMER AI · {{ resultCount }} RESULTS</p><h2>나를 위한 추천 코디</h2><p>내 옷을 최대한 활용하고, 꼭 필요한 상품만 골랐어요.</p></div><button type="button" class="outline-button">조건 다시 설정</button></div>
+      <p class="result-message">{{ resultMessage }}</p>
+      <div v-if="recommendation.recommendations" class="result-grid">
+        <article v-for="look in recommendation.recommendations" :key="look.recommendationId" class="result-card">
+          <div class="result-visual" :class="`look-${((look.rank - 1) % 3) + 1}`"><span>LOOK {{ String(look.rank).padStart(2, '0') }} · {{ look.matchScore }}% MATCH</span></div>
+          <div class="result-info">
+            <small>AI MATCHED</small><h3>{{ look.outfitTitle }}</h3>
+            <div class="look-items"><b>내 옷</b><p v-for="item in look.wardrobeItems" :key="item.wardrobeItemId">{{ item.itemName }} <span>0원</span></p></div>
+            <div class="look-items"><b>필요한 대여 상품</b><p v-for="item in look.rentalItems" :key="item.productVariantId">{{ item.productName }} · {{ item.size }} <span>{{ formatPrice(item.rentalPrice) }}원</span></p></div>
+            <div class="reason"><b>추천 이유</b><span>{{ look.stylingComment }}</span></div>
+            <div class="result-price"><span>총 대여가</span><strong>{{ formatPrice(look.totalRentalPrice) }}원</strong></div>
+          </div>
+        </article>
+      </div>
+      <div v-else class="result-grid">
+        <article v-for="(product, index) in recommendation.products" :key="product.id" class="result-card">
+          <div class="result-visual" :class="`look-${(index % 3) + 1}`"><span>LOOK 0{{ index + 1 }}</span></div>
+          <div class="result-info"><small>{{ product.category }} · AI MATCHED</small><h3>{{ product.name }}</h3><p>{{ product.description }}</p><div class="reason"><b>추천 이유</b><span>{{ product.reason }}</span></div><div class="result-price"><span>대여가</span><strong>{{ formatPrice(product.rentalPrice) }}원</strong></div><div class="result-actions"><button type="button">코디 상세</button><button type="button" class="accent">대여하기</button></div></div>
+        </article>
       </div>
     </section>
   </main>

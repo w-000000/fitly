@@ -102,8 +102,8 @@ FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등�
 
 - Frontend: Vue 3, Vite
 - Backend: Java 21, Spring Boot 3, Spring Data JPA
-- Database: Supabase PostgreSQL(운영), H2(in-memory, 로컬 개발 및 테스트)
-- Image Storage: Supabase Storage
+- Database: Supabase PostgreSQL 17(로컬 Docker 및 운영), H2(in-memory, API 단위·통합 테스트)
+- Image Storage: 현재 PostgreSQL URL 필드 사용, Supabase Storage 전환 예정
 - API 문서: springdoc-openapi 및 Swagger UI (`/swagger-ui.html`)
 - CI: GitHub Actions에서 lint, 단위·통합·브라우저 테스트, 빌드 및 보안 검사
 
@@ -116,6 +116,7 @@ FITLY는 사용자가 보유한 의류 사진과 상황·스타일·예산 등�
 사용자는 Vue 3 기반 프론트엔드를 통해 서비스를 이용하고, 요청은 Spring Boot 백엔드로 전달됩니다. 백엔드는 인증, 옷장, 상품·재고, 추천·저장 코디, 단건·단체 대여, 정산, 대시보드와 세탁 검수 도메인으로 구성되고 JPA를 통해 데이터를 관리합니다. Frontend와 Backend는 하나의 Docker 이미지로 통합하여 Render에 배포하며, GitHub Actions로 품질·브라우저·보안 검사를 자동화했습니다. 현재 추천 기능은 규칙 기반 및 Mock 로직으로 구현되어 있고 실제 AI Provider로 확장할 예정입니다.
 
 로컬 개발, 도메인 구성, CI·배포와 Kubernetes 확장 지점은 [개발 아키텍처 문서](./docs/architecture.md)에서 확인할 수 있습니다.
+ERD3 스키마, 로컬 PostgreSQL, 마이그레이션 및 보안 원칙은 [데이터베이스 운영 가이드](./docs/database.md)를 참고합니다.
 
 ## 기술 스택 선정 이유
 
@@ -186,9 +187,11 @@ Spring Boot ── springdoc-openapi / Swagger UI
 
 JDK 21이 필요합니다. Maven은 wrapper가 자동으로 준비합니다.
 
-로컬 H2 DB로 실행:
+로컬 Supabase PostgreSQL을 시작하고 ERD3 마이그레이션을 적용한 뒤 실행:
 
 ```bash
+npx --yes supabase@2.116.0 start
+npx --yes supabase@2.116.0 db reset --local
 cd backend
 ./mvnw spring-boot:run
 ```
@@ -225,10 +228,9 @@ Swagger UI에서 API를 호출하려면 원하는 API를 펼친 뒤 `Try it out`
 
 - API: http://localhost:8080/api
 - Swagger UI: http://localhost:8080/swagger-ui/index.html
-- H2 Console: http://localhost:8080/h2-console
-  - JDBC URL: `jdbc:h2:mem:minip`
-  - User: `sa`
-  - Password: 없음
+- Local PostgreSQL: `postgresql://postgres:postgres@127.0.0.1:54322/postgres`
+
+`./mvnw test`에서만 격리된 H2 데이터베이스와 `test` 프로필을 사용합니다.
 
 Supabase PostgreSQL로 실행:
 
@@ -252,7 +254,8 @@ Spring Boot는 `SPRING_PROFILES_ACTIVE=supabase` 값을 읽어 `application-supa
 | `SUPABASE_DB_URL` | `jdbc:postgresql://`로 시작하는 Session pooler JDBC URL |
 | `SUPABASE_DB_USERNAME` | 일반적으로 `postgres.PROJECT_REF` 형식인 DB 사용자명 |
 | `SUPABASE_DB_PASSWORD` | Supabase 프로젝트의 Database Password |
-| `JPA_DDL_AUTO` | 개발 단계 기본값 `update`; 운영 안정화 후 `validate` 권장 |
+| `JPA_DDL_AUTO` | 마이그레이션 스키마 보호를 위해 항상 `validate` 사용 |
+| `JPA_DEFAULT_SCHEMA` | ERD3 애플리케이션 스키마 `public` |
 
 ### Frontend
 
@@ -334,8 +337,8 @@ npm run dev
 
 ## 다음 단계
 
-1. 팀 서비스 주제에 맞게 `Note` 도메인과 화면 문구 변경
-2. FITLY 도메인 테이블 설계 및 Supabase Storage 연결
+1. Supabase Auth JWT 검증을 Spring Security와 연결
+2. 옷장·상품 이미지를 Supabase Storage로 이전
 3. 실제 AI Provider 구현 및 API Key를 환경변수/GitHub Secret으로 주입
 
 ## 배포 및 CD
