@@ -22,5 +22,14 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test:unit
-      - run: npm audit --omit=dev --audit-level=high
+      - name: Audit production dependencies
+        run: |
+          for attempt in 1 2 3; do
+            npm audit --omit=dev --audit-level=high && exit 0
+            if [ "$attempt" -lt 3 ]; then
+              echo "npm audit failed; retrying in 10 seconds ($attempt/3)"
+              sleep 10
+            fi
+          done
+          exit 1
       - run: npm run build
