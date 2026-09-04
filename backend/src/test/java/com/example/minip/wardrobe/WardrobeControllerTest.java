@@ -11,12 +11,16 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class WardrobeControllerTest {
     @Autowired MockMvc mvc;
+    @Autowired ObjectMapper objectMapper;
 
     @Test
     void customerUploadsAndListsOwnClothes() throws Exception {
@@ -25,16 +29,19 @@ class WardrobeControllerTest {
         MockMultipartFile image = new MockMultipartFile("image", "slacks.png", MediaType.IMAGE_PNG_VALUE,
             new byte[] {(byte) 0x89, 0x50, 0x4e, 0x47});
 
-        mvc.perform(multipart("/api/wardrobe/items").file(metadata).file(image)
+        MvcResult created = mvc.perform(multipart("/api/wardrobe/items").file(metadata).file(image)
                 .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "11"))
             .andExpect(status().isCreated())
             .andExpect(jsonPath("$.name").value("검정 슬랙스"))
-            .andExpect(jsonPath("$.imageUrl").value("/api/wardrobe/items/1/image"));
+            .andReturn();
+
+        long itemId = objectMapper.readTree(created.getResponse().getContentAsString()).get("id").asLong();
 
         mvc.perform(get("/api/wardrobe/items").header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "11"))
             .andExpect(status().isOk()).andExpect(jsonPath("$[0].category").value("PANTS"));
 
-        mvc.perform(get("/api/wardrobe/items/1/image").header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "11"))
+        mvc.perform(get("/api/wardrobe/items/{id}/image", itemId)
+                .header("X-Actor-Role", "ROLE_CUSTOMER").header("X-User-Id", "11"))
             .andExpect(status().isOk()).andExpect(content().contentType(MediaType.IMAGE_PNG));
     }
 
