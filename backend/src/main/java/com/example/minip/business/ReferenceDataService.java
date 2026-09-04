@@ -57,7 +57,7 @@ public class ReferenceDataService {
         BusinessMember member = members.findByBusinessIdAndUserId(businessId, owner.getId())
             .orElseGet(() -> members.save(new BusinessMember(business, owner)));
         BusinessContract contract = contracts
-            .findFirstByBusinessIdAndStatusOrderByStartDateDesc(businessId, "ACTIVE")
+            .findFirstByBusiness_IdAndStatusOrderByStartDateDesc(businessId, "ACTIVE")
             .orElseGet(() -> contracts.save(new BusinessContract(
                 business, commissionRate == null ? DEFAULT_COMMISSION_RATE : commissionRate
             )));
@@ -66,7 +66,7 @@ public class ReferenceDataService {
 
     @Transactional(readOnly = true)
     public BigDecimal activeCommissionRate(Long businessId) {
-        return contracts.findFirstByBusinessIdAndStatusOrderByStartDateDesc(businessId, "ACTIVE")
+        return contracts.findFirstByBusiness_IdAndStatusOrderByStartDateDesc(businessId, "ACTIVE")
             .map(BusinessContract::getCommissionRate)
             .orElse(BigDecimal.ZERO);
     }

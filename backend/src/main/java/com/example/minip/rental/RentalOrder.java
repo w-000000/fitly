@@ -35,6 +35,15 @@ public class RentalOrder {
     @Column(name = "source_recommendation_id")
     private Long sourceRecommendationId;
 
+    @Column(name = "idempotency_key", length = 100)
+    private String idempotencyKey;
+
+    @Column(name = "order_group_key", length = 100)
+    private String orderGroupKey;
+
+    @Column(name = "multi_item_order", nullable = false)
+    private boolean multiItemOrder;
+
     @Column(name = "order_type", nullable = false, length = 20)
     private String orderType;
 
@@ -74,7 +83,17 @@ public class RentalOrder {
 
     public RentalOrder(Long userId, ProductVariant variant, int quantity,
                        LocalDate startDate, LocalDate endDate, String address) {
+        this(userId, null, null, null, false, variant, quantity, startDate, endDate, address);
+    }
+
+    public RentalOrder(Long userId, Long sourceRecommendationId, String idempotencyKey,
+                       String orderGroupKey, boolean multiItemOrder, ProductVariant variant,
+                       int quantity, LocalDate startDate, LocalDate endDate, String address) {
         this.userId = userId;
+        this.sourceRecommendationId = sourceRecommendationId;
+        this.idempotencyKey = idempotencyKey;
+        this.orderGroupKey = orderGroupKey;
+        this.multiItemOrder = multiItemOrder;
         this.orderType = "PERSONAL";
         this.databaseStatus = "RENTING";
         this.paymentStatus = "PAID";
@@ -108,6 +127,22 @@ public class RentalOrder {
 
     public Long getCustomerId() {
         return userId;
+    }
+
+    public Long getSourceRecommendationId() {
+        return sourceRecommendationId;
+    }
+
+    public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public String getOrderGroupKey() {
+        return orderGroupKey;
+    }
+
+    public boolean isMultiItemOrder() {
+        return multiItemOrder;
     }
 
     public ProductVariant getVariant() {

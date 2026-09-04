@@ -26,13 +26,16 @@ public class RecommendationController {
     private final StyleRepository styles;
     private final RecommendationResultRepository results;
     private final ReferenceDataService references;
+    private final RecommendationFeedbackRepository feedback;
     public RecommendationController(RecommendationService service, RuleRecommendationService ruleService,
                                     RecommendationRepository recommendations, ProductRepository products,
                                     RoleGuard roles, SavedOutfitRepository savedOutfits, StyleRepository styles,
-                                    RecommendationResultRepository results, ReferenceDataService references) {
+                                    RecommendationResultRepository results, ReferenceDataService references,
+                                    RecommendationFeedbackRepository feedback) {
         this.service = service; this.ruleService = ruleService; this.recommendations = recommendations;
         this.products = products; this.roles = roles;
         this.savedOutfits = savedOutfits; this.styles = styles; this.results = results; this.references = references;
+        this.feedback = feedback;
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -113,8 +116,36 @@ public class RecommendationController {
             default -> "Formal";
         };
     }
+    @GetMapping("/requests/{id}")
+    public Result getRequest(@RequestHeader("X-Actor-Role") String role,
+                             @RequestHeader("X-User-Id") Long userId, @PathVariable Long id) {
+        return getJob(role, userId, id);
+    }
+
+    @GetMapping("/requests")
+    public List<Result> requests(@RequestHeader("X-Actor-Role") String role,
+                                 @RequestHeader("X-User-Id") Long userId) {
+        return myJobs(role, userId);
+    }
+
+    @PutMapping("/{recommendationId}/feedback")
+    @Transactional
+    public RecommendationFeedback feedback(@RequestHeader("X-Actor-Role") String role,
+                                           @RequestHeader("X-User-Id") Long userId,
+                                           @PathVariable Long recommendationId,
+                                           @Valid @RequestBody FeedbackRequest request) {
+        roles.require(role, ActorRole.ROLE_CUSTOMER);
+        ownJob(recommendationId, userId);
+        RecommendationFeedback value = feedback.findByRecommendationJobId(recommendationId)
+            .orElseGet(() -> new RecommendationFeedback(recommendationId, userId, request.sentiment(),
+                request.reasonCode(), request.feedbackText()));
+        value.update(request.sentiment(), request.reasonCode(), request.feedbackText());
+        return feedback.save(value);
+    }
     public record CreateJobRequest(@NotBlank String tpo, @NotBlank String preferredStyle, @NotNull String wardrobeDescription, String wardrobeImageUrl) {}
     public record Result(RecommendationJob request, List<Product> recommendedProducts, boolean mock) {}
     public record SaveRequest(@NotBlank String title,String description){}
     public record SavedState(boolean saved,SavedOutfit outfit){}
+    public record FeedbackRequest(@NotNull RecommendationFeedback.Sentiment sentiment,
+                                  String reasonCode, String feedbackText) {}
 }

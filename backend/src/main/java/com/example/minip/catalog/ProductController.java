@@ -32,7 +32,20 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductView> list() { return products.findAll().stream().map(this::view).toList(); }
+    public List<ProductView> list(@RequestParam(required = false) Long partnerId,
+                                  @RequestParam(required = false) String status,
+                                  @RequestParam(required = false) String category,
+                                  @RequestParam(required = false) String q,
+                                  @RequestParam(defaultValue = "0") @Min(0) int page,
+                                  @RequestParam(defaultValue = "20") @Min(1) int size) {
+        return products.findAll().stream()
+            .filter(value -> partnerId == null || partnerId.equals(value.getPartnerId()))
+            .filter(value -> status == null || status.equalsIgnoreCase(value.getStatus()))
+            .filter(value -> category == null || category.equalsIgnoreCase(value.getCategory()))
+            .filter(value -> q == null || contains(value.getName(), q) || contains(value.getBrand(), q))
+            .skip((long) page * Math.min(size, 100)).limit(Math.min(size, 100))
+            .map(this::view).toList();
+    }
 
     @GetMapping("/{productId}")
     public ProductView get(@PathVariable Long productId) {
@@ -101,6 +114,9 @@ public class ProductController {
 
     private ProductView view(Product product) {
         return new ProductView(product, variants.findAllByProductId(product.getId()).stream().map(VariantView::from).toList());
+    }
+    private boolean contains(String value, String query) {
+        return value != null && value.toLowerCase().contains(query.toLowerCase());
     }
     private ResponseStatusException notFound(String target) { return new ResponseStatusException(HttpStatus.NOT_FOUND, target + "을 찾을 수 없습니다."); }
     public record VariantRequest(@NotBlank String size, @Min(0) int stock) {}

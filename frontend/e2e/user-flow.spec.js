@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import { expect, test } from '@playwright/test'
 
 const recommendation = {
@@ -51,9 +52,23 @@ test('주요 화면이 가로로 넘치지 않고 핵심 영역이 보인다', a
   await expect(page.locator('.site-header')).toBeVisible()
   await expect(page.locator('.home-hero')).toBeVisible()
   await expect(page.locator('.start-card')).toBeVisible()
+  await expect(page.locator('.wardrobe-section')).toBeVisible()
 
   const hasHorizontalOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
   )
   expect(hasHorizontalOverflow).toBe(false)
+})
+
+test('선택한 옷 이미지를 업로드 영역에서 미리 보여준다', async ({ page }) => {
+  await page.goto('/recommend')
+
+  await page.locator('input[type="file"]').setInputFiles({
+    name: 'event-look.png',
+    mimeType: 'image/png',
+    buffer: Buffer.from('preview image'),
+  })
+
+  await expect(page.locator('.image-preview-card img')).toBeVisible()
+  await expect(page.getByText('event-look.png', { exact: true })).toBeVisible()
 })

@@ -54,4 +54,12 @@ public class BusinessContract {
     public BigDecimal getCommissionRate() {
         return commissionRate;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getBusinessId() {
+        return business.getId();
+    }
 }

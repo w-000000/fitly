@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import { createRecommendation, createRuleRecommendation, uploadWardrobeItem } from '../api'
 
 const tpoOptions = [['INTERVIEW', '면접'], ['WORK', '출근'], ['DATE', '데이트'], ['GUEST', '하객'], ['DAILY', '일상']]
@@ -10,9 +10,9 @@ const form = ref({
   groupSizes: { S: 0, M: 0, L: 0, XL: 0 }, prompt: '',
   wardrobeName: '내 옷', wardrobeCategory: 'BOTTOM', wardrobeColor: 'UNKNOWN',
 })
-const fileName = ref('')
-const selectedFile = ref(null)
-const uploadedWardrobeId = ref(null)
+const selectedImages = ref([])
+const imageError = ref('')
+const isDraggingImage = ref(false)
 const loading = ref(false)
 const error = ref('')
 const recommendation = ref(null)
@@ -23,11 +23,43 @@ const rentalDays = computed(() => {
   return Math.floor((new Date(form.value.rentalEndDate) - new Date(form.value.rentalStartDate)) / 86400000) + 1
 })
 
-const selectFile = (event) => {
-  selectedFile.value = event.target.files?.[0] || null
-  fileName.value = selectedFile.value?.name || ''
-  uploadedWardrobeId.value = null
+const addImageFiles = (files) => {
+  imageError.value = ''
+  Array.from(files || []).forEach((file) => {
+    if (!file.type.startsWith('image/')) {
+      imageError.value = '이미지 파일만 추가할 수 있습니다.'
+      return
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      imageError.value = '이미지는 한 장당 최대 10MB까지 추가할 수 있습니다.'
+      return
+    }
+    selectedImages.value.push({
+      id: `${file.name}-${file.lastModified}-${selectedImages.value.length}`,
+      name: file.name,
+      file,
+      url: globalThis.URL.createObjectURL(file),
+      wardrobeId: null,
+    })
+  })
 }
+
+const selectFile = (event) => {
+  addImageFiles(event.target.files)
+  event.target.value = ''
+}
+const dropFile = (event) => {
+  isDraggingImage.value = false
+  addImageFiles(event.dataTransfer?.files)
+}
+const removeFile = (id) => {
+  const image = selectedImages.value.find((item) => item.id === id)
+  if (image) globalThis.URL.revokeObjectURL(image.url)
+  selectedImages.value = selectedImages.value.filter((item) => item.id !== id)
+  imageError.value = ''
+}
+
+onBeforeUnmount(() => selectedImages.value.forEach((image) => globalThis.URL.revokeObjectURL(image.url)))
 const changeSize = (size, amount) => {
   form.value.groupSizes[size] = Math.max(0, Number(form.value.groupSizes[size] || 0) + amount)
 }
@@ -54,7 +86,7 @@ const recommend = async () => {
     error.value = '행사·모임 대여는 총 2명 이상 입력해주세요.'
     return
   }
-  if (!isGroup.value && !selectedFile.value) {
+  if (!isGroup.value && !selectedImages.value.length) {
     error.value = '추천에 사용할 내 옷 사진을 선택해주세요.'
     return
   }
@@ -72,22 +104,24 @@ const recommend = async () => {
         prompt: form.value.prompt,
       })
     } else {
-      if (!uploadedWardrobeId.value) {
-        const wardrobe = await uploadWardrobeItem(selectedFile.value, {
+      const wardrobeItemIds = await Promise.all(selectedImages.value.map(async (image) => {
+        if (image.wardrobeId) return image.wardrobeId
+        const wardrobe = await uploadWardrobeItem(image.file, {
           name: form.value.wardrobeName,
           category: form.value.wardrobeCategory,
           color: form.value.wardrobeColor,
           season: 'ALL',
           description: form.value.prompt,
         })
-        uploadedWardrobeId.value = wardrobe.id
-      }
+        image.wardrobeId = wardrobe.id
+        return wardrobe.id
+      }))
       recommendation.value = await createRecommendation({
         tpo: form.value.personalSituation,
         style: form.value.style,
         size: form.value.size,
         budget: form.value.budget,
-        wardrobeItemIds: [uploadedWardrobeId.value],
+        wardrobeItemIds,
       })
     }
     window.requestAnimationFrame(() => document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth' }))
@@ -128,15 +162,31 @@ const recommend = async () => {
         <div class="form-number">3</div>
         <div class="form-content">
           <div class="form-title"><h2>내 옷</h2><span>함께 입고 싶은 옷 사진을 추가할 수 있어요.</span></div>
-          <label class="upload-zone">
-            <input type="file" accept="image/*" @change="selectFile">
-            <b>＋</b><strong>{{ fileName || '내 옷 사진 Drag & Drop' }}</strong>
-            <small>{{ fileName ? '사진이 선택되었습니다.' : 'PNG, JPG · 최대 10MB' }}</small><span>사진 선택</span>
+          <label
+            class="upload-zone"
+            @dragenter.prevent="isDraggingImage = true"
+            @dragover.prevent="isDraggingImage = true"
+            @dragleave.prevent="isDraggingImage = false"
+            @drop.prevent="dropFile"
+          >
+            <input type="file" accept="image/*" multiple @change="selectFile">
+            <b>＋</b><strong>{{ isDraggingImage ? '여기에 이미지들을 놓아주세요' : '내 옷 사진 Drag & Drop' }}</strong>
+            <small>여러 장 선택 가능 · PNG, JPG · 장당 최대 10MB</small><span>사진 선택</span>
           </label>
           <div class="wardrobe-fields">
             <label>아이템명<input v-model="form.wardrobeName" maxlength="100"></label>
             <label>카테고리<select v-model="form.wardrobeCategory"><option value="TOP">상의</option><option value="BOTTOM">하의</option><option value="OUTER">아우터</option><option value="SHOES">신발</option><option value="ACCESSORY">액세서리</option></select></label>
             <label>색상<input v-model="form.wardrobeColor" maxlength="50" placeholder="예: BLACK"></label>
+          </div>
+          <p v-if="imageError" class="upload-error" role="alert">{{ imageError }}</p>
+          <div v-if="selectedImages.length" class="image-preview-list" aria-label="선택한 이미지 미리보기">
+            <article v-for="image in selectedImages" :key="image.id" class="image-preview-card">
+              <div class="image-preview-header">
+                <small :title="image.name">{{ image.name }}</small>
+                <button type="button" :aria-label="`${image.name} 삭제`" @click="removeFile(image.id)">×</button>
+              </div>
+              <img :src="image.url" :alt="`${image.name} 미리보기`">
+            </article>
           </div>
         </div>
       </section>

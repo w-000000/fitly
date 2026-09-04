@@ -20,6 +20,51 @@ describe('RecommendView', () => {
     vi.mocked(createRecommendation).mockReset()
     vi.mocked(createRuleRecommendation).mockReset()
     vi.mocked(uploadWardrobeItem).mockReset()
+    vi.stubGlobal('URL', {
+      createObjectURL: vi.fn(() => 'blob:preview-image'),
+      revokeObjectURL: vi.fn(),
+    })
+  })
+
+  it('선택한 이미지를 업로드 영역에서 미리 보여준다', async () => {
+    const wrapper = mount(RecommendView)
+    const image = new globalThis.File(['image'], 'event-look.png', { type: 'image/png' })
+    const input = wrapper.get('input[type="file"]')
+    Object.defineProperty(input.element, 'files', { value: [image] })
+
+    await input.trigger('change')
+
+    expect(wrapper.get('.image-preview-card img').attributes('src')).toBe('blob:preview-image')
+    expect(wrapper.get('.image-preview-card img').attributes('alt')).toContain('event-look.png')
+    expect(wrapper.text()).toContain('event-look.png')
+  })
+
+  it('드래그해 놓은 이미지를 미리 보여준다', async () => {
+    const wrapper = mount(RecommendView)
+    const image = new globalThis.File(['image'], 'group-event.jpg', { type: 'image/jpeg' })
+
+    await wrapper.get('.upload-zone').trigger('drop', {
+      dataTransfer: { files: [image] },
+    })
+
+    expect(wrapper.get('.image-preview-card img').attributes('src')).toBe('blob:preview-image')
+    expect(wrapper.text()).toContain('group-event.jpg')
+  })
+
+  it('여러 이미지를 선택하면 미리보기 상자를 필요한 만큼 만든다', async () => {
+    const wrapper = mount(RecommendView)
+    const input = wrapper.get('input[type="file"]')
+    const images = [
+      new globalThis.File(['one'], 'first.png', { type: 'image/png' }),
+      new globalThis.File(['two'], 'second.jpg', { type: 'image/jpeg' }),
+    ]
+    Object.defineProperty(input.element, 'files', { value: images })
+
+    await input.trigger('change')
+
+    expect(wrapper.findAll('.image-preview-card')).toHaveLength(2)
+    expect(wrapper.text()).toContain('first.png')
+    expect(wrapper.text()).toContain('second.jpg')
   })
 
   it('대여 날짜가 없으면 API를 호출하지 않고 오류를 표시한다', async () => {

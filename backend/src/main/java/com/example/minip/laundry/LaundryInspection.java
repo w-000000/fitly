@@ -101,6 +101,10 @@ public class LaundryInspection {
         return rentalItem.getOrder();
     }
 
+    public RentalItem getRentalItem() {
+        return rentalItem;
+    }
+
     public DamageGrade getDamageGrade() {
         return switch (inspectionGrade) {
             case "MINOR_STAIN" -> DamageGrade.LIGHT;
@@ -115,6 +119,31 @@ public class LaundryInspection {
 
     public boolean isCleaned() {
         return "COMPLETED".equals(laundryStatus);
+    }
+
+    public boolean isInventoryRestored() {
+        return inventoryRestored;
+    }
+
+    public void completeLaundry() {
+        if (!"COMPLETED".equals(inspectionStatus)) {
+            throw new IllegalStateException("검수 완료 후 세탁할 수 있습니다.");
+        }
+        Instant now = Instant.now();
+        laundryStatus = "COMPLETED";
+        cleanedAt = now;
+        updatedAt = now;
+    }
+
+    public void restoreInventory() {
+        if (!isCleaned()) {
+            throw new IllegalStateException("세탁 완료 후 재고를 복구할 수 있습니다.");
+        }
+        if (!inventoryRestored) {
+            inventoryRestored = true;
+            inventoryRestoredAt = Instant.now();
+            updatedAt = inventoryRestoredAt;
+        }
     }
 
     public Instant getInspectedAt() {
