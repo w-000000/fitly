@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -20,10 +21,12 @@ public class RecommendationController {
     private final ProductRepository products;
     private final RoleGuard roles;
     private final SavedOutfitRepository savedOutfits;
+    private final RecommendationFeedbackRepository feedback;
     public RecommendationController(RecommendationService service, RecommendationRepository recommendations,
-                                    ProductRepository products, RoleGuard roles, SavedOutfitRepository savedOutfits) {
+                                    ProductRepository products, RoleGuard roles, SavedOutfitRepository savedOutfits,
+                                    RecommendationFeedbackRepository feedback) {
         this.service = service; this.recommendations = recommendations; this.products = products; this.roles = roles;
-        this.savedOutfits = savedOutfits;
+        this.savedOutfits = savedOutfits; this.feedback = feedback;
     }
     @PostMapping
     public RecommendationResponse recommend(@Valid @RequestBody RecommendationRequest request) { return service.recommend(request); }
@@ -69,9 +72,38 @@ public class RecommendationController {
         roles.require(role, ActorRole.ROLE_CUSTOMER);
         return recommendations.findAllByCustomerIdOrderByCreatedAtDesc(userId).stream().map(this::result).toList();
     }
+
+    @GetMapping("/requests/{id}")
+    public Result getRequest(@RequestHeader("X-Actor-Role") String role,
+                             @RequestHeader("X-User-Id") Long userId, @PathVariable Long id) {
+        return getJob(role, userId, id);
+    }
+
+    @GetMapping("/requests")
+    public List<Result> requests(@RequestHeader("X-Actor-Role") String role,
+                                 @RequestHeader("X-User-Id") Long userId) {
+        return myJobs(role, userId);
+    }
+
+    @PutMapping("/{recommendationId}/feedback")
+    @Transactional
+    public RecommendationFeedback feedback(@RequestHeader("X-Actor-Role") String role,
+                                           @RequestHeader("X-User-Id") Long userId,
+                                           @PathVariable Long recommendationId,
+                                           @Valid @RequestBody FeedbackRequest request) {
+        roles.require(role, ActorRole.ROLE_CUSTOMER);
+        ownJob(recommendationId, userId);
+        RecommendationFeedback value = feedback.findByRecommendationJobId(recommendationId)
+            .orElseGet(() -> new RecommendationFeedback(recommendationId, userId, request.sentiment(),
+                request.reasonCode(), request.feedbackText()));
+        value.update(request.sentiment(), request.reasonCode(), request.feedbackText());
+        return feedback.save(value);
+    }
     private Result result(RecommendationJob request) { return new Result(request, products.findAll().stream().limit(2).toList(), true); }
     public record CreateJobRequest(@NotBlank String tpo, @NotBlank String preferredStyle, @NotNull String wardrobeDescription, String wardrobeImageUrl) {}
     public record Result(RecommendationJob request, List<Product> recommendedProducts, boolean mock) {}
     public record SaveRequest(@NotBlank String title,String description){}
     public record SavedState(boolean saved,SavedOutfit outfit){}
+    public record FeedbackRequest(@NotNull RecommendationFeedback.Sentiment sentiment,
+                                  String reasonCode, String feedbackText) {}
 }

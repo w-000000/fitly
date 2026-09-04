@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RentalOrderRepository extends JpaRepository<RentalOrder, Long> {
     List<RentalOrder> findAllByCustomerIdOrderByCreatedAtDesc(Long customerId);
     List<RentalOrder> findAllByVariantProductPartnerIdOrderByCreatedAtDesc(Long partnerId);
+    List<RentalOrder> findAllByCustomerIdAndIdempotencyKeyOrderById(Long customerId, String idempotencyKey);
+    List<RentalOrder> findAllByOrderGroupKeyOrderById(String orderGroupKey);
     List<RentalOrder> findAllByVariantIdAndStatusInAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
         Long variantId, List<RentalOrder.Status> statuses, LocalDate endDate, LocalDate startDate
     );
