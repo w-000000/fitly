@@ -17,6 +17,8 @@ const loading = ref(false)
 const recommendationStage = ref('idle')
 const error = ref('')
 const recommendation = ref(null)
+const likedLooks = ref(new Set())
+const expandedLookId = ref(null)
 const isGroup = computed(() => form.value.purpose === 'EVENT')
 const groupCount = computed(() => Object.values(form.value.groupSizes).reduce((sum, value) => sum + Number(value || 0), 0))
 const rentalDays = computed(() => {
@@ -79,8 +81,24 @@ const submitLabel = computed(() => ({
 }[recommendationStage.value] || 'AI 코디 추천받기'))
 const previewForWardrobe = (wardrobeItemId) => selectedImages.value
   .find((image) => image.wardrobeId === wardrobeItemId)?.url
+const toggleLike = (recommendationId) => {
+  const next = new Set(likedLooks.value)
+  if (next.has(recommendationId)) next.delete(recommendationId)
+  else next.add(recommendationId)
+  likedLooks.value = next
+}
+const toggleDetails = (recommendationId) => {
+  expandedLookId.value = expandedLookId.value === recommendationId ? null : recommendationId
+}
+const rentalSuggestions = computed(() => {
+  const suggestions = recommendation.value?.recommendations
+    ?.flatMap((look) => look.rentalItems || []) || []
+  return [...new Map(suggestions.map((item) => [item.productVariantId, item])).values()].slice(0, 2)
+})
 const resetRecommendation = () => {
   recommendation.value = null
+  likedLooks.value = new Set()
+  expandedLookId.value = null
   error.value = ''
   document.querySelector('.recommend-header')?.scrollIntoView({ behavior: 'smooth' })
 }
@@ -216,19 +234,31 @@ const recommend = async () => {
     </form>
 
     <section v-if="recommendation" id="results" class="result-section">
-      <div class="result-heading"><div><p class="section-kicker ai-kicker">✦ CUSTOMER AI · {{ resultCount }} RESULTS</p><h2>나를 위한 추천 코디</h2><p>내 옷을 최대한 활용하고, 꼭 필요한 상품만 골랐어요.</p></div><button type="button" class="outline-button" @click="resetRecommendation">조건 다시 설정</button></div>
+      <div class="result-heading"><div><p class="section-kicker ai-kicker">✦ CUSTOMER AI · {{ resultCount }} RESULTS</p><h2>나를 위한 {{ tpoOptions.find((option) => option[0] === form.personalSituation)?.[1] }} 코디</h2><p>내 옷을 최대한 활용하고, 꼭 필요한 상품만 골랐어요.</p></div><button type="button" class="outline-button condition-button" @click="resetRecommendation"><span>☷</span> 조건 다시 설정</button></div>
       <p class="result-message">{{ resultMessage }}</p>
-      <div v-if="recommendation.recommendations" class="result-grid">
-        <article v-for="look in recommendation.recommendations" :key="look.recommendationId" class="result-card">
-          <div class="result-visual" :class="`look-${((look.rank - 1) % 3) + 1}`"><span>LOOK {{ String(look.rank).padStart(2, '0') }} · {{ look.matchScore }}% MATCH</span></div>
-          <div class="result-info">
-            <small>AI MATCHED</small><h3>{{ look.outfitTitle }}</h3>
-            <div class="look-items"><b>내 옷</b><p v-for="item in look.wardrobeItems" :key="item.wardrobeItemId"><img v-if="previewForWardrobe(item.wardrobeItemId)" :src="previewForWardrobe(item.wardrobeItemId)" alt="">{{ item.itemName }} <span>0원</span></p></div>
-            <div class="look-items"><b>필요한 대여 상품</b><p v-for="item in look.rentalItems" :key="item.productVariantId">{{ item.productName }} · {{ item.size }} <span>{{ formatPrice(item.rentalPrice) }}원</span></p></div>
-            <div class="reason"><b>추천 이유</b><span>{{ look.stylingComment }}</span></div>
-            <div class="result-price"><span>총 대여가</span><strong>{{ formatPrice(look.totalRentalPrice) }}원</strong></div>
-          </div>
-        </article>
+      <div v-if="recommendation.recommendations" class="result-layout">
+        <div class="result-grid">
+          <article v-for="look in recommendation.recommendations" :key="look.recommendationId" class="result-card" :class="{ featured: look.rank === 1 }">
+            <div class="result-visual" :class="`look-${((look.rank - 1) % 3) + 1}`">
+              <span>LOOK {{ String(look.rank).padStart(2, '0') }} · {{ look.matchScore }}% MATCH</span>
+              <button type="button" class="heart-button" :class="{ liked: likedLooks.has(look.recommendationId) }" :aria-label="`${look.outfitTitle} 찜하기`" @click="toggleLike(look.recommendationId)">{{ likedLooks.has(look.recommendationId) ? '♥' : '♡' }}</button>
+            </div>
+            <div class="result-info">
+              <small>LOOK {{ String(look.rank).padStart(2, '0') }} · {{ look.matchScore }}% MATCH</small><h3>{{ look.outfitTitle }}</h3>
+              <p class="card-price">필요 대여 {{ formatPrice(look.totalRentalPrice) }}원</p>
+              <div v-if="expandedLookId === look.recommendationId" class="look-details">
+                <div class="look-items"><b>내 옷</b><p v-for="item in look.wardrobeItems" :key="item.wardrobeItemId"><img v-if="previewForWardrobe(item.wardrobeItemId)" :src="previewForWardrobe(item.wardrobeItemId)" alt="">{{ item.itemName }} <span>0원</span></p></div>
+                <div class="look-items"><b>필요한 대여 상품</b><p v-for="item in look.rentalItems" :key="item.productVariantId">{{ item.productName }} · {{ item.size }} <span>{{ formatPrice(item.rentalPrice) }}원</span></p></div>
+                <div class="reason"><b>추천 이유</b><span>{{ look.stylingComment }}</span></div>
+              </div>
+              <button type="button" class="look-detail-button" @click="toggleDetails(look.recommendationId)">{{ expandedLookId === look.recommendationId ? '상세 접기' : '코디 상세보기' }}</button>
+            </div>
+          </article>
+        </div>
+        <aside v-if="rentalSuggestions.length" class="cross-sell">
+          <p class="section-kicker ai-kicker">AI CROSS-SELL</p><h3>내 옷과 바꿔볼 상품</h3><p>현재 코디의 내 옷과 유사한 대체 상품이에요.</p>
+          <div v-for="item in rentalSuggestions" :key="item.productVariantId"><small>추천 대여 상품</small><strong>{{ item.productName }}</strong><span>{{ item.size }} · {{ formatPrice(item.rentalPrice) }}원</span><button type="button">상품 보기 →</button></div>
+        </aside>
       </div>
       <div v-else class="result-grid">
         <article v-for="(product, index) in recommendation.products" :key="product.id" class="result-card">

@@ -143,10 +143,15 @@ describe('RecommendView', () => {
       wardrobeItemIds: [101],
     }))
     expect(wrapper.text()).toContain('85% MATCH')
-    expect(wrapper.text()).toContain('Black Slacks')
     expect(wrapper.text()).toContain('Navy Single Blazer')
     expect(wrapper.text()).toContain('25,000원')
     expect(wrapper.text()).toContain('AI 분석 완료')
+    await wrapper.get('.look-detail-button').trigger('click')
+    expect(wrapper.text()).toContain('Black Slacks')
     expect(wrapper.get('.look-items img').attributes('src')).toBe('blob:preview-image')
+    expect(wrapper.text()).toContain('상세 접기')
+
+    await wrapper.get('.heart-button').trigger('click')
+    expect(wrapper.get('.heart-button').classes()).toContain('liked')
   })
 })
