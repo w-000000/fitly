@@ -18,7 +18,8 @@ services:
       - key: SUPABASE_DB_PASSWORD
         sync: false
       - key: JPA_DDL_AUTO
-        value: validate
+        # Supabase 프로젝트의 최초 배포 시 JPA 엔티티 테이블을 생성·갱신한다.
+        value: update
       - key: JPA_DEFAULT_SCHEMA
         value: public
       - key: DB_MAX_POOL_SIZE
