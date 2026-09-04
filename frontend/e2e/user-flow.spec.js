@@ -42,9 +42,10 @@ test('홈에서 추천 화면으로 이동하고 API 결과를 표시한다', as
   await page.locator('input[type="date"]').nth(1).fill('2030-01-12')
   await page.getByRole('button', { name: /AI 코디 추천받기/ }).click()
 
-  await expect(page.getByText('85% MATCH')).toBeVisible()
+  await expect(page.locator('.result-card').first().getByText('85% MATCH').first()).toBeVisible()
+  await page.getByRole('button', { name: '코디 상세보기' }).click()
   await expect(page.locator('.look-items p').filter({ hasText: 'Black Slacks' })).toBeVisible()
-  await expect(page.getByText(/Navy Single Blazer/)).toBeVisible()
+  await expect(page.locator('.look-items p').filter({ hasText: 'Navy Single Blazer' })).toBeVisible()
 })
 
 test('주요 화면이 가로로 넘치지 않고 핵심 영역이 보인다', async ({ page }) => {
