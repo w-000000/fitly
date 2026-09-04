@@ -43,7 +43,7 @@ test('홈에서 추천 화면으로 이동하고 API 결과를 표시한다', as
   await page.getByRole('button', { name: /AI 코디 추천받기/ }).click()
 
   await expect(page.getByText('85% MATCH')).toBeVisible()
-  await expect(page.getByText('Black Slacks')).toBeVisible()
+  await expect(page.getByText('Black Slacks', { exact: true }).first()).toBeVisible()
   await expect(page.getByText(/Navy Single Blazer/)).toBeVisible()
 })
 
@@ -51,7 +51,7 @@ test('주요 화면이 가로로 넘치지 않고 핵심 영역이 보인다', a
   await page.goto('/')
   await expect(page.locator('.site-header')).toBeVisible()
   await expect(page.locator('.home-hero')).toBeVisible()
-  await expect(page.locator('.start-card')).toBeVisible()
+  await expect(page.locator('.quick-section')).toBeVisible()
   await expect(page.locator('.wardrobe-section')).toBeVisible()
 
   const hasHorizontalOverflow = await page.evaluate(
