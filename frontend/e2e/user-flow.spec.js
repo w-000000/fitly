@@ -43,7 +43,7 @@ test('홈에서 추천 화면으로 이동하고 API 결과를 표시한다', as
   await page.getByRole('button', { name: /AI 코디 추천받기/ }).click()
 
   await expect(page.getByText('85% MATCH')).toBeVisible()
-  await expect(page.getByText('Black Slacks', { exact: true }).first()).toBeVisible()
+  await expect(page.locator('.look-items p').filter({ hasText: 'Black Slacks' })).toBeVisible()
   await expect(page.getByText(/Navy Single Blazer/)).toBeVisible()
 })
 
