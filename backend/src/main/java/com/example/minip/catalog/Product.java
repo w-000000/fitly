@@ -12,6 +12,7 @@ import java.time.Instant;
 
 @Entity
 public class Product {
+    public enum Status { ACTIVE, INACTIVE }
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
     private Long partnerId;
     @Enumerated(EnumType.STRING) private RentalPurpose purpose;
@@ -25,6 +26,7 @@ public class Product {
     private String recommendationReason;
     private int stock;
     private String imageUrl;
+    @Enumerated(EnumType.STRING) private Status status;
     private Instant createdAt;
 
     protected Product() {}
@@ -32,14 +34,15 @@ public class Product {
                    BigDecimal retailPrice, BigDecimal rentalPrice, BigDecimal settlementRate, String imageUrl) {
         this.partnerId = partnerId; this.name = name; this.brand = brand; this.category = category;
         this.description = description; this.retailPrice = retailPrice;
-        this.rentalPrice = rentalPrice; this.settlementRate = settlementRate; this.imageUrl = imageUrl; this.createdAt = Instant.now();
+        this.rentalPrice = rentalPrice; this.settlementRate = settlementRate; this.imageUrl = imageUrl;
+        this.status = Status.ACTIVE; this.createdAt = Instant.now();
     }
     public Product(RentalPurpose purpose, String category, String name, String description,
                    int rentalPrice, int purchasePrice, String recommendationReason, int stock) {
         this.partnerId = 0L; this.purpose = purpose; this.category = category; this.name = name;
         this.description = description; this.rentalPrice = BigDecimal.valueOf(rentalPrice);
         this.retailPrice = BigDecimal.valueOf(purchasePrice); this.recommendationReason = recommendationReason;
-        this.stock = stock; this.createdAt = Instant.now();
+        this.stock = stock; this.status = Status.ACTIVE; this.createdAt = Instant.now();
     }
     public Long getId() { return id; } public Long getPartnerId() { return partnerId; }
     public RentalPurpose getPurpose() { return purpose; } public String getCategory() { return category; }
@@ -50,6 +53,7 @@ public class Product {
     public int getPurchasePrice() { return retailPrice == null ? 0 : retailPrice.intValue(); }
     public String getRecommendationReason() { return recommendationReason; } public int getStock() { return stock; }
     public String getImageUrl() { return imageUrl; } public Instant getCreatedAt() { return createdAt; }
+    public Status getStatus() { return status == null ? Status.ACTIVE : status; }
 
     public void updateDetails(String name, String brand, String category, String description,
                               BigDecimal retailPrice, BigDecimal rentalPrice, String imageUrl) {

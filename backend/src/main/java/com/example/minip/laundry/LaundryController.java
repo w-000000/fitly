@@ -28,7 +28,7 @@ public class LaundryController {
         roles.require(role, ActorRole.ROLE_ADMIN);
         RentalOrder order = orders.findById(request.rentalOrderId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "대여 주문을 찾을 수 없습니다."));
         order.inspect();
-        if (request.cleaned()) order.getVariant().release(order.getQuantity());
+        if (request.cleaned()) { order.completeLaundry(); order.restoreStock(); }
         return inspections.save(new LaundryInspection(order, request.damageGrade(), request.notes(), request.cleaned()));
     }
     public record InspectRequest(@NotNull Long rentalOrderId, @NotNull LaundryInspection.DamageGrade damageGrade, String notes, boolean cleaned) {}
