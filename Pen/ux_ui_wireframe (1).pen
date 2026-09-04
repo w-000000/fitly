@@ -1,0 +1,4307 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "FITLY — Home",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "zWnKU",
+          "x": 780,
+          "y": 126,
+          "name": "Hero Fashion Image",
+          "metadata": {
+            "type": "unsplash",
+            "username": "mohamadkhosravi",
+            "link": "https://unsplash.com/@mohamadkhosravi",
+            "author": "Mohamad Khosravi"
+          },
+          "clip": true,
+          "width": 580,
+          "height": 500,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "./images/generated-1788483961172.png",
+            "mode": "fill"
+          },
+          "cornerRadius": 12,
+          "layout": "none"
+        },
+        {
+          "type": "frame",
+          "id": "LHAO2",
+          "x": 0,
+          "y": 0,
+          "name": "Header Background",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "JZkOb",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "P35xz4",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$ink",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "RZtFb",
+          "x": 232,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "rODI5",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "N0ru2",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "y3yjYH",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "lWjnY",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile Button",
+          "width": 134,
+          "height": 38,
+          "fill": "$soft",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "ellipse",
+          "id": "LdH05",
+          "x": 1250,
+          "y": 29,
+          "name": "Profile Avatar",
+          "fill": "#D9DCE2",
+          "width": 24,
+          "height": 24
+        },
+        {
+          "type": "text",
+          "id": "V456D",
+          "x": 1284,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "GzxzM",
+          "x": 80,
+          "y": 158,
+          "name": "Hero Eyebrow",
+          "fill": "$ai",
+          "content": "✦ AI PERSONAL STYLIST",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 12,
+          "fontWeight": "800",
+          "letterSpacing": 1.2
+        },
+        {
+          "type": "text",
+          "id": "Dj7Km",
+          "x": 80,
+          "y": 198,
+          "name": "Hero Title",
+          "fill": "$ink",
+          "content": "오늘 뭐 입지?",
+          "fontFamily": "Inter",
+          "fontSize": 58,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "AuovF",
+          "x": 80,
+          "y": 284,
+          "name": "Hero Description",
+          "fill": "$muted",
+          "textGrowth": "fixed-width",
+          "width": 570,
+          "content": "상황과 가지고 있는 옷을 알려주세요.\nFITLY가 필요한 옷만 골라 완성된 코디를 제안합니다.",
+          "lineHeight": 1.55,
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fontWeight": "500"
+        },
+        {
+          "type": "frame",
+          "id": "AJwMC",
+          "x": 80,
+          "y": 378,
+          "name": "Primary CTA",
+          "width": 224,
+          "height": 50,
+          "fill": "$ai",
+          "cornerRadius": 6,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#6D5CE733",
+            "offset": {
+              "x": 0,
+              "y": 6
+            },
+            "blur": 18
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "naRD1",
+          "x": 102,
+          "y": 394,
+          "name": "Primary CTA Label",
+          "fill": "#FFFFFF",
+          "content": "AI 코디 추천받기",
+          "fontFamily": "Inter",
+          "fontSize": 15,
+          "fontWeight": "750"
+        },
+        {
+          "type": "icon",
+          "id": "e8KDX",
+          "x": 268,
+          "y": 391,
+          "name": "Primary CTA Arrow",
+          "width": 20,
+          "height": 20,
+          "icon": "arrow-right",
+          "library": "lucide",
+          "fill": "#FFFFFF"
+        },
+        {
+          "type": "text",
+          "id": "RqCzw",
+          "x": 80,
+          "y": 454,
+          "name": "Trust Copy",
+          "fill": "$ink",
+          "content": "내 옷은 활용하고, 필요한 옷만 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "Okchc",
+          "x": 80,
+          "y": 481,
+          "name": "Trust Detail",
+          "fill": "$muted",
+          "textGrowth": "fixed-width",
+          "width": 540,
+          "content": "TPO · 스타일 · 내 옷을 한 번에 입력하면 실제 대여 가능한 조합만 보여드려요.",
+          "lineHeight": 1.5,
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "asxeG",
+          "x": 808,
+          "y": 538,
+          "name": "Hero Match Badge",
+          "width": 268,
+          "height": 64,
+          "fill": "#FFFFFFF2",
+          "cornerRadius": 8,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000018",
+            "offset": {
+              "x": 0,
+              "y": 4
+            },
+            "blur": 14
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "m0pFl",
+              "x": 14,
+              "y": 14,
+              "name": "Badge Icon Background",
+              "fill": "#F0EEFF",
+              "width": 36,
+              "height": 36
+            },
+            {
+              "type": "icon",
+              "id": "HTZOv",
+              "x": 23,
+              "y": 23,
+              "name": "Badge Sparkle",
+              "width": 18,
+              "height": 18,
+              "icon": "sparkles",
+              "library": "lucide",
+              "fill": "$ai"
+            },
+            {
+              "type": "text",
+              "id": "WFuis",
+              "x": 62,
+              "y": 13,
+              "name": "Badge Title",
+              "fill": "$ai",
+              "content": "96% MATCH",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 11,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "E0Ho1W",
+              "x": 62,
+              "y": 34,
+              "name": "Badge Copy",
+              "fill": "$ink",
+              "content": "면접 · Formal 추천 완료",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "P5VIsD",
+          "x": 80,
+          "y": 682,
+          "name": "Quick Links Title",
+          "fill": "$ink",
+          "content": "바로가기",
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fontWeight": "800"
+        },
+        {
+          "type": "frame",
+          "id": "B12Eb8",
+          "x": 80,
+          "y": 724,
+          "name": "Quick 내 옷장",
+          "width": 402,
+          "height": 110,
+          "fill": "$paper",
+          "cornerRadius": 8,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "r8wgu",
+              "x": 18,
+              "y": 18,
+              "name": "내 옷장 Icon Box",
+              "width": 42,
+              "height": 42,
+              "fill": "#FDEBEC",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "icon",
+              "id": "MkqKW",
+              "x": 29,
+              "y": 29,
+              "name": "내 옷장 Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "shirt",
+              "library": "lucide",
+              "fill": "$red"
+            },
+            {
+              "type": "text",
+              "id": "B3h5W",
+              "x": 76,
+              "y": 20,
+              "name": "내 옷장 Title",
+              "fill": "$ink",
+              "content": "내 옷장",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "mik0g",
+              "x": 76,
+              "y": 47,
+              "name": "내 옷장 Description",
+              "fill": "$muted",
+              "content": "AI 추천에 사용할 보유 의류",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "icon",
+              "id": "A6GCf6",
+              "x": 356,
+              "y": 44,
+              "name": "내 옷장 Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "$red"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "H6HmI1",
+          "x": 514,
+          "y": 724,
+          "name": "Quick 대여 현황",
+          "width": 402,
+          "height": 110,
+          "fill": "$paper",
+          "cornerRadius": 8,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Y4thDN",
+              "x": 18,
+              "y": 18,
+              "name": "대여 현황 Icon Box",
+              "width": 42,
+              "height": 42,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "icon",
+              "id": "F6E5P",
+              "x": 29,
+              "y": 29,
+              "name": "대여 현황 Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "package-check",
+              "library": "lucide",
+              "fill": "$ink"
+            },
+            {
+              "type": "text",
+              "id": "EKq7k",
+              "x": 76,
+              "y": 20,
+              "name": "대여 현황 Title",
+              "fill": "$ink",
+              "content": "대여 현황",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "B04Tt",
+              "x": 76,
+              "y": 47,
+              "name": "대여 현황 Description",
+              "fill": "$muted",
+              "content": "배송 · 대여 · 반납 상태",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "icon",
+              "id": "uyuxU",
+              "x": 356,
+              "y": 44,
+              "name": "대여 현황 Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "$red"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DX4qa",
+          "x": 948,
+          "y": 724,
+          "name": "Quick 단체 대여",
+          "width": 402,
+          "height": 110,
+          "fill": "$paper",
+          "cornerRadius": 8,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "IgGXS",
+              "x": 18,
+              "y": 18,
+              "name": "단체 대여 Icon Box",
+              "width": 42,
+              "height": 42,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "icon",
+              "id": "RlnIH",
+              "x": 29,
+              "y": 29,
+              "name": "단체 대여 Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "users",
+              "library": "lucide",
+              "fill": "$ink"
+            },
+            {
+              "type": "text",
+              "id": "Ku7xN",
+              "x": 76,
+              "y": 20,
+              "name": "단체 대여 Title",
+              "fill": "$ink",
+              "content": "단체 대여",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "u1DBw",
+              "x": 76,
+              "y": 47,
+              "name": "단체 대여 Description",
+              "fill": "$muted",
+              "content": "연구복 · 안전복 · 단체 행사",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "icon",
+              "id": "W9sXO",
+              "x": 356,
+              "y": 44,
+              "name": "단체 대여 Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "$red"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wAqSP",
+      "x": 1540,
+      "y": 0,
+      "name": "FITLY — Recommendation Input",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "RSGCh",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "QU0dh",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "B8lxDP",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$ink",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "P9LN1X",
+          "x": 232,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "TezBC",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "c7VWwu",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "t2LsI",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "vTLGK",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "VDcSl",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "aTgZ8",
+          "x": 64,
+          "y": 120,
+          "name": "Page Eyebrow",
+          "fill": "$ai",
+          "content": "STEP 1 OF 2 · RECOMMENDATION INPUT",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "letterSpacing": 1
+        },
+        {
+          "type": "text",
+          "id": "B9jiDB",
+          "x": 64,
+          "y": 150,
+          "name": "Page Title",
+          "fill": "$ink",
+          "content": "어떤 옷이 필요하세요?",
+          "fontFamily": "Inter",
+          "fontSize": 34,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "jArEl",
+          "x": 64,
+          "y": 201,
+          "name": "Page Description",
+          "fill": "$muted",
+          "content": "상황과 취향, 가지고 있는 옷을 알려주시면 가장 잘 맞는 조합을 찾아드릴게요.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "UKsJf",
+          "x": 64,
+          "y": 252,
+          "name": "Conditions Card",
+          "width": 630,
+          "height": 550,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "r17yqa",
+              "x": 28,
+              "y": 28,
+              "name": "TPO Label",
+              "fill": "$ink",
+              "content": "1. TPO",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "zmNPf",
+              "x": 28,
+              "y": 62,
+              "name": "TPO 면접",
+              "width": 90,
+              "height": 36,
+              "fill": "#FDEBEC",
+              "cornerRadius": 18,
+              "stroke": "$red",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "leOvz",
+                  "x": 18,
+                  "y": 11,
+                  "name": "TPO 면접 Label",
+                  "fill": "$red",
+                  "content": "면접",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "W2z60L",
+              "x": 132,
+              "y": 62,
+              "name": "TPO 결혼식",
+              "width": 90,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kIT6H",
+                  "x": 18,
+                  "y": 11,
+                  "name": "TPO 결혼식 Label",
+                  "fill": "$ink",
+                  "content": "결혼식",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vy2iN",
+              "x": 236,
+              "y": 62,
+              "name": "TPO 데이트",
+              "width": 90,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BK9ll",
+                  "x": 18,
+                  "y": 11,
+                  "name": "TPO 데이트 Label",
+                  "fill": "$ink",
+                  "content": "데이트",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "H59YsQ",
+              "x": 340,
+              "y": 62,
+              "name": "TPO 출근",
+              "width": 90,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eA82V",
+                  "x": 18,
+                  "y": 11,
+                  "name": "TPO 출근 Label",
+                  "fill": "$ink",
+                  "content": "출근",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SPaey",
+              "x": 444,
+              "y": 62,
+              "name": "TPO 일상",
+              "width": 90,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oiP2k",
+                  "x": 18,
+                  "y": 11,
+                  "name": "TPO 일상 Label",
+                  "fill": "$ink",
+                  "content": "일상",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "bmWJj",
+              "x": 28,
+              "y": 136,
+              "name": "Style Label",
+              "fill": "$ink",
+              "content": "2. 스타일",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "See6L",
+              "x": 28,
+              "y": 170,
+              "name": "Style Minimal",
+              "width": 112,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x39bU",
+                  "x": 18,
+                  "y": 11,
+                  "name": "Style Minimal Label",
+                  "fill": "$ink",
+                  "content": "Minimal",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Sv8Od",
+              "x": 154,
+              "y": 170,
+              "name": "Style Formal",
+              "width": 112,
+              "height": 36,
+              "fill": "#FDEBEC",
+              "cornerRadius": 18,
+              "stroke": "$red",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "e11EO6",
+                  "x": 18,
+                  "y": 11,
+                  "name": "Style Formal Label",
+                  "fill": "$red",
+                  "content": "Formal",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KvV7q",
+              "x": 280,
+              "y": 170,
+              "name": "Style Street",
+              "width": 112,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RS2i5",
+                  "x": 18,
+                  "y": 11,
+                  "name": "Style Street Label",
+                  "fill": "$ink",
+                  "content": "Street",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AeVBQ",
+              "x": 406,
+              "y": 170,
+              "name": "Style Casual",
+              "width": 112,
+              "height": 36,
+              "fill": "$paper",
+              "cornerRadius": 18,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RiGKX",
+                  "x": 18,
+                  "y": 11,
+                  "name": "Style Casual Label",
+                  "fill": "$ink",
+                  "content": "Casual",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "h0Tp8G",
+              "x": 28,
+              "y": 246,
+              "name": "Size Label",
+              "fill": "$ink",
+              "content": "3. 평소 착용 사이즈",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "CPixy",
+              "x": 28,
+              "y": 280,
+              "name": "Size Select",
+              "width": 574,
+              "height": 46,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tARAP",
+                  "x": 16,
+                  "y": 15,
+                  "name": "Size Value",
+                  "fill": "$ink",
+                  "content": "M",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon",
+                  "id": "dusyr",
+                  "x": 536,
+                  "y": 13,
+                  "name": "Size Chevron",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "f3mXBJ",
+              "x": 28,
+              "y": 366,
+              "name": "Summary Label",
+              "fill": "$muted",
+              "content": "선택 요약",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "GpAD8",
+              "x": 28,
+              "y": 394,
+              "name": "Summary Value",
+              "fill": "$ink",
+              "content": "면접  ·  Formal  ·  M",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "Tothg",
+              "x": 28,
+              "y": 434,
+              "name": "Summary Accent",
+              "width": 574,
+              "height": 1,
+              "fill": "$line"
+            },
+            {
+              "type": "text",
+              "id": "RU1Jr",
+              "x": 28,
+              "y": 458,
+              "name": "Summary Hint",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": 540,
+              "content": "Chip을 눌러 선택을 변경할 수 있어요. 조건이 구체적일수록 추천 정확도가 높아집니다.",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "a264dX",
+          "x": 718,
+          "y": 252,
+          "name": "Closet Upload Card",
+          "width": 658,
+          "height": 550,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "bctI4",
+              "x": 28,
+              "y": 28,
+              "name": "Upload Label",
+              "fill": "$ink",
+              "content": "4. 내 옷",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "fYQ0Z",
+              "x": 28,
+              "y": 56,
+              "name": "Upload Description",
+              "fill": "$muted",
+              "content": "코디에 활용할 옷을 업로드하거나 내 옷장에서 선택하세요.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "Acvn7",
+              "x": 28,
+              "y": 98,
+              "name": "Upload Dropzone",
+              "width": 602,
+              "height": 240,
+              "fill": "#FAFAFA",
+              "cornerRadius": 8,
+              "stroke": "#B7BBC4",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CT3IB",
+                  "x": 267,
+                  "y": 38,
+                  "name": "Upload Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#F0EEFF",
+                  "cornerRadius": 34,
+                  "layout": "none"
+                },
+                {
+                  "type": "icon",
+                  "id": "ijyj0",
+                  "x": 289,
+                  "y": 60,
+                  "name": "Upload Icon",
+                  "width": 24,
+                  "height": 24,
+                  "icon": "cloud-upload",
+                  "library": "lucide",
+                  "fill": "$ai"
+                },
+                {
+                  "type": "text",
+                  "id": "A9uXyG",
+                  "x": 205,
+                  "y": 124,
+                  "name": "Dropzone Title",
+                  "fill": "$ink",
+                  "content": "사진을 끌어다 놓으세요",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "750"
+                },
+                {
+                  "type": "text",
+                  "id": "BALQe",
+                  "x": 213,
+                  "y": 152,
+                  "name": "Dropzone Hint",
+                  "fill": "$muted",
+                  "content": "JPG, PNG · 최대 10MB",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "d6UIu",
+                  "x": 166,
+                  "y": 188,
+                  "name": "Upload Button",
+                  "width": 126,
+                  "height": 36,
+                  "fill": "$paper",
+                  "cornerRadius": 5,
+                  "stroke": "$line",
+                  "strokeWidth": 1,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v0HKCK",
+                      "x": 21,
+                      "y": 11,
+                      "name": "Upload Button Label",
+                      "fill": "$ink",
+                      "content": "사진 업로드",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "750"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rZObP",
+                  "x": 306,
+                  "y": 188,
+                  "name": "Closet Button",
+                  "width": 132,
+                  "height": 36,
+                  "fill": "$paper",
+                  "cornerRadius": 5,
+                  "stroke": "$ai",
+                  "strokeWidth": 1,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AjM82",
+                      "x": 16,
+                      "y": 11,
+                      "name": "Closet Button Label",
+                      "fill": "$ai",
+                      "content": "내 옷장 불러오기",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "750"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L39PB",
+              "x": 28,
+              "y": 360,
+              "name": "Selected Closet Item",
+              "width": 602,
+              "height": 82,
+              "fill": "#F2FBF7",
+              "cornerRadius": 7,
+              "stroke": "#B9E3D3",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nWNTv",
+                  "x": 12,
+                  "y": 10,
+                  "name": "Preview Thumbnail",
+                  "width": 62,
+                  "height": 62,
+                  "fill": "#D7D9DD",
+                  "cornerRadius": 5,
+                  "layout": "none"
+                },
+                {
+                  "type": "text",
+                  "id": "k1jjx",
+                  "x": 90,
+                  "y": 18,
+                  "name": "Preview Name",
+                  "fill": "$ink",
+                  "content": "Black Slacks",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "gaCo1",
+                  "x": 90,
+                  "y": 44,
+                  "name": "Preview Meta",
+                  "fill": "$green",
+                  "content": "Pants · Black · AI 인식 완료",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GwAap",
+              "x": 364,
+              "y": 466,
+              "name": "Generate Recommendation CTA",
+              "width": 266,
+              "height": 52,
+              "fill": "$ai",
+              "cornerRadius": 6,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#6D5CE733",
+                "offset": {
+                  "x": 0,
+                  "y": 5
+                },
+                "blur": 14
+              },
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KONcM",
+                  "x": 24,
+                  "y": 17,
+                  "name": "Generate CTA Label",
+                  "fill": "#FFFFFF",
+                  "content": "AI 코디 추천받기",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "750"
+                },
+                {
+                  "type": "icon",
+                  "id": "Nwj5o",
+                  "x": 224,
+                  "y": 16,
+                  "name": "Generate CTA Arrow",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "arrow-right",
+                  "library": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iupC6",
+      "x": 3080,
+      "y": 0,
+      "name": "FITLY — Outfit Results",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "AItsK",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "j2Zlz",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "nE7wq",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$ink",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "d5d3Nv",
+          "x": 232,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "n8k3sd",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "N3gsph",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "MxkmP",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "DV10A",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "SZACo",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "Umesq",
+          "x": 64,
+          "y": 120,
+          "name": "Results Eyebrow",
+          "fill": "$ai",
+          "content": "✦ CUSTOMER AI · 3 RESULTS",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "letterSpacing": 1
+        },
+        {
+          "type": "text",
+          "id": "zAAzi",
+          "x": 64,
+          "y": 150,
+          "name": "Results Title",
+          "fill": "$ink",
+          "content": "민수님을 위한 면접 코디",
+          "fontFamily": "Inter",
+          "fontSize": 34,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "YJNIz",
+          "x": 64,
+          "y": 201,
+          "name": "Results Description",
+          "fill": "$muted",
+          "content": "내 옷을 최대한 활용하고, 꼭 필요한 상품만 골랐어요.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "fkPzS",
+          "x": 1204,
+          "y": 154,
+          "name": "Filter Button",
+          "width": 172,
+          "height": 42,
+          "fill": "$paper",
+          "cornerRadius": 21,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "icon",
+              "id": "KdXNO",
+              "x": 18,
+              "y": 12,
+              "name": "Filter Icon",
+              "width": 18,
+              "height": 18,
+              "icon": "sliders-horizontal",
+              "library": "lucide",
+              "fill": "$ink"
+            },
+            {
+              "type": "text",
+              "id": "ocVlD",
+              "x": 48,
+              "y": 14,
+              "name": "Filter Label",
+              "fill": "$ink",
+              "content": "조건 다시 설정",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "750"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GS39d",
+          "x": 64,
+          "y": 252,
+          "name": "Outfit Card 1",
+          "width": 328,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$ai",
+          "strokeWidth": 2,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "eWP6J",
+              "x": 14,
+              "y": 14,
+              "name": "Outfit Image 1",
+              "metadata": {
+                "type": "unsplash",
+                "username": "ridhomusajr",
+                "link": "https://unsplash.com/@ridhomusajr",
+                "author": "Ridho Jr."
+              },
+              "clip": true,
+              "width": 300,
+              "height": 350,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1661854236305-b02cef4aa0af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODE5Nzl8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "AOvVK",
+              "x": 18,
+              "y": 386,
+              "name": "Look Label 1",
+              "fill": "$ai",
+              "content": "LOOK 01 · 96% MATCH",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 10,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "bfNga",
+              "x": 18,
+              "y": 414,
+              "name": "Outfit Type 1",
+              "fill": "$ink",
+              "content": "면접 · Formal",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "YigE1",
+              "x": 18,
+              "y": 444,
+              "name": "Rental Price 1",
+              "fill": "$muted",
+              "content": "필요 대여  25,000원",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "X6c5k5",
+              "x": 260,
+              "y": 412,
+              "name": "Save 1",
+              "fill": "$red",
+              "content": "♥",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "BLSFP",
+              "x": 18,
+              "y": 486,
+              "name": "Detail CTA 1",
+              "width": 292,
+              "height": 44,
+              "fill": "$ink",
+              "cornerRadius": 6,
+              "stroke": "$ink",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qLSuz",
+                  "x": 91,
+                  "y": 14,
+                  "name": "Detail CTA Label 1",
+                  "fill": "#FFFFFF",
+                  "content": "코디 상세보기",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "750"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YcAQM",
+          "x": 424,
+          "y": 252,
+          "name": "Outfit Card 2",
+          "width": 328,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "xzwQw",
+              "x": 14,
+              "y": 14,
+              "name": "Outfit Image 2",
+              "metadata": {
+                "type": "unsplash",
+                "username": "brunxs",
+                "link": "https://unsplash.com/@brunxs",
+                "author": "Brunxs"
+              },
+              "clip": true,
+              "width": 300,
+              "height": 350,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1670959129005-3e2c245be03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODE5ODB8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "x9j1be",
+              "x": 18,
+              "y": 386,
+              "name": "Look Label 2",
+              "fill": "$ai",
+              "content": "LOOK 02 · 89% MATCH",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 10,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "X6hNGC",
+              "x": 18,
+              "y": 414,
+              "name": "Outfit Type 2",
+              "fill": "$ink",
+              "content": "출근 · Minimal",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "IrFO8",
+              "x": 18,
+              "y": 444,
+              "name": "Rental Price 2",
+              "fill": "$muted",
+              "content": "필요 대여  22,000원",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "WWuun",
+              "x": 260,
+              "y": 412,
+              "name": "Save 2",
+              "fill": "$muted",
+              "content": "♡",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "M7zi0k",
+              "x": 18,
+              "y": 486,
+              "name": "Detail CTA 2",
+              "width": 292,
+              "height": 44,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "brgIg",
+                  "x": 91,
+                  "y": 14,
+                  "name": "Detail CTA Label 2",
+                  "fill": "$ink",
+                  "content": "코디 상세보기",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "750"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "h2RGB",
+          "x": 784,
+          "y": 252,
+          "name": "Outfit Card 3",
+          "width": 328,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "N7oUs",
+              "x": 14,
+              "y": 14,
+              "name": "Outfit Image 3",
+              "metadata": {
+                "type": "unsplash",
+                "username": "erfanr82",
+                "link": "https://unsplash.com/@erfanr82",
+                "author": "erfan rahi"
+              },
+              "clip": true,
+              "width": 300,
+              "height": 350,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1674907557875-362217e2296b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODE5ODF8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "fLHgm",
+              "x": 18,
+              "y": 386,
+              "name": "Look Label 3",
+              "fill": "$ai",
+              "content": "LOOK 03 · 84% MATCH",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 10,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "Y9WJD",
+              "x": 18,
+              "y": 414,
+              "name": "Outfit Type 3",
+              "fill": "$ink",
+              "content": "데이트 · Casual",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "zAwTX",
+              "x": 18,
+              "y": 444,
+              "name": "Rental Price 3",
+              "fill": "$muted",
+              "content": "필요 대여  18,000원",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "uMyij",
+              "x": 260,
+              "y": 412,
+              "name": "Save 3",
+              "fill": "$muted",
+              "content": "♡",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "OX25n",
+              "x": 18,
+              "y": 486,
+              "name": "Detail CTA 3",
+              "width": 292,
+              "height": 44,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "b7hOeX",
+                  "x": 91,
+                  "y": 14,
+                  "name": "Detail CTA Label 3",
+                  "fill": "$ink",
+                  "content": "코디 상세보기",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "750"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DOxIg",
+          "x": 1144,
+          "y": 252,
+          "name": "AI Cross Sell",
+          "width": 232,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$ai",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "Oqy3i",
+              "x": 20,
+              "y": 22,
+              "name": "Cross Sell Eyebrow",
+              "fill": "$ai",
+              "content": "AI CROSS-SELL",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 9,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "E2WOf",
+              "x": 20,
+              "y": 48,
+              "name": "Cross Sell Title",
+              "fill": "$ink",
+              "textGrowth": "fixed-width",
+              "width": 190,
+              "content": "내 옷과 바꿔볼 상품",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "n1l1eF",
+              "x": 20,
+              "y": 100,
+              "name": "Cross Sell Desc",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": 190,
+              "content": "현재 코디의 내 옷과 유사한 대체 상품이에요.",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "yj44X",
+              "x": 16,
+              "y": 166,
+              "name": "Replacement 1",
+              "width": 200,
+              "height": 132,
+              "fill": "#FAFAFA",
+              "cornerRadius": 7,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KTNR1",
+                  "x": 14,
+                  "y": 14,
+                  "name": "Owned 1",
+                  "fill": "$muted",
+                  "content": "내 옷 · Black Slacks",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Vao4t",
+                  "x": 14,
+                  "y": 42,
+                  "name": "Suggested 1",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": 172,
+                  "content": "대체 추천\nTailored Slacks",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "frame",
+                  "id": "T8hUFT",
+                  "x": 108,
+                  "y": 88,
+                  "name": "Replacement CTA 1",
+                  "width": 76,
+                  "height": 30,
+                  "fill": "$paper",
+                  "cornerRadius": 5,
+                  "stroke": "$ai",
+                  "strokeWidth": 1,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A3Tno",
+                      "x": 12,
+                      "y": 9,
+                      "name": "Replacement CTA Label 1",
+                      "fill": "$ai",
+                      "content": "29K 보기",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "750"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vHyot",
+              "x": 16,
+              "y": 320,
+              "name": "Replacement 2",
+              "width": 200,
+              "height": 132,
+              "fill": "#FAFAFA",
+              "cornerRadius": 7,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QPG06",
+                  "x": 14,
+                  "y": 14,
+                  "name": "Owned 2",
+                  "fill": "$muted",
+                  "content": "내 옷 · White Shirt",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "NmPj1",
+                  "x": 14,
+                  "y": 42,
+                  "name": "Suggested 2",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": 172,
+                  "content": "대체 추천\nOxford Shirt",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "frame",
+                  "id": "M4IJWK",
+                  "x": 108,
+                  "y": 88,
+                  "name": "Replacement CTA 2",
+                  "width": 76,
+                  "height": 30,
+                  "fill": "$paper",
+                  "cornerRadius": 5,
+                  "stroke": "$ai",
+                  "strokeWidth": 1,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VAiXZ",
+                      "x": 12,
+                      "y": 9,
+                      "name": "Replacement CTA Label 2",
+                      "fill": "$ai",
+                      "content": "18K 보기",
+                      "fontFamily": "Inter",
+                      "fontSize": 9,
+                      "fontWeight": "750"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "jfF3n",
+      "x": 4620,
+      "y": 0,
+      "name": "FITLY — Outfit Detail",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "V9aYi",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "aPZ4U",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "n1IzL",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$ink",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "jCEZ4",
+          "x": 232,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "T1JHH",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "y935MP",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "iYsmp",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "N1gpu2",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "v2G8U",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "frame",
+          "id": "Y3c8D",
+          "x": 64,
+          "y": 118,
+          "name": "Back Button",
+          "width": 118,
+          "height": 38,
+          "fill": "$paper",
+          "cornerRadius": 19,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "icon",
+              "id": "aTK3v",
+              "x": 14,
+              "y": 10,
+              "name": "Back Icon",
+              "width": 18,
+              "height": 18,
+              "icon": "arrow-left",
+              "library": "lucide",
+              "fill": "$ink"
+            },
+            {
+              "type": "text",
+              "id": "wfs9E",
+              "x": 42,
+              "y": 12,
+              "name": "Back Label",
+              "fill": "$ink",
+              "content": "추천 목록",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OAkIt",
+          "x": 64,
+          "y": 186,
+          "name": "Detail Fashion Image",
+          "metadata": {
+            "type": "unsplash",
+            "username": "johnn21",
+            "link": "https://unsplash.com/@johnn21",
+            "author": "Thái An"
+          },
+          "clip": true,
+          "width": 520,
+          "height": 640,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1596438540887-d7d55a00f308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODIwMzB8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          },
+          "cornerRadius": 10,
+          "layout": "none"
+        },
+        {
+          "type": "frame",
+          "id": "GIPlS",
+          "x": 84,
+          "y": 206,
+          "name": "Image Badge",
+          "width": 104,
+          "height": 30,
+          "fill": "#FFFFFFE8",
+          "cornerRadius": 15,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "dbw7l",
+          "x": 102,
+          "y": 216,
+          "name": "Image Badge Text",
+          "fill": "$ink",
+          "content": "LOOK 01",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 9,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "q4YPKa",
+          "x": 636,
+          "y": 188,
+          "name": "Detail Eyebrow",
+          "fill": "$ai",
+          "content": "✦ 96% MATCH · 면접 · FORMAL",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "letterSpacing": 0.8
+        },
+        {
+          "type": "text",
+          "id": "Ntzqg",
+          "x": 636,
+          "y": 224,
+          "name": "Detail Title",
+          "fill": "$ink",
+          "content": "Navy Interview",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "MUkhh",
+          "x": 636,
+          "y": 286,
+          "name": "Detail Reason",
+          "fill": "$muted",
+          "textGrowth": "fixed-width",
+          "width": 650,
+          "content": "가지고 있는 블랙 슬랙스와 자연스럽게 어울리며, 면접 상황에 적합한 안정적인 포멀 조합입니다.",
+          "lineHeight": 1.6,
+          "fontFamily": "Inter",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "xqw0O",
+          "x": 636,
+          "y": 366,
+          "name": "Owned Item",
+          "width": 330,
+          "height": 110,
+          "fill": "#F2FBF7",
+          "cornerRadius": 8,
+          "stroke": "#B9E3D3",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "g4ysA",
+              "x": 18,
+              "y": 18,
+              "name": "Owned Label",
+              "fill": "$green",
+              "content": "내 옷",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "800"
+            },
+            {
+              "type": "icon",
+              "id": "ANJ24",
+              "x": 18,
+              "y": 53,
+              "name": "Owned Check",
+              "width": 20,
+              "height": 20,
+              "icon": "circle-check",
+              "library": "lucide",
+              "fill": "$green"
+            },
+            {
+              "type": "text",
+              "id": "U3zSq",
+              "x": 48,
+              "y": 55,
+              "name": "Owned Name",
+              "fill": "$ink",
+              "content": "Black Slacks",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EkN9l",
+          "x": 986,
+          "y": 366,
+          "name": "Rental Item",
+          "width": 330,
+          "height": 110,
+          "fill": "#FFF5F5",
+          "cornerRadius": 8,
+          "stroke": "#F1B9BB",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "B2fj3B",
+              "x": 18,
+              "y": 18,
+              "name": "Rental Label",
+              "fill": "$red",
+              "content": "필요한 대여 상품",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "Y3Mir",
+              "x": 18,
+              "y": 50,
+              "name": "Rental Name",
+              "fill": "$ink",
+              "content": "Navy Single Blazer",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "guKG0",
+              "x": 18,
+              "y": 76,
+              "name": "Rental Price",
+              "fill": "$muted",
+              "content": "3박 4일 · 25,000원",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "650"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "EHvAi",
+          "x": 636,
+          "y": 522,
+          "name": "Size Title",
+          "fill": "$ink",
+          "content": "사이즈 선택",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "800"
+        },
+        {
+          "type": "frame",
+          "id": "gwhrC",
+          "x": 636,
+          "y": 552,
+          "name": "Size S",
+          "width": 48,
+          "height": 38,
+          "fill": "$paper",
+          "cornerRadius": 19,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "Vh4pk",
+              "x": 19,
+              "y": 12,
+              "name": "Size S Label",
+              "fill": "$ink",
+              "content": "S",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "750"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PACNa",
+          "x": 698,
+          "y": 552,
+          "name": "Size M",
+          "width": 48,
+          "height": 38,
+          "fill": "#FDEBEC",
+          "cornerRadius": 19,
+          "stroke": "$red",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "OJR0H",
+              "x": 19,
+              "y": 12,
+              "name": "Size M Label",
+              "fill": "$red",
+              "content": "M",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "750"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b5C7z",
+          "x": 760,
+          "y": 552,
+          "name": "Size L",
+          "width": 48,
+          "height": 38,
+          "fill": "$paper",
+          "cornerRadius": 19,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "UtjIU",
+              "x": 19,
+              "y": 12,
+              "name": "Size L Label",
+              "fill": "$ink",
+              "content": "L",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "750"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "z9jfE",
+          "x": 636,
+          "y": 624,
+          "name": "Rental Period Title",
+          "fill": "$ink",
+          "content": "대여 기간",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "800"
+        },
+        {
+          "type": "frame",
+          "id": "d6KRl",
+          "x": 636,
+          "y": 654,
+          "name": "Rental Period",
+          "width": 680,
+          "height": 50,
+          "fill": "$paper",
+          "cornerRadius": 7,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "icon",
+              "id": "RyuHp",
+              "x": 16,
+              "y": 15,
+              "name": "Calendar Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "calendar-days",
+              "library": "lucide",
+              "fill": "$muted"
+            },
+            {
+              "type": "text",
+              "id": "r9O7na",
+              "x": 50,
+              "y": 17,
+              "name": "Rental Period Value",
+              "fill": "$ink",
+              "content": "09.12 수령  —  09.16 반납",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HwuyI",
+          "x": 636,
+          "y": 752,
+          "name": "Saved Button",
+          "width": 170,
+          "height": 52,
+          "fill": "#FDEBEC",
+          "cornerRadius": 6,
+          "stroke": "$red",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "k06ay",
+              "x": 50,
+              "y": 17,
+              "name": "Saved Label",
+              "fill": "$red",
+              "content": "♥  저장됨",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "TeFNq",
+          "x": 826,
+          "y": 752,
+          "name": "Rental CTA",
+          "width": 490,
+          "height": 52,
+          "fill": "$ink",
+          "cornerRadius": 6,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000022",
+            "offset": {
+              "x": 0,
+              "y": 6
+            },
+            "blur": 16
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "m7ev1",
+              "x": 148,
+              "y": 17,
+              "name": "Rental CTA Label",
+              "fill": "#FFFFFF",
+              "content": "25,000원 · 대여하기",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "800"
+            },
+            {
+              "type": "icon",
+              "id": "E4tdKd",
+              "x": 446,
+              "y": 16,
+              "name": "Rental CTA Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-right",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "E6M26v",
+      "x": 0,
+      "y": 1000,
+      "name": "FITLY — My Closet",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DHgnS",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "t8I2P3",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "MSTEX",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$muted",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "MalW9",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$ink",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "d62Tc",
+          "x": 354,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 56,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "hnene",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "ip9Am",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "rUI00",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "x9NKa",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "sJcvu",
+          "x": 64,
+          "y": 122,
+          "name": "Closet Eyebrow",
+          "fill": "$red",
+          "content": "MY CLOSET · 3 ITEMS",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "FNYYt",
+          "x": 64,
+          "y": 152,
+          "name": "Closet Title",
+          "fill": "$ink",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 34,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "sYhqU",
+          "x": 64,
+          "y": 203,
+          "name": "Closet Subtitle",
+          "fill": "$muted",
+          "content": "AI 추천에서 활용할 보유 의류를 관리하세요.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "GOx6D",
+          "x": 1194,
+          "y": 158,
+          "name": "Add Clothes",
+          "width": 182,
+          "height": 46,
+          "fill": "$ink",
+          "cornerRadius": 6,
+          "layout": "none",
+          "children": [
+            {
+              "type": "icon",
+              "id": "axGkA",
+              "x": 18,
+              "y": 13,
+              "name": "Add Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "plus",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "id": "ndJsG",
+              "x": 52,
+              "y": 15,
+              "name": "Add Label",
+              "fill": "#FFFFFF",
+              "content": "새 옷 등록",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "750"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b7aLx",
+          "x": 64,
+          "y": 270,
+          "name": "Closet Item 1",
+          "width": 336,
+          "height": 470,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "DvxNw",
+              "x": 14,
+              "y": 14,
+              "name": "Closet Image 1",
+              "metadata": {
+                "type": "unsplash",
+                "username": "introspectivedsgn",
+                "link": "https://unsplash.com/@introspectivedsgn",
+                "author": "Erik Mclean"
+              },
+              "clip": true,
+              "width": 308,
+              "height": 300,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1553704571-1f9d11da53b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODIxNDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "yCgki",
+              "x": 18,
+              "y": 338,
+              "name": "Closet Name 1",
+              "fill": "$ink",
+              "content": "Black Slacks",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "o7t8Uu",
+              "x": 18,
+              "y": 371,
+              "name": "Closet Meta 1",
+              "fill": "$muted",
+              "content": "Pants · Black",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "LkMMS",
+              "x": 18,
+              "y": 416,
+              "name": "Edit 1",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kFZCB",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Edit Label 1",
+                  "fill": "$ink",
+                  "content": "수정",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S0IrXs",
+              "x": 118,
+              "y": 416,
+              "name": "Delete 1",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BC8uu",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Delete Label 1",
+                  "fill": "$muted",
+                  "content": "삭제",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k3eOYE",
+          "x": 432,
+          "y": 270,
+          "name": "Closet Item 2",
+          "width": 336,
+          "height": 470,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "jVZig",
+              "x": 14,
+              "y": 14,
+              "name": "Closet Image 2",
+              "metadata": {
+                "type": "unsplash",
+                "username": "light_some_candles",
+                "link": "https://unsplash.com/@light_some_candles",
+                "author": "sombre"
+              },
+              "clip": true,
+              "width": 308,
+              "height": 300,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1718278868740-9351177c5768?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODIxNDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "CxUQz",
+              "x": 18,
+              "y": 338,
+              "name": "Closet Name 2",
+              "fill": "$ink",
+              "content": "White Shirt",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "zHTuZ",
+              "x": 18,
+              "y": 371,
+              "name": "Closet Meta 2",
+              "fill": "$muted",
+              "content": "Top · White",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "PFGN3",
+              "x": 18,
+              "y": 416,
+              "name": "Edit 2",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x8OxL",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Edit Label 2",
+                  "fill": "$ink",
+                  "content": "수정",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uvJkc",
+              "x": 118,
+              "y": 416,
+              "name": "Delete 2",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BFNpB",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Delete Label 2",
+                  "fill": "$muted",
+                  "content": "삭제",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "t8giS",
+          "x": 800,
+          "y": 270,
+          "name": "Closet Item 3",
+          "width": 336,
+          "height": 470,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "vxI2D",
+              "x": 14,
+              "y": 14,
+              "name": "Closet Image 3",
+              "metadata": {
+                "type": "unsplash",
+                "username": "jontyson",
+                "link": "https://unsplash.com/@jontyson",
+                "author": "Jon Tyson"
+              },
+              "clip": true,
+              "width": 308,
+              "height": 300,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1623496928880-9ced3876d2ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODIxNDV8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 7,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "dIeLM",
+              "x": 18,
+              "y": 338,
+              "name": "Closet Name 3",
+              "fill": "$ink",
+              "content": "White Sneakers",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "Iz6bm",
+              "x": 18,
+              "y": 371,
+              "name": "Closet Meta 3",
+              "fill": "$muted",
+              "content": "Shoes · White",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "jFWoP",
+              "x": 18,
+              "y": 416,
+              "name": "Edit 3",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x1dmcX",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Edit Label 3",
+                  "fill": "$ink",
+                  "content": "수정",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eOjt6",
+              "x": 118,
+              "y": 416,
+              "name": "Delete 3",
+              "width": 90,
+              "height": 38,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E9lvB",
+                  "x": 31,
+                  "y": 12,
+                  "name": "Delete Label 3",
+                  "fill": "$muted",
+                  "content": "삭제",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g9jZj",
+          "x": 1168,
+          "y": 270,
+          "name": "Add Closet Card",
+          "width": 208,
+          "height": 470,
+          "fill": "#FAFAFA",
+          "cornerRadius": 10,
+          "stroke": "#B7BBC4",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "zcHtF",
+              "x": 72,
+              "y": 154,
+              "name": "Add Circle",
+              "width": 64,
+              "height": 64,
+              "fill": "#ECEEF2",
+              "cornerRadius": 32,
+              "layout": "none"
+            },
+            {
+              "type": "icon",
+              "id": "Q4Uug",
+              "x": 92,
+              "y": 174,
+              "name": "Add Large Icon",
+              "width": 24,
+              "height": 24,
+              "icon": "plus",
+              "library": "lucide",
+              "fill": "$muted"
+            },
+            {
+              "type": "text",
+              "id": "e7g8F",
+              "x": 68,
+              "y": 240,
+              "name": "Add Card Title",
+              "fill": "$ink",
+              "content": "새 옷 등록",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "OfpfV",
+              "x": 38,
+              "y": 272,
+              "name": "Add Card Hint",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": 132,
+              "content": "사진을 올리면 AI가\n분류를 도와드려요.",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y8HxUR",
+      "x": 1540,
+      "y": 1000,
+      "name": "FITLY — Rental Status",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "c0KOrg",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "bvcAK",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "A42y1",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$muted",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "NtAhL",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "c1KcN",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$ink",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "xAvtN",
+          "x": 458,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "text",
+          "id": "kSWXH",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$muted",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "frame",
+          "id": "Knutj",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "JDqtZ",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "sDpPp",
+          "x": 64,
+          "y": 122,
+          "name": "Rental Eyebrow",
+          "fill": "$red",
+          "content": "RENTAL STATUS · ACTIVE",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "Wg6tx",
+          "x": 64,
+          "y": 152,
+          "name": "Rental Title",
+          "fill": "$ink",
+          "content": "현재 대여 중",
+          "fontFamily": "Inter",
+          "fontSize": 34,
+          "fontWeight": "850"
+        },
+        {
+          "type": "frame",
+          "id": "hm8eN",
+          "x": 64,
+          "y": 236,
+          "name": "Active Rental Card",
+          "width": 1312,
+          "height": 530,
+          "fill": "$paper",
+          "cornerRadius": 12,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rzf6F",
+              "x": 24,
+              "y": 24,
+              "name": "Rental Product Image",
+              "metadata": {
+                "type": "unsplash",
+                "username": "thisismcfollis",
+                "link": "https://unsplash.com/@thisismcfollis",
+                "author": "McFollis"
+              },
+              "clip": true,
+              "width": 360,
+              "height": 400,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1785706873511-77e157860250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg0ODIyMDZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "yb1kw",
+              "x": 430,
+              "y": 36,
+              "name": "Rental Product",
+              "fill": "$ink",
+              "content": "Navy Single Blazer",
+              "fontFamily": "Inter",
+              "fontSize": 26,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "lBeUO",
+              "x": 430,
+              "y": 82,
+              "name": "Rental Meta",
+              "fill": "$muted",
+              "content": "MUSINSA STANDARD · M · 3박 4일",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "sPOm7",
+              "x": 1086,
+              "y": 36,
+              "name": "Due Badge",
+              "width": 184,
+              "height": 38,
+              "fill": "#FDEBEC",
+              "cornerRadius": 19,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "x75s5",
+              "x": 1114,
+              "y": 48,
+              "name": "Due Badge Label",
+              "fill": "$red",
+              "content": "반납 예정 09.16 · D-2",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "ellipse",
+              "id": "SUcpi",
+              "x": 490,
+              "y": 196,
+              "name": "Timeline Dot 0",
+              "fill": "$ink",
+              "width": 34,
+              "height": 34
+            },
+            {
+              "type": "icon",
+              "id": "DA2Ec",
+              "x": 498,
+              "y": 204,
+              "name": "Timeline Icon 0",
+              "width": 18,
+              "height": 18,
+              "icon": "package-check",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "id": "ksAmR",
+              "x": 480,
+              "y": 244,
+              "name": "Timeline Label 0",
+              "fill": "$muted",
+              "content": "배송 완료",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "rectangle",
+              "id": "a79Lg",
+              "x": 524,
+              "y": 212,
+              "name": "Timeline Line 0",
+              "fill": "$ink",
+              "width": 256,
+              "height": 2
+            },
+            {
+              "type": "ellipse",
+              "id": "ObtPq",
+              "x": 780,
+              "y": 196,
+              "name": "Timeline Dot 1",
+              "fill": "$ink",
+              "width": 34,
+              "height": 34
+            },
+            {
+              "type": "icon",
+              "id": "b11tN",
+              "x": 788,
+              "y": 204,
+              "name": "Timeline Icon 1",
+              "width": 18,
+              "height": 18,
+              "icon": "shirt",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "id": "ZoyU4",
+              "x": 770,
+              "y": 244,
+              "name": "Timeline Label 1",
+              "fill": "$red",
+              "content": "대여 중",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "rectangle",
+              "id": "qYwIp",
+              "x": 814,
+              "y": 212,
+              "name": "Timeline Line 1",
+              "fill": "$line",
+              "width": 256,
+              "height": 2
+            },
+            {
+              "type": "ellipse",
+              "id": "opwnu",
+              "x": 1070,
+              "y": 196,
+              "name": "Timeline Dot 2",
+              "fill": "$soft",
+              "width": 34,
+              "height": 34
+            },
+            {
+              "type": "icon",
+              "id": "xa6x3",
+              "x": 1078,
+              "y": 204,
+              "name": "Timeline Icon 2",
+              "width": 18,
+              "height": 18,
+              "icon": "rotate-ccw",
+              "library": "lucide",
+              "fill": "$muted"
+            },
+            {
+              "type": "text",
+              "id": "YwDu5",
+              "x": 1060,
+              "y": 244,
+              "name": "Timeline Label 2",
+              "fill": "$muted",
+              "content": "반납 예정",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "650"
+            },
+            {
+              "type": "text",
+              "id": "GkSE0",
+              "x": 430,
+              "y": 320,
+              "name": "Period Label",
+              "fill": "$muted",
+              "content": "대여 기간",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "l5azf",
+              "x": 430,
+              "y": 350,
+              "name": "Period Value",
+              "fill": "$ink",
+              "content": "09.12 수령  —  09.16 반납",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "750"
+            },
+            {
+              "type": "frame",
+              "id": "e8Gyu",
+              "x": 850,
+              "y": 446,
+              "name": "Return Request",
+              "width": 190,
+              "height": 50,
+              "fill": "$paper",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "mmkkT",
+                  "x": 54,
+                  "y": 16,
+                  "name": "Return Label",
+                  "fill": "$ink",
+                  "content": "반납 신청",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "750"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "joRwo",
+              "x": 1060,
+              "y": 446,
+              "name": "Rent To Own",
+              "width": 210,
+              "height": 50,
+              "fill": "$ink",
+              "cornerRadius": 6,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bCpyJ",
+                  "x": 67,
+                  "y": 16,
+                  "name": "Own Label",
+                  "fill": "#FFFFFF",
+                  "content": "소장하기",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "750"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZzgYT",
+      "x": 3080,
+      "y": 1000,
+      "name": "FITLY — Group Rental",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#ECEEF3",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "uKiMv",
+          "x": 0,
+          "y": 0,
+          "name": "Header",
+          "width": 1440,
+          "height": 82,
+          "fill": "$paper",
+          "stroke": "$line",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "FbFQC",
+          "x": 64,
+          "y": 27,
+          "name": "FITLY Logo",
+          "fill": "$ink",
+          "content": "FITLY",
+          "fontFamily": "Inter",
+          "fontSize": 23,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "Jwmba",
+          "x": 232,
+          "y": 31,
+          "name": "Nav 코디 추천",
+          "fill": "$muted",
+          "content": "코디 추천",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "c9j0Y",
+          "x": 354,
+          "y": 31,
+          "name": "Nav 내 옷장",
+          "fill": "$muted",
+          "content": "내 옷장",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "YcgQi",
+          "x": 458,
+          "y": 31,
+          "name": "Nav 대여 현황",
+          "fill": "$muted",
+          "content": "대여 현황",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "550"
+        },
+        {
+          "type": "text",
+          "id": "ccqFu",
+          "x": 578,
+          "y": 31,
+          "name": "Nav 단체 대여",
+          "fill": "$ink",
+          "content": "단체 대여",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "800"
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "vy4AE",
+          "x": 578,
+          "y": 61,
+          "name": "Active Nav",
+          "fill": "$red",
+          "width": 68,
+          "height": 3
+        },
+        {
+          "type": "frame",
+          "id": "lYeeU",
+          "x": 1242,
+          "y": 22,
+          "name": "Profile",
+          "width": 134,
+          "height": 38,
+          "fill": "#ECEEF2",
+          "cornerRadius": 19,
+          "layout": "none"
+        },
+        {
+          "type": "text",
+          "id": "L1Ig7",
+          "x": 1270,
+          "y": 34,
+          "name": "Profile Label",
+          "fill": "$ink",
+          "content": "MY / PROFILE",
+          "fontFamily": "Inter",
+          "fontSize": 11,
+          "fontWeight": "750"
+        },
+        {
+          "type": "text",
+          "id": "x3HLZN",
+          "x": 64,
+          "y": 122,
+          "name": "Group Eyebrow",
+          "fill": "$red",
+          "content": "GROUP RENTAL",
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 11,
+          "fontWeight": "800"
+        },
+        {
+          "type": "text",
+          "id": "r7Dsz",
+          "x": 64,
+          "y": 152,
+          "name": "Group Title",
+          "fill": "$ink",
+          "content": "단체 / 특수 의류 대여",
+          "fontFamily": "Inter",
+          "fontSize": 34,
+          "fontWeight": "850"
+        },
+        {
+          "type": "text",
+          "id": "zfEjD",
+          "x": 64,
+          "y": 203,
+          "name": "Group Subtitle",
+          "fill": "$muted",
+          "content": "연구실·현장 실습·단체 행사에 필요한 품목을 한 번에 요청하세요.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "C7RS0O",
+          "x": 64,
+          "y": 256,
+          "name": "Group Rental Form",
+          "width": 850,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "Rcjgc",
+              "x": 28,
+              "y": 47,
+              "name": "Field Label 이용 목적",
+              "fill": "$muted",
+              "content": "이용 목적",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "LcgB7",
+              "x": 160,
+              "y": 32,
+              "name": "Field 이용 목적",
+              "width": 658,
+              "height": 48,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LpsgP",
+                  "x": 16,
+                  "y": 16,
+                  "name": "Field Value 이용 목적",
+                  "fill": "$ink",
+                  "content": "연구실",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon",
+                  "id": "RFRt2",
+                  "x": 622,
+                  "y": 14,
+                  "name": "Purpose Chevron",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "chevron-down",
+                  "library": "lucide",
+                  "fill": "$muted"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "HthJA",
+              "x": 28,
+              "y": 151,
+              "name": "Field Label 이용 기간",
+              "fill": "$muted",
+              "content": "이용 기간",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "wnSF6",
+              "x": 160,
+              "y": 136,
+              "name": "Field 이용 기간",
+              "width": 658,
+              "height": 48,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E8M9dD",
+                  "x": 16,
+                  "y": 16,
+                  "name": "Field Value 이용 기간",
+                  "fill": "$ink",
+                  "content": "8주 · 09.12—11.07",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "wOh9m",
+              "x": 28,
+              "y": 255,
+              "name": "Field Label 인원",
+              "fill": "$muted",
+              "content": "인원",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "O6uYUE",
+              "x": 160,
+              "y": 240,
+              "name": "Field 인원",
+              "width": 658,
+              "height": 48,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "obHyw",
+                  "x": 16,
+                  "y": 16,
+                  "name": "Field Value 인원",
+                  "fill": "$ink",
+                  "content": "8명",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "S5zi8N",
+              "x": 28,
+              "y": 359,
+              "name": "Field Label 필요 품목",
+              "fill": "$muted",
+              "content": "필요 품목",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "zSO8o",
+              "x": 160,
+              "y": 344,
+              "name": "Field 필요 품목",
+              "width": 658,
+              "height": 48,
+              "fill": "$soft",
+              "cornerRadius": 6,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MfeKp",
+                  "x": 16,
+                  "y": 16,
+                  "name": "Field Value 필요 품목",
+                  "fill": "$ink",
+                  "content": "연구복 · 안전화",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d1ytB8",
+              "x": 560,
+              "y": 468,
+              "name": "Submit Group Request",
+              "width": 258,
+              "height": 52,
+              "fill": "$ink",
+              "cornerRadius": 6,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nxl4s",
+                  "x": 60,
+                  "y": 17,
+                  "name": "Submit Label",
+                  "fill": "#FFFFFF",
+                  "content": "단체 대여 요청하기",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "800"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gadPF",
+          "x": 946,
+          "y": 256,
+          "name": "Group Rental Scope",
+          "width": 430,
+          "height": 548,
+          "fill": "$paper",
+          "cornerRadius": 10,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "iRg6c",
+              "x": 28,
+              "y": 30,
+              "name": "Scope Icon Box",
+              "width": 52,
+              "height": 52,
+              "fill": "#F0EEFF",
+              "cornerRadius": 26,
+              "layout": "none"
+            },
+            {
+              "type": "icon",
+              "id": "W8AT0a",
+              "x": 44,
+              "y": 46,
+              "name": "Scope Icon",
+              "width": 20,
+              "height": 20,
+              "icon": "clipboard-check",
+              "library": "lucide",
+              "fill": "$ai"
+            },
+            {
+              "type": "text",
+              "id": "q6zy61",
+              "x": 28,
+              "y": 110,
+              "name": "Scope Title",
+              "fill": "$ink",
+              "content": "요청 전에 확인하세요",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "850"
+            },
+            {
+              "type": "text",
+              "id": "g0b0D",
+              "x": 28,
+              "y": 154,
+              "name": "Scope Copy",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": 360,
+              "content": "• 이용 목적과 기간\n• 참여 인원\n• 필요한 품목과 수량\n\n요청 접수 후 담당자가 재고와 일정을 확인해 연락드립니다.",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "RlTo1",
+              "x": 28,
+              "y": 382,
+              "name": "Support Note",
+              "width": 374,
+              "height": 118,
+              "fill": "#FAFAFA",
+              "cornerRadius": 7,
+              "stroke": "$line",
+              "strokeWidth": 1,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "U2lYe",
+              "x": 18,
+              "y": 18,
+              "name": "Support Note Title",
+              "fill": "$ink",
+              "content": "대량 주문 상담",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "uKu2I",
+              "x": 18,
+              "y": 48,
+              "name": "Support Note Copy",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": 330,
+              "content": "50명 이상이거나 맞춤 제작이 필요하다면 별도 상담을 요청해주세요.",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "ink": {
+      "type": "color",
+      "value": "#16181D"
+    },
+    "muted": {
+      "type": "color",
+      "value": "#6B7280"
+    },
+    "line": {
+      "type": "color",
+      "value": "#E2E5EA"
+    },
+    "paper": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "soft": {
+      "type": "color",
+      "value": "#F5F6F8"
+    },
+    "red": {
+      "type": "color",
+      "value": "#E5484D"
+    },
+    "ai": {
+      "type": "color",
+      "value": "#6D5CE7"
+    },
+    "green": {
+      "type": "color",
+      "value": "#158A62"
+    }
+  },
+  "fileToken": "e5691ece-2473-4668-ac0d-8ec92ce637aa"
+}
