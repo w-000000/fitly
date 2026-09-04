@@ -256,13 +256,18 @@ Spring Boot는 `SPRING_PROFILES_ACTIVE=supabase` 값을 읽어 `application-supa
 
 ### Frontend
 
+Node.js와 npm이 필요합니다. `node_modules`는 Git에 포함되지 않으므로 저장소를 처음 받았거나
+`package-lock.json`이 변경된 경우 의존성을 먼저 설치해야 합니다.
+
 ```bash
 cd frontend
-npm install
+npm ci
 npm run dev
 ```
 
 브라우저에서 http://localhost:5173 을 엽니다. Vite 개발 서버가 `/api` 요청을 Spring Boot로 프록시합니다.
+
+`npm ci`가 lock 파일 불일치로 실패할 때만 `npm install`을 실행한 뒤 다시 시작합니다.
 
 ## 핵심 API
 
@@ -272,7 +277,7 @@ npm run dev
 | GET | `/api/wardrobe/items` | 내 옷장 목록 조회 |
 | GET / PATCH / DELETE | `/api/wardrobe/items/{id}` | 내 옷 상세 조회·수정·삭제 |
 | GET | `/api/wardrobe/items/{id}/image` | 등록한 옷 사진 조회 |
-| GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 |
+| GET / POST | `/api/products` | 대여 상품 조회 / 제휴사 상품 등록 (`partnerId`, `status`, `category`, `q`, `page`, `size` 조회 조건 지원) |
 | PATCH | `/api/products/{id}` | 제휴사 상품 설명·가격·이미지 수정 |
 | POST | `/api/products/ai-description` | 상품 정보 기반 Mock AI 설명 초안 생성 |
 | GET | `/api/products/{productId}` | 상품 상세 조회 |
@@ -281,25 +286,51 @@ npm run dev
 | PATCH | `/api/products/variants/{id}/stock` | 제휴사 재고 증감 |
 | POST | `/api/recommendations` | 개인·단체 대여 조건 기반 추천 |
 | POST / GET | `/api/recommendations/jobs` | 고객 옷장 기반 Mock TPO 추천 요청 / 결과 조회 |
+| GET | `/api/recommendations/requests` | 고객의 추천 요청 이력 조회 |
+| GET | `/api/recommendations/requests/{id}` | 추천 요청과 추천 상품 결과 상세 조회 |
+| PUT | `/api/recommendations/{recommendationId}/feedback` | 추천 결과에 `LIKE` 또는 `DISLIKE` 피드백 등록·수정 |
 | GET | `/api/recommendations/saved` | 저장한 추천 코디 목록 조회 |
 | PUT / DELETE | `/api/recommendations/jobs/{jobId}/looks/{lookKey}/saved` | 추천 코디 저장 / 저장 해제 |
-| POST / GET | `/api/wardrobe/items` | 보유 의류 사진 등록 / 내 옷장 조회 |
-| PATCH / DELETE | `/api/wardrobe/items/{id}` | 보유 의류 인식값 수정 / 삭제 |
-| POST | `/api/rentals` | 기간 선택형 단건·단체 대여 및 재고 차감 |
+| POST | `/api/rentals` | 기간 선택형 단건·다중 상품 대여, 재고 차감 및 `Idempotency-Key` 중복 요청 방지 |
 | GET | `/api/rentals/mine` | 고객 본인 대여 내역 조회 |
+| GET | `/api/rentals/{id}` | 대여 주문 상세 조회 |
 | POST | `/api/rentals/{id}/rent-to-own` | 대여 상품 잔액 소장 전환 |
 | POST | `/api/rentals/{id}/return-request` | 단건·단체 반납 신청 |
 | POST | `/api/laundry/inspections` | 관리자 파손 등급/세탁 완료 등록 및 재고 복구 |
 | GET | `/api/rentals/partner/{partnerId}/revenue` | 제휴사 상품의 대여 매출 조회 |
 | GET | `/api/rentals/partner/{partnerId}/settlements` | 상품별 계약 정산율에 따른 제휴사 정산 조회 |
 | GET | `/api/rentals` | 관리자 전체 주문 관제 |
-| POST | `/api/group-rentals` | 목적·기간·인원·품목 기반 단체 대여 요청 접수 |
+| POST | `/api/group-rentals` | 목적·기간·인원과 `category`, `quantity` 품목 기반 단체 대여 요청 접수 |
 | GET | `/api/group-rentals/mine` | 고객 본인의 단체 대여 요청 조회 |
+| GET | `/api/group-rentals` | 관리자 단체 대여 요청 전체 조회 |
+| GET | `/api/admin/returns` | 반납·검수·세탁 상태 조건 기반 관리자 작업 큐 조회 |
+| PATCH | `/api/admin/returns/{rentalOrderId}` | 반납 접수·검수 완료·세탁 완료·재고 복구 단계 처리 |
+| GET | `/api/enterprise/settlements?partnerId={id}` | 제휴사 정산 이력 조회 |
+| POST | `/api/admin/settlements` | 관리자가 기간별 제휴사 정산 이력 생성 |
 | GET | `/api/admin/dashboard` | 관리자 상품·주문·반납 대기 KPI와 최근 주문 조회 |
 | GET | `/api/partner/dashboard?partnerId={id}` | 제휴사 상품·재고·대여·매출 요약 조회 |
 | GET | `/api/laundry/inspections` | 관리자 반납 검수·세탁 목록 조회 |
 
 역할별 API는 개발 단계의 `X-Actor-Role` 헤더(`ROLE_CUSTOMER`, `ROLE_PARTNER`, `ROLE_ADMIN`)로 구분합니다. 고객 소유권 확인에는 `X-User-Id`를 함께 사용합니다. 운영 전에는 이 헤더를 신뢰하지 말고 Supabase Auth JWT를 검증한 값으로 교체해야 합니다.
+
+다중 상품 대여는 기존 단건 요청 형식과 함께 다음 `items` 형식을 지원합니다. 동일 요청을 재시도할 때는
+같은 `Idempotency-Key` 헤더를 전달해야 재고가 중복 차감되지 않습니다.
+
+```json
+{
+  "sourceRecommendationId": 10,
+  "items": [
+    { "variantId": 101, "quantity": 1 },
+    { "variantId": 205, "quantity": 2 }
+  ],
+  "startDate": "2026-09-12",
+  "endDate": "2026-09-16",
+  "shippingAddress": "서울시"
+}
+```
+
+관리자 반납 단계 변경의 `action` 값은 `RECEIVE`, `COMPLETE_INSPECTION`, `COMPLETE_LAUNDRY`,
+`RESTORE_STOCK` 중 하나입니다.
 
 ## 다음 단계
 
