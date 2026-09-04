@@ -1,6 +1,17 @@
 spring:
   profiles:
     default: local
+  ai:
+    model:
+      chat: ${FITLY_AI_PROVIDER:mock}
+    openai:
+      api-key: ${OPENAI_API_KEY:missing}
+      chat:
+        options:
+          model: ${FITLY_AI_MODEL:gpt-4o-mini}
+          temperature: ${FITLY_AI_TEMPERATURE:0.2}
+    retry:
+      max-attempts: 1
   servlet:
     multipart:
       max-file-size: 10MB
@@ -22,3 +33,9 @@ management:
   endpoint:
     health:
       show-details: never
+fitly:
+  ai:
+    provider: ${FITLY_AI_PROVIDER:mock}
+    vision-provider: ${FITLY_VISION_PROVIDER:mock}
+    model: ${FITLY_AI_MODEL:gpt-4o-mini}
+    max-candidates: ${FITLY_AI_MAX_CANDIDATES:5}

@@ -1,13 +1,41 @@
 package com.example.minip.rental;
-import java.time.LocalDate;
+
 import java.util.List;
+import java.time.LocalDate;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 public interface RentalOrderRepository extends JpaRepository<RentalOrder, Long> {
-    List<RentalOrder> findAllByCustomerIdOrderByCreatedAtDesc(Long customerId);
-    List<RentalOrder> findAllByVariantProductPartnerIdOrderByCreatedAtDesc(Long partnerId);
-    List<RentalOrder> findAllByCustomerIdAndIdempotencyKeyOrderById(Long customerId, String idempotencyKey);
+    List<RentalOrder> findAllByUserIdOrderByCreatedAtDesc(Long userId);
+
+    List<RentalOrder> findAllByUserIdAndIdempotencyKeyOrderById(Long userId, String idempotencyKey);
+
     List<RentalOrder> findAllByOrderGroupKeyOrderById(String orderGroupKey);
+
+    @Query("""
+        select distinct o from RentalOrder o
+        join o.items i
+        join i.variant v
+        join v.product p
+        where p.business.id = :businessId
+        order by o.createdAt desc
+        """)
+    List<RentalOrder> findAllByBusinessIdOrderByCreatedAtDesc(
+        @Param("businessId") Long businessId
+    );
+
+    @Query("""
+        select distinct o from RentalOrder o
+        join o.items i
+        where i.variant.id = :variantId
+          and i.status in :statuses
+          and o.startDate <= :endDate
+          and o.endDate >= :startDate
+        order by o.createdAt desc
+        """)
     List<RentalOrder> findAllByVariantIdAndStatusInAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
-        Long variantId, List<RentalOrder.Status> statuses, LocalDate endDate, LocalDate startDate
+        @Param("variantId") Long variantId, @Param("statuses") List<String> statuses,
+        @Param("endDate") LocalDate endDate, @Param("startDate") LocalDate startDate
     );
 }

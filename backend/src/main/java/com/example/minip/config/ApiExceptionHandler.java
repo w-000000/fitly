@@ -1,5 +1,6 @@
 package com.example.minip.config;
 
+import com.example.minip.ai.AiIntegrationException;
 import java.time.Instant;
 import java.util.Map;
 import org.springframework.http.*;
@@ -25,5 +26,16 @@ public class ApiExceptionHandler {
         String message = exception.getReason() == null ? "요청을 처리하지 못했습니다." : exception.getReason();
         return ResponseEntity.status(exception.getStatusCode()).body(Map.of(
             "timestamp", Instant.now().toString(), "status", status, "message", message));
+    }
+
+    @ExceptionHandler(AiIntegrationException.class)
+    public ResponseEntity<Map<String, Object>> aiIntegration(AiIntegrationException exception) {
+        HttpStatus status = exception.getReason() == AiIntegrationException.Reason.INVALID_RESPONSE
+            ? HttpStatus.BAD_GATEWAY : HttpStatus.SERVICE_UNAVAILABLE;
+        String message = exception.getReason() == AiIntegrationException.Reason.CONFIGURATION
+            ? "AI 서비스 설정이 완료되지 않았습니다."
+            : "AI 결과를 생성하지 못했습니다. 잠시 후 다시 시도해주세요.";
+        return ResponseEntity.status(status).body(Map.of(
+            "timestamp", Instant.now().toString(), "status", status.value(), "message", message));
     }
 }

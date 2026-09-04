@@ -2,6 +2,7 @@ package com.example.minip.rental;
 
 import com.example.minip.catalog.ProductVariant;
 import com.example.minip.catalog.ProductVariantRepository;
+import com.example.minip.business.ReferenceDataService;
 import com.example.minip.config.ActorRole;
 import com.example.minip.config.RoleGuard;
 import jakarta.validation.Valid;
@@ -23,8 +24,10 @@ public class RentalController {
     private final RentalOrderRepository orders;
     private final ProductVariantRepository variants;
     private final RoleGuard roles;
-    public RentalController(RentalOrderRepository orders, ProductVariantRepository variants, RoleGuard roles) {
-        this.orders = orders; this.variants = variants; this.roles = roles;
+    private final ReferenceDataService references;
+    public RentalController(RentalOrderRepository orders, ProductVariantRepository variants, RoleGuard roles,
+                            ReferenceDataService references) {
+        this.orders = orders; this.variants = variants; this.roles = roles; this.references = references;
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -37,14 +40,15 @@ public class RentalController {
         if (request.endDate().isBefore(request.startDate())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "대여 종료일은 시작일과 같거나 이후여야 합니다.");
         }
+        references.ensureUser(userId, ActorRole.ROLE_CUSTOMER);
         if (idempotencyKey != null && !idempotencyKey.isBlank()) {
-            List<RentalOrder> previous = orders.findAllByCustomerIdAndIdempotencyKeyOrderById(userId, idempotencyKey);
+            List<RentalOrder> previous = orders.findAllByUserIdAndIdempotencyKeyOrderById(userId, idempotencyKey);
             if (!previous.isEmpty()) return response(previous);
         }
         List<RentalItemRequest> requestedItems = request.items() == null || request.items().isEmpty()
             ? legacyItem(request) : request.items();
         String groupKey = UUID.randomUUID().toString();
-        boolean multi = requestedItems.size() > 1 || request.items() != null;
+        boolean multi = requestedItems.size() > 1 || (request.items() != null && !request.items().isEmpty());
         List<RentalOrder> created = requestedItems.stream().map(item -> {
             ProductVariant variant = variants.findById(item.variantId()).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "상품 옵션을 찾을 수 없습니다."));
@@ -56,7 +60,7 @@ public class RentalController {
     }
     @GetMapping("/mine")
     public List<RentalOrder> mine(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId) {
-        roles.require(role, ActorRole.ROLE_CUSTOMER); return orders.findAllByCustomerIdOrderByCreatedAtDesc(userId);
+        roles.require(role, ActorRole.ROLE_CUSTOMER); return orders.findAllByUserIdOrderByCreatedAtDesc(userId);
     }
     @GetMapping
     public List<RentalOrder> all(@RequestHeader("X-Actor-Role") String role,
@@ -75,14 +79,14 @@ public class RentalController {
     @GetMapping("/partner/{partnerId}/revenue")
     public RevenueView revenue(@RequestHeader("X-Actor-Role") String role, @PathVariable Long partnerId) {
         roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        List<RentalOrder> values = orders.findAllByVariantProductPartnerIdOrderByCreatedAtDesc(partnerId);
+        List<RentalOrder> values = orders.findAllByBusinessIdOrderByCreatedAtDesc(partnerId);
         BigDecimal total = values.stream().map(RentalOrder::getRentalAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         return new RevenueView(partnerId, total, values);
     }
     @GetMapping("/partner/{partnerId}/settlements")
     public SettlementView settlements(@RequestHeader("X-Actor-Role") String role, @PathVariable Long partnerId) {
         roles.require(role, ActorRole.ROLE_PARTNER, ActorRole.ROLE_ADMIN);
-        List<RentalOrder> values = orders.findAllByVariantProductPartnerIdOrderByCreatedAtDesc(partnerId);
+        List<RentalOrder> values = orders.findAllByBusinessIdOrderByCreatedAtDesc(partnerId);
         BigDecimal total = values.stream().map(RentalOrder::getSettlementAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         return new SettlementView(partnerId, total, values);
     }
@@ -97,8 +101,7 @@ public class RentalController {
     public OwnResult own(@RequestHeader("X-Actor-Role") String role, @RequestHeader("X-User-Id") Long userId, @PathVariable Long id) {
         roles.require(role, ActorRole.ROLE_CUSTOMER);
         RentalOrder order = ownOrder(id, userId);
-        BigDecimal balance = order.getVariant().getProduct().getRetailPrice().multiply(BigDecimal.valueOf(order.getQuantity())).subtract(order.getRentalAmount()).max(BigDecimal.ZERO);
-        order.own(); return new OwnResult(order, balance);
+        BigDecimal balance = order.own(); return new OwnResult(order, balance);
     }
     private RentalOrder ownOrder(Long id, Long userId) {
         RentalOrder order = orders.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "대여 주문을 찾을 수 없습니다."));
