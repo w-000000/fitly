@@ -245,7 +245,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 1450,
-          "content": "오늘의 상황에 맞는 코디를 추천하고, 부족한 옷만 빌립니다.",
+          "content": "고객·제휴사·관리자가 하나의 대여 Lifecycle로 연결됩니다.",
           "lineHeight": 1.12,
           "fontFamily": "$heading",
           "fontSize": 72,
@@ -281,7 +281,7 @@
           "y": 580,
           "name": "Problem Heading 1",
           "fill": "$ink",
-          "content": "ACTOR",
+          "content": "CUSTOMER",
           "fontFamily": "$body",
           "fontSize": 34,
           "fontWeight": "700"
@@ -295,7 +295,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 490,
-          "content": "개인 사용자\n대학생 · 취준생",
+          "content": "회원·옷장·개인/단체 추천\n대여·반납·소장 전환",
           "lineHeight": 1.4,
           "fontFamily": "$body",
           "fontSize": 28,
@@ -331,7 +331,7 @@
           "y": 580,
           "name": "Problem Heading 2",
           "fill": "$ink",
-          "content": "CORE USE-CASE",
+          "content": "PARTNER",
           "fontFamily": "$body",
           "fontSize": 34,
           "fontWeight": "700"
@@ -345,7 +345,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 490,
-          "content": "TPO·예산 입력 →\n코디 3종 추천",
+          "content": "상품·사이즈별 재고 등록\n매출·계약 정산 조회",
           "lineHeight": 1.4,
           "fontFamily": "$body",
           "fontSize": 28,
@@ -381,7 +381,7 @@
           "y": 580,
           "name": "Problem Heading 3",
           "fill": "$ink",
-          "content": "ACTION",
+          "content": "ADMIN",
           "fontFamily": "$body",
           "fontSize": 34,
           "fontWeight": "700"
@@ -395,7 +395,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 490,
-          "content": "내 옷은 활용하고\n부족한 상품만 대여",
+          "content": "전체 주문 관제\n반납 검수·세탁·재고 복구",
           "lineHeight": 1.4,
           "fontFamily": "$body",
           "fontSize": 28,
@@ -421,7 +421,7 @@
               "id": "xtzxm",
               "name": "Problem Summary",
               "fill": "#FFFFFF",
-              "content": "MVP 범위  ·  개인 스타일링 + 단건 대여  |  확장  ·  단체·특수복 렌탈",
+              "content": "구현 범위  ·  Auth · Wardrobe · Catalog · Recommendation · Rental · Laundry · Dashboard",
               "fontFamily": "$body",
               "fontSize": 28,
               "fontWeight": "600"
@@ -462,9 +462,9 @@
           "y": 155,
           "name": "Flow Title",
           "fill": "$ink",
-          "content": "입력 → API → 추천 → 대여, 한 흐름으로 검증했습니다.",
+          "content": "추천에서 반납·재고 복구까지, 실제 API 흐름으로 검증했습니다.",
           "fontFamily": "$heading",
-          "fontSize": 70,
+          "fontSize": 58,
           "fontWeight": "600"
         },
         {
@@ -534,7 +534,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 350,
-          "content": "보유 의류와\n취향 정보 입력",
+          "content": "회원가입·로그인\n의류 사진 CRUD",
           "lineHeight": 1.35,
           "fontFamily": "$body",
           "fontSize": 27,
@@ -607,7 +607,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 350,
-          "content": "TPO·예산을\n요청 JSON으로 변환",
+          "content": "개인/행사·일정·예산\n규칙 기반 상품 추천",
           "lineHeight": 1.35,
           "fontFamily": "$body",
           "fontSize": 27,
@@ -680,7 +680,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 350,
-          "content": "Mock API 응답을\n추천 카드로 바인딩",
+          "content": "주문 생성과 동시에\n가용 재고 차감",
           "lineHeight": 1.35,
           "fontFamily": "$body",
           "fontSize": 27,
@@ -743,7 +743,7 @@
           "fill": "$muted",
           "textGrowth": "fixed-width",
           "width": 350,
-          "content": "부족한 상품의\n대여 정보 확인",
+          "content": "반납 신청 → 세탁 완료\n가용 재고 복구",
           "lineHeight": 1.35,
           "fontFamily": "$body",
           "fontSize": 27,
@@ -782,7 +782,7 @@
               "id": "t6uN5",
               "name": "Flow Callout Text",
               "fill": "$ink",
-              "content": "핵심 검증  ·  Vue 화면 → Spring API → PostgreSQL 상품 조회 → JSON 응답 → 화면 렌더링",
+              "content": "검증된 E2E  ·  Product 생성 → Variant 재고 → Rental → Return Request → Laundry Inspection → Stock Restore",
               "fontFamily": "$body",
               "fontSize": 30,
               "fontWeight": "600"
@@ -793,10 +793,101 @@
     },
     {
       "type": "frame",
-      "id": "Qa1lP",
+      "id": "MuYRO",
       "x": 2040,
       "y": 1200,
-      "name": "04 Live Demo",
+      "name": "04 Advertisement Film",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "#0B0B0B",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "xRVzR",
+          "x": 120,
+          "y": 70,
+          "name": "Ad Eyebrow",
+          "fill": "$lime",
+          "content": "04  /  BRAND FILM · 30 SEC",
+          "fontFamily": "$body",
+          "fontSize": 22,
+          "fontWeight": "700",
+          "letterSpacing": 2
+        },
+        {
+          "type": "frame",
+          "id": "hCyJ5",
+          "x": 220,
+          "y": 160,
+          "name": "Ad Video Placeholder",
+          "width": 1480,
+          "height": 740,
+          "fill": "#181818",
+          "cornerRadius": 4,
+          "stroke": "#3D3D3D",
+          "strokeWidth": 2,
+          "layout": "vertical",
+          "gap": 26,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "mTJaR",
+              "name": "Ad Play Icon",
+              "width": 104,
+              "height": 104,
+              "icon": "play-circle",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "id": "T4lCjV",
+              "name": "Ad Video Title",
+              "fill": "#FFFFFF",
+              "content": "FITLY BRAND FILM",
+              "fontFamily": "$heading",
+              "fontSize": 48,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "SZBFy",
+              "name": "Ad Video Filename",
+              "fill": "#A8A8A8",
+              "content": "광고.mp4",
+              "fontFamily": "Geist Mono",
+              "fontSize": 24,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "jX4Ya",
+          "x": 220,
+          "y": 950,
+          "name": "Ad Transition Cue",
+          "fill": "#DADADA",
+          "textGrowth": "fixed-width",
+          "width": 1480,
+          "content": "영상 종료 → “이제 실제로 작동하는지 보여드리겠습니다.” → Live Demo",
+          "textAlign": "center",
+          "fontFamily": "$body",
+          "fontSize": 23,
+          "fontWeight": "500"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Qa1lP",
+      "x": 4080,
+      "y": 1200,
+      "name": "05 Live Demo",
       "clip": true,
       "width": 1920,
       "height": 1080,
@@ -810,7 +901,7 @@
           "y": 80,
           "name": "Slide Number",
           "fill": "$blue",
-          "content": "04  /  LIVE DEMO",
+          "content": "05  /  LIVE DEMO",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600",
@@ -823,9 +914,9 @@
           "y": 150,
           "name": "Demo Title",
           "fill": "$ink",
-          "content": "실제 데이터가 API를 거쳐 추천 카드로 렌더링됩니다.",
+          "content": "개인·단체 조건을 입력하면 DB 상품이 추천 결과로 렌더링됩니다.",
           "fontFamily": "$heading",
-          "fontSize": 68,
+          "fontSize": 58,
           "fontWeight": "600"
         },
         {
@@ -884,7 +975,7 @@
               "id": "mPIS7",
               "name": "Input Screen Title",
               "fill": "$ink",
-              "content": "상황과 내 옷 입력",
+              "content": "대여 조건 입력",
               "fontFamily": "$body",
               "fontSize": 29,
               "fontWeight": "700"
@@ -910,7 +1001,7 @@
                   "name": "Upload Icon",
                   "width": 44,
                   "height": 44,
-                  "icon": "image-up",
+                  "icon": "calendar-range",
                   "library": "lucide",
                   "fill": "$blue"
                 },
@@ -919,7 +1010,7 @@
                   "id": "yNBCC",
                   "name": "Upload Label",
                   "fill": "$muted",
-                  "content": "블랙 슬랙스 사진 등록",
+                  "content": "개인/행사 · 일정 · 예산",
                   "fontFamily": "$body",
                   "fontSize": 22,
                   "fontWeight": "600"
@@ -1026,7 +1117,7 @@
                   "id": "Vp6NG",
                   "name": "AI Recommend Label",
                   "fill": "#FFFFFF",
-                  "content": "Mock 추천 API 호출",
+                  "content": "POST /api/recommendations",
                   "fontFamily": "$body",
                   "fontSize": 22,
                   "fontWeight": "700"
@@ -1091,7 +1182,7 @@
               "id": "UwtEC",
               "name": "Result Screen Title",
               "fill": "$ink",
-              "content": "96점 매칭 코디",
+              "content": "추천 결과 2건",
               "fontFamily": "$body",
               "fontSize": 29,
               "fontWeight": "700"
@@ -1116,9 +1207,9 @@
                   "id": "p3mz8",
                   "name": "Score Number",
                   "fill": "$lime",
-                  "content": "96",
+                  "content": "4일",
                   "fontFamily": "$body",
-                  "fontSize": 52,
+                  "fontSize": 42,
                   "fontWeight": "700"
                 },
                 {
@@ -1126,7 +1217,7 @@
                   "id": "Q6cqg",
                   "name": "Score Copy",
                   "fill": "#FFFFFF",
-                  "content": "MOCK MATCH\n면접 조건 기반 응답",
+                  "content": "MODEL\nfitly-rules-v1",
                   "lineHeight": 1.2,
                   "fontFamily": "$body",
                   "fontSize": 20,
@@ -1247,7 +1338,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "“DB 상품과 요청 조건을 조합한\n추천 사유를 JSON으로 반환합니다.”",
+              "content": "“purpose·budget·stock 조건으로\nProductRepository를 조회합니다.”",
               "lineHeight": 1.35,
               "fontFamily": "$heading",
               "fontSize": 23,
@@ -1312,7 +1403,7 @@
               "id": "B4vSI0",
               "name": "Rental Screen Title",
               "fill": "$ink",
-              "content": "대여 또는 소장",
+              "content": "대여 · 반납 · 소장",
               "fontFamily": "$body",
               "fontSize": 29,
               "fontWeight": "700"
@@ -1341,7 +1432,7 @@
               "id": "nX8IQ",
               "name": "Rental Schedule",
               "fill": "$muted",
-              "content": "9/10 수령  →  9/13 반납",
+              "content": "주문 → 재고 차감 → 반납 → 검수",
               "fontFamily": "$body",
               "fontSize": 21,
               "fontWeight": "600"
@@ -1373,7 +1464,7 @@
                   "id": "gxXkB",
                   "name": "Rent To Own Label",
                   "fill": "$ink",
-                  "content": "마음에 들면 차액 결제 후 소장",
+                  "content": "대여 중 차액 결제로 소장 전환 가능",
                   "fontFamily": "$body",
                   "fontSize": 20,
                   "fontWeight": "600"
@@ -1381,97 +1472,6 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
-      "id": "MuYRO",
-      "x": 4080,
-      "y": 1200,
-      "name": "05 Advertisement Film",
-      "clip": true,
-      "width": 1920,
-      "height": 1080,
-      "fill": "#0B0B0B",
-      "layout": "none",
-      "children": [
-        {
-          "type": "text",
-          "id": "xRVzR",
-          "x": 120,
-          "y": 70,
-          "name": "Ad Eyebrow",
-          "fill": "$lime",
-          "content": "BRAND FILM · 30 SEC",
-          "fontFamily": "$body",
-          "fontSize": 22,
-          "fontWeight": "700",
-          "letterSpacing": 2
-        },
-        {
-          "type": "frame",
-          "id": "hCyJ5",
-          "x": 220,
-          "y": 160,
-          "name": "Ad Video Placeholder",
-          "width": 1480,
-          "height": 740,
-          "fill": "#181818",
-          "cornerRadius": 4,
-          "stroke": "#3D3D3D",
-          "strokeWidth": 2,
-          "layout": "vertical",
-          "gap": 26,
-          "justifyContent": "center",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "icon",
-              "id": "mTJaR",
-              "name": "Ad Play Icon",
-              "width": 104,
-              "height": 104,
-              "icon": "play-circle",
-              "library": "lucide",
-              "fill": "#FFFFFF"
-            },
-            {
-              "type": "text",
-              "id": "T4lCjV",
-              "name": "Ad Video Title",
-              "fill": "#FFFFFF",
-              "content": "FITLY BRAND FILM",
-              "fontFamily": "$heading",
-              "fontSize": 48,
-              "fontWeight": "600"
-            },
-            {
-              "type": "text",
-              "id": "SZBFy",
-              "name": "Ad Video Filename",
-              "fill": "#A8A8A8",
-              "content": "광고.mp4",
-              "fontFamily": "Geist Mono",
-              "fontSize": 24,
-              "fontWeight": "500"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "jX4Ya",
-          "x": 220,
-          "y": 950,
-          "name": "Ad Transition Cue",
-          "fill": "#DADADA",
-          "textGrowth": "fixed-width",
-          "width": 1480,
-          "content": "영상 종료 → “이 경험을 가능하게 만든 설계를 보겠습니다.” → AI-Ready 섹션",
-          "textAlign": "center",
-          "fontFamily": "$body",
-          "fontSize": 23,
-          "fontWeight": "500"
         }
       ]
     },
@@ -1509,7 +1509,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 1540,
-          "content": "AI가 바뀌어도 요청과 응답 규격은 바뀌지 않습니다.",
+          "content": "현재 JSON DTO를 기준으로 실제 AI 연결 경계를 정의했습니다.",
           "fontFamily": "$heading",
           "fontSize": 70,
           "fontWeight": "600"
@@ -1558,7 +1558,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "RecommendationService의\nMock 로직을 Vision / LLM Provider로 교체",
+              "content": "현재 RecommendationService 규칙\n→ 목표 AI Provider Adapter",
               "lineHeight": 1.38,
               "fontFamily": "$body",
               "fontSize": 29,
@@ -1610,7 +1610,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "역할: 스타일리스트\n제약: TPO · 예산 · 보유 의류\n출력: JSON only",
+              "content": "Frontend 추가 요청 필드 존재\nBackend DTO 반영은 다음 작업",
               "lineHeight": 1.38,
               "fontFamily": "$body",
               "fontSize": 29,
@@ -1662,7 +1662,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "request  ·  occasion, style, budget\nresponse  ·  score, items, reason",
+              "content": "request  ·  purpose, dates, budget\nresponse  ·  model, rentalDays, products",
               "lineHeight": 1.38,
               "fontFamily": "$body",
               "fontSize": 29,
@@ -1677,9 +1677,9 @@
           "y": 930,
           "name": "Evidence Source",
           "fill": "$muted",
-          "content": "REQUEST  { occasion: \"INTERVIEW\", style: \"MINIMAL\", budget: 100000 }   →   RESPONSE  { score: 96, items: [...], reason: \"...\" }",
+          "content": "CURRENT  ·  fitly-rules-v1 + Structured DTO     |     TARGET  ·  Prompt Adapter + Vision / LLM Provider",
           "fontFamily": "$body",
-          "fontSize": 20,
+          "fontSize": 23,
           "fontWeight": "normal"
         }
       ]
@@ -1689,7 +1689,7 @@
       "id": "Q8hzX",
       "x": 2040,
       "y": 2400,
-      "name": "07 System Architecture Slot",
+      "name": "07 System Architecture",
       "clip": true,
       "width": 1920,
       "height": 1080,
@@ -1703,7 +1703,7 @@
           "y": 80,
           "name": "Slide Number",
           "fill": "$blue",
-          "content": "07  /  SYSTEM ARCHITECTURE · TEAM SLOT",
+          "content": "07  /  VERIFIED SYSTEM ARCHITECTURE",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600",
@@ -1718,7 +1718,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 1500,
-          "content": "인터페이스를 고정해 Mock에서 실제 AI로 확장합니다.",
+          "content": "Vue → Spring → JPA를 Docker 하나로 배포합니다.",
           "fontFamily": "$heading",
           "fontSize": 66,
           "fontWeight": "600"
@@ -1772,7 +1772,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "상황 입력 · 이미지 미리보기\n비동기 상태 · 추천 결과",
+              "content": "Vue Router · RecommendView\n개인/행사 입력 · 결과 상태",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -1841,7 +1841,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Controller · Service · Repository\nAI 교체 경계: Service",
+              "content": "도메인 Controller · RoleGuard\nService · 공통 예외 처리",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -1910,7 +1910,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Supabase PostgreSQL\nProduct · CatalogInitializer",
+              "content": "10 JPA Repository\nH2(local/test) · Supabase(운영)",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -1954,7 +1954,7 @@
               "id": "Ir2q1",
               "name": "Layer Label 4",
               "fill": "$lime",
-              "content": "AI MODULE",
+              "content": "RECOMMEND / DEPLOY",
               "fontFamily": "$body",
               "fontSize": 18,
               "fontWeight": "700",
@@ -1967,7 +1967,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Mock → Vision / LLM",
+              "content": "Rules v1 → AI Provider",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -1979,7 +1979,7 @@
               "fill": "#D7D7D7",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "현재 규칙 기반 Mock\n다음 단계: Provider 분리",
+              "content": "현재 규칙 기반 추천\nDocker · Render 배포 구성",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -2029,7 +2029,7 @@
               "id": "gGBTj",
               "name": "API States",
               "fill": "$muted",
-              "content": "현재 동기 POST  →  확장 PENDING / COMPLETED / FAILED",
+              "content": "현재  createJob 즉시 COMPLETED  →  목표  PENDING / PROCESSING / COMPLETED / FAILED",
               "fontFamily": "Geist Mono",
               "fontSize": 21,
               "fontWeight": "normal"
@@ -2054,7 +2054,695 @@
               "id": "LmEVM",
               "name": "System Architecture Badge Text",
               "fill": "$blue",
-              "content": "REPLACE WITH TEAM ARTIFACT",
+              "content": "VERIFIED · origin/main",
+              "fontFamily": "Geist Mono",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "tL5ff",
+      "x": 4080,
+      "y": 2400,
+      "name": "08 Implemented ERD",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "$paper",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "mPEB0",
+          "x": 120,
+          "y": 80,
+          "name": "Slide Number",
+          "fill": "$blue",
+          "content": "08  /  IMPLEMENTED DATA MODEL",
+          "fontFamily": "$body",
+          "fontSize": 22,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "AuWS8",
+          "x": 120,
+          "y": 150,
+          "name": "ERD Title",
+          "fill": "$ink",
+          "textGrowth": "fixed-width",
+          "width": 1600,
+          "content": "10개 JPA Repository가 대여 Lifecycle을 저장합니다.",
+          "fontFamily": "$body",
+          "fontSize": 60,
+          "fontWeight": "600"
+        },
+        {
+          "type": "rectangle",
+          "id": "p9gOPp",
+          "x": 520,
+          "y": 455,
+          "name": "Product Variant Relation",
+          "fill": "$blue",
+          "width": 130,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "q1xuSB",
+          "x": 1050,
+          "y": 455,
+          "name": "Variant Rental Relation",
+          "fill": "$blue",
+          "width": 130,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "zDSug",
+          "x": 1380,
+          "y": 570,
+          "name": "Rental Inspection Relation",
+          "fill": "$blue",
+          "width": 4,
+          "height": 110
+        },
+        {
+          "type": "rectangle",
+          "id": "SJgKn",
+          "x": 520,
+          "y": 790,
+          "name": "Customer Wardrobe Relation",
+          "fill": "$blue",
+          "width": 130,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "L80ZLr",
+          "x": 1050,
+          "y": 790,
+          "name": "Customer Recommendation Relation",
+          "fill": "$blue",
+          "width": 130,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "HAr84",
+          "x": 120,
+          "y": 350,
+          "name": "Product Entity Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ilZSw",
+              "name": "Product Entity",
+              "fill": "$blue",
+              "content": "Product",
+              "fontFamily": "Geist Mono",
+              "fontSize": 25,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "jaLnr",
+              "name": "Product Fields",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "partnerId · purpose · category\nrentalPrice · settlementRate · stock",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wJONY",
+          "x": 650,
+          "y": 350,
+          "name": "Variant Entity Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$ink",
+          "cornerRadius": 4,
+          "stroke": "$ink",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "DVet4",
+              "name": "ProductVariant Entity",
+              "fill": "$lime",
+              "content": "ProductVariant",
+              "fontFamily": "Geist Mono",
+              "fontSize": 25,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "JIsix",
+              "name": "ProductVariant Fields",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "FK product · sizeName\ntotalStock · availableStock",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "thf9B",
+          "x": 1180,
+          "y": 350,
+          "name": "Rental Entity Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "cOI3y",
+              "name": "RentalOrder Entity",
+              "fill": "$blue",
+              "content": "RentalOrder",
+              "fontFamily": "Geist Mono",
+              "fontSize": 25,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "YFo3Q",
+              "name": "RentalOrder Fields",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "customerId · FK variant · quantity\nperiod · amount · status",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D0L3wT",
+          "x": 120,
+          "y": 680,
+          "name": "Account Wardrobe Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "pxOVY",
+              "name": "UserAccount / AuthSession Entity",
+              "fill": "$blue",
+              "content": "UserAccount / AuthSession",
+              "fontFamily": "Geist Mono",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "yFmaw",
+              "name": "UserAccount / AuthSession Fields",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "email · passwordHash · role\ntoken · expiresAt",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "M7pfJ",
+          "x": 650,
+          "y": 680,
+          "name": "Wardrobe Recommendation Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Jf9pw",
+              "name": "WardrobeItem / RecommendationJob Entity",
+              "fill": "$blue",
+              "content": "WardrobeItem / RecommendationJob",
+              "fontFamily": "Geist Mono",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "B4X3r6",
+              "name": "WardrobeItem / RecommendationJob Fields",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "customerId · imageData · TPO\nstyle · status · stylingComment",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NVGHD",
+          "x": 1180,
+          "y": 680,
+          "name": "Inspection Saved Card",
+          "width": 400,
+          "height": 220,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            24,
+            26
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Q25YV",
+              "name": "LaundryInspection / SavedOutfit Entity",
+              "fill": "$blue",
+              "content": "LaundryInspection / SavedOutfit",
+              "fontFamily": "Geist Mono",
+              "fontSize": 19,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "BqP1o",
+              "name": "LaundryInspection / SavedOutfit Fields",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "1:1 rentalOrder · damage · cleaned\njobId · lookKey · savedAt",
+              "lineHeight": 1.4,
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "kPLJw",
+          "x": 550,
+          "y": 420,
+          "name": "Relation Product Variant",
+          "fill": "$blue",
+          "content": "1 : N",
+          "fontFamily": "$body",
+          "fontSize": 18,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "GWPue",
+          "x": 1080,
+          "y": 420,
+          "name": "Relation Variant Rental",
+          "fill": "$blue",
+          "content": "1 : N",
+          "fontFamily": "$body",
+          "fontSize": 18,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "WdwRV",
+          "x": 1410,
+          "y": 620,
+          "name": "Relation Rental Inspection",
+          "fill": "$blue",
+          "content": "1 : 1",
+          "fontFamily": "$body",
+          "fontSize": 18,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "nEjqJ",
+          "x": 120,
+          "y": 960,
+          "name": "ERD Status",
+          "fill": "$muted",
+          "textGrowth": "fixed-width",
+          "width": 1650,
+          "content": "실제 구현  ·  10 Repository / H2(local·test) / Supabase PostgreSQL(운영)     |     customerId 연결은 현재 논리 참조",
+          "fontFamily": "$body",
+          "fontSize": 20,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "qDb5N",
+          "x": 1510,
+          "y": 72,
+          "name": "ERD Verified Badge",
+          "width": 290,
+          "height": 54,
+          "fill": "$softBlue",
+          "cornerRadius": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "dC0hb",
+              "name": "ERD Verified Text",
+              "fill": "$blue",
+              "content": "VERIFIED · origin/main",
+              "fontFamily": "Geist Mono",
+              "fontSize": 16,
+              "fontWeight": "700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rfHou",
+      "x": 0,
+      "y": 3600,
+      "name": "09 Implemented REST API",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "$ink",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "R4aJPr",
+          "x": 120,
+          "y": 80,
+          "name": "Slide Number",
+          "fill": "$lime",
+          "content": "09  /  IMPLEMENTED REST API",
+          "fontFamily": "$body",
+          "fontSize": 22,
+          "fontWeight": "600",
+          "letterSpacing": 1.5
+        },
+        {
+          "type": "text",
+          "id": "jvCPg",
+          "x": 120,
+          "y": 150,
+          "name": "Solution Title",
+          "fill": "#FFFFFF",
+          "textGrowth": "fixed-width",
+          "width": 1650,
+          "content": "3개 Actor의 권한과 대여 업무를 REST API로 분리했습니다.",
+          "fontFamily": "$heading",
+          "fontSize": 54,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "vWM1E",
+          "x": 120,
+          "y": 420,
+          "name": "Solution Pillar 1",
+          "width": 470,
+          "height": 350,
+          "fill": "#252525",
+          "cornerRadius": 4,
+          "stroke": "#424242",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 34,
+          "children": [
+            {
+              "type": "text",
+              "id": "g4sNz1",
+              "name": "Solution Index 1",
+              "fill": "#A8A8A8",
+              "content": "CUSTOMER",
+              "fontFamily": "$body",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "e0HhX0",
+              "name": "Solution Name 1",
+              "fill": "#FFFFFF",
+              "content": "Auth · Wardrobe · Recommend",
+              "fontFamily": "$heading",
+              "fontSize": 27,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "vAAgB",
+              "name": "Solution Desc 1",
+              "fill": "#C7C7C7",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "/api/auth · /wardrobe/items\n/recommendations · /rentals/mine",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 27,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "pOvcA",
+          "x": 613,
+          "y": 555,
+          "name": "Plus 1",
+          "fill": "$lime",
+          "content": "↔",
+          "fontFamily": "$body",
+          "fontSize": 54,
+          "fontWeight": "300"
+        },
+        {
+          "type": "frame",
+          "id": "b1Ltk",
+          "x": 690,
+          "y": 420,
+          "name": "Solution Pillar 2",
+          "width": 470,
+          "height": 350,
+          "fill": "$blue",
+          "cornerRadius": 4,
+          "stroke": "$blue",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 34,
+          "children": [
+            {
+              "type": "text",
+              "id": "AI07c",
+              "name": "Solution Index 2",
+              "fill": "$lime",
+              "content": "PARTNER",
+              "fontFamily": "$body",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "t6kJW",
+              "name": "Solution Name 2",
+              "fill": "#FFFFFF",
+              "content": "Catalog · Stock · Settlement",
+              "fontFamily": "$heading",
+              "fontSize": 25,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "i70gGl",
+              "name": "Solution Desc 2",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "/api/products · /variants\n/revenue · settlements",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 27,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "xm3c8",
+          "x": 1183,
+          "y": 555,
+          "name": "Plus 2",
+          "fill": "$lime",
+          "content": "↔",
+          "fontFamily": "$body",
+          "fontSize": 54,
+          "fontWeight": "300"
+        },
+        {
+          "type": "frame",
+          "id": "UcAqm",
+          "x": 1260,
+          "y": 420,
+          "name": "Solution Pillar 3",
+          "width": 470,
+          "height": 350,
+          "fill": "#252525",
+          "cornerRadius": 4,
+          "stroke": "#424242",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 34,
+          "children": [
+            {
+              "type": "text",
+              "id": "BEJQ1",
+              "name": "Solution Index 3",
+              "fill": "#A8A8A8",
+              "content": "ADMIN",
+              "fontFamily": "$body",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "oKaOb",
+              "name": "Solution Name 3",
+              "fill": "#FFFFFF",
+              "content": "Order · Laundry · Dashboard",
+              "fontFamily": "$heading",
+              "fontSize": 25,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "zPNA0",
+              "name": "Solution Desc 3",
+              "fill": "#C7C7C7",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "/api/rentals · /laundry/inspections\n/api/admin/dashboard",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 27,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "Ym8D7",
+          "x": 120,
+          "y": 865,
+          "name": "Solution Result",
+          "fill": "$lime",
+          "textGrowth": "fixed-width",
+          "width": 1650,
+          "content": "RoleGuard  ·  X-Actor-Role + X-User-Id     |     OpenAPI / Swagger UI     |     공통 오류 응답 ApiExceptionHandler",
+          "fontFamily": "$body",
+          "fontSize": 34,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "olW8c",
+          "x": 1510,
+          "y": 72,
+          "name": "API Team Badge",
+          "width": 290,
+          "height": 54,
+          "fill": "#242424",
+          "cornerRadius": 4,
+          "stroke": "$lime",
+          "strokeWidth": 1,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "p03GC",
+              "name": "API Badge Text",
+              "fill": "$lime",
+              "content": "VERIFIED · origin/main",
               "fontFamily": "Geist Mono",
               "fontSize": 15,
               "fontWeight": "700"
@@ -2066,9 +2754,9 @@
     {
       "type": "frame",
       "id": "DOu5N",
-      "x": 4080,
-      "y": 2400,
-      "name": "08 AI Pipeline Architecture Slot",
+      "x": 2040,
+      "y": 3600,
+      "name": "10 AI Pipeline Architecture Slot",
       "clip": true,
       "width": 1920,
       "height": 1080,
@@ -2082,7 +2770,7 @@
           "y": 80,
           "name": "Pipeline Slide Number",
           "fill": "$blue",
-          "content": "08  /  AI PIPELINE · TEAM ARTIFACT SLOT",
+          "content": "10  /  AI PIPELINE · TEAM ARTIFACT SLOT",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600",
@@ -2097,7 +2785,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 1650,
-          "content": "비동기 처리와 실패 복구 구조를 여기에 연결합니다.",
+          "content": "실제 AI 도입 시 적용할 비동기·실패 복구 목표 구조입니다.",
           "fontFamily": "$heading",
           "fontSize": 64,
           "fontWeight": "600"
@@ -2146,7 +2834,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": 700,
-              "content": "팀원이 제작한 AI / Async Pipeline 이미지를\n이 프레임 안에 16:9 비율로 교체",
+              "content": "현재 createJob은 201 + COMPLETED 즉시 반환\n팀원이 제작할 Queue / Worker 목표 구조로 교체",
               "lineHeight": 1.35,
               "textAlign": "center",
               "fontFamily": "$body",
@@ -2320,738 +3008,6 @@
     },
     {
       "type": "frame",
-      "id": "tL5ff",
-      "x": 0,
-      "y": 3600,
-      "name": "09 ERD Slot",
-      "clip": true,
-      "width": 1920,
-      "height": 1080,
-      "fill": "$paper",
-      "layout": "none",
-      "children": [
-        {
-          "type": "text",
-          "id": "yA6qj",
-          "x": 120,
-          "y": 80,
-          "name": "Slide Number",
-          "fill": "$blue",
-          "content": "09  /  DATA MODEL · ERD · TEAM SLOT",
-          "fontFamily": "$body",
-          "fontSize": 22,
-          "fontWeight": "600"
-        },
-        {
-          "type": "text",
-          "id": "iJp99",
-          "x": 120,
-          "y": 150,
-          "name": "ERD Title",
-          "fill": "$ink",
-          "textGrowth": "fixed-width",
-          "width": 1600,
-          "content": "추천과 상품의 N:M 관계를 중간 테이블로 정규화했습니다.",
-          "fontFamily": "$body",
-          "fontSize": 62,
-          "fontWeight": "600"
-        },
-        {
-          "type": "rectangle",
-          "id": "U8lDM",
-          "x": 520,
-          "y": 455,
-          "name": "User Wardrobe Line",
-          "fill": "$blue",
-          "width": 130,
-          "height": 4
-        },
-        {
-          "type": "rectangle",
-          "id": "oEgQZ",
-          "x": 318,
-          "y": 570,
-          "name": "User Recommendation Line",
-          "fill": "$blue",
-          "width": 4,
-          "height": 110
-        },
-        {
-          "type": "rectangle",
-          "id": "rTTw4",
-          "x": 520,
-          "y": 790,
-          "name": "Recommendation Item Line",
-          "fill": "$blue",
-          "width": 130,
-          "height": 4
-        },
-        {
-          "type": "rectangle",
-          "id": "FF4Mq",
-          "x": 850,
-          "y": 455,
-          "name": "Product Branch Top",
-          "fill": "$blue",
-          "width": 530,
-          "height": 4
-        },
-        {
-          "type": "rectangle",
-          "id": "SkYU3",
-          "x": 848,
-          "y": 455,
-          "name": "Product Branch Down",
-          "fill": "$blue",
-          "width": 4,
-          "height": 225
-        },
-        {
-          "type": "rectangle",
-          "id": "Pb1mq",
-          "x": 850,
-          "y": 790,
-          "name": "Product Item Line",
-          "fill": "$blue",
-          "width": 330,
-          "height": 4
-        },
-        {
-          "type": "rectangle",
-          "id": "K76i4",
-          "x": 1380,
-          "y": 570,
-          "name": "Product Rental Line",
-          "fill": "$blue",
-          "width": 4,
-          "height": 110
-        },
-        {
-          "type": "frame",
-          "id": "WSylW",
-          "x": 120,
-          "y": 350,
-          "name": "Users Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$bg",
-          "cornerRadius": 4,
-          "stroke": "$line",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "pVSXm",
-              "name": "users Table Name",
-              "fill": "$blue",
-              "content": "users",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "Pqnw8",
-              "name": "users Fields",
-              "fill": "$muted",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  email\nbody_profile  ·  preference_json",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "EnBFH",
-          "x": 650,
-          "y": 350,
-          "name": "Wardrobe Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$bg",
-          "cornerRadius": 4,
-          "stroke": "$line",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "BFHSU",
-              "name": "wardrobe_items Table Name",
-              "fill": "$blue",
-              "content": "wardrobe_items",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "I1soSk",
-              "name": "wardrobe_items Fields",
-              "fill": "$muted",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  FK user_id\ncategory  ·  color  ·  image_url",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "hcmkE",
-          "x": 1180,
-          "y": 350,
-          "name": "Products Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$ink",
-          "cornerRadius": 4,
-          "stroke": "$ink",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "X1Y1V",
-              "name": "products Table Name",
-              "fill": "$lime",
-              "content": "products",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "FTpcE",
-              "name": "products Fields",
-              "fill": "#FFFFFF",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  name  ·  category\ncolor  ·  rental_price  ·  stock",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "wpgIZ",
-          "x": 120,
-          "y": 680,
-          "name": "Recommendations Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$bg",
-          "cornerRadius": 4,
-          "stroke": "$line",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "VBsjj",
-              "name": "recommendations Table Name",
-              "fill": "$blue",
-              "content": "recommendations",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "uIrVW",
-              "name": "recommendations Fields",
-              "fill": "$muted",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  FK user_id\noccasion  ·  status  ·  request_json",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "qagMd",
-          "x": 650,
-          "y": 680,
-          "name": "Recommendation Items Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$bg",
-          "cornerRadius": 4,
-          "stroke": "$line",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "S9sgX",
-              "name": "recommendation_items Table Name",
-              "fill": "$blue",
-              "content": "recommendation_items",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "GpHN4",
-              "name": "recommendation_items Fields",
-              "fill": "$muted",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  FK recommendation_id\nFK product_id  ·  score  ·  reason",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "CTcEz",
-          "x": 1180,
-          "y": 680,
-          "name": "Rentals Table",
-          "width": 400,
-          "height": 220,
-          "fill": "$bg",
-          "cornerRadius": 4,
-          "stroke": "$line",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            26
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "D5s8B",
-              "name": "rentals Table Name",
-              "fill": "$blue",
-              "content": "rentals",
-              "fontFamily": "Geist Mono",
-              "fontSize": 28,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "rudIg",
-              "name": "rentals Fields",
-              "fill": "$muted",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "PK id  ·  FK user_id  ·  FK product_id\nrented_at  ·  return_at  ·  status",
-              "lineHeight": 1.45,
-              "fontFamily": "Geist Mono",
-              "fontSize": 19,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "ZADng",
-          "x": 470,
-          "y": 420,
-          "name": "Relation User Wardrobe",
-          "fill": "$blue",
-          "content": "1 : N",
-          "fontFamily": "$body",
-          "fontSize": 18,
-          "fontWeight": "700"
-        },
-        {
-          "type": "text",
-          "id": "FwjvQ",
-          "x": 260,
-          "y": 620,
-          "name": "Relation User Recommendation",
-          "fill": "$blue",
-          "content": "1 : N",
-          "fontFamily": "$body",
-          "fontSize": 18,
-          "fontWeight": "700"
-        },
-        {
-          "type": "text",
-          "id": "q6u3Lr",
-          "x": 575,
-          "y": 755,
-          "name": "Relation Recommendation Item",
-          "fill": "$blue",
-          "content": "1 : N",
-          "fontFamily": "$body",
-          "fontSize": 18,
-          "fontWeight": "700"
-        },
-        {
-          "type": "text",
-          "id": "ygoyl",
-          "x": 930,
-          "y": 755,
-          "name": "Relation Product Item",
-          "fill": "$blue",
-          "content": "N : 1",
-          "fontFamily": "$body",
-          "fontSize": 18,
-          "fontWeight": "700"
-        },
-        {
-          "type": "text",
-          "id": "nyAiN",
-          "x": 1415,
-          "y": 620,
-          "name": "Relation Product Rental",
-          "fill": "$blue",
-          "content": "1 : N",
-          "fontFamily": "$body",
-          "fontSize": 18,
-          "fontWeight": "700"
-        },
-        {
-          "type": "text",
-          "id": "RtNiG",
-          "x": 120,
-          "y": 965,
-          "name": "ERD Status",
-          "fill": "$muted",
-          "textGrowth": "fixed-width",
-          "width": 1650,
-          "content": "현재 구현  ·  products / ProductRepository     |     확장 설계  ·  users · wardrobe_items · recommendations · recommendation_items · rentals",
-          "fontFamily": "$body",
-          "fontSize": 20,
-          "fontWeight": "normal"
-        },
-        {
-          "type": "frame",
-          "id": "qZNHC",
-          "x": 1510,
-          "y": 72,
-          "name": "ERD Team Badge",
-          "width": 290,
-          "height": 54,
-          "fill": "$softBlue",
-          "cornerRadius": 4,
-          "justifyContent": "center",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "Cctub",
-              "name": "ERD Badge Text",
-              "fill": "$blue",
-              "content": "REPLACE WITH TEAM ARTIFACT",
-              "fontFamily": "Geist Mono",
-              "fontSize": 15,
-              "fontWeight": "700"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
-      "id": "rfHou",
-      "x": 2040,
-      "y": 3600,
-      "name": "10 REST API Specification Slot",
-      "clip": true,
-      "width": 1920,
-      "height": 1080,
-      "fill": "$ink",
-      "layout": "none",
-      "children": [
-        {
-          "type": "text",
-          "id": "R4aJPr",
-          "x": 120,
-          "y": 80,
-          "name": "Slide Number",
-          "fill": "$lime",
-          "content": "10  /  REST API · OPENAPI · TEAM SLOT",
-          "fontFamily": "$body",
-          "fontSize": 22,
-          "fontWeight": "600",
-          "letterSpacing": 1.5
-        },
-        {
-          "type": "text",
-          "id": "jvCPg",
-          "x": 120,
-          "y": 150,
-          "name": "Solution Title",
-          "fill": "#FFFFFF",
-          "textGrowth": "fixed-width",
-          "width": 1500,
-          "content": "Method · Path · Status Code를 명시한 REST 계약입니다.",
-          "fontFamily": "$heading",
-          "fontSize": 72,
-          "fontWeight": "600"
-        },
-        {
-          "type": "frame",
-          "id": "vWM1E",
-          "x": 120,
-          "y": 420,
-          "name": "Solution Pillar 1",
-          "width": 470,
-          "height": 350,
-          "fill": "#252525",
-          "cornerRadius": 4,
-          "stroke": "#424242",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 24,
-          "padding": 34,
-          "children": [
-            {
-              "type": "text",
-              "id": "g4sNz1",
-              "name": "Solution Index 1",
-              "fill": "#A8A8A8",
-              "content": "GET",
-              "fontFamily": "$body",
-              "fontSize": 20,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "e0HhX0",
-              "name": "Solution Name 1",
-              "fill": "#FFFFFF",
-              "content": "/api/products",
-              "fontFamily": "$heading",
-              "fontSize": 44,
-              "fontWeight": "600"
-            },
-            {
-              "type": "text",
-              "id": "vAAgB",
-              "name": "Solution Desc 1",
-              "fill": "#C7C7C7",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "200 OK\n상품 목록 JSON",
-              "lineHeight": 1.35,
-              "fontFamily": "$body",
-              "fontSize": 27,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "pOvcA",
-          "x": 613,
-          "y": 555,
-          "name": "Plus 1",
-          "fill": "$lime",
-          "content": "→",
-          "fontFamily": "$body",
-          "fontSize": 54,
-          "fontWeight": "300"
-        },
-        {
-          "type": "frame",
-          "id": "b1Ltk",
-          "x": 690,
-          "y": 420,
-          "name": "Solution Pillar 2",
-          "width": 470,
-          "height": 350,
-          "fill": "$blue",
-          "cornerRadius": 4,
-          "stroke": "$blue",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 24,
-          "padding": 34,
-          "children": [
-            {
-              "type": "text",
-              "id": "AI07c",
-              "name": "Solution Index 2",
-              "fill": "$lime",
-              "content": "POST",
-              "fontFamily": "$body",
-              "fontSize": 20,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "t6kJW",
-              "name": "Solution Name 2",
-              "fill": "#FFFFFF",
-              "content": "/api/recommendations",
-              "fontFamily": "$heading",
-              "fontSize": 27,
-              "fontWeight": "600"
-            },
-            {
-              "type": "text",
-              "id": "i70gGl",
-              "name": "Solution Desc 2",
-              "fill": "#FFFFFF",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "200 OK\nMock 추천 결과 JSON",
-              "lineHeight": 1.35,
-              "fontFamily": "$body",
-              "fontSize": 27,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "xm3c8",
-          "x": 1183,
-          "y": 555,
-          "name": "Plus 2",
-          "fill": "$lime",
-          "content": "→",
-          "fontFamily": "$body",
-          "fontSize": 54,
-          "fontWeight": "300"
-        },
-        {
-          "type": "frame",
-          "id": "UcAqm",
-          "x": 1260,
-          "y": 420,
-          "name": "Solution Pillar 3",
-          "width": 470,
-          "height": 350,
-          "fill": "#252525",
-          "cornerRadius": 4,
-          "stroke": "#424242",
-          "strokeWidth": 1,
-          "layout": "vertical",
-          "gap": 24,
-          "padding": 34,
-          "children": [
-            {
-              "type": "text",
-              "id": "BEJQ1",
-              "name": "Solution Index 3",
-              "fill": "#A8A8A8",
-              "content": "ERROR",
-              "fontFamily": "$body",
-              "fontSize": 20,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "oKaOb",
-              "name": "Solution Name 3",
-              "fill": "#FFFFFF",
-              "content": "Validation / Server",
-              "fontFamily": "$heading",
-              "fontSize": 44,
-              "fontWeight": "600"
-            },
-            {
-              "type": "text",
-              "id": "zPNA0",
-              "name": "Solution Desc 3",
-              "fill": "#C7C7C7",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "400 Bad Request\n500 Internal Server Error",
-              "lineHeight": 1.35,
-              "fontFamily": "$body",
-              "fontSize": 27,
-              "fontWeight": "normal"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "Ym8D7",
-          "x": 120,
-          "y": 865,
-          "name": "Solution Result",
-          "fill": "$lime",
-          "textGrowth": "fixed-width",
-          "width": 1650,
-          "content": "SWAGGER UI  ·  RecommendationRequest → Controller → Service → ProductRepository → RecommendationResponse",
-          "fontFamily": "$body",
-          "fontSize": 34,
-          "fontWeight": "600"
-        },
-        {
-          "type": "frame",
-          "id": "olW8c",
-          "x": 1510,
-          "y": 72,
-          "name": "API Team Badge",
-          "width": 290,
-          "height": 54,
-          "fill": "#242424",
-          "cornerRadius": 4,
-          "stroke": "$lime",
-          "strokeWidth": 1,
-          "justifyContent": "center",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "p03GC",
-              "name": "API Badge Text",
-              "fill": "$lime",
-              "content": "REPLACE WITH TEAM ARTIFACT",
-              "fontFamily": "Geist Mono",
-              "fontSize": 15,
-              "fontWeight": "700"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "wsPMY",
       "x": 4080,
       "y": 3600,
@@ -3082,7 +3038,7 @@
           "y": 150,
           "name": "Model Title",
           "fill": "$ink",
-          "content": "프로젝트 구조와 데이터 흐름을 한 Endpoint로 연결했습니다.",
+          "content": "대여 생성부터 반납 후 재고 복구까지 하나의 통합 흐름입니다.",
           "fontFamily": "$heading",
           "fontSize": 68,
           "fontWeight": "600"
@@ -3116,7 +3072,7 @@
           "y": 575,
           "name": "Hub Role",
           "fill": "#FFFFFF",
-          "content": "POST /api/recommendations",
+          "content": "FitlyApiFlowTest",
           "fontFamily": "$body",
           "fontSize": 25,
           "fontWeight": "600"
@@ -3162,7 +3118,7 @@
                   "id": "Lmg41",
                   "name": "고객 Title",
                   "fill": "$ink",
-                  "content": "FRONTEND",
+                  "content": "CUSTOMER",
                   "fontFamily": "$body",
                   "fontSize": 28,
                   "fontWeight": "700"
@@ -3176,7 +3132,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Vue 3 · Vite\n요청 · 로딩 · 결과 렌더링",
+              "content": "추천 조건 · 대여 요청\n반납 신청",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 22,
@@ -3225,7 +3181,7 @@
                   "id": "Tbd4u",
                   "name": "브랜드 파트너 Title",
                   "fill": "$ink",
-                  "content": "BACKEND",
+                  "content": "DOMAIN LOGIC",
                   "fontFamily": "$body",
                   "fontSize": 28,
                   "fontWeight": "700"
@@ -3239,7 +3195,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Controller → Service\nDTO 기반 응답",
+              "content": "RoleGuard · Validation\n주문 상태 전이",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 22,
@@ -3288,7 +3244,7 @@
                   "id": "vUsgl",
                   "name": "단체 고객 Title",
                   "fill": "$ink",
-                  "content": "DATABASE",
+                  "content": "INVENTORY",
                   "fontFamily": "$body",
                   "fontSize": 28,
                   "fontWeight": "700"
@@ -3302,7 +3258,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "ProductRepository\nSupabase PostgreSQL",
+              "content": "Variant 재고 차감\n검수 완료 후 복구",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 22,
@@ -3351,7 +3307,7 @@
                   "id": "e9JGx",
                   "name": "세탁 파트너 Title",
                   "fill": "$ink",
-                  "content": "CONTRACT",
+                  "content": "PARTNER · ADMIN",
                   "fontFamily": "$body",
                   "fontSize": 28,
                   "fontWeight": "700"
@@ -3365,7 +3321,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Request / Response\nSwagger UI",
+              "content": "매출·정산 조회\n세탁·검수 등록",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 22,
@@ -3382,7 +3338,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 430,
-          "content": "핵심 파일  ·  RecommendationController · RecommendationService · Product · ProductRepository · CatalogInitializer",
+          "content": "검증 Sequence  ·  Product → Variant(3) → Rental(2) → Stock(1) → Return → Inspection → Stock(3) → Settlement(42,000)",
           "lineHeight": 1.4,
           "textAlign": "center",
           "fontFamily": "$body",
@@ -3423,7 +3379,7 @@
           "y": 150,
           "name": "Delivery Title",
           "fill": "$ink",
-          "content": "빌드·API 테스트·배포 설정까지 재현 가능한 형태로 남겼습니다.",
+          "content": "origin/main 기준 Backend 통합 테스트 12개가 모두 통과했습니다.",
           "lineHeight": 1.15,
           "fontFamily": "$heading",
           "fontSize": 64,
@@ -3461,7 +3417,7 @@
               "id": "q1Nsr",
               "name": "Delivery Label 1",
               "fill": "$ink",
-              "content": "CI",
+              "content": "TEST SUITES",
               "fontFamily": "$body",
               "fontSize": 20,
               "fontWeight": "700",
@@ -3474,7 +3430,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "GitHub Actions\nfrontCi.yml · backCi.yml",
+              "content": "5 Test Classes\nMockMvc · H2 local",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -3526,7 +3482,7 @@
               "id": "xAqnE",
               "name": "Delivery Label 2",
               "fill": "$ink",
-              "content": "TEST",
+              "content": "RESULT",
               "fontFamily": "$body",
               "fontSize": 20,
               "fontWeight": "700",
@@ -3539,7 +3495,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "RecommendationControllerTest\nMaven Test",
+              "content": "12 / 12 PASS\nFailures 0 · Errors 0",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -3591,7 +3547,7 @@
               "id": "L16VI0",
               "name": "Delivery Label 3",
               "fill": "#FFFFFF",
-              "content": "DEPLOY",
+              "content": "CI",
               "fontFamily": "$body",
               "fontSize": 20,
               "fontWeight": "700",
@@ -3604,7 +3560,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Dockerfile · render.yaml\nRender Deploy",
+              "content": "frontCi.yml · backCi.yml\nGitHub Actions",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -3656,7 +3612,7 @@
               "id": "UFFrU",
               "name": "Delivery Label 4",
               "fill": "$ink",
-              "content": "OPERATE",
+              "content": "DEPLOY CONFIG",
               "fontFamily": "$body",
               "fontSize": 20,
               "fontWeight": "700",
@@ -3669,7 +3625,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Supabase PostgreSQL\nSwagger UI",
+              "content": "Dockerfile · render.yaml\nRender + Supabase",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -3831,7 +3787,7 @@
           "y": 150,
           "name": "Impact Title",
           "fill": "$ink",
-          "content": "구현 한계와 다음 교체 순서를 명확히 남겼습니다.",
+          "content": "구현 범위가 넓어진 만큼, 운영 전 보완점도 분명합니다.",
           "fontFamily": "$heading",
           "fontSize": 70,
           "fontWeight": "600"
@@ -3855,7 +3811,7 @@
           "y": 500,
           "name": "Impact Label 1",
           "fill": "$ink",
-          "content": "규칙 기반 Mock",
+          "content": "Rules v1 · Prompt Gap",
           "fontFamily": "$body",
           "fontSize": 28,
           "fontWeight": "700"
@@ -3867,7 +3823,7 @@
           "y": 552,
           "name": "Impact Detail 1",
           "fill": "$muted",
-          "content": "NEXT  ·  AI Provider 분리 + Vision / LLM",
+          "content": "FE prompt 존재 · Backend DTO 연결 미구현",
           "fontFamily": "$body",
           "fontSize": 24,
           "fontWeight": "normal"
@@ -3901,7 +3857,7 @@
           "y": 500,
           "name": "Impact Label 2",
           "fill": "$ink",
-          "content": "Product 중심 DB",
+          "content": "Job 즉시 COMPLETED",
           "fontFamily": "$body",
           "fontSize": 28,
           "fontWeight": "700"
@@ -3913,7 +3869,7 @@
           "y": 552,
           "name": "Impact Detail 2",
           "fill": "$muted",
-          "content": "NEXT  ·  사용자·추천·대여 테이블 확장",
+          "content": "NEXT  ·  Queue · Status Polling · Retry",
           "fontFamily": "$body",
           "fontSize": 24,
           "fontWeight": "normal"
@@ -3947,7 +3903,7 @@
           "y": 500,
           "name": "Impact Label 3",
           "fill": "$ink",
-          "content": "인증·결제 미구현",
+          "content": "개발용 권한·외부 연동",
           "fontFamily": "$body",
           "fontSize": 28,
           "fontWeight": "700"
@@ -3959,7 +3915,7 @@
           "y": 552,
           "name": "Impact Detail 3",
           "fill": "$muted",
-          "content": "NEXT  ·  Auth·재고 잠금·결제·반납",
+          "content": "NEXT  ·  JWT · 결제 · Storage · 실제 AI",
           "fontFamily": "$body",
           "fontSize": 24,
           "fontWeight": "normal"
@@ -4463,7 +4419,7 @@
               "fill": "$blue",
               "textGrowth": "fixed-width",
               "width": 250,
-              "content": "06–08 · 19–20",
+              "content": "06–10 · 19–20",
               "fontFamily": "Geist Mono",
               "fontSize": 22,
               "fontWeight": "700"
@@ -4577,7 +4533,7 @@
               "fill": "$blue",
               "textGrowth": "fixed-width",
               "width": 250,
-              "content": "04 · 11 · 23",
+              "content": "05 · 11 · 23",
               "fontFamily": "Geist Mono",
               "fontSize": 22,
               "fontWeight": "700"
@@ -4689,7 +4645,7 @@
           "fill": "$ink",
           "textGrowth": "fixed-width",
           "width": 1650,
-          "content": "MVP 범위와 예외 흐름까지 평가자가 추적할 수 있습니다.",
+          "content": "3개 Actor의 정상 흐름과 권한·재고 예외까지 구현했습니다.",
           "fontFamily": "$heading",
           "fontSize": 60,
           "fontWeight": "600"
@@ -4729,7 +4685,7 @@
               "id": "svWdH",
               "name": "Use Case Title 1",
               "fill": "$ink",
-              "content": "개인 사용자",
+              "content": "고객·제휴사·관리자",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -4741,7 +4697,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "대학생 · 취준생\n상황에 맞는 코디가 필요",
+              "content": "Customer  ·  추천·대여\nPartner  ·  상품·정산\nAdmin  ·  관제·검수",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -4784,7 +4740,7 @@
               "id": "dRUZa",
               "name": "Use Case Title 2",
               "fill": "$ink",
-              "content": "입력 완료",
+              "content": "역할 Header",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -4796,7 +4752,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "TPO · 스타일 · 예산\n상품 Catalog 초기화",
+              "content": "X-Actor-Role\nX-User-Id\n개발 단계 RoleGuard",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -4839,7 +4795,7 @@
               "id": "HNkkV",
               "name": "Use Case Title 3",
               "fill": "#FFFFFF",
-              "content": "추천 요청",
+              "content": "대여 Lifecycle",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -4851,7 +4807,7 @@
               "fill": "#D8D8D8",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "입력 → POST → DB 조회\n추천 3종 → 화면 렌더링",
+              "content": "Variant 예약 → 주문\n반납 요청 → 검수\n세탁 완료 → 재고 복구",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -4894,7 +4850,7 @@
               "id": "ffoWk",
               "name": "Use Case Title 4",
               "fill": "$ink",
-              "content": "실패 처리",
+              "content": "검증된 예외",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -4906,7 +4862,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "잘못된 요청 400\n서버 오류 500 · 재시도 안내",
+              "content": "403 권한 없음\n400 잘못된 기간\n재고 부족 · 상태 전이 제한",
               "lineHeight": 1.4,
               "fontFamily": "$body",
               "fontSize": 24,
@@ -4946,7 +4902,7 @@
               "id": "rZh0P",
               "name": "Scope Text",
               "fill": "$ink",
-              "content": "구현  ·  개인 추천 + 상품 조회     |     제외  ·  인증 · 결제 · 재고 잠금     |     확장  ·  단체·특수복 렌탈",
+              "content": "구현  ·  Auth · Wardrobe · Catalog · Recommend · Rental · Laundry · Dashboard     |     미연동  ·  JWT · 결제 · 실제 AI",
               "fontFamily": "$body",
               "fontSize": 25,
               "fontWeight": "600"
@@ -5404,7 +5360,7 @@
           "y": 150,
           "name": "Prompt Detail Title",
           "fill": "$ink",
-          "content": "자연어 요청을 구조화된 JSON 계약으로 제한합니다.",
+          "content": "현재 DTO 계약과 목표 Prompt Adapter를 구분합니다.",
           "fontFamily": "$heading",
           "fontSize": 62,
           "fontWeight": "600"
@@ -5431,7 +5387,7 @@
               "id": "FX26a",
               "name": "Prompt Template Label",
               "fill": "$lime",
-              "content": "PROMPT TEMPLATE",
+              "content": "TARGET · PROMPT ADAPTER",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -5443,7 +5399,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "ROLE\nTPO 기반 스타일리스트\n\nCONSTRAINT\n예산 이하 · 보유 의류 우선\nCatalog에 존재하는 상품만 선택\n\nOUTPUT\n설명 문장 없이 JSON only\nscore · items · reason 필수",
+              "content": "ROLE\nTPO 기반 스타일리스트\n\nINPUT BINDING\npurpose · situation / groupSizes\nbudget · rental period · wardrobe\n\nCONSTRAINT\nCatalog 상품만 · 재고 > 0\n예산 이하 · JSON only\n\nSTATUS\nFrontend prompt 존재\nBackend DTO 연결은 미구현",
               "lineHeight": 1.42,
               "fontFamily": "Geist Mono",
               "fontSize": 22,
@@ -5475,7 +5431,7 @@
               "id": "XBSPt",
               "name": "JSON Contract Label",
               "fill": "$blue",
-              "content": "REQUEST → RESPONSE",
+              "content": "CURRENT · RecommendationRequest / Response",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -5487,10 +5443,10 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "POST /api/recommendations\n\n{\n  \"occasion\": \"INTERVIEW\",\n  \"style\": \"MINIMAL\",\n  \"budget\": 100000\n}\n\n→ 200 OK\n{ \"score\": 96, \"items\": [...],\n  \"reason\": \"...\" }",
+              "content": "POST /api/recommendations\n\n{\n  \"purpose\": \"PERSONAL\",\n  \"personalSituation\": \"INTERVIEW\",\n  \"size\": \"M\", \"budget\": 50000,\n  \"rentalStartDate\": \"2026-09-10\",\n  \"rentalEndDate\": \"2026-09-13\"\n}\n\n→ 200 OK\n{ \"model\": \"fitly-rules-v1\",\n  \"rentalDays\": 4, \"products\": [...] }",
               "lineHeight": 1.42,
               "fontFamily": "Geist Mono",
-              "fontSize": 22,
+              "fontSize": 20,
               "fontWeight": "normal"
             }
           ]
@@ -6160,7 +6116,7 @@
           "fill": "$blue",
           "textGrowth": "fixed-width",
           "width": 1650,
-          "content": "권장  ·  PNG/SVG 원본 삽입 + 범례 유지 + 구현됨/목표 구조 색상 구분",
+          "content": "주의  ·  기존 docs PNG는 삭제된 AI 클래스를 포함     |     origin/main 기준으로 갱신된 원본만 삽입",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600"
@@ -6199,7 +6155,7 @@
           "y": 150,
           "name": "DB Evidence Title",
           "fill": "$ink",
-          "content": "ERD와 실제 구현 범위를 분리해 증명합니다.",
+          "content": "10개 Repository와 핵심 Entity를 origin/main에서 확인했습니다.",
           "fontFamily": "$heading",
           "fontSize": 62,
           "fontWeight": "600"
@@ -6279,7 +6235,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "products",
+                  "content": "Product / Variant",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6291,7 +6247,7 @@
                   "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "IMPLEMENTED · 상품 Catalog",
+                  "content": "IMPLEMENTED · 상품·사이즈·재고",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6319,7 +6275,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "users",
+                  "content": "RentalOrder",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6328,10 +6284,10 @@
                   "type": "text",
                   "id": "TMoVk",
                   "name": "DB Status 2",
-                  "fill": "$muted",
+                  "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "DESIGNED · 사용자/취향",
+                  "content": "IMPLEMENTED · 금액·기간·상태",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6359,7 +6315,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "wardrobe_items",
+                  "content": "LaundryInspection",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6368,10 +6324,10 @@
                   "type": "text",
                   "id": "C1Nfef",
                   "name": "DB Status 3",
-                  "fill": "$muted",
+                  "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "DESIGNED · 보유 의류",
+                  "content": "IMPLEMENTED · 검수·세탁·재고 복구",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6399,7 +6355,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "recommendations",
+                  "content": "UserAccount / Session",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6408,10 +6364,10 @@
                   "type": "text",
                   "id": "qGnWR",
                   "name": "DB Status 4",
-                  "fill": "$muted",
+                  "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "DESIGNED · 요청/상태",
+                  "content": "IMPLEMENTED · 계정·Bearer 세션",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6439,7 +6395,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "recommendation_items",
+                  "content": "WardrobeItem",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6448,10 +6404,10 @@
                   "type": "text",
                   "id": "K6DI87",
                   "name": "DB Status 5",
-                  "fill": "$muted",
+                  "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "DESIGNED · N:M 결과",
+                  "content": "IMPLEMENTED · 메타데이터·bytea 이미지",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6479,7 +6435,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": 230,
-                  "content": "rentals",
+                  "content": "RecommendationJob / Saved",
                   "fontFamily": "Geist Mono",
                   "fontSize": 19,
                   "fontWeight": "600"
@@ -6488,10 +6444,10 @@
                   "type": "text",
                   "id": "S1mEP0",
                   "name": "DB Status 6",
-                  "fill": "$muted",
+                  "fill": "$blue",
                   "textGrowth": "fixed-width",
                   "width": 400,
-                  "content": "DESIGNED · 대여 Lifecycle",
+                  "content": "IMPLEMENTED · 추천 요청·저장 코디",
                   "fontFamily": "$body",
                   "fontSize": 21,
                   "fontWeight": "500"
@@ -6544,7 +6500,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": 700,
-              "content": "Table Editor · 실제 Row · CatalogInitializer 실행 결과\n또는 schema.sql / Migration 캡처 삽입",
+              "content": "운영  ·  Supabase PostgreSQL profile\n로컬·테스트  ·  H2 in-memory\n\n실제 Dashboard Row 캡처는 제출 전 삽입",
               "lineHeight": 1.35,
               "textAlign": "center",
               "fontFamily": "$body",
@@ -6587,7 +6543,7 @@
           "y": 150,
           "name": "API Evidence Title",
           "fill": "$ink",
-          "content": "명세가 아니라 실제 요청과 응답까지 제출합니다.",
+          "content": "Actor별 주요 API와 실제 상태 코드를 구현했습니다.",
           "fontFamily": "$heading",
           "fontSize": 62,
           "fontWeight": "600"
@@ -6614,7 +6570,7 @@
               "id": "lx4T3",
               "name": "API Method 1",
               "fill": "$blue",
-              "content": "GET  ·  200",
+              "content": "POST · 201",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -6624,9 +6580,9 @@
               "id": "mgzUp",
               "name": "API Path 1",
               "fill": "$ink",
-              "content": "/api/products",
+              "content": "/api/auth/signup",
               "fontFamily": "Geist Mono",
-              "fontSize": 19,
+              "fontSize": 18,
               "fontWeight": "600"
             }
           ]
@@ -6653,7 +6609,7 @@
               "id": "D9rciK",
               "name": "API Method 2",
               "fill": "#FFFFFF",
-              "content": "POST  ·  200",
+              "content": "POST · 200",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -6665,7 +6621,7 @@
               "fill": "#FFFFFF",
               "content": "/api/recommendations",
               "fontFamily": "Geist Mono",
-              "fontSize": 19,
+              "fontSize": 18,
               "fontWeight": "600"
             }
           ]
@@ -6692,7 +6648,7 @@
               "id": "Iady7",
               "name": "API Method 3",
               "fill": "$blue",
-              "content": "INVALID REQUEST  ·  400",
+              "content": "POST · 201",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -6702,9 +6658,9 @@
               "id": "cmvpq",
               "name": "API Path 3",
               "fill": "$ink",
-              "content": "Validation",
+              "content": "/api/rentals",
               "fontFamily": "Geist Mono",
-              "fontSize": 19,
+              "fontSize": 18,
               "fontWeight": "600"
             }
           ]
@@ -6731,7 +6687,7 @@
               "id": "kfwwv",
               "name": "API Method 4",
               "fill": "$blue",
-              "content": "SERVER ERROR  ·  500",
+              "content": "POST · 201",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -6741,9 +6697,9 @@
               "id": "Sp9sx",
               "name": "API Path 4",
               "fill": "$ink",
-              "content": "Exception",
+              "content": "/api/laundry/inspections",
               "fontFamily": "Geist Mono",
-              "fontSize": 19,
+              "fontSize": 16,
               "fontWeight": "600"
             }
           ]
@@ -6855,7 +6811,7 @@
           "fill": "$blue",
           "textGrowth": "fixed-width",
           "width": 1650,
-          "content": "TRACE  ·  Vue Form → POST /api/recommendations → Controller → Service → ProductRepository → JSON → Recommendation Card",
+          "content": "VERIFIED FLOW  ·  Product → Variant(3) → Rental(2) → Stock(1) → Return → Inspection → Stock(3) → Partner Settlement",
           "fontFamily": "Geist Mono",
           "fontSize": 20,
           "fontWeight": "600"
@@ -6894,7 +6850,7 @@
           "y": 150,
           "name": "Test Evidence Title",
           "fill": "$ink",
-          "content": "파일명과 실행 결과를 함께 제시합니다.",
+          "content": "Backend 5개 Test Class · 12개 Test가 실제로 통과했습니다.",
           "fontFamily": "$heading",
           "fontSize": 64,
           "fontWeight": "600"
@@ -6923,7 +6879,7 @@
               "id": "KzE3B",
               "name": "Delivery Evidence Label 1",
               "fill": "$blue",
-              "content": "TEST",
+              "content": "TEST RESULT",
               "fontFamily": "Geist Mono",
               "fontSize": 20,
               "fontWeight": "700"
@@ -6935,7 +6891,7 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "RecommendationControllerTest\nMaven Test",
+              "content": "12 / 12 PASS\nFailures 0 · Errors 0",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 25,
@@ -7004,7 +6960,7 @@
               "id": "J5rIDe",
               "name": "Delivery Evidence Label 2",
               "fill": "$lime",
-              "content": "CI",
+              "content": "TEST CLASSES",
               "fontFamily": "Geist Mono",
               "fontSize": 20,
               "fontWeight": "700"
@@ -7016,7 +6972,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "frontCi.yml · backCi.yml\nGitHub Actions",
+              "content": "Recommendation · Wardrobe\nAuth · Wireframe API",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 25,
@@ -7085,7 +7041,7 @@
               "id": "c80TbN",
               "name": "Delivery Evidence Label 3",
               "fill": "$blue",
-              "content": "DEPLOY",
+              "content": "E2E LIFECYCLE",
               "fontFamily": "Geist Mono",
               "fontSize": 20,
               "fontWeight": "700"
@@ -7097,7 +7053,7 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Dockerfile · render.yaml\nRender + Supabase",
+              "content": "FitlyApiFlowTest\n재고·반납·정산 Lifecycle",
               "lineHeight": 1.3,
               "fontFamily": "$body",
               "fontSize": 25,
@@ -7151,7 +7107,7 @@
           "fill": "$blue",
           "textGrowth": "fixed-width",
           "width": 1650,
-          "content": "제출 전  ·  성공 로그 · 실행 시각 · 배포 URL · Swagger 접근 화면을 실제 캡처로 교체",
+          "content": "로컬 재검증  ·  Java 21 · H2 local profile · Maven BUILD SUCCESS     |     Frontend build는 GitHub Actions 결과 캡처 필요",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600"
@@ -7219,7 +7175,7 @@
               "id": "lh273",
               "name": "RR Role 1",
               "fill": "$blue",
-              "content": "PM · Integration",
+              "content": "PRESENTATION · INTEGRATION",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -7241,7 +7197,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "범위 · 발표 · 통합 · DevOps",
+              "content": "평가표 매핑 · 발표 Deck\nIntro/Ad/Outro · Git 검증",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -7254,7 +7210,7 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "회고  ·  E2E 우선으로 범위 통제",
+              "content": "Commit 27753ea  ·  PR #7",
               "fontFamily": "$body",
               "fontSize": 21,
               "fontWeight": "600"
@@ -7285,7 +7241,7 @@
               "id": "IpE4G",
               "name": "RR Role 2",
               "fill": "$blue",
-              "content": "Frontend · Backend/API",
+              "content": "PLATFORM · CI/CD · RECOMMEND",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -7295,7 +7251,7 @@
               "id": "NV6JU",
               "name": "RR Names 2",
               "fill": "$ink",
-              "content": "김나흔 · 임창우",
+              "content": "김나흔",
               "fontFamily": "$heading",
               "fontSize": 34,
               "fontWeight": "600"
@@ -7307,7 +7263,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "화면 · Controller · Service · DTO",
+              "content": "Scaffold · Supabase Profile\nGitHub Actions · Render",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -7320,7 +7276,7 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "회고  ·  Contract 선행이 병렬 개발에 효과",
+              "content": "origin/develop · feature 작업 main 반영",
               "fontFamily": "$body",
               "fontSize": 21,
               "fontWeight": "600"
@@ -7351,7 +7307,7 @@
               "id": "BP4wu",
               "name": "RR Role 3",
               "fill": "$blue",
-              "content": "UX · Data Model",
+              "content": "DOMAIN/API · FRONTEND · UX",
               "fontFamily": "Geist Mono",
               "fontSize": 18,
               "fontWeight": "700"
@@ -7361,9 +7317,9 @@
               "id": "xw1lY",
               "name": "RR Names 3",
               "fill": "$ink",
-              "content": "안성민 · 허진녕",
+              "content": "임창우 · 허진녕 · 안성민",
               "fontFamily": "$heading",
-              "fontSize": 34,
+              "fontSize": 29,
               "fontWeight": "600"
             },
             {
@@ -7373,7 +7329,7 @@
               "fill": "$muted",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "Flow · Wireframe · ERD · 검증",
+              "content": "임창우  ·  FE·Domain API·Test\n허진녕  ·  wireframe 11 Frames\n안성민  ·  산출물 링크 확인 필요",
               "lineHeight": 1.35,
               "fontFamily": "$body",
               "fontSize": 23,
@@ -7386,7 +7342,7 @@
               "fill": "$ink",
               "textGrowth": "fixed-width",
               "width": "fill_container",
-              "content": "회고  ·  상태·예외 화면을 더 일찍 정의",
+              "content": "branch/commit 기준 · 최종 담당 확인 필요",
               "fontFamily": "$body",
               "fontSize": 21,
               "fontWeight": "600"
@@ -7437,7 +7393,7 @@
               "fill": "#FFFFFF",
               "textGrowth": "fixed-width",
               "width": 1050,
-              "content": "Repository URL · Branch 전략 · PR/Commit 캡처 · 담당 파일 링크",
+              "content": "main 반영  ·  front / feature / develop     |     미병합  ·  wireframe 2 commits     |     PR·Commit 캡처 추가",
               "fontFamily": "$body",
               "fontSize": 25,
               "fontWeight": "500"
@@ -7448,10 +7404,384 @@
     },
     {
       "type": "frame",
-      "id": "d04fX4",
+      "id": "X5MYwK",
       "x": 4080,
       "y": 9600,
-      "name": "26 Final Submission Checklist",
+      "name": "26 Branch & Artifact Audit",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "$paper",
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "qZNVn",
+          "x": 120,
+          "y": 80,
+          "name": "Branch Audit Number",
+          "fill": "$blue",
+          "content": "26  /  BRANCH · ARTIFACT AUDIT",
+          "fontFamily": "$body",
+          "fontSize": 22,
+          "fontWeight": "600",
+          "letterSpacing": 1.5
+        },
+        {
+          "type": "text",
+          "id": "bs87g",
+          "x": 120,
+          "y": 150,
+          "name": "Branch Audit Title",
+          "fill": "$ink",
+          "content": "병합 여부와 발표에 반영할 산출물을 교차 확인했습니다.",
+          "fontFamily": "$heading",
+          "fontSize": 60,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "WTfxA",
+          "x": 120,
+          "y": 330,
+          "name": "Branch Audit 1",
+          "width": 380,
+          "height": 280,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            24,
+            22
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "WBcg1",
+              "name": "Branch Name 1",
+              "fill": "$ink",
+              "content": "origin/front",
+              "fontFamily": "Geist Mono",
+              "fontSize": 23,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Fdd2m",
+              "name": "Branch Status 1",
+              "fill": "$blue",
+              "content": "MERGED · PR #6",
+              "fontFamily": "Geist Mono",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "v2EPCx",
+              "name": "Branch Artifact 1",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Frontend + Domain API · Test",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b3TjQR",
+          "x": 540,
+          "y": 330,
+          "name": "Branch Audit 2",
+          "width": 380,
+          "height": 280,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            24,
+            22
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "poN3H",
+              "name": "Branch Name 2",
+              "fill": "$ink",
+              "content": "origin/feature",
+              "fontFamily": "Geist Mono",
+              "fontSize": 23,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "sTQIL",
+              "name": "Branch Status 2",
+              "fill": "$blue",
+              "content": "MERGED",
+              "fontFamily": "Geist Mono",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "KIWVC",
+              "name": "Branch Artifact 2",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "추천 Service · RecommendView",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KOqo3",
+          "x": 960,
+          "y": 330,
+          "name": "Branch Audit 3",
+          "width": 380,
+          "height": 280,
+          "fill": "$bg",
+          "cornerRadius": 4,
+          "stroke": "$line",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            24,
+            22
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "EAvHh",
+              "name": "Branch Name 3",
+              "fill": "$ink",
+              "content": "origin/develop",
+              "fontFamily": "Geist Mono",
+              "fontSize": 23,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ii74Y",
+              "name": "Branch Status 3",
+              "fill": "$blue",
+              "content": "MERGED",
+              "fontFamily": "Geist Mono",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "S7aIqW",
+              "name": "Branch Artifact 3",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "CI/CD · Supabase · Render",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AO6Ow",
+          "x": 1380,
+          "y": 330,
+          "name": "Branch Audit 4",
+          "width": 380,
+          "height": 280,
+          "fill": "$softBlue",
+          "cornerRadius": 4,
+          "stroke": "$blue",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            24,
+            22
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "MAlEb",
+              "name": "Branch Name 4",
+              "fill": "$ink",
+              "content": "origin/wireframe",
+              "fontFamily": "Geist Mono",
+              "fontSize": 23,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "t0Jr0Q",
+              "name": "Branch Status 4",
+              "fill": "#C85B28",
+              "content": "NOT MERGED · 2 COMMITS",
+              "fontFamily": "Geist Mono",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "ZggaY",
+              "name": "Branch Artifact 4",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "11 Frames · UX Flow 원본",
+              "lineHeight": 1.35,
+              "fontFamily": "$body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EIKL2",
+          "x": 120,
+          "y": 680,
+          "name": "Branch Audit Risks",
+          "width": 1640,
+          "height": 270,
+          "fill": "$ink",
+          "cornerRadius": 4,
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            28,
+            30
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "EXu1b",
+              "name": "Branch Risk Label",
+              "fill": "$lime",
+              "content": "PRESENTATION CONSISTENCY CHECK",
+              "fontFamily": "Geist Mono",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "FFLcc",
+              "name": "Branch Risk 1",
+              "width": "fill_container",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "K1kzJ",
+                  "name": "Branch Risk Icon 1",
+                  "width": 22,
+                  "height": 22,
+                  "icon": "triangle-alert",
+                  "library": "lucide",
+                  "fill": "$lime"
+                },
+                {
+                  "type": "text",
+                  "id": "iPurM",
+                  "name": "Branch Risk Text 1",
+                  "fill": "#FFFFFF",
+                  "content": "docs 아키텍처 PNG는 삭제된 AiJob/AiSummaryProvider를 포함 — 그대로 사용 금지",
+                  "fontFamily": "$body",
+                  "fontSize": 22,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "r5ukM",
+              "name": "Branch Risk 2",
+              "width": "fill_container",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "RNv86",
+                  "name": "Branch Risk Icon 2",
+                  "width": 22,
+                  "height": 22,
+                  "icon": "triangle-alert",
+                  "library": "lucide",
+                  "fill": "$lime"
+                },
+                {
+                  "type": "text",
+                  "id": "hKRr7",
+                  "name": "Branch Risk Text 2",
+                  "fill": "#FFFFFF",
+                  "content": "RecommendationJob은 현재 COMPLETED only — 비동기 Queue는 목표 구조로 표기",
+                  "fontFamily": "$body",
+                  "fontSize": 22,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NObv6",
+              "name": "Branch Risk 3",
+              "width": "fill_container",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "l0yieO",
+                  "name": "Branch Risk Icon 3",
+                  "width": 22,
+                  "height": 22,
+                  "icon": "triangle-alert",
+                  "library": "lucide",
+                  "fill": "$lime"
+                },
+                {
+                  "type": "text",
+                  "id": "inetU",
+                  "name": "Branch Risk Text 3",
+                  "fill": "#FFFFFF",
+                  "content": "X-Actor-Role / X-User-Id는 개발용 권한 — 운영 인증은 JWT 전환 필요",
+                  "fontFamily": "$body",
+                  "fontSize": 22,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "d04fX4",
+      "x": 0,
+      "y": 10800,
+      "name": "27 Final Submission Checklist",
       "clip": true,
       "width": 1920,
       "height": 1080,
@@ -7465,7 +7795,7 @@
           "y": 80,
           "name": "Checklist Number",
           "fill": "$blue",
-          "content": "26  /  FINAL SUBMISSION CHECKLIST",
+          "content": "27  /  FINAL SUBMISSION CHECKLIST",
           "fontFamily": "$body",
           "fontSize": 22,
           "fontWeight": "600",
@@ -7537,7 +7867,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "발표 흐름 · Intro · 광고 · Outro/Q&A",
+                  "content": "발표 흐름 · Intro · 광고 · Demo · Outro/Q&A",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
@@ -7554,9 +7884,9 @@
           "name": "Submission Check 2",
           "width": 790,
           "height": 150,
-          "fill": "$bg",
+          "fill": "$softBlue",
           "cornerRadius": 4,
-          "stroke": "$line",
+          "stroke": "$blue",
           "strokeWidth": 1,
           "gap": 22,
           "padding": [
@@ -7571,9 +7901,9 @@
               "name": "Submission Check Icon 2",
               "width": 34,
               "height": 34,
-              "icon": "circle",
+              "icon": "check",
               "library": "lucide",
-              "fill": "$muted"
+              "fill": "$blue"
             },
             {
               "type": "frame",
@@ -7587,8 +7917,8 @@
                   "type": "text",
                   "id": "MCtpH",
                   "name": "Submission Check Status 2",
-                  "fill": "$muted",
-                  "content": "WAITING TEAM",
+                  "fill": "$blue",
+                  "content": "READY",
                   "fontFamily": "Geist Mono",
                   "fontSize": 17,
                   "fontWeight": "700"
@@ -7600,7 +7930,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "System · AI Pipeline · ERD · API 원본",
+                  "content": "origin/main 코드 감사 · Backend Test 12/12 PASS",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
@@ -7651,7 +7981,7 @@
                   "id": "sE6M3",
                   "name": "Submission Check Status 3",
                   "fill": "$muted",
-                  "content": "NEED CAPTURE",
+                  "content": "WAITING TEAM",
                   "fontFamily": "Geist Mono",
                   "fontSize": 17,
                   "fontWeight": "700"
@@ -7663,7 +7993,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "UI 4상태 · Swagger/Postman · DB Row",
+                  "content": "AI Async 목표도 · wireframe 브랜치 병합/캡처",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
@@ -7714,7 +8044,7 @@
                   "id": "t0u8yC",
                   "name": "Submission Check Status 4",
                   "fill": "$muted",
-                  "content": "NEED RESULT",
+                  "content": "NEED CAPTURE",
                   "fontFamily": "Geist Mono",
                   "fontSize": 17,
                   "fontWeight": "700"
@@ -7726,7 +8056,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Test · GitHub Actions · Render 배포 로그",
+                  "content": "실제 UI · Swagger · Supabase · Actions 화면",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
@@ -7789,7 +8119,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Repository · Deploy URL · API Docs",
+                  "content": "Deploy URL · Repository · OpenAPI JSON",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
@@ -7852,7 +8182,7 @@
                   "fill": "$ink",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "구현/목표 구분 · 개인정보 마스킹 · 오탈자",
+                  "content": "안성민 담당 증거 · R&R 확인 · 최신 아키텍처 교체",
                   "fontFamily": "$body",
                   "fontSize": 23,
                   "fontWeight": "600"
