@@ -32,9 +32,12 @@ class CustomerRecommendationIntegrationTest {
 
         assertThat(response.status()).isEqualTo(
             com.example.minip.recommendation.ai.AiRecommendationResult.Status.COMPLETED);
-        assertThat(response.recommendations()).hasSize(1);
+        assertThat(response.recommendations()).hasSize(3);
+        assertThat(response.recommendations()).extracting(
+            CustomerRecommendationResponse.RecommendationView::rank)
+            .containsExactly(1, 2, 3);
         CustomerRecommendationResponse.RecommendationView view = response.recommendations().getFirst();
-        assertThat(view.matchScore()).isEqualTo(85);
+        assertThat(view.matchScore()).isEqualTo(94);
         assertThat(view.wardrobeItems()).singleElement().satisfies(item ->
             assertThat(item.cost()).isZero());
         assertThat(view.rentalItems()).singleElement().satisfies(item ->
@@ -49,7 +52,7 @@ class CustomerRecommendationIntegrationTest {
         assertThat(request.getStatus()).isEqualTo(RecommendationJob.Status.COMPLETED);
         assertThat(requestWardrobes.findById(
             new RecommendationRequestWardrobeId(request.getId(), wardrobe.getId()))).isPresent();
-        assertThat(saved.getMatchingScore()).isEqualByComparingTo(new BigDecimal("0.8500"));
+        assertThat(saved.getMatchingScore()).isEqualByComparingTo(new BigDecimal("0.9400"));
         assertThat(savedItems).hasSize(2);
         assertThat(savedItems.get(0).getSourceType()).isEqualTo("WARDROBE");
         assertThat(savedItems.get(0).getWardrobeItem()).isNotNull();

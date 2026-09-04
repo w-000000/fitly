@@ -35,10 +35,10 @@ class WireframeApiTest {
           """.formatted(wardrobeId)))
     .andExpect(status().isCreated())
     .andExpect(jsonPath("$.status").value("COMPLETED"))
-    .andExpect(jsonPath("$.recommendations[0].matchScore").value(85))
+    .andExpect(jsonPath("$.recommendations[0].matchScore").value(94))
     .andExpect(jsonPath("$.recommendations[0].wardrobeItems[0].cost").value(0))
     .andExpect(jsonPath("$.recommendations[0].rentalItems[0].productVariantId").isNumber())
-    .andExpect(jsonPath("$.recommendations[0].totalRentalPrice").value(12000));
+    .andExpect(jsonPath("$.recommendations[0].totalRentalPrice").value(29000));
   String job=mvc.perform(post("/api/recommendations/jobs").header("X-Actor-Role","ROLE_CUSTOMER").header("X-User-Id","71")
       .contentType(MediaType.APPLICATION_JSON).content("{\"tpo\":\"면접\",\"preferredStyle\":\"Formal\",\"wardrobeDescription\":\"Black Slacks\"}"))
     .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
